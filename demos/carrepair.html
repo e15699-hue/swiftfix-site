@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>大友汽車修護廠｜汽車維修</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#333;line-height:1.65}
+.demo-badge{background:#f39c12;color:#fff;text-align:center;font-size:.78rem;padding:7px 10px}
+.hero{position:relative;height:64vh;min-height:400px;background:url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1400&q=80') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.12) 60%)}
+.hero-txt{position:relative;z-index:1;padding:1.5rem;width:100%;max-width:640px;margin:0 auto}
+.hero-txt .ind{display:inline-block;background:rgba(255,255,255,.22);backdrop-filter:blur(4px);font-size:.78rem;padding:4px 14px;border-radius:20px;margin-bottom:.6rem;border:1px solid rgba(255,255,255,.4)}
+.hero-txt h1{font-size:2.1rem;text-shadow:0 2px 10px rgba(0,0,0,.5);letter-spacing:.02em}
+.hero-txt p{opacity:.94;margin:.35rem 0 .7rem;font-size:1.02rem}
+.stars{color:#ffd23f;font-size:1rem}
+.cta-bar{position:sticky;top:0;z-index:20;display:flex;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.14)}
+.cta-bar a{flex:1;text-align:center;padding:1rem;font-weight:bold;text-decoration:none;font-size:1.05rem}
+.cta-line{background:#06c755;color:#fff}
+section{padding:1.9rem 1.2rem .6rem;max-width:640px;margin:0 auto}
+h2{font-size:1.28rem;margin-bottom:1rem;display:flex;align-items:center;gap:.55rem}
+h2::before{content:'';width:5px;height:1.25em;border-radius:3px}
+.badge-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.badge{background:#fff;border:1.5px solid #999;color:#555;font-size:.8rem;padding:4px 12px;border-radius:20px}
+.about-wrap{display:grid;grid-template-columns:1fr;gap:1rem}
+.about-wrap img{width:100%;height:200px;object-fit:cover;border-radius:12px}
+.svc{background:#fff;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:0 2px 10px rgba(0,0,0,.07);display:flex}
+.svc img{width:112px;height:112px;object-fit:cover;flex-shrink:0}
+.svc .t{padding:.85rem .95rem;flex:1}
+.svc .t b{font-size:1.03rem}
+.price-chip{color:#fff;font-weight:bold;font-size:.95rem;padding:2px 10px;border-radius:20px;float:right}
+.svc small{color:#888;font-size:.82rem;display:block;margin-top:3px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.gal img{width:100%;height:115px;object-fit:cover;border-radius:8px}
+.rev{background:#fff;border-radius:12px;padding:1rem 1.1rem;margin-bottom:.8rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.rev .who{font-weight:bold;font-size:.92rem}
+.rev .st{color:#f5a623;font-size:.85rem;margin:2px 0;letter-spacing:.1em}
+.rev p{font-size:.9rem;color:#555}
+.info{background:#fff;border-radius:12px;padding:1.1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.info div{padding:.45rem 0;border-bottom:1px solid #f0f0f0}
+.info div:last-child{border:none}
+.map{background:#e8e8e8;border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center;color:#999;margin-top:.8rem;font-size:.9rem}
+footer{background:#2c3e50;color:#aaa;text-align:center;padding:1.6rem 1rem;font-size:.82rem;margin-top:1.6rem}
+.fade{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.fade.on{opacity:1;transform:none}
+
+        body{background:#eceff1}
+        h2{color:#1a3a5c;text-transform:uppercase}h2::before{background:#f5a623;width:8px}
+        .cta-call{color:#1a3a5c}
+        .svc{border-radius:6px;border-left:6px solid #f5a623;box-shadow:0 3px 0 rgba(0,0,0,.15)}
+        .badge{border-color:#1a3a5c;color:#1a3a5c;border-radius:4px;font-weight:bold}
+        .price-chip{background:#f5a623;color:#1a3a5c}
+        .stripe{height:10px;background:repeating-linear-gradient(45deg,#f5a623 0 14px,#1a3a5c 14px 28px)}
+        
+
+.est{display:inline-block;background:#f5a623;color:#1a3a5c;font-size:.78rem;font-weight:bold;padding:2px 10px;border-radius:12px;margin-top:.35rem}
+.bookbtn{margin-top:.55rem;background:#06c755;color:#fff;border:none;border-radius:22px;padding:.55rem 1.1rem;font-weight:bold;font-size:.88rem;cursor:pointer;width:100%}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100;display:none;align-items:flex-end;justify-content:center}
+.modal.on{display:flex}
+.sheet{background:#fff;width:100%;max-width:480px;max-height:88vh;border-radius:18px 18px 0 0;display:flex;flex-direction:column;overflow:hidden}
+.sheet-head{padding:.9rem 1.1rem;font-weight:bold;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+.sheet-body{overflow-y:auto;padding:1rem 1.1rem;flex:1}
+.step-t{font-size:.82rem;color:#f5a623;font-weight:bold;margin:.9rem 0 .5rem}
+.step-t:first-child{margin-top:0}
+.pick{display:flex;gap:.5rem;flex-wrap:wrap}
+.pick button{border:1.5px solid #ddd;background:#fff;border-radius:10px;padding:.55rem .7rem;font-size:.85rem;cursor:pointer}
+.pick button.sel{border-color:#06c755;background:#eafcef;font-weight:bold}
+.pick button.full{background:#f2f2f2;color:#aaa;border-color:#eee;text-decoration:line-through;cursor:not-allowed}
+.pick button.closeday{background:#f2f2f2;color:#aaa;cursor:not-allowed}
+.pick small{display:block;font-size:.72rem;color:#888}
+.svc-item{display:flex;justify-content:space-between;align-items:center;border:1px solid #eee;border-radius:10px;padding:.65rem .8rem;margin-bottom:.5rem;cursor:pointer}
+.svc-item.sel{border-color:#06c755;background:#eafcef}
+.svc-item b{font-size:.9rem}.svc-item small{color:#888;font-size:.75rem;display:block}
+.slot-info{font-size:.8rem;color:#666;margin-top:.4rem}
+.fform label{font-size:.8rem;color:#666;display:block;margin-top:.55rem}
+.fform input{width:100%;padding:.55rem;border:1px solid #ddd;border-radius:8px;font-size:.95rem;margin-top:.25rem}
+.bigsend{width:100%;margin-top:1rem;background:#06c755;color:#fff;border:none;border-radius:10px;padding:.85rem;font-weight:bold;font-size:1rem;cursor:pointer}
+.bigsend:disabled{background:#bbb}
+.demo-note{background:#fff3cd;color:#856404;font-size:.75rem;text-align:center;padding:.45rem}
+.line-view{display:none;flex-direction:column;height:100%}
+.line-view.on{display:flex}
+.line-head{background:#06c755;color:#fff;padding:.85rem 1rem;font-weight:bold;display:flex;justify-content:space-between;align-items:center}
+.line-head .tag{background:rgba(255,255,255,.25);font-size:.7rem;padding:2px 9px;border-radius:12px}
+.line-body{flex:1;overflow-y:auto;padding:1rem .8rem;display:flex;flex-direction:column;gap:.55rem;background:#8cabd9;min-height:220px}
+.bubble{max-width:85%;padding:.65rem .85rem;border-radius:16px;font-size:.9rem;white-space:pre-wrap;line-height:1.55}
+.bubble.me{align-self:flex-end;background:#a4e68a;border-bottom-right-radius:4px}
+.bubble.shop{align-self:flex-start;background:#fff;border-bottom-left-radius:4px}
+</style></head><body><div style="background:#013e47;color:#fff;font-family:sans-serif;font-size:14px;padding:8px 14px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span>🔧 <b>迅修電腦</b>・一頁式網站範例</span><a href="index.html" style="color:#eebb4d;text-decoration:none;font-weight:bold">← 回範例總覽</a></div>
+<div class="demo-badge">📌 這是範例網站｜貴店做好會長這樣（店名・電話・地址・照片全換成你們的）</div>
+<div class="hero"><div class="hero-txt">
+<span class="ind">汽車維修</span>
+<h1>大友汽車修護廠</h1><p>實在維修・能修就不換</p>
+<div class="stars">★ 4.9 <span style="color:#eee;font-size:.85rem">（1,102 則 Google 評價）</span></div>
+</div></div>
+<div class="cta-bar">
+<a class="cta-call" href="tel:0434567890">📞 打電話</a>
+<a class="cta-line" href="#">💬 LINE 諮詢</a>
+</div>
+<section class="fade"><div class="badge-row"><span class="badge">✓ 20 年維修資歷</span><span class="badge">✓ 報價透明</span><span class="badge">✓ 舊零件留給你看</span></div>
+<h2>👨‍🔧 關於大友</h2><div class="about-wrap">
+<img loading="lazy" src="https://images.unsplash.com/photo-1613214149922-f1809c99b414?w=900&q=80" alt="" onerror="this.style.display='none'">
+<p>老闆阿友修車 20 年，堅持「能修就不換」，報價透明、舊零件留給客人看。很多客人都是開了十幾年的老客戶介紹來的。</p></div></section>
+<section class="fade"><h2>🔧 維修項目</h2><div class='stripe'></div><div class="svc"><img loading="lazy" src="https://images.unsplash.com/photo-1613214149922-f1809c99b414?w=600&q=80" alt="" onerror="this.style.display='none'"><div class="t"><span class="price-chip">$1500起</span><b>定期保養</b><small>含機油・油芯・全車檢查</small></div></div><div class="svc"><img loading="lazy" src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=80" alt="" onerror="this.style.display='none'"><div class="t"><span class="price-chip">$2000起</span><b>冷氣維修</b><small>免費冷媒壓力檢測</small></div></div><div class="svc"><img loading="lazy" src="https://images.unsplash.com/photo-1600661653561-629509216228?w=600&q=80" alt="" onerror="this.style.display='none'"><div class="t"><span class="price-chip">$3000起</span><b>煞車系統</b><small>來令片・碟盤更換</small></div></div><div class="svc"><img loading="lazy" src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80" alt="" onerror="this.style.display='none'"><div class="t"><span class="price-chip">$2500起</span><b>電瓶更換</b><small>保固一年</small></div></div></section>
+<section class="fade"><h2>🏭 廠內實況</h2><div class="gal"><img loading="lazy" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=700&q=80" alt="" onerror="this.style.display='none'"><img loading="lazy" src="https://images.unsplash.com/photo-1632823471565-1ecdf5c6ddd7?w=700&q=80" alt="" onerror="this.style.display='none'"><img loading="lazy" src="https://images.unsplash.com/photo-1613214149922-f1809c99b414?w=700&q=80" alt="" onerror="this.style.display='none'"></div></section>
+<section class="fade"><h2>⭐ 車主評價</h2><div class="rev"><div class="who">張先生</div><div class="st">★★★★★</div><p>冷氣不冷，別家說要換壓縮機，阿友檢查只是繼電器壞，省了一大筆。</p></div><div class="rev"><div class="who">李小姐</div><div class="st">★★★★★</div><p>保養都會拍照跟你解釋，不會亂推銷。</p></div><div class="rev"><div class="who">阿國</div><div class="st">★★★★★</div><p>開了 15 年的老車都在這顧，實在。</p></div></section>
+<section class="fade"><h2>營業資訊</h2><div class="info">
+<div>🕐 08:30–18:00（週日公休）</div><div>📍 台中市北屯區崇德路789號</div><div>📞 04-34567890</div>
+<div class="map">🗺️ 地圖（正式版嵌入 Google 地圖＋導航按鈕）</div>
+</div></section>
+<footer>大友汽車修護廠・汽車維修一頁式網站範例<br>手機開啟效果最佳</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('on')),{threshold:.1});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+</script>
+
+<div class="modal" id="bookModal">
+  <div class="sheet">
+    <div class="sheet-head"><span>📅 維修預約</span><button onclick="closeBook()" style="border:none;background:none;font-size:1.2rem;cursor:pointer">✕</button></div>
+    <div class="sheet-body" id="bookView">
+      <div class="step-t">步驟 1・選擇維修項目</div>
+      <div id="svcRow"></div>
+      <div class="step-t">步驟 2・選擇日期</div>
+      <div class="pick" id="dayRow"></div>
+      <div class="slot-info">綠色粗體時段為車行可預約時間（週日公休）</div>
+      <div class="step-t">步驟 3・選擇時段</div>
+      <div class="pick" id="slotRow"></div>
+      <div class="fform">
+        <div class="step-t">步驟 4・聯絡資料</div>
+        <label>姓名</label><input id="cName" placeholder="例：張大明">
+        <label>電話</label><input id="cPhone" placeholder="例：0912-345-678">
+        <label>車牌號碼</label><input id="cPlate" placeholder="例：ABC-1234">
+      </div>
+      <button class="bigsend" id="bigSend" onclick="toLine()">💬 用 LINE 送出預約</button>
+    </div>
+    <div class="line-view" id="lineView">
+      <div class="line-head"><span>大友汽車修護廠（官方帳號）</span><span class="tag">示範模式</span></div>
+      <div class="line-body" id="lineBody"></div>
+      <div id="lineBtnRow" style="background:#fff;padding:.8rem 1rem"></div>
+      <div class="demo-note">⚠️ 這是功能示範：正式版送出後，訊息會真的進到店家的 LINE 官方帳號</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== 車行 LINE 預約（示範）=====
+const SVCS = [];
+document.querySelectorAll('.svc').forEach((card, i) => {
+  const name = card.querySelector('b').textContent.trim();
+  const price = card.querySelector('.price-chip').textContent.trim();
+  SVCS.push({name, price});
+  const t = card.querySelector('.t');
+  const est = document.createElement('span'); est.className = 'est';
+  est.textContent = '⏱ ' + DUR(name);
+  t.insertBefore(est, t.querySelector('small'));
+  const b = document.createElement('button'); b.className = 'bookbtn';
+  b.textContent = '📅 LINE 預約此項目';
+  b.onclick = () => openBook(i);
+  t.appendChild(b);
+});
+function DUR(n) {
+  if (n.includes('保養')) return '預估約 1 小時';
+  if (n.includes('冷氣')) return '預估約 2–3 小時';
+  if (n.includes('煞車')) return '預估約 1.5 小時';
+  if (n.includes('電瓶')) return '預估約 30 分鐘';
+  return '工時另估';
+}
+let selS = null, selD = null, selT = null;
+const WK = ['日','一','二','三','四','五','六'];
+const SLOTS = ['09:00','10:30','13:00','14:30','16:00'];
+function openBook(pre) {
+  selS = (pre === undefined ? null : pre); selD = null; selT = null;
+  document.getElementById('bookModal').classList.add('on');
+  document.getElementById('bookView').style.display = 'block';
+  document.getElementById('lineView').classList.remove('on');
+  renderItems(); renderDays();
+  document.getElementById('slotRow').innerHTML = '<span style="color:#999;font-size:.85rem">請先選擇日期</span>';
+  refreshBig();
+}
+function closeBook() { document.getElementById('bookModal').classList.remove('on'); }
+function renderItems() {
+  const el = document.getElementById('svcRow');
+  el.innerHTML = '';
+  SVCS.forEach((s, i) => {
+    const d = document.createElement('div');
+    d.className = 'svc-item' + (selS === i ? ' sel' : '');
+    d.innerHTML = `<div><b>${s.name}</b><small>${s.price}・${DUR(s.name)}</small></div><div>${selS === i ? '✅' : ''}</div>`;
+    d.onclick = () => { selS = i; renderItems(); refreshBig(); };
+    el.appendChild(d);
+  });
+}
+function renderDays() {
+  const el = document.getElementById('dayRow'); el.innerHTML = '';
+  const now = new Date();
+  for (let k = 0; k < 6; k++) {
+    const d = new Date(now); d.setDate(now.getDate() + k);
+    const wd = d.getDay();
+    const label = k === 0 ? '今天' : (k === 1 ? '明天' : (d.getMonth()+1) + '/' + d.getDate());
+    const b = document.createElement('button');
+    if (wd === 0) {
+      b.className = 'closeday'; b.innerHTML = `${label}<small>週日公休</small>`; b.disabled = true;
+    } else {
+      const key = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+      b.innerHTML = `${label}<small>週${WK[wd]}</small>`;
+      if (selD === key) b.classList.add('sel');
+      b.onclick = () => { selD = key; selT = null; renderDays(); renderSlots(); refreshBig(); };
+    }
+    el.appendChild(b);
+  }
+}
+function renderSlots() {
+  const el = document.getElementById('slotRow'); el.innerHTML = '';
+  SLOTS.forEach((t, i) => {
+    const b = document.createElement('button');
+    const h = (selD + t + i).split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+    const full = h % 3 === 0;
+    b.innerHTML = t + (full ? '<small>已滿</small>' : '');
+    if (full) { b.className = 'full'; b.disabled = true; }
+    else {
+      if (selT === t) b.classList.add('sel');
+      b.onclick = () => { selT = t; renderSlots(); refreshBig(); };
+    }
+    el.appendChild(b);
+  });
+}
+function refreshBig() {
+  document.getElementById('bigSend').disabled = !(selS !== null && selD && selT);
+}
+function toLine() {
+  const s = SVCS[selS];
+  const nm = document.getElementById('cName').value.trim() || '（未填）';
+  const ph = document.getElementById('cPhone').value.trim() || '（未填）';
+  const plate = document.getElementById('cPlate').value.trim() || '（未填）';
+  const msg = `您好，我想預約維修：\n項目：${s.name}（${DUR(s.name)}）\n時間：${selD} ${selT}\n姓名：${nm}\n電話：${ph}\n車牌：${plate}`;
+  document.getElementById('bookView').style.display = 'none';
+  const lv = document.getElementById('lineView'); lv.classList.add('on');
+  const body = document.getElementById('lineBody');
+  body.innerHTML = `<div class="bubble shop">這是您的預約訊息，按送出就會傳給我們 📩</div>`;
+  const me = document.createElement('div');
+  me.className = 'bubble me'; me.textContent = msg; me.id = 'msgBubble';
+  body.appendChild(me);
+  const btn = document.createElement('button');
+  btn.className = 'bigsend'; btn.textContent = '💬 送出預約';
+  btn.onclick = () => {
+    btn.style.display = 'none';
+    setTimeout(() => {
+      const shop = document.createElement('div');
+      shop.className = 'bubble shop';
+      shop.textContent = `收到囉 ${nm}！已為您保留 ${selD} ${selT} 的工位，請提前 10 分鐘到廠喔 🔧`;
+      body.appendChild(shop); body.scrollTop = body.scrollHeight;
+    }, 1200);
+  };
+  document.getElementById('lineBtnRow').innerHTML = ''; document.getElementById('lineBtnRow').appendChild(btn);
+}
+</script>
+</body></html>
