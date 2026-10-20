@@ -15,4 +15,28 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- 一頁式網站架設 (Website) -->
+  <url>
+    <loc>https://swiftfix.com.tw/website.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 維修自救小百科 (Guide) -->
+  <url>
+    <loc>https://swiftfix.com.tw/guide.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 二手電腦行情估價器 (Estimate) -->
+  <url>
+    <loc>https://swiftfix.com.tw/estimate.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
