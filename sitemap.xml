@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 首頁 (Index) -->
+  <url>
+    <loc>https://swiftfix.com.tw/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- 維修查詢頁面 (Repair) -->
+  <url>
+    <loc>https://swiftfix.com.tw/repair</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

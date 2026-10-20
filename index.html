@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Cit9iJR0JOyNt_9GMHej3IoXCdoUKiSxOjfvYKye6N8" />
+    
+    <title>台中彰化電腦維修推薦｜Swift 迅修：全區到府維修、夜間急修、客製化組裝、資料救援</title>
+    <link rel="canonical" href="https://swiftfix.com.tw/" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <meta name="description" content="台中、彰化電腦維修推薦「Swift 迅修電腦」。專營客製化電腦組裝、新機販售、夜間假日到府維修。提供台中全區（南屯、西屯、北屯、烏日、大肚）及彰化地區到府服務，價格透明，修好才收費。">
+    <meta name="keywords" content="Swift迅修電腦, 台中電腦維修推薦, 彰化電腦維修, 南屯電腦維修, 西屯電腦維修, 北屯電腦維修, 烏日電腦維修, 大肚電腦維修, 龍井電腦維修, 沙鹿電腦維修, 大里電腦維修, 太平電腦維修, 霧峰電腦維修, 台中組裝電腦, 客製化電腦, 電競主機菜單, 夜間電腦維修, 假日到府維修, 電腦重灌, 筆電維修, 資料救援, 電腦清潔">
+    <meta name="author" content="Swift 迅修電腦">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Swift 迅修電腦 - 台中彰化夜間急修與組裝專家">
+    <meta property="og:description" content="平日上班沒空修？想組電腦怕被坑？Swift 迅修提供台中、彰化全區夜間到府服務與高CP值組裝建議。">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Swift 迅修電腦",
+        "description": "提供台中全區與彰化地區專業電腦維修、組裝、維護技術支援，特別專精於夜間到府服務。",
+        "url": "https://swiftfix.com.tw/", 
+        "areaServed": [
+          {"@type": "City", "name": "Taichung City"},
+          {"@type": "City", "name": "Changhua County"}
+        ],
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "20:00", "closes": "23:59" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday"], "opens": "06:00", "closes": "23:59" }
+        ],
+        "priceRange": "NT$200 - NT$5000"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Swift 迅修的服務範圍包含哪裡？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "我們主要服務台中全區（含南屯、西屯、北屯、烏日、大肚、龍井、太平、大里等）以及彰化地區（含彰化市區、和美、花壇）。只要是在預約範圍內，皆可提供到府檢測與維修。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "晚上或假日真的可以維修嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "是的！我們專為上班族設計，服務時間為平日 20:00 - 24:00 以及假日 06:00 - 24:00。請利用線上預約系統查看空檔。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "組裝電腦有保固嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "所有組裝零件皆採購自台灣代理商公司貨，享有原廠保固。Swift 迅修另外提供一年的整機組裝技術支援。"
+            }
+          }
+        ]
+      }
+    ]
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-dark': '#013e47', // 品牌深青色
+                'brand-gold': '#eebb4d', // 品牌金色
+                'brand-gold-dark': '#d4a036', 
+              }
+            }
+          }
+        }
+      </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(1, 62, 71, 0.85), rgba(1, 62, 71, 0.9)), url('https://images.unsplash.com/photo-1629018526835-733284675391?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        html { scroll-behavior: smooth; }
+        
+        /* 夜間加成警示動畫 */
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(238, 187, 77, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(238, 187, 77, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(238, 187, 77, 0); }
+        }
+        .night-alert {
+            animation: pulse-gold 2s infinite;
+        }
+        
+        /* 地圖區塊樣式 */
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: 0;
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845579320"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17845579320');
+</script>
+<body class="bg-gray-50 text-brand-dark">
+
+    <nav class="bg-white shadow-sm fixed w-full z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            
+            <div class="flex items-center gap-3 cursor-pointer group select-none" onclick="window.scrollTo(0,0)">
+                <div class="w-12 h-12 bg-brand-dark text-brand-gold flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-microchip text-2xl"></i>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                    <span class="text-3xl md:text-4xl font-black tracking-tighter text-brand-dark leading-none group-hover:text-brand-gold-dark transition-colors duration-300 italic">SWIFT</span>
+                    <span class="bg-brand-gold text-brand-dark text-sm md:text-base font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm -mt-1 md:mt-0">迅修電腦</span>
+                </div>
+            </div>
+
+            <div class="hidden md:flex space-x-8 items-center font-medium">
+                <a href="#services" class="text-brand-dark hover:text-brand-gold transition">服務項目</a>
+                <a href="#pricing" class="text-brand-dark hover:text-brand-gold transition">價目表</a>
+                <a href="/repair" class="text-brand-dark hover:text-brand-gold transition">維修進度</a>
+                <a href="#faq" class="text-brand-dark hover:text-brand-gold transition">常見問題</a>
+                <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3WdDpAykvq9PSD9oDAEmzDZFKyFmXAaqVr-suJRXZuElkyK-y3oA2jS4YUcpOu7ViuichCLlxN" target="_blank" class="bg-brand-gold text-brand-dark px-5 py-2.5 rounded-lg hover:bg-brand-gold-dark font-bold transition shadow-sm">
+                    <i class="fas fa-calendar-check mr-2"></i> 立即預約
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-bg h-screen flex items-center justify-center text-center px-6 relative">
+        <div class="max-w-4xl pt-20">
+            <div class="inline-block bg-brand-gold text-brand-dark font-bold px-4 py-1 rounded-full mb-6 text-sm md:text-base animate-bounce">
+                <i class="fas fa-moon mr-2"></i> 台中彰化全區到府｜夜間、假日預約服務
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Swift 迅修電腦<br>
+                <span class="text-brand-gold">台中彰化專業電腦管家</span>
+            </h1>
+            
+            <p class="text-xl text-gray-200 mb-10 leading-relaxed">
+                平日上班沒空修？想組電腦怕被坑？<br class="md:hidden">
+                我們提供 <span class="text-brand-gold font-bold">夜間/假日到府</span> 與 <span class="text-brand-gold font-bold">高CP值客製化組裝</span> 服務。
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3WdDpAykvq9PSD9oDAEmzDZFKyFmXAaqVr-suJRXZuElkyK-y3oA2jS4YUcpOu7ViuichCLlxN" target="_blank" class="bg-brand-gold text-brand-dark px-8 py-4 rounded-lg text-lg font-bold hover:bg-brand-gold-dark transition shadow-lg hover:-translate-y-1 transform flex items-center justify-center">
+                    <i class="fas fa-calendar-alt mr-3"></i> 查詢空檔 / 預約
+                </a>
+                <a href="https://lin.ee/p2z9vkn" target="_blank" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-brand-dark transition hover:-translate-y-1 transform flex items-center justify-center">
+                    <i class="fab fa-line mr-3 text-2xl"></i> LINE 免費諮詢
+                </a>
+            </div>
+            
+            <div class="mt-8 text-gray-300 text-sm md:text-base flex flex-col md:flex-row items-center justify-center gap-4">
+                <span><i class="fas fa-clock mr-2 text-brand-gold"></i> 平日：20:00 - 24:00</span>
+                <span class="hidden md:inline">|</span>
+                <span><i class="fas fa-sun mr-2 text-brand-gold"></i> 假日：06:00 - 24:00</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="why-us" class="py-16 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap -mx-4 items-center">
+                <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-bold text-brand-dark mb-6 leading-tight">
+                        為什麼台中人選擇 <span class="text-brand-gold">Swift 迅修電腦</span>？
+                    </h2>
+                    <p class="text-gray-600 mb-8 text-lg">
+                        我們深知電腦故障時的焦慮，特別是白天還要上班的您。Swift 迅修專為解決台中、彰化地區的電腦維修痛點而生。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-brand-gold/20 rounded-full flex items-center justify-center text-brand-gold mt-1">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-brand-dark">專業到府維修</h4>
+                                <p class="text-gray-600 text-sm">不用自己搬著笨重主機跑通訊行，我們直接到您府上檢修。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-brand-gold/20 rounded-full flex items-center justify-center text-brand-gold mt-1">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-brand-dark">夜間假日急修</h4>
+                                <p class="text-gray-600 text-sm">平日晚上 8 點後及假日全天服務，完全配合上班族作息。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-brand-gold/20 rounded-full flex items-center justify-center text-brand-gold mt-1">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-brand-dark">價格透明合理</h4>
+                                <p class="text-gray-600 text-sm">報價後才修，維修項目清楚列出，絕不坐地起價。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 px-4">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80" alt="台中電腦維修 Swift 迅修" class="rounded-3xl shadow-2xl relative z-10">
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-gold rounded-full -z-0"></div>
+                        <div class="absolute -top-6 -left-6 w-24 h-24 border-4 border-brand-dark rounded-xl -z-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-brand-dark mb-4">我們能為您解決什麼問題？</h2>
+            <div class="w-24 h-1.5 bg-brand-gold mx-auto rounded"></div>
+            <p class="mt-6 text-gray-600 text-lg">台中彰化全區域維修、組裝、維護全方位技術支援</p>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+                <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3 text-brand-dark">電腦故障檢修<span class="text-xs bg-red-500 text-white px-2 py-0.5 rounded ml-1">熱門</span></h3>
+                <p class="text-gray-600 text-sm leading-relaxed">台中、彰化到府檢測開機無畫面、藍屏死機。精準找出病因，對症下藥。</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 border-t-4 border-brand-dark group ring-2 ring-brand-gold/20">
+                <div class="w-14 h-14 bg-brand-dark rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 shadow-sm group-hover:scale-110 transition">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3 text-brand-dark">客製化電腦組裝 <span class="text-xs bg-red-500 text-white px-2 py-0.5 rounded ml-1">熱門</span></h3>
+                <p class="text-gray-600 text-sm leading-relaxed">依預算規劃高CP值文書機或3A電競主機。拒絕庫存品。</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+                <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
+                    <i class="fas fa-laptop-medical"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3 text-brand-dark">筆電硬體維修</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">電池蓄電力差、鍵盤失靈、螢幕破裂更換。各廠牌皆可評估。</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+                <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3 text-brand-dark">電腦效能升級</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">舊電腦換 SSD 速度翻倍、記憶體升級。讓愛機重獲新生。</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+                <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
+                    <i class="fas fa-broom"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3 text-brand-dark">電腦清潔保養</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">風扇狂轉很吵？電腦過熱？更換高效散熱膏，解決過熱降頻。</p>
+            </div>
+
+             <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+                <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
+                    <i class="fas fa-hdd"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3 text-brand-dark">資料救援與轉移</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">誤刪檔案軟體救援、新舊電腦資料搬家。嚴重損壞可代送專業實驗室。</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+                <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3 text-brand-dark">微型企業 IT 維護</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">專為 5-10 人微型企業設計。可利用週末假日進行電腦優化/維修，不影響平日工作。</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+                <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3 text-brand-dark">夜間 / 假日急修</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">專為上班族設計。平日下班後（20:00~24:00）及週末全天皆可預約到府。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-dark mb-4">服務價目表</h2>
+                <p class="text-gray-600 text-lg">價格公開透明，台中彰化預約制到府</p>
+            </div>
+
+            <div class="overflow-hidden border border-gray-200 rounded-2xl shadow-lg bg-white">
+                <table class="min-w-full">
+                    <thead class="bg-brand-dark text-white">
+                        <tr>
+                            <th class="py-5 px-6 text-left font-bold text-lg tracking-wider w-1/4">服務類別</th>
+                            <th class="py-5 px-6 text-left font-bold text-lg tracking-wider w-1/2">服務說明</th>
+                            <th class="py-5 px-6 text-right font-bold text-lg tracking-wider w-1/4">參考費用</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pricing-body" class="divide-y divide-gray-100 text-gray-700">
+                        <tr>
+                            <td colspan="3" class="py-10 text-center text-gray-500">
+                                <i class="fas fa-spinner fa-spin mr-2"></i> 正在讀取最新價目表...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <p class="font-bold text-brand-dark text-lg mb-3 flex items-center">
+                    <i class="fas fa-car-side mr-2"></i> 車馬費計算(到府/收送) <span class="text-sm font-normal text-gray-500 ml-2">(依 Google 導航時間計算)</span>
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 text-gray-700">
+                    <div class="flex-1 bg-gray-50 p-3 rounded">
+                        <span class="font-bold">20 分鐘內：</span> $200 元
+                    </div>
+                    <div class="flex-1 bg-gray-50 p-3 rounded">
+                        <span class="font-bold">超過 20 分鐘：</span> 每 10 分鐘 +$100
+                    </div>
+                </div>
+                <div class="mt-4 flex flex-col md:flex-row gap-4">
+                     <p class="text-sm text-red-500 font-bold flex items-center bg-red-50 p-2 rounded flex-1">
+                        <i class="fas fa-exclamation-triangle mr-2"></i> 車馬費為交通成本，恕無法折抵。
+                    </p>
+                </div>
+            </div>
+            
+            <p class="mt-4 text-sm text-gray-500 text-right flex items-center justify-end">
+                <i class="fas fa-info-circle mr-2 text-brand-gold"></i> 實際費用視電腦型號與施工難度，以現場報價為準。
+            </p>
+        </div>
+    </section>
+
+    <section id="process" class="bg-white py-20">
+        <div class="container mx-auto px-6">
+             <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-brand-dark mb-4">服務流程</h2>
+                <p class="text-gray-600 text-lg">簡單三步驟，快速解決電腦問題</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center items-stretch gap-8">
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm flex-1 text-center border border-gray-100 group hover:border-brand-gold transition">
+                    <div class="text-5xl text-brand-gold mb-4 font-black group-hover:scale-110 transition">01</div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-dark">線上預約</h4>
+                    <p class="text-gray-600">點擊按鈕查看空檔。系統自動過濾忙碌時段，預約不撞期。</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm flex-1 text-center border border-gray-100 group hover:border-brand-gold transition">
+                    <div class="text-5xl text-brand-gold mb-4 font-black group-hover:scale-110 transition">02</div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-dark">到府檢測</h4>
+                    <p class="text-gray-600">工程師到府（或約定收送），現場專業檢測找出問題。</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm flex-1 text-center border border-gray-100 group hover:border-brand-gold transition">
+                    <div class="text-5xl text-brand-gold mb-4 font-black group-hover:scale-110 transition">03</div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-dark">報價維修</h4>
+                    <p class="text-gray-600">確認問題後先行報價。同意後才施工，完工測試沒問題才收費。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12">常見問題 FAQ</h2>
+            <div class="space-y-4">
+                <details class="group border border-gray-200 rounded-xl overflow-hidden shadow-sm" open>
+                    <summary class="flex justify-between items-center p-5 cursor-pointer bg-gray-50 font-bold text-brand-dark list-none">
+                        Swift 迅修的服務範圍包含哪裡？
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <div class="p-5 text-gray-600 leading-relaxed border-t border-gray-100">
+                        我們主要服務 **台中全區**（含南屯、西屯、北屯、烏日、大肚、龍井、太平、大里等）以及 **彰化地區**（含彰化市區、和美、花壇）。只要是在預約範圍內，皆可提供到府檢測與維修。
+                    </div>
+                </details>
+                <details class="group border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center p-5 cursor-pointer bg-gray-50 font-bold text-brand-dark list-none">
+                        晚上或假日真的可以維修嗎？
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <div class="p-5 text-gray-600 leading-relaxed border-t border-gray-100">
+                        是的！我們專為上班族設計，服務時間為 **平日 20:00 - 24:00** 以及 **假日 06:00 - 24:00**。請利用線上預約系統查看空檔。
+                    </div>
+                </details>
+                <details class="group border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center p-5 cursor-pointer bg-gray-50 font-bold text-brand-dark list-none">
+                        組裝電腦有保固嗎？
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <div class="p-5 text-gray-600 leading-relaxed border-t border-gray-100">
+                        所有組裝零件皆採購自台灣代理商公司貨，享有原廠保固。Swift 迅修另外提供一年的整機組裝技術支援，確保您的主機運行穩定。
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="areas" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-brand-dark mb-4">服務區域</h2>
+            <div class="w-24 h-1.5 bg-brand-gold mx-auto rounded mb-8"></div>
+            <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
+                Swift 迅修電腦提供「台中全區」與「彰化部分地區」到府維修服務，涵蓋以下區域：
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">南屯區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">西屯區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">北屯區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">烏日區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">大里區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">太平區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">東、西、南、北區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">中區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">大肚區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">龍井區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">沙鹿區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">彰化市區</div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 font-bold hover:text-brand-gold transition">和美、花壇</div>
+            </div>
+            
+            <p class="mt-8 text-sm text-gray-500 italic">
+                * 若您的所在地不在上述列表中，歡迎 <a href="https://lin.ee/xZFxNlo" class="text-brand-gold underline font-bold">私訊 LINE</a> 詢問是否能安排服務。
+            </p>
+        </div>
+    </section>
+
+    <section id="location" class="py-20 bg-brand-dark text-white">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                
+                <div class="md:w-1/2 bg-gray-200 min-h-[400px] map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.037251702842!2d120.60594077534785!3d24.13532987840971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693f0024f05e6b%3A0x7dc3c66a4edf3a88!2z6L-F5L-u6Zu76IWm5bel5L2c5a6k!5e0!3m2!1szh-TW!2stw!4v1767102473256!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <div class="p-12 md:w-1/2 flex flex-col justify-center items-center space-y-6 bg-gray-50 text-brand-dark">
+                    <h3 class="text-2xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-map-marker-alt text-brand-gold mr-3"></i> 服務據點
+                    </h3>
+                    
+                    <div class="text-center">
+                        <p class="font-bold text-lg mb-2">工作室位於台中南屯 (非店面)</p>
+                        <div class="bg-red-50 border-l-4 border-red-500 p-4 text-left text-sm text-gray-600 leading-relaxed shadow-sm">
+                            <p class="font-bold text-red-600 mb-1"><i class="fas fa-exclamation-circle mr-1"></i> 重要提醒：</p>
+                            工作室非對外開放店面，為確保服務品質與安排工程師時間，<span class="text-red-600 font-bold underline">如需服務請務必事先預約</span>，切勿直接前往，感謝您的配合。
+                        </div>
+                    </div>
+                    
+                    <div class="w-full pt-4 space-y-4">
+                        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3WdDpAykvq9PSD9oDAEmzDZFKyFmXAaqVr-suJRXZuElkyK-y3oA2jS4YUcpOu7ViuichCLlxN" target="_blank" class="w-full bg-brand-gold text-brand-dark font-bold py-4 rounded-xl hover:bg-brand-gold-dark transition shadow-md flex justify-center items-center">
+                            <i class="fas fa-calendar-alt mr-2"></i> 選擇預約時段
+                        </a>
+                        
+                        <a href="https://lin.ee/p2z9vkn" target="_blank" class="w-full bg-[#00C300] text-white font-bold py-4 rounded-xl hover:bg-[#00b300] transition shadow-md flex justify-center items-center">
+                            <i class="fab fa-line text-2xl mr-2"></i> 加入官方 LINE
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 text-center border-t border-white/10 flex flex-col items-center justify-center">
+        <div class="flex items-center justify-center gap-3 cursor-pointer group select-none mb-6" onclick="window.scrollTo(0,0)">
+            <div class="w-12 h-12 bg-brand-gold text-brand-dark flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-microchip text-2xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                 <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none group-hover:text-brand-gold transition-colors duration-300 italic">SWIFT</span>
+                 <span class="bg-brand-gold text-brand-dark text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </div>
+        <p class="text-sm text-gray-300 font-medium">夜間到府・客製組裝・透明報價</p>
+        <p class="mt-6 text-sm text-gray-500">© 2026 Swift 迅修電腦. 台中彰化專業電腦管家. All rights reserved.</p>
+    </footer>
+
+<script>
+        // 使用您提供的正確 Google Sheet 連結
+        const googleSheetCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRvDI5AKBaKcM9bBwqGP74VoEKnSSpVlBSZNYdH05_z0N-gDV21bwp8vsHRLBR140mNQ0juK8ltqUsh/pub?gid=0&single=true&output=csv"; 
+
+        Papa.parse(googleSheetCSV, {
+            download: true,
+            header: true, 
+            complete: function(results) {
+                const data = results.data;
+                const tbody = document.getElementById('pricing-body');
+                let html = '';
+                let lastCategory = '';
+
+                data.forEach((row, index) => {
+                    // 略過空行
+                    if (!row['項目名稱']) return;
+
+                    // 判斷樣式
+                    const isNight = row['標籤'] && row['標籤'].includes('night');
+                    const rowClass = isNight ? 'bg-red-50 night-alert border-l-4 border-red-500' : 'hover:bg-gray-50 transition';
+                    const textClass = isNight ? 'text-red-600' : 'text-brand-dark';
+                    
+                    // 處理類別合併
+                    let categoryHtml = '';
+                    if (row['類別'] !== lastCategory || isNight) {
+                        categoryHtml = `<td class="py-5 px-6 font-bold ${textClass} align-top">${row['類別']}</td>`;
+                        if (!isNight) lastCategory = row['類別'];
+                    } else {
+                        categoryHtml = `<td class="py-5 px-6 border-t border-transparent"></td>`; 
+                    }
+
+                    // 標籤處理
+                    let badgeHtml = '';
+                    if (row['標籤'] && row['標籤'].includes('recommend')) {
+                        badgeHtml = `<span class="text-xs bg-brand-gold text-brand-dark font-bold px-2 py-0.5 rounded-full ml-2">推薦</span>`;
+                    }
+                    if (isNight) {
+                         badgeHtml = `<i class="fas fa-moon ml-2"></i>`;
+                    }
+
+                    html += `
+                        <tr class="${rowClass} border-t border-gray-100">
+                            ${categoryHtml}
+                            <td class="py-5 px-6">
+                                <div class="font-bold text-gray-900 text-lg mb-1 flex items-center">
+                                    ${row['項目名稱']} ${badgeHtml}
+                                </div>
+
+                                <div class="text-sm text-gray-500 font-normal leading-relaxed">
+                                    ${row['項目說明'] || ''} 
+                                </div>
+                            </td>
+                            <td class="py-5 px-6 text-right font-bold text-lg ${textClass}">
+                                ${row['費用']}
+                                ${row['備註'] ? `<span class="text-sm font-normal text-gray-500 block">${row['備註']}</span>` : ''}
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                tbody.innerHTML = html;
+            },
+            error: function(err) {
+                console.error("無法讀取價目表", err);
+                document.getElementById('pricing-body').innerHTML = `
+                    <tr><td colspan="3" class="py-5 text-center text-red-500">讀取價格失敗，請重新整理或聯繫我們。</td></tr>
+                `;
+            }
+        });
+
+        // 維修進度查詢邏輯
+        async function queryRepairProgress() {
+            const phoneInput = document.getElementById('phone-query');
+            const resultDiv = document.getElementById('query-result');
+            const resultContent = document.getElementById('result-content');
+            const emptyDiv = document.getElementById('query-empty');
+            const loadingDiv = document.getElementById('query-loading');
+            const queryBtn = document.getElementById('query-btn');
+            
+            const phone = phoneInput.value.trim();
+            if (!phone) {
+                alert('請輸入電話號碼');
+                return;
+            }
+
+            // UI 狀態重設
+            resultDiv.classList.add('hidden');
+            emptyDiv.classList.add('hidden');
+            loadingDiv.classList.remove('hidden');
+            queryBtn.disabled = true;
+            resultContent.innerHTML = '';
+
+            try {
+                // 改為對接 Google Apps Script (GAS) 雲端資料庫
+                const response = await fetch(`https://script.google.com/macros/s/AKfycbygUPnJ_bs49HAwcr8-WZnhbj_cToc-GHZ18NeJNNg-ulNAJcSwUz9Lnfnot9DgBPnO/exec?phone=${phone}`);
+                const data = await response.json();
+
+                loadingDiv.classList.add('hidden');
+                queryBtn.disabled = false;
+
+                if (data && data.length > 0) {
+                    let html = '';
+                    data.forEach(item => {
+                        html += `
+                            <div class="bg-white/5 border border-white/10 p-5 rounded-2xl text-left border-l-4 border-l-brand-gold">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="font-bold text-lg text-white">${item.description}</h4>
+                                    <span class="text-xs text-gray-400">${item.date}</span>
+                                </div>
+                                <div class="bg-brand-gold/10 p-3 rounded-lg">
+                                    <p class="text-brand-gold font-medium">
+                                        <i class="fas fa-info-circle mr-1"></i> 目前進度：${item.progress}
+                                    </p>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    resultContent.innerHTML = html;
+                    resultDiv.classList.remove('hidden');
+                } else {
+                    emptyDiv.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error("查詢出錯:", error);
+                loadingDiv.classList.add('hidden');
+                queryBtn.disabled = false;
+                alert('連線失敗，請稍後再試或聯繫客服。');
+            }
+        }
+    </script>
+</body>
+</html>

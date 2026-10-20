@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>維修進度查詢 | Swift 迅修電腦</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .brand-gold { color: #d4af37; }
+        .bg-brand-gold { background-color: #d4af37; }
+        .border-brand-gold { border-color: #d4af37; }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <!-- Logo/Header -->
+        <div class="flex items-center justify-center gap-3 cursor-pointer group select-none mb-10" onclick="window.location.href='/'">
+            <div class="w-14 h-14 bg-brand-gold text-[#0f172a] flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-microchip text-3xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                 <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none group-hover:text-brand-gold transition-colors duration-300 italic">SWIFT</span>
+                 <span class="bg-brand-gold text-[#0f172a] text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </div>
+
+        <!-- Query Box -->
+        <div class="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl p-6 sm:p-8">
+            <h2 class="text-xl font-bold mb-6 flex items-center justify-center">
+                <i class="fas fa-search-location mr-3 brand-gold"></i> 維修進度即時查詢
+            </h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs text-gray-400 mb-2 ml-1">請輸入您預約時留下的電話號碼</label>
+                    <input type="tel" id="phone" placeholder="例如: 0912345678" 
+                        class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold transition-all text-lg shadow-inner">
+                </div>
+                <button onclick="doQuery()" id="btn"
+                    class="w-full bg-brand-gold hover:bg-[#c4a030] text-slate-900 font-black py-4 rounded-2xl transition shadow-lg flex items-center justify-center text-lg">
+                    <i class="fas fa-search mr-2"></i> 立即查詢
+                </button>
+            </div>
+
+            <!-- Loading Segment -->
+            <div id="loading" class="mt-8 hidden text-center">
+                <i class="fas fa-circle-notch fa-spin text-3xl brand-gold"></i>
+                <p class="mt-2 text-sm text-gray-400">正在連線雲端資料庫...</p>
+            </div>
+
+            <!-- Result Segment -->
+            <div id="results" class="mt-8 hidden animate-fade-in space-y-4">
+                <!-- Dynamically Inserted Items -->
+            </div>
+
+            <!-- Empty Segment -->
+            <div id="empty" class="mt-8 hidden text-center bg-brand-gold/10 p-5 rounded-2xl border border-brand-gold/20">
+                <i class="fas fa-info-circle text-2xl brand-gold mb-2"></i>
+                <p class="text-brand-gold font-bold text-sm">查無進行中的維修項目。</p>
+                <p class="text-gray-400 text-xs mt-1 leading-relaxed">如有疑問請聯繫 LINE 官方客服，<br>或確認輸入的號碼是否正確。</p>
+            </div>
+            <!-- Help Links & Home Button -->
+            <div class="mt-8">
+                <a href="/" class="flex flex-col items-center justify-center w-full bg-slate-800 hover:bg-slate-700 text-white font-medium py-3 rounded-2xl transition border border-white/10 group shadow-lg mb-6">
+                    <i class="fas fa-home text-lg mb-1 group-hover:text-brand-gold transition-colors"></i>
+                    <span class="text-sm">返回首頁</span>
+                </a>
+                <div class="pt-6 border-t border-white/10 flex justify-center space-x-4 text-sm text-gray-500">
+                    <a href="https://lin.ee/p2z9vkn" target="_blank" class="hover:text-brand-gold transition"><i class="fab fa-line mr-1"></i>LINE 客服</a>
+                    <span>|</span>
+                    <a href="tel:0976666643" class="hover:text-brand-gold transition"><i class="fas fa-phone mr-1"></i>0976-666-643</a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12 text-center text-gray-500 text-xs">
+            <p>© 2024 Swift Fix Studio. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // --- 設定區 ---
+        // 請在此處填入您部署 GAS 得到的「網路應用程式網址」
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbzDiaoCACOzF_RvjQIfUErTsADnc7pic2OBNRvMToG4ovR9EBwVeUnLBy1Rae8p-BrT/exec";
+
+        async function doQuery() {
+            const phoneInput = document.getElementById('phone');
+            const resultDiv = document.getElementById('results');
+            const emptyDiv = document.getElementById('empty');
+            const loadingDiv = document.getElementById('loading');
+            const btn = document.getElementById('btn');
+            
+            const phone = phoneInput.value.trim();
+            if (!phone) {
+                alert('請先輸入電話號碼');
+                phoneInput.focus();
+                return;
+            }
+
+            // Reset UI
+            resultDiv.classList.add('hidden');
+            resultDiv.innerHTML = '';
+            emptyDiv.classList.add('hidden');
+            loadingDiv.classList.remove('hidden');
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(`${GAS_URL}?phone=${phone}`);
+                const data = await response.json();
+
+                loadingDiv.classList.add('hidden');
+                btn.disabled = false;
+
+                if (data && data.length > 0) {
+                    let html = '<div class="text-xs font-bold text-brand-gold mb-3 ml-1">查詢結果：</div>';
+                    data.forEach(item => {
+                        const isCompleted = item.status === 'completed';
+                        const themeColorClass = isCompleted ? 'text-emerald-500' : 'text-brand-gold';
+                        const borderColorClass = isCompleted ? 'border-l-emerald-500' : 'border-l-brand-gold';
+                        const bgColorClass = isCompleted ? 'bg-emerald-500/10' : 'bg-brand-gold/10';
+                        const iconClass = isCompleted ? 'fa-check-circle' : 'fa-tools';
+                        
+                        html += `
+                            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl border-l-4 ${borderColorClass} mb-4">
+                                <div class="flex justify-between items-start mb-2 gap-2">
+                                    <h4 class="font-bold text-white text-base leading-tight">${item.description}</h4>
+                                    <span class="text-[10px] text-gray-500 whitespace-nowrap bg-black/30 px-2 py-1 rounded-full">${item.date}</span>
+                                </div>
+                                <div class="${bgColorClass} p-3 rounded-xl">
+                                    <p class="${themeColorClass} text-sm font-bold flex items-center">
+                                        <i class="fas ${iconClass} mr-2"></i>${item.progress}
+                                    </p>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    resultDiv.innerHTML = html;
+                    resultDiv.classList.remove('hidden');
+                } else {
+                    emptyDiv.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error("Query Error:", error);
+                loadingDiv.classList.add('hidden');
+                btn.disabled = false;
+                alert('連線雲端發生錯誤，請確認網路或聯繫客服。');
+            }
+        }
+    </script>
+</body>
+</html>
