@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Cit9iJR0JOyNt_9GMHej3IoXCdoUKiSxOjfvYKye6N8" />
+
+    <title>電腦自救小百科｜迅修電腦：開不了機、變慢、斷網、藍屏自己先這樣查</title>
+    <link rel="canonical" href="https://swiftfix.com.tw/guide.html" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <meta name="description" content="迅修電腦「維修自救小百科」：電腦開不了機怎麼辦、電腦變慢卡頓自救、Wi-Fi 斷線排除、藍屏當機初步判斷。四篇白話教學，先自己做簡單檢查，排除不了再拍照傳 LINE 免費評估，台中彰化到府維修。">
+    <meta name="author" content="Swift 迅修電腦">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="電腦自救小百科｜迅修電腦">
+    <meta property="og:description" content="開不了機、變慢、斷網、藍屏——先照著檢查一次，弄不好再拍照傳 LINE，我們免費幫你評估。">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://swiftfix.com.tw/guide.html">
+    <meta property="og:type" content="website">
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-dark': '#013e47',
+                'brand-gold': '#eebb4d',
+                'brand-gold-dark': '#d4a036',
+              }
+            }
+          }
+        }
+      </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        html { scroll-behavior: smooth; }
+        article { scroll-margin-top: 96px; }
+        .check-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .check-list li i { margin-top: 0.3rem; }
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845579320"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17845579320');
+</script>
+
+<body class="bg-gray-50 text-brand-dark">
+
+    <nav class="bg-white shadow-sm fixed w-full z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+
+            <a href="index.html" class="flex items-center gap-3 group select-none">
+                <div class="w-12 h-12 bg-brand-dark text-brand-gold flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-microchip text-2xl"></i>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                    <span class="text-3xl md:text-4xl font-black tracking-tighter text-brand-dark leading-none group-hover:text-brand-gold-dark transition-colors duration-300 italic">SWIFT</span>
+                    <span class="bg-brand-gold text-brand-dark text-sm md:text-base font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm -mt-1 md:mt-0">迅修電腦</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-3 md:gap-8">
+                <div class="hidden lg:flex space-x-8 items-center font-medium">
+                    <a href="index.html#services" class="text-brand-dark hover:text-brand-gold transition">服務項目</a>
+                    <a href="index.html#pricing" class="text-brand-dark hover:text-brand-gold transition">價目表</a>
+                    <a href="index.html#process" class="text-brand-dark hover:text-brand-gold transition">預約流程</a>
+                    <a href="repair.html" class="text-brand-dark hover:text-brand-gold transition">維修進度</a>
+                    <a href="index.html#faq" class="text-brand-dark hover:text-brand-gold transition">常見問題</a>
+                </div>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-4 md:px-5 py-3 rounded-lg hover:bg-[#00b300] font-bold transition shadow-sm flex items-center min-h-[48px] text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> LINE 評估
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-brand-dark text-white pt-32 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-brand-gold text-brand-dark font-bold px-4 py-1 rounded-full mb-6 text-sm md:text-base">
+                <i class="fas fa-book-medical mr-2"></i> 免費教學・先自救再送修
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">維修自救小百科</h1>
+            <p class="text-lg md:text-xl text-gray-200 leading-relaxed">
+                電腦出問題，先別慌。很多狀況其實是小毛病，自己花五分鐘就能排除。<br class="hidden md:block">
+                照著下面的步驟查一次，真的弄不好，再拍照傳 LINE 給我們，<span class="text-brand-gold font-bold">免費幫你評估</span>。
+            </p>
+        </div>
+    </header>
+
+    <section class="py-12 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-2xl font-bold text-center mb-8">你的電腦是哪種狀況？</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="#guide-power" class="flex items-center gap-4 bg-gray-50 hover:bg-brand-gold/10 border border-gray-100 rounded-xl p-5 transition min-h-[48px]">
+                    <i class="fas fa-power-off text-2xl text-brand-gold-dark"></i>
+                    <span class="font-bold">電腦開不了機怎麼辦？5 個自己能做的檢查</span>
+                </a>
+                <a href="#guide-slow" class="flex items-center gap-4 bg-gray-50 hover:bg-brand-gold/10 border border-gray-100 rounded-xl p-5 transition min-h-[48px]">
+                    <i class="fas fa-turtle text-2xl text-brand-gold-dark"></i>
+                    <span class="font-bold">電腦變慢、卡頓？先做這 6 個自救動作</span>
+                </a>
+                <a href="#guide-wifi" class="flex items-center gap-4 bg-gray-50 hover:bg-brand-gold/10 border border-gray-100 rounded-xl p-5 transition min-h-[48px]">
+                    <i class="fas fa-wifi text-2xl text-brand-gold-dark"></i>
+                    <span class="font-bold">網路、Wi-Fi 突然斷線？照順序這樣排除</span>
+                </a>
+                <a href="#guide-bsod" class="flex items-center gap-4 bg-gray-50 hover:bg-brand-gold/10 border border-gray-100 rounded-xl p-5 transition min-h-[48px]">
+                    <i class="fas fa-bug text-2xl text-brand-gold-dark"></i>
+                    <span class="font-bold">藍屏、當機一直重開？初步判斷這樣做</span>
+                </a>
+            </div>
+            <p class="text-center text-gray-500 text-sm mt-8"><i class="fas fa-exclamation-triangle text-brand-gold-dark mr-1"></i> 安全原則：以下教學都不需要拆機殼。只要聞到燒焦味、看到冒煙、機器進水，請直接跳到文末找我們，不要再通電測試。</p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 max-w-4xl py-14 space-y-16">
+
+        <article id="guide-power" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">電腦開不了機怎麼辦？5 個自己能做的檢查</h2>
+            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>按了電源鍵完全沒反應、燈不亮；或是風扇有轉、燈有亮，但螢幕一片黑。先分清楚是「完全沒電」還是「有電沒畫面」，照下面順序查：</p>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 確認電源真的有進來。</span>插座換一個試試、延長線開關有沒有被踢掉、電源線有沒有插緊（主機後面那條最常鬆）。筆電的話，先插著充電器等 10 分鐘再開機，電池完全沒電時不會馬上有反應。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 確認螢幕是醒著的。</span>螢幕電源燈有亮嗎？訊號來源（HDMI／DP）有沒有選對？螢幕線兩端重插一次，這一步救回的人比你想的多。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 拔掉所有外接裝置。</span>USB 隨身碟、外接硬碟、讀卡機、印表機線全部拔掉，只留電源、螢幕、鍵盤滑鼠，再開機一次。壞掉的外接裝置會卡住開機流程。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 長按電源鍵強制重開。</span>按住電源鍵 10 秒讓它完全斷電，等 30 秒再按一次開機。筆電如果是可拆電池，先拔電池、用充電器直接開機試試。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 聽聲音、看燈號。</span>開機時有沒有「嗶」聲？主機板燈有沒有亮？風扇是轉一下就停、還是持續轉？把這些現象記下來，就算最後要送修，也能幫師傅省很多診斷時間。</span></li>
+            </ol>
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再試了</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>聞到燒焦味、看到冒煙，或電源供應器有異音、火花</li>
+                    <li>機器進水、倒了飲料</li>
+                    <li>反覆開機都自動斷電，還伴隨「喀喀」異音</li>
+                    <li>想自己打開機殼摸電源供應器——<span class="font-bold text-red-600">絕對不要</span>，電源供應器內部有殘存高壓，非專業人員不要拆，交給我們處理</li>
+                </ul>
+            </div>
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">還是開不了機？</span><br>把主機燈號、螢幕畫面拍下來傳 LINE，我們看照片就能先判斷大概是哪裡壞、修起來多少錢。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
+            </div>
+        </article>
+
+        <article id="guide-slow" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">電腦變慢、卡頓？先做這 6 個自救動作</h2>
+            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>開機要等很久、開程式轉圈圈、滑鼠會頓、風扇一直狂轉。變慢通常不是壞掉，而是太操勞或太久沒整理：</p>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先重開機，不是關螢幕。</span>很多人一個月沒真正重開過。從開始選單選「重新啟動」，讓系統把卡住的東西清乾淨。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 看誰在吃效能。</span>按 Ctrl+Shift+Esc 開「工作管理員」，看 CPU、記憶體、磁碟哪個衝到 90% 以上，排第一名的程式就是兇手，先把它關掉。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 清出硬碟空間。</span>C 槽至少留 15% 空間。桌面、下載資料夾最容易塞爆，先把大檔案搬到外接硬碟或雲端。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 關掉開機自動啟動。</span>工作管理員→「啟動」分頁，把用不到的程式改成「已停用」，開機速度會差很多。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 掃一次毒。</span>用 Windows 內建的「Windows 安全性」跑完整掃描。瀏覽器如果一直跳廣告、首頁被換掉，多半中了廣告程式。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">6. 摸摸看是不是太熱。</span>筆電出風口是不是燙手、風扇是不是一直全速？散熱孔清灰塵、墊高機身通風。桌機用了好幾年沒清過，散熱膏乾掉也會讓它熱到降速——這部分建議交給我們處理，不要自己拆散熱器。</span></li>
+            </ol>
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再硬撐了</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>硬碟發出「喀喀」規律異音——先立刻備份重要檔案，不要再反覆開關機操它</li>
+                    <li>用了 5 年以上的傳統硬碟（HDD）還沒換 SSD，慢多半是硬碟老化</li>
+                    <li>掃毒掃出東西卻清不掉，或檔案莫名被加密（勒索病毒前兆）——先拔網路線再找我們</li>
+                </ul>
+            </div>
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">做完還是慢？</span><br>老電腦換 SSD、加記憶體通常就能回春。拍下你的電腦型號傳 LINE，我們幫你看升級划不划算，不換新也沒關係。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
+            </div>
+        </article>
+
+        <article id="guide-wifi" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">網路、Wi-Fi 突然斷線？照順序這樣排除</h2>
+            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>Wi-Fi 圖示出現驚嘆號、連得上但沒網路、只有某一台裝置上不了網。網路問題最忌亂按，照順序來：</p>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先確認範圍。</span>手機、其他電腦也斷嗎？只有一台斷→問題在那台；全部都斷→問題在分享器或電信業者。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 正確重開網路設備。</span>把數據機和 Wi-Fi 分享器的電源都拔掉，等 30 秒，先插數據機、等燈號穩定（約 2 分鐘），再插分享器。順序錯了常常白重開。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 看燈號。</span>數據機如果亮紅燈、或該亮的燈沒亮，先拍照記下來，這通常是線路或業者端問題。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 只有一台不行時。</span>把那台的 Wi-Fi 關掉重開；再不行就「忘記這個網路」重新連、重新打密碼。筆電也確認沒有誤開飛航模式。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 換個方式連連看。</span>桌機改插網路線測試、手機靠近分享器測試。如果插線正常、Wi-Fi 不行，多半是分享器老化或訊號被遮擋。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">6. 查業者公告。</span>中華電信、凱擘等業者網站或粉專會公告區域障礙與施工，颱風大雨後特別常見，全區障礙就只能等修復。</span></li>
+            </ol>
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再自己試了</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>分享器用了 5 年以上、重開後撐不久又斷——多半是設備老化，換新比一直重開划算</li>
+                    <li>數據機燈號異常且業者說線路正常，可能是屋內線路或設備故障</li>
+                    <li>全家裝置都連得上、速度卻慢到異常，先確認是不是有人在大量下載，或帳單、方案被限速</li>
+                </ul>
+            </div>
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">搞不清楚是哪一段壞？</span><br>把數據機、分享器的燈號拍下來傳 LINE，我們看燈號就能先判斷是線路、設備還是設定問題。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
+            </div>
+        </article>
+
+        <article id="guide-bsod" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">藍屏、當機一直重開？初步判斷這樣做</h2>
+            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>用到一半跳藍色畫面（藍屏）、畫面凍結滑鼠不動、或自己重新開機。藍屏不是世界末日，它其實是電腦在告訴你哪裡出問題：</p>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 把藍屏拍下來。</span>藍屏下方有一串錯誤代碼（例如 MEMORY_MANAGEMENT、IRQL_NOT_LESS_OR_EQUAL），先用手機拍清楚，這是師傅最需要的線索。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 回想最近改了什麼。</span>藍屏前有沒有裝新軟體、更新驅動程式、加新硬體、或 Windows 剛更新完？十之八九跟最近的變動有關，先記下來。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 先拔外接裝置再開機。</span>外接硬碟、USB 裝置先全拔，只留鍵盤滑鼠螢幕，能正常進桌面就逐一插回找兇手。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 注意溫度與灰塵。</span>當機都發生在打遊戲、剪影片這種高負載時？機身是不是很燙、風扇很吵？過熱保護也會造成當機重開，這種多半清灰塵、換散熱膏能改善（拆機清潔建議交給我們）。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 資料重要先備份。</span>如果還能進桌面，第一件事是把重要檔案備份到外接硬碟或雲端，再慢慢查。不要在這種狀態下直接重灌，資料會先不見。</span></li>
+            </ol>
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再自己試了</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>藍屏越來越頻繁，從偶爾變成每天、甚至開機就藍</li>
+                    <li>伴隨硬碟異音、檔案莫名損壞或消失——硬碟可能快壞了，先停手保資料</li>
+                    <li>自己完全沒動任何設定就突然開始當機，多半是硬體（記憶體、硬碟、電源）出問題，需要檢測儀器判斷，<span class="font-bold text-red-600">不要自行拆記憶體或電源供應器測試</span></li>
+                </ul>
+            </div>
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">藍屏照片拍好了？</span><br>直接傳 LINE 給我們，錯誤代碼一看就知道往哪個方向查，先免費評估、報價透明，確認後再預約維修。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
+            </div>
+        </article>
+
+    </main>
+
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-4">自己查不出的，就交給我們</h2>
+            <p class="text-gray-600 text-lg mb-10">迅修電腦在台中南屯，全預約制：平日晚上、假日都能約。先拍照評估不用錢，價格确认後再決定修不修。</p>
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#00b300] transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fab fa-line mr-3 text-2xl"></i> 拍照傳 LINE 免費評估
+                </a>
+                <a href="index.html" class="bg-brand-dark text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fas fa-home mr-3"></i> 回首頁看服務項目
+                </a>
+            </div>
+        </div>
+    </section>
+
+<footer class="bg-gray-900 text-gray-400 py-12 text-center border-t border-white/10 flex flex-col items-center justify-center">
+        <a href="index.html" class="flex items-center justify-center gap-3 group select-none mb-6">
+            <div class="w-12 h-12 bg-brand-gold text-brand-dark flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-microchip text-2xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                 <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none group-hover:text-brand-gold transition-colors duration-300 italic">SWIFT</span>
+                 <span class="bg-brand-gold text-brand-dark text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </a>
+        <p class="text-sm text-gray-300 font-medium">夜間到府・客製組裝・透明報價</p>
+        <p class="mt-6 text-sm text-gray-500">© 2026 Swift 迅修電腦. 台中彰化專業電腦管家. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
