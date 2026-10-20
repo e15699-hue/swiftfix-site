@@ -142,6 +142,7 @@
                 <p id="resultName" class="text-xl font-bold text-brand-gold mb-3"></p>
                 <p id="resultRange" class="text-4xl md:text-5xl font-black tracking-tight mb-4"></p>
                 <p id="resultNote" class="text-gray-200 leading-relaxed text-left md:text-center"></p>
+                <p id="buyerTip" class="hidden mt-3 text-sm text-brand-gold bg-brand-gold/10 border border-brand-gold/40 rounded-xl px-4 py-3 leading-relaxed text-left"></p>
             </div>
 
             <div class="mt-8 bg-brand-gold/15 border border-brand-gold/40 rounded-xl p-6 text-center">
@@ -224,7 +225,7 @@ const PRICE_DATA = {
     { name: "Mac mini M2 Pro（16GB / 512GB）", low: 24000, high: 32000, note: "規格版本差異大（晶片核心數、網路規格），此為常見 16GB/512GB 版本區間。" },
     { name: "iMac 24吋 M1（16GB / 256GB）", low: 17000, high: 21000, note: "盒裝、鍵盤滑鼠完整、熱門顏色的價格較好；螢幕狀態是檢查重點。" }
   ]},
-  ipad: { label: "iPad", items: [
+  ipad: { label: "iPad", tip: "💡 想買給小孩當學習機？WiFi 版就夠用（Cellular 版多花的錢拿去買保護殼更實在）；面交時檢查電池健康度 85% 以上、確認無維修紀錄，並請賣家出示購買證明。拿不定主意，拍照傳 LINE 請老闆幫你看一眼。", items: [
     { name: "iPad Air 5（M1，64GB WiFi）", low: 8000, high: 11000, note: "電池健康度 81% 左右的約在下段；含 Apple Pencil 2 一起賣通常比較好脫手。" },
     { name: "iPad Air 11吋 M2（128GB WiFi）", low: 11000, high: 14000, note: "13 吋版本約再加 2,000–3,000；Cellular 版通常比 WiFi 版多 2,500 左右。" },
     { name: "iPad Air 11吋 M3（128GB WiFi）", low: 14000, high: 17000, note: "還在保固內的接近上限，購買證明記得留著一起給買家。" },
@@ -238,6 +239,7 @@ const itemSelect = document.getElementById('itemSelect');
 const resultName = document.getElementById('resultName');
 const resultRange = document.getElementById('resultRange');
 const resultNote = document.getElementById('resultNote');
+const buyerTip = document.getElementById('buyerTip');
 
 function fmt(n) { return 'NT$ ' + n.toLocaleString('en-US'); }
 
@@ -254,10 +256,13 @@ function fillItems() {
 }
 
 function showResult() {
-  const item = PRICE_DATA[catSelect.value].items[Number(itemSelect.value)];
+  const cat = PRICE_DATA[catSelect.value];
+  const item = cat.items[Number(itemSelect.value)];
   resultName.textContent = item.name;
   resultRange.textContent = fmt(item.low) + ' – ' + fmt(item.high);
   resultNote.textContent = item.note;
+  if (cat.tip) { buyerTip.textContent = cat.tip; buyerTip.classList.remove('hidden'); }
+  else { buyerTip.classList.add('hidden'); }
 }
 
 Object.keys(PRICE_DATA).forEach(function (key) {
