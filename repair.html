@@ -74,8 +74,6 @@
                 </a>
                 <div class="pt-6 border-t border-white/10 flex justify-center space-x-4 text-sm text-gray-500">
                     <a href="https://lin.ee/p2z9vkn" target="_blank" class="hover:text-brand-gold transition"><i class="fab fa-line mr-1"></i>LINE 客服</a>
-                    <span>|</span>
-                    <a href="tel:0976666643" class="hover:text-brand-gold transition"><i class="fas fa-phone mr-1"></i>0976-666-643</a>
                 </div>
             </div>
         </div>
@@ -88,6 +86,19 @@
         // --- 設定區 ---
         // 請在此處填入您部署 GAS 得到的「網路應用程式網址」
         const GAS_URL = "https://script.google.com/macros/s/AKfycbzDiaoCACOzF_RvjQIfUErTsADnc7pic2OBNRvMToG4ovR9EBwVeUnLBy1Rae8p-BrT/exec";
+
+        // 轉義 HTML，避免試算表內容被當成 HTML 執行
+        function escapeHtml(s) {
+            return String(s == null ? '' : s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        // 電話欄按 Enter 直接查詢（手機鍵盤「前往/搜尋」鍵可用）
+        document.getElementById('phone').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') { e.preventDefault(); doQuery(); }
+        });
 
         async function doQuery() {
             const phoneInput = document.getElementById('phone');
@@ -129,12 +140,12 @@
                         html += `
                             <div class="bg-white/5 border border-white/10 p-4 rounded-2xl border-l-4 ${borderColorClass} mb-4">
                                 <div class="flex justify-between items-start mb-2 gap-2">
-                                    <h4 class="font-bold text-white text-base leading-tight">${item.description}</h4>
-                                    <span class="text-[10px] text-gray-500 whitespace-nowrap bg-black/30 px-2 py-1 rounded-full">${item.date}</span>
+                                    <h4 class="font-bold text-white text-base leading-tight">${escapeHtml(item.description)}</h4>
+                                    <span class="text-[10px] text-gray-500 whitespace-nowrap bg-black/30 px-2 py-1 rounded-full">${escapeHtml(item.date)}</span>
                                 </div>
                                 <div class="${bgColorClass} p-3 rounded-xl">
                                     <p class="${themeColorClass} text-sm font-bold flex items-center">
-                                        <i class="fas ${iconClass} mr-2"></i>${item.progress}
+                                        <i class="fas ${iconClass} mr-2"></i>${escapeHtml(item.progress)}
                                     </p>
                                 </div>
                             </div>
