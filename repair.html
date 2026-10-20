@@ -65,6 +65,9 @@
                 <i class="fas fa-info-circle text-2xl brand-gold mb-2"></i>
                 <p class="text-brand-gold font-bold text-sm">查無進行中的維修項目。</p>
                 <p class="text-gray-400 text-xs mt-1 leading-relaxed">如有疑問請聯繫 LINE 官方客服，<br>或確認輸入的號碼是否正確。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> 一鍵開啟 LINE 客服
+                </a>
             </div>
             <!-- Help Links & Home Button -->
             <div class="mt-8">
@@ -73,7 +76,7 @@
                     <span class="text-sm">返回首頁</span>
                 </a>
                 <div class="pt-6 border-t border-white/10 flex justify-center space-x-4 text-sm text-gray-500">
-                    <a href="https://lin.ee/p2z9vkn" target="_blank" class="hover:text-brand-gold transition"><i class="fab fa-line mr-1"></i>LINE 客服</a>
+                    <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="hover:text-brand-gold transition"><i class="fab fa-line mr-1"></i>LINE 客服</a>
                 </div>
             </div>
         </div>
@@ -100,6 +103,14 @@
             if (e.key === 'Enter') { e.preventDefault(); doQuery(); }
         });
 
+        // 回頭客：記住上次查詢的電話，開啟頁面自動帶入（僅本機 localStorage，不外傳）
+        (function () {
+            try {
+                const saved = localStorage.getItem('swiftfix_last_phone');
+                if (saved) { document.getElementById('phone').value = saved; }
+            } catch (e) { /* localStorage 不可用時忽略 */ }
+        })();
+
         async function doQuery() {
             const phoneInput = document.getElementById('phone');
             const resultDiv = document.getElementById('results');
@@ -113,6 +124,9 @@
                 phoneInput.focus();
                 return;
             }
+
+            // 記住這次的電話，下次開頁自動帶入（僅本機 localStorage）
+            try { localStorage.setItem('swiftfix_last_phone', phone); } catch (e) { /* 忽略 */ }
 
             // Reset UI
             resultDiv.classList.add('hidden');
