@@ -69,6 +69,16 @@
                     <i class="fab fa-line mr-2 text-xl"></i> 一鍵開啟 LINE 客服
                 </a>
             </div>
+
+            <!-- Error Segment（逾時／連線失敗：頁內提示＋LINE 出口，不用 alert） -->
+            <div id="error" class="mt-8 hidden text-center bg-red-500/10 p-5 rounded-2xl border border-red-500/30">
+                <i class="fas fa-exclamation-triangle text-2xl text-red-400 mb-2"></i>
+                <p id="errorMsg" class="text-red-300 font-bold text-sm leading-relaxed"></p>
+                <p class="text-gray-400 text-xs mt-1 leading-relaxed">可以按查詢再試一次，<br>或直接傳 LINE 問老闆目前的維修進度。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> 直接傳 LINE 問進度
+                </a>
+            </div>
             <!-- Help Links & Home Button -->
             <div class="mt-8">
                 <a href="/" class="flex flex-col items-center justify-center w-full bg-slate-800 hover:bg-slate-700 text-white font-medium py-3 rounded-2xl transition border border-white/10 group shadow-lg mb-6">
@@ -115,6 +125,8 @@
             const phoneInput = document.getElementById('phone');
             const resultDiv = document.getElementById('results');
             const emptyDiv = document.getElementById('empty');
+            const errorDiv = document.getElementById('error');
+            const errorMsg = document.getElementById('errorMsg');
             const loadingDiv = document.getElementById('loading');
             const btn = document.getElementById('btn');
             
@@ -134,11 +146,17 @@
             resultDiv.classList.add('hidden');
             resultDiv.innerHTML = '';
             emptyDiv.classList.add('hidden');
+            errorDiv.classList.add('hidden');
             loadingDiv.classList.remove('hidden');
             btn.disabled = true;
 
+            // GAS 冷啟動或網路卡住時不讓使用者無限轉圈：15 秒逾時
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 15000);
+
             try {
-                const response = await fetch(`${GAS_URL}?phone=${encodeURIComponent(phone)}`);
+                const response = await fetch(`${GAS_URL}?phone=${encodeURIComponent(phone)}`, { signal: controller.signal });
+                clearTimeout(timer);
                 const data = await response.json();
 
                 loadingDiv.classList.add('hidden');
@@ -173,10 +191,15 @@
                     emptyDiv.classList.remove('hidden');
                 }
             } catch (error) {
+                clearTimeout(timer);
                 console.error("Query Error:", error);
                 loadingDiv.classList.add('hidden');
                 btn.disabled = false;
-                alert('連線雲端發生錯誤，請確認網路或聯繫客服。');
+                // 逾時和一般連線失敗都給頁內提示＋LINE 出口（手機上 alert 體驗差）
+                errorMsg.textContent = (error && error.name === 'AbortError')
+                    ? '查詢逾時（超過 15 秒沒有回應），可能是雲端服務剛睡醒。'
+                    : '連線雲端發生錯誤，請確認網路連線。';
+                errorDiv.classList.remove('hidden');
             }
         }
     </script>
