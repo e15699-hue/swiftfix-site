@@ -63,8 +63,8 @@
             <!-- Empty Segment -->
             <div id="empty" class="mt-8 hidden text-center bg-brand-gold/10 p-5 rounded-2xl border border-brand-gold/20">
                 <i class="fas fa-info-circle text-2xl brand-gold mb-2"></i>
-                <p class="text-brand-gold font-bold text-sm">查無進行中的維修項目。</p>
-                <p class="text-gray-400 text-xs mt-1 leading-relaxed">如有疑問請聯繫 LINE 官方客服，<br>或確認輸入的號碼是否正確。</p>
+                <p class="text-brand-gold font-bold text-sm">找不到這支電話的維修紀錄。</p>
+                <p class="text-gray-400 text-xs mt-1 leading-relaxed">請確認輸入的是您送修時留下的電話號碼；<br>若剛送修不久，資料可能還在登記中，<br>直接傳 LINE 問老闆最快。</p>
                 <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
                     <i class="fab fa-line mr-2 text-xl"></i> 一鍵開啟 LINE 客服
                 </a>
@@ -163,7 +163,7 @@
                 btn.disabled = false;
 
                 if (data && data.length > 0) {
-                    let html = '<div class="text-xs font-bold text-brand-gold mb-3 ml-1">查詢結果：</div>';
+                    let html = '<div class="text-xs font-bold text-brand-gold mb-3 ml-1">查詢結果：共 ' + data.length + ' 筆（進行中＋已完成）</div>';
                     data.forEach(item => {
                         const isCompleted = item.status === 'completed';
                         const themeColorClass = isCompleted ? 'text-emerald-500' : 'text-brand-gold';
