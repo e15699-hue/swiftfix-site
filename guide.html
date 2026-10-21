@@ -44,6 +44,106 @@
         .check-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
         .check-list li i { margin-top: 0.3rem; }
     </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "電腦開不了機怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先確認電源真的有進來：換插座、檢查延長線開關與電源線有沒有插緊；再確認螢幕電源燈有亮、訊號來源（HDMI／DP）選對；接著拔掉所有 USB 外接裝置只留電源、螢幕、鍵盤滑鼠再開一次；還是不行就長按電源鍵 10 秒強制斷電，等 30 秒再開。聞到燒焦味、冒煙或電源有異音火花就別再試，直接送修。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "筆電完全沒反應、開不了機怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先插著充電器等 10 分鐘（電池完全放乾時不會馬上有反應），再按電源鍵。再不行做「放電重置」：拔掉充電器和所有外接裝置，按住電源鍵整整 40 秒不要放，放開後插回充電器再開機——主機板殘留靜電和當掉的電源管理晶片常靠這招醒來。充電燈不亮就換插座、檢查充電線；可拆電池的機型可先拔電池、只插充電器試。注意：底殼或觸控板鼓起來是電池膨脹，不要再充電使用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "電腦變慢、卡頓怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先從開始選單選「重新啟動」真正重開一次；按 Ctrl+Shift+Esc 開工作管理員，看 CPU、記憶體、磁碟哪個衝到 90% 以上，先關掉排第一名的程式；C 槽至少留 15% 空間；在工作管理員「啟動」分頁停用用不到的開機自動啟動程式；用 Windows 安全性跑一次完整掃毒；最後摸摸看機身是不是過熱，出風口清灰塵、墊高通風。硬碟若發出規律「喀喀」異音，先立刻備份，不要再反覆開關機。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "網路、Wi-Fi 突然斷線怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先確認是只有一台裝置斷、還是全部都斷：只有一台→問題在那台；全部都斷→問題在分享器或電信業者。正確重開方式：數據機和 Wi-Fi 分享器電源都拔掉等 30 秒，先插數據機、等燈號穩定約 2 分鐘，再插分享器。只有一台不行時，把 Wi-Fi 關掉重開，或「忘記這個網路」重新連線打密碼。數據機亮紅燈多半是線路或業者端問題，可先查業者障礙公告。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "電腦藍屏、當機一直重開怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先把藍屏下方的錯誤代碼用手機拍下來（例如 MEMORY_MANAGEMENT），這是維修最重要的線索；回想藍屏前有沒有裝新軟體、更新驅動、加新硬體；拔掉所有外接裝置只留鍵盤滑鼠螢幕再開機；當機都發生在打遊戲、剪影片等高負載時，多半與過熱有關。如果還能進桌面，第一件事是先備份重要檔案，不要直接重灌。藍屏越來越頻繁、或伴隨硬碟異音與檔案損壞，建議盡快送修保資料。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "開機有聲音、風扇有轉，但螢幕黑畫面怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先按鍵盤亮度「＋」幾次（配合 Fn 鍵），亮度被調到最低時螢幕看起來像沒開；按 Win+Ctrl+Shift+B 重啟顯示驅動，會嗶一聲、畫面閃一下；按 Win+P 切換投影模式到「僅電腦螢幕」，系統有時把畫面送到不存在的第二螢幕；再用 HDMI 外接電視或另一台螢幕測試：外接有畫面多半是筆電面板或排線問題，外接也沒畫面比較像顯示晶片或主機板問題。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "電腦沒聲音、喇叭耳機都沒聲怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先確認沒有被靜音、音量沒被關到 0；最常見的兇手是聲音被送錯裝置：點右下角喇叭圖示切換輸出裝置（喇叭、耳機、螢幕 HDMI 都試一次）；耳機拔掉重插幾次，排除耳機孔誤判；藍牙耳機連著但不在身邊時聲音會送去那邊，關藍牙測一次；只有單一程式沒聲就看該程式或「音量混音程式」的個別設定，全部沒聲就重開機並跑 Windows 音效疑難排解員。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "USB 讀不到、隨身碟滑鼠鍵盤沒反應怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先換一個 USB 孔（桌機優先插主機後面的孔）；把裝置拿去插另一台電腦交叉測試，分清是裝置壞還是電腦的問題；無線鍵鼠先換電池、接收器拔起重插或重新配對；重開機後先只插一個裝置測試。特別注意：隨身碟跳出「需要格式化」時，裡面有重要資料千萬不要按格式化，也不要反覆插拔，先拔下來尋求資料救援。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "風扇很吵、機身很燙怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "按 Ctrl+Shift+Esc 看工作管理員裡誰在吃 CPU：Windows 更新、防毒掃描在跑時吵是正常的，等它跑完即可；不認識的程式長期佔用 90% 以上先關掉。筆電不要放在床上、沙發上用，墊高後方幫助進風；用軟毛刷清出風口、進風口的灰塵（不用拆機）。如果已經熱到會自動關機、風扇有卡卡異音，或筆電底殼鼓起（電池膨脹），就不要再硬開使用，盡快送修。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://swiftfix.com.tw/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "電腦自救小百科",
+      "item": "https://swiftfix.com.tw/guide.html"
+    }
+  ]
+}
+</script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845579320"></script>
