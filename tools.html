@@ -305,11 +305,25 @@
         <!-- 系統資訊 -->
         <section id="panel-sysinfo" class="tool-panel hidden bg-white rounded-2xl shadow-md border border-gray-100 p-5 md:p-8">
             <h2 class="text-2xl font-bold mb-2">系統資訊偵測</h2>
-            <p class="text-gray-600 mb-5">問維修最常卡在「你電腦是什麼系統、規格多少」——這裡一次整理好，按「複製檢測摘要」，貼到 LINE 給我們就行。資料只在你的瀏覽器產生，不會上傳；瀏覽器能讀到的有限，讀不到的會老實寫「無法偵測」。</p>
+            <p class="text-gray-600 mb-5">問維修最常卡在「你電腦是什麼系統、規格多少」——這裡一次整理好，按「複製檢測摘要」，貼到 LINE 給我們就行。資料只在你的瀏覽器產生，不會上傳。<br>先講清楚：<strong>顯示卡型號大多能直接讀到</strong>，但 CPU、主機板、記憶體和硬碟的具體型號，是瀏覽器故意不給網頁讀的（隱私設計，任何網站都一樣）。要那些型號，請用下面的一鍵檢測小程式。</p>
             <div class="overflow-x-auto">
                 <table class="w-full text-left">
                     <tbody id="sysTable" class="divide-y divide-gray-100"></tbody>
                 </table>
+            </div>
+            <div class="mt-8 bg-gray-50 border-2 border-dashed border-brand-gold rounded-2xl p-5 md:p-6">
+                <h3 class="text-xl font-bold mb-2"><i class="fas fa-microchip text-brand-gold-dark mr-2"></i>要具體型號？Windows 一鍵規格檢測</h3>
+                <p class="text-gray-600 mb-3">下載這個小程式、在你的 Windows 電腦上雙擊執行，它只讀取硬體資訊，會產生一份報告在桌面（同時自動複製），內容包括：<strong>電腦品牌型號、CPU 完整型號、主機板型號、每一條記憶體的容量與型號、顯示卡型號、每一顆硬碟的型號與健康狀態</strong>。把報告貼到 LINE 給我們，規格就一清二楚。</p>
+                <ul class="text-gray-600 text-sm space-y-1 mb-4">
+                    <li>✓ 只讀取、不修改任何東西，<strong>不會上傳</strong>，報告只產生在你自己的桌面</li>
+                    <li>✓ 不收集序號、不收集個人檔案；程式內容完全公開，懂的人可以先看原始碼再執行</li>
+                    <li>✓ Windows 跳出「Windows 已保護你的電腦」時，點「其他資訊」→「仍要執行」即可（未簽章的小程式都會跳這個畫面）</li>
+                </ul>
+                <div class="flex flex-wrap gap-3">
+                    <a href="spec/swiftfix-spec.bat" download class="px-5 py-3 rounded-lg bg-brand-dark text-white font-bold min-h-[48px] inline-flex items-center hover:bg-brand-gold hover:text-brand-dark transition"><i class="fas fa-download mr-2"></i>下載一鍵檢測（Windows）</a>
+                    <a href="spec/swiftfix-spec.ps1" target="_blank" class="px-5 py-3 rounded-lg bg-white border border-gray-300 font-bold min-h-[48px] inline-flex items-center">先看原始碼</a>
+                </div>
+                <p class="text-sm text-gray-500 mt-3">Mac 的話：點左上角  →「關於這台 Mac」截圖傳給我們就可以，晶片、記憶體、序號以外的資訊都在那一頁。</p>
             </div>
             <div class="flex flex-wrap gap-3 mt-6">
                 <button id="copySummary" class="px-5 py-3 rounded-lg bg-brand-dark text-white font-bold min-h-[48px] hover:bg-brand-gold hover:text-brand-dark transition"><i class="fas fa-copy mr-2"></i>複製檢測摘要</button>
@@ -647,22 +661,66 @@ addRow('系統語言', navigator.language || '無法偵測');
 addRow('時區', (Intl.DateTimeFormat().resolvedOptions().timeZone || '無法偵測'));
 addRow('網路狀態', navigator.onLine? '已連線': '離線');
 if(navigator.connection){ addRow('網路類型（估計）', (navigator.connection.effectiveType || '無法偵測') + (navigator.connection.downlink? '，約 ' + navigator.connection.downlink + ' Mbps': ''));}
+renderSys();
+if(navigator.getBattery){
+navigator.getBattery().then(function(b){
+addRow('電池', '電量 ' + Math.round(b.level * 100) + '%' + (b.charging? '（充電中）': ''));
+renderSys();
+}).catch(function(){});
+}
+enrichSys();
+markDone('sysinfo');
+}
+function renderSys(){
 var tb = $('sysTable'); tb.innerHTML = '';
 sysRows.forEach(function(r){
 var tr = document.createElement('tr');
-tr.innerHTML = '<td class="py-3 pr-4 font-bold whitespace-nowrap align-top">' + r[0] + '</td><td class="py-3">' + r[1] + '</td>';
+var td1 = document.createElement('td'); td1.className = 'py-3 pr-4 font-bold whitespace-nowrap align-top'; td1.textContent = r[0];
+var td2 = document.createElement('td'); td2.className = 'py-3'; td2.textContent = r[1];
+tr.appendChild(td1); tr.appendChild(td2);
 tb.appendChild(tr);
 });
-if(navigator.getBattery){
-navigator.getBattery().then(function(b){
-var tr = document.createElement('tr');
-tr.innerHTML = '<td class="py-3 pr-4 font-bold whitespace-nowrap align-top">電池</td><td class="py-3">電量 ' + Math.round(b.level * 100) + '%' + (b.charging? '（充電中）': '') + '</td>';
-tb.appendChild(tr);
-sysRows.push(['電池', '電量 ' + Math.round(b.level * 100) + '%' + (b.charging? '（充電中）': '')]);
-markDone('sysinfo');
+}
+function gpuInfo(){
+try {
+var cv = document.createElement('canvas');
+var gl = cv.getContext('webgl') || cv.getContext('experimental-webgl');
+if(!gl) return null;
+var ext = gl.getExtension('WEBGL_debug_renderer_info');
+var renderer = ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
+var vendor = ext ? gl.getParameter(ext.UNMASKED_VENDOR_WEBGL) : gl.getParameter(gl.VENDOR);
+return { renderer: String(renderer || ''), vendor: String(vendor || '') };
+} catch(e){ return null; }
+}
+function enrichSys(){
+var g = gpuInfo();
+if(g && g.renderer){ addRow('顯示卡型號（瀏覽器實測）', g.renderer.replace(/^ANGLE \(/, '').replace(/\)$/, '')); }
+if(window.matchMedia){
+var gamut = 'sRGB';
+try { if(matchMedia('(color-gamut: rec2020)').matches) gamut = 'Rec.2020'; else if(matchMedia('(color-gamut: p3)').matches) gamut = 'Display P3'; } catch(e){}
+var hdr = false; try { hdr = matchMedia('(dynamic-range: high)').matches; } catch(e){}
+addRow('螢幕色域／HDR', gamut + (hdr ? '，支援 HDR' : ''));
+}
+if(navigator.storage && navigator.storage.estimate){
+navigator.storage.estimate().then(function(est){
+if(est && est.quota){
+addRow('瀏覽器可用空間（估計，非硬碟型號）', '約 ' + (est.quota/1073741824).toFixed(0) + ' GB 配額');
+renderSys();
+}
 }).catch(function(){});
 }
-markDone('sysinfo');
+if(navigator.userAgentData && navigator.userAgentData.getHighEntropyValues){
+navigator.userAgentData.getHighEntropyValues(['model','platform','platformVersion','architecture','bitness']).then(function(d){
+if(d.model){ addRow('裝置型號（瀏覽器提供）', d.model); }
+if(d.platform){ 
+var osDetail = d.platform;
+if(d.platform === 'Windows' && d.platformVersion){ var pv = parseInt(d.platformVersion, 10); osDetail = pv >= 13 ? 'Windows 11' : (pv >= 1 ? 'Windows 10' : 'Windows'); }
+addRow('系統版本（精確）', osDetail);
+}
+if(d.architecture){ addRow('處理器架構', d.architecture + (d.bitness ? '（' + d.bitness + ' 位元）' : '')); }
+renderSys();
+}).catch(function(){});
+}
 }
 buildSys();
 function summaryText(){
