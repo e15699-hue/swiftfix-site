@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Cit9iJR0JOyNt_9GMHej3IoXCdoUKiSxOjfvYKye6N8" />
+
+    <title>電腦開機沒畫面、螢幕黑屏怎麼辦？嗶嗶聲代表什麼｜迅修電腦</title>
+    <link rel="canonical" href="https://swiftfix.com.tw/guide-no-display.html" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <meta name="description" content="電腦開機沒畫面、螢幕黑屏但風扇有轉？迅修電腦教您 6 步自救：亮度鍵、Win+Ctrl+Shift+B、外接螢幕測試，再看懂開機嗶嗶聲。台中南屯電腦維修，先拍照傳 LINE 免費評估。">
+    <meta name="author" content="Swift 迅修電腦">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="電腦開機沒畫面、螢幕黑屏怎麼辦？嗶嗶聲代表什麼｜迅修電腦">
+    <meta property="og:description" content="有電、沒畫面，一半以上不用花錢就解決。照 6 步檢查，再看懂嗶嗶聲在說什麼。">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://swiftfix.com.tw/guide-no-display.html">
+    <meta property="og:type" content="article">
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-dark': '#013e47',
+                'brand-gold': '#eebb4d',
+                'brand-gold-dark': '#d4a036',
+              }
+            }
+          }
+        }
+      </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        html { scroll-behavior: smooth; }
+        article { scroll-margin-top: 96px; }
+        .check-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .check-list li i { margin-top: 0.3rem; }
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "外接螢幕有畫面，代表什麼壞了？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "代表主機本身大多是好的，問題集中在原本的顯示端：筆電的話常見是面板或排線，桌機的話可能是螢幕本身或訊號線。這是好消息，通常不用動到主機板，維修範圍和費用都相對單純，實際仍以檢測為準。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "螢幕黑黑的，但看得到滑鼠游標，怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "這種「有游標、沒桌面」多半是系統或顯示驅動的問題（例如更新到一半），不是螢幕壞掉。可以先等 10 分鐘看它是否自己完成，或參考本文第二步重啟顯示驅動；反覆發生就建議檢測系統與硬碟健康，不要一直強制重開。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "筆電螢幕排線壞掉，值得修嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "排線更換的費用通常遠低於換整台筆電，如果機齡和效能還夠用，多半值得修。我們會先檢測確認是排線、面板還是主機板，報價給您之後再決定，不修也不收檢測費，請放心詢問。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://swiftfix.com.tw/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "電腦自救小百科",
+      "item": "https://swiftfix.com.tw/guide.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "開機沒畫面・螢幕黑屏",
+      "item": "https://swiftfix.com.tw/guide-no-display.html"
+    }
+  ]
+}
+</script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845579320"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17845579320');
+</script>
+
+<body class="bg-gray-50 text-brand-dark">
+
+    <nav class="bg-white shadow-sm fixed w-full z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+
+            <a href="index.html" class="flex items-center gap-3 group select-none">
+                <div class="w-12 h-12 bg-brand-dark text-brand-gold flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-microchip text-2xl"></i>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                    <span class="text-3xl md:text-4xl font-black tracking-tighter text-brand-dark leading-none group-hover:text-brand-gold-dark transition-colors duration-300 italic">SWIFT</span>
+                    <span class="bg-brand-gold text-brand-dark text-sm md:text-base font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm -mt-1 md:mt-0">迅修電腦</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-3 md:gap-8">
+                <div class="hidden lg:flex space-x-5 items-center font-medium">
+                    <div class="relative group">
+                        <span class="cursor-pointer text-brand-dark hover:text-brand-gold transition inline-flex items-center gap-1.5">電腦維修 <i class="fas fa-chevron-down text-[10px]"></i></span>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block z-50">
+                            <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-44 text-[15px]">
+                                <a href="index.html#services" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">服務項目</a>
+                                <a href="index.html#pricing" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">價目表</a>
+                                <a href="index.html#process" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">預約流程</a>
+                                <a href="repair.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">維修進度</a>
+                                <a href="index.html#faq" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">常見問題</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="guide.html" class="text-brand-dark hover:text-brand-gold transition">自救百科</a>
+                    <a href="tools.html" class="text-brand-dark hover:text-brand-gold transition">線上檢測</a>
+                    <a href="estimate.html" class="text-brand-dark hover:text-brand-gold transition">零件回收估價器</a>
+                    <a href="website.html" class="text-brand-gold-dark font-bold hover:text-brand-gold transition">一頁式網站</a>
+                </div>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-4 md:px-5 py-3 rounded-lg hover:bg-[#00b300] font-bold transition shadow-sm flex items-center min-h-[48px] text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> LINE 評估
+                </a>
+            </div>
+        </div>
+    
+            <div class="lg:hidden border-t border-gray-100 bg-white px-3 py-2 flex gap-2 overflow-x-auto whitespace-nowrap" style="scrollbar-width:none;-webkit-overflow-scrolling:touch">
+                <a href="index.html#services" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">服務項目</a>
+                <a href="index.html#pricing" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">價目表</a>
+                <a href="index.html#process" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">預約流程</a>
+                <a href="repair.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">維修進度</a>
+                <a href="guide.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">自救百科</a>
+                <a href="tools.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">線上檢測</a>
+                <a href="estimate.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">零件回收估價器</a>
+                <a href="website.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-yellow-100 text-brand-dark text-sm font-bold">一頁式網站</a>
+                <a href="index.html#faq" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">常見問題</a>
+            </div>
+        </nav>
+
+    <header class="bg-brand-dark text-white pt-32 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-brand-gold text-brand-dark font-bold px-4 py-1 rounded-full mb-6 text-sm md:text-base">
+                <i class="fas fa-book-medical mr-2"></i> 自救百科・黑屏篇
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">電腦開機沒畫面、螢幕黑屏？<br class="hidden md:block">先照 6 步自己叫醒它</h1>
+            <p class="text-lg md:text-xl text-gray-200 leading-relaxed">主機有在跑、螢幕卻全黑，多半是螢幕沒被叫醒或畫面送錯地方。照本文檢查一次，真的排除不了，再拍照傳 LINE 給我們，<span class="text-brand-gold font-bold">免費幫您評估</span>。</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 max-w-4xl py-14">
+        <p class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-gold-dark">首頁</a> ＞ <a href="guide.html" class="hover:text-brand-gold-dark">電腦自救小百科</a> ＞ 開機沒畫面・螢幕黑屏</p>
+        <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+
+            <p class="text-gray-600 leading-relaxed mb-6">按下電源鍵，燈有亮、風扇有轉，甚至聽得到開機音效，螢幕卻一片黑——先別急著判定它壞了。<span class="font-bold text-brand-dark">沒畫面很多時候是螢幕「沒被叫醒」，或是畫面被送錯地方</span>，照下面順序檢查，一半以上不用花錢就解決。</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">先分清楚：完全沒反應，還是「有電沒畫面」？</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">如果按電源鍵<span class="font-bold">完全沒燈、沒聲音、沒風扇</span>，那是供電問題，請先改看百科的<a href="guide.html#guide-power" class="text-brand-gold-dark font-bold">「電腦開不了機」篇</a>和<a href="guide.html#guide-laptop-power" class="text-brand-gold-dark font-bold">「筆電放電重置」篇</a>。本文處理的是另一種：<span class="font-bold">主機有在跑、螢幕卻黑的</span>——燈亮、風扇轉、有聲音，就是沒畫面。</p>
+
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 my-8">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">先花 3 分鐘照著試</span><br>下面 6 步都不用拆機、不用工具。如果試完還是黑的，把狀況（燈號、嗶聲、風扇聲）錄一段或拍下來傳 LINE，我們免費幫您先縮小範圍。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">開機沒畫面自救檢查清單（由簡到難）</h3>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先按亮度鍵。</span>筆電鍵盤上的亮度「＋」按幾次（通常要配合 Fn 鍵）。亮度被不小心調到最低時，螢幕看起來跟沒開一樣，這一步救回的人非常多。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 按 Win+Ctrl+Shift+B 重啟顯示驅動。</span>這是 Windows 內建的顯示驅動重啟快捷鍵，按下去會「嗶」一聲、畫面閃一下。如果是顯示驅動當掉，畫面常常就這樣回來了。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 切換投影模式。</span>按 Win+P，再連按幾次或配合方向鍵切換到「僅電腦螢幕」。系統有時會誤以為接了第二台螢幕，把畫面送到不存在的螢幕去；筆電也可以試 Fn＋投影鍵（圖示是螢幕的那一顆）。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 確認螢幕本身是醒著的（桌機必看）。</span>螢幕電源燈有亮嗎？訊號來源（HDMI／DP）有沒有選對？訊號線兩端拔起來重插一次，線有沒有被椅子壓傷。這類「線鬆了」的烏龍，其實占了沒畫面案例很大一部分。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 外接螢幕或電視測看看。</span>用 HDMI 線把筆電或主機接到電視、另一台螢幕。外接有畫面→多半是原本的螢幕面板或排線問題；外接也沒畫面→比較像顯示晶片或主機板問題。把這個結果告訴師傅，診斷會快很多。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">6. 蓋上再打開，喚醒它。</span>筆電有時是睡眠喚醒卡住：把上蓋蓋上等 30 秒再打開，或長按電源鍵 10 秒強制關機、等 30 秒再開一次。如果有聽到開機嗶聲，也請把嗶聲的節奏記下來（下面有說明）。</span></li>
+            </ol>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">開機「嗶嗶聲」在跟您說什麼？</h3>
+            <p class="text-gray-600 leading-relaxed mb-8">桌機和部分筆電開機時會嗶一聲，那是主機板在做自我檢測的「報告」：<span class="font-bold">短嗶一聲通常代表檢測正常</span>；如果是連續短嗶、或一長數短反覆出現，常和記憶體、顯示卡接觸不良或異常有關。不過各廠牌主機板的代碼定義不完全一樣，與其自己猜，最實用的做法是<span class="font-bold">把嗶聲錄下來、記下「幾長幾短」的節奏</span>，傳給師傅判讀，這會是很有價值的線索。</p>
+
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再自己試了</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>螢幕有裂痕、彩色直線，或摔過、壓到之後才黑屏——多半是面板受損，需要換螢幕</li>
+                    <li>開合筆電螢幕角度不同時畫面閃爍、時好時壞——排線可能快斷了，請不要再反覆開合硬撐</li>
+                    <li>外接螢幕也沒畫面，還伴隨反覆嗶嗶警報聲——把節奏錄下來給我們，不要自己拆記憶體測試</li>
+                    <li>黑屏同時聞到燒焦味或主機異常發燙，請先拔掉電源再聯絡我們</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 leading-relaxed">沒畫面的成因從最便宜的「線鬆了」到主機板都有，我們的檢測會先外接螢幕交叉確認，再往面板、排線、顯示晶片逐段縮小範圍，確認原因和報價後才會動手修，不會一來就叫您換螢幕。</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10">常見問題</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 外接螢幕有畫面，代表什麼壞了？</p>
+                    <p class="text-gray-600 leading-relaxed">代表主機本身大多是好的，問題集中在原本的顯示端：筆電的話常見是面板或排線，桌機的話可能是螢幕本身或訊號線。這是好消息，通常不用動到主機板，維修範圍和費用都相對單純，實際仍以檢測為準。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 螢幕黑黑的，但看得到滑鼠游標，怎麼辦？</p>
+                    <p class="text-gray-600 leading-relaxed">這種「有游標、沒桌面」多半是系統或顯示驅動的問題（例如更新到一半），不是螢幕壞掉。可以先等 10 分鐘看它是否自己完成，或參考本文第二步重啟顯示驅動；反覆發生就建議檢測系統與硬碟健康，不要一直強制重開。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 筆電螢幕排線壞掉，值得修嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">排線更換的費用通常遠低於換整台筆電，如果機齡和效能還夠用，多半值得修。我們會先檢測確認是排線、面板還是主機板，報價給您之後再決定，不修也不收檢測費，請放心詢問。</p>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm mt-10">相關文章：<a href="guide-overheat.html" class="text-brand-gold-dark font-bold">筆電過熱、風扇很大聲怎麼辦</a>、<a href="guide-bluescreen.html" class="text-brand-gold-dark font-bold">電腦藍屏、一直重開機怎麼辦</a>、<a href="guide.html" class="text-brand-gold-dark font-bold">自救百科總覽</a></p>
+        </article>
+    </main>
+
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-4">叫不醒的螢幕，就交給我們</h2>
+            <p class="text-gray-600 text-lg mb-10">迅修電腦在台中市南屯區，全預約制：平日晚上、假日都能約。先拍照評估不收費，價格確認後再決定修不修。</p>
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#00b300] transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fab fa-line mr-3 text-2xl"></i> 拍照傳 LINE 免費評估
+                </a>
+                <a href="guide.html" class="bg-brand-dark text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fas fa-book-medical mr-3"></i> 回自救百科看其他狀況
+                </a>
+            </div>
+        </div>
+    </section>
+
+<footer class="bg-gray-900 text-gray-400 py-12 text-center border-t border-white/10 flex flex-col items-center justify-center">
+        <a href="index.html" class="flex items-center justify-center gap-3 group select-none mb-6">
+            <div class="w-12 h-12 bg-brand-gold text-brand-dark flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-microchip text-2xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                 <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none group-hover:text-brand-gold transition-colors duration-300 italic">SWIFT</span>
+                 <span class="bg-brand-gold text-brand-dark text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </a>
+        <p class="text-sm text-gray-300 font-medium">夜間到府・客製組裝・透明報價</p>
+        <p class="mt-6 text-sm text-gray-500">© 2026 Swift 迅修電腦. 台中彰化專業電腦管家. 統編 94538172. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

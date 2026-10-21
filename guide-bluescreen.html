@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Cit9iJR0JOyNt_9GMHej3IoXCdoUKiSxOjfvYKye6N8" />
+
+    <title>電腦藍屏怎麼辦？藍屏代碼怎麼看、一直重開機先這樣做｜迅修電腦</title>
+    <link rel="canonical" href="https://swiftfix.com.tw/guide-bluescreen.html" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <meta name="description" content="電腦藍屏（BSOD）、自動重開機怎麼辦？迅修電腦教您看懂常見藍屏代碼（MEMORY_MANAGEMENT、WHEA 等），照 6 步自救檢查先備份再判斷。台中南屯電腦維修，藍屏照片傳 LINE 免費評估。">
+    <meta name="author" content="Swift 迅修電腦">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="電腦藍屏怎麼辦？藍屏代碼怎麼看、一直重開機先這樣做｜迅修電腦">
+    <meta property="og:description" content="藍屏不是世界末日，代碼就是線索。先拍照、備份，再照清單判断方向，一次看懂。">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://swiftfix.com.tw/guide-bluescreen.html">
+    <meta property="og:type" content="article">
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-dark': '#013e47',
+                'brand-gold': '#eebb4d',
+                'brand-gold-dark': '#d4a036',
+              }
+            }
+          }
+        }
+      </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        html { scroll-behavior: smooth; }
+        article { scroll-margin-top: 96px; }
+        .check-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .check-list li i { margin-top: 0.3rem; }
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "電腦藍屏會自己好嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "偶爾一次的藍屏（例如剛好遇到系統更新出包）確實可能不再出現，可以先觀察。但如果一週內出現兩次以上、或頻率越來越高，就代表背後的原因還在，不會自己消失，建議盡快檢測，特別是硬碟和記憶體的問題越拖越傷資料。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "藍屏是不是一定要重灌？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定。很多藍屏是驅動程式、單一軟體或硬體接觸不良造成的，處理好原因就不用重灌。只有系統檔案損壞嚴重、或確認是系統本身問題時，我們才會建議重灌，而且會先幫您把資料備份出來再進行。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "藍屏照片傳 LINE 就可以先判斷嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以先給方向。錯誤代碼加上發生時機（例如打遊戲才藍、開機就藍），通常能先縮小到一兩個嫌疑零件，我們會回覆您初步判斷和檢測建議；要完全確認，還是需要實機跑檢測，這部分評估不收費，請放心傳。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://swiftfix.com.tw/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "電腦自救小百科",
+      "item": "https://swiftfix.com.tw/guide.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "電腦藍屏・自動重開機",
+      "item": "https://swiftfix.com.tw/guide-bluescreen.html"
+    }
+  ]
+}
+</script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845579320"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17845579320');
+</script>
+
+<body class="bg-gray-50 text-brand-dark">
+
+    <nav class="bg-white shadow-sm fixed w-full z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+
+            <a href="index.html" class="flex items-center gap-3 group select-none">
+                <div class="w-12 h-12 bg-brand-dark text-brand-gold flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-microchip text-2xl"></i>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                    <span class="text-3xl md:text-4xl font-black tracking-tighter text-brand-dark leading-none group-hover:text-brand-gold-dark transition-colors duration-300 italic">SWIFT</span>
+                    <span class="bg-brand-gold text-brand-dark text-sm md:text-base font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm -mt-1 md:mt-0">迅修電腦</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-3 md:gap-8">
+                <div class="hidden lg:flex space-x-5 items-center font-medium">
+                    <div class="relative group">
+                        <span class="cursor-pointer text-brand-dark hover:text-brand-gold transition inline-flex items-center gap-1.5">電腦維修 <i class="fas fa-chevron-down text-[10px]"></i></span>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block z-50">
+                            <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-44 text-[15px]">
+                                <a href="index.html#services" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">服務項目</a>
+                                <a href="index.html#pricing" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">價目表</a>
+                                <a href="index.html#process" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">預約流程</a>
+                                <a href="repair.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">維修進度</a>
+                                <a href="index.html#faq" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">常見問題</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="guide.html" class="text-brand-dark hover:text-brand-gold transition">自救百科</a>
+                    <a href="tools.html" class="text-brand-dark hover:text-brand-gold transition">線上檢測</a>
+                    <a href="estimate.html" class="text-brand-dark hover:text-brand-gold transition">零件回收估價器</a>
+                    <a href="website.html" class="text-brand-gold-dark font-bold hover:text-brand-gold transition">一頁式網站</a>
+                </div>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-4 md:px-5 py-3 rounded-lg hover:bg-[#00b300] font-bold transition shadow-sm flex items-center min-h-[48px] text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> LINE 評估
+                </a>
+            </div>
+        </div>
+    
+            <div class="lg:hidden border-t border-gray-100 bg-white px-3 py-2 flex gap-2 overflow-x-auto whitespace-nowrap" style="scrollbar-width:none;-webkit-overflow-scrolling:touch">
+                <a href="index.html#services" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">服務項目</a>
+                <a href="index.html#pricing" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">價目表</a>
+                <a href="index.html#process" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">預約流程</a>
+                <a href="repair.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">維修進度</a>
+                <a href="guide.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">自救百科</a>
+                <a href="tools.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">線上檢測</a>
+                <a href="estimate.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">零件回收估價器</a>
+                <a href="website.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-yellow-100 text-brand-dark text-sm font-bold">一頁式網站</a>
+                <a href="index.html#faq" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">常見問題</a>
+            </div>
+        </nav>
+
+    <header class="bg-brand-dark text-white pt-32 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-brand-gold text-brand-dark font-bold px-4 py-1 rounded-full mb-6 text-sm md:text-base">
+                <i class="fas fa-book-medical mr-2"></i> 自救百科・藍屏篇
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">電腦藍屏、一直重開機？<br class="hidden md:block">先拍照，再照順序判斷</h1>
+            <p class="text-lg md:text-xl text-gray-200 leading-relaxed">藍屏是電腦在保護自己，畫面上的錯誤代碼就是線索。照本文先把代碼和資料顧好，真的排除不了，再拍照傳 LINE 給我們，<span class="text-brand-gold font-bold">免費幫您評估</span>。</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 max-w-4xl py-14">
+        <p class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-gold-dark">首頁</a> ＞ <a href="guide.html" class="hover:text-brand-gold-dark">電腦自救小百科</a> ＞ 電腦藍屏・自動重開機</p>
+        <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+
+            <p class="text-gray-600 leading-relaxed mb-6">用到一半突然跳出藍色畫面、還自己重新開機，確實很嚇人。但請先放心：<span class="font-bold text-brand-dark">藍屏（BSOD）是 Windows 的保護機制</span>，它寧可先停下來，也不要讓錯誤繼續傷害系統和資料。藍屏畫面上的錯誤代碼，就是它留給我們的線索。</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">常見電腦藍屏代碼，先看懂方向</h3>
+            <ul class="text-gray-700 leading-relaxed space-y-2 list-disc list-inside mb-4">
+                <li><span class="font-bold">MEMORY_MANAGEMENT、PAGE_FAULT_IN_NONPAGED_AREA：</span>多半和記憶體有關，記憶體老化、接觸不良，或驅動程式寫錯位置。</li>
+                <li><span class="font-bold">IRQL_NOT_LESS_OR_EQUAL、DRIVER_IRQL_NOT_LESS_OR_EQUAL：</span>常見於驅動程式出問題，特別是剛更新或剛裝新硬體之後。</li>
+                <li><span class="font-bold">CRITICAL_PROCESS_DIED：</span>系統關鍵程序停止，可能和系統檔案損壞或硬碟狀況有關。</li>
+                <li><span class="font-bold">INACCESSIBLE_BOOT_DEVICE：</span>開機時找不到系統碟，硬碟故障或開機設定跑掉時常見。</li>
+                <li><span class="font-bold">WHEA_UNCORRECTABLE_ERROR：</span>指向硬體層級錯誤（CPU、主機板、電源供應不穩），比較需要檢測儀器確認。</li>
+                <li><span class="font-bold">VIDEO_TDR_FAILURE：</span>顯示卡或其驅動回應逾時，打遊戲、看影片時發生要往這個方向查。</li>
+            </ul>
+            <p class="text-gray-600 leading-relaxed mb-8">提醒您：代碼只是方向，不是結論。同一串代碼可能有好幾種成因，最後還是要交叉檢測才能確定，千萬不要只看代碼就自己買零件來換。</p>
+
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 my-8">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">藍屏照片先傳給我們看</span><br>把藍屏畫面拍下來傳 LINE，錯誤代碼一看就知道往哪個方向查。先免費評估、報價透明，確認後再預約維修，不會要您先重灌賭一把。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">電腦藍屏自救檢查清單（由簡到難）</h3>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 把藍屏拍下來，代碼最重要。</span>藍屏畫面下方有一串英文錯誤代碼（例如 MEMORY_MANAGEMENT），先用手機拍清楚再讓它重開。這串代碼就是電腦留給我們的「病歷」，有拍到，診斷速度差很多。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 回想藍屏前改了什麼。</span>最近有沒有裝新軟體、更新驅動程式、Windows 剛更新完、或加了新硬體（記憶體、硬碟、顯示卡）？藍屏十之八九跟最近的變動有關，先把想到的記下來。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 拔掉所有外接裝置再開機。</span>外接硬碟、USB 隨身碟、讀卡機、印表機先全拔，只留電源、螢幕、鍵盤滑鼠。能正常進桌面的話，再逐一插回，大概就能找到兇手。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 還能進桌面，第一件事先備份。</span>把重要檔案（文件、照片、報告）先複製到外接硬碟或雲端，再慢慢查原因。千萬不要在藍屏頻繁的狀態下直接重灌系統，資料會先不見。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 記下藍屏發生的時機。</span>都是在打遊戲、剪影片這種高負載時發生？可能是過熱或顯示卡、電源問題；一開機就藍、或隨機亂跳？比較像記憶體、硬碟或系統檔案問題。發生時機是判斷方向的重要線索。</span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">6. 試試看安全模式。</span>如果連桌面都進不去，連續強制關機重開 2～3 次，Windows 通常會進入修復環境，選「安全模式」啟動；安全模式進得去，代表多半是驅動或軟體問題，硬體故障的機會較低，先在安全模式裡把資料備份出來。</span></li>
+            </ol>
+
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再自己試了</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>藍屏<span class="font-bold text-red-600">越來越頻繁</span>，從偶爾一次變成每天、甚至開機就藍</li>
+                    <li>伴隨硬碟「喀喀」異音、檔案莫名損壞或消失——硬碟可能快壞了，請先停手保資料</li>
+                    <li>自己完全沒動任何設定就突然開始當機，多半是硬體（記憶體、硬碟、電源）出問題，需要檢測判斷，<span class="font-bold text-red-600">不要自行拆記憶體或電源供應器測試</span></li>
+                    <li>藍屏後連安全模式都進不去，或修復環境一直失敗</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 leading-relaxed">如果您的藍屏是在打遊戲、剪影片時才出現，也建議順手看一下過熱篇：高負載熱當機和藍屏常常是同一件事的兩種表現。我們的檢測會把記憶體、硬碟健康、溫度與系統紀錄一起交叉比對，找出真正的兇手再報價給您。</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10">常見問題</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 電腦藍屏會自己好嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">偶爾一次的藍屏（例如剛好遇到系統更新出包）確實可能不再出現，可以先觀察。但如果一週內出現兩次以上、或頻率越來越高，就代表背後的原因還在，不會自己消失，建議盡快檢測，特別是硬碟和記憶體的問題越拖越傷資料。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 藍屏是不是一定要重灌？</p>
+                    <p class="text-gray-600 leading-relaxed">不一定。很多藍屏是驅動程式、單一軟體或硬體接觸不良造成的，處理好原因就不用重灌。只有系統檔案損壞嚴重、或確認是系統本身問題時，我們才會建議重灌，而且會先幫您把資料備份出來再進行。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 藍屏照片傳 LINE 就可以先判斷嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">可以先給方向。錯誤代碼加上發生時機（例如打遊戲才藍、開機就藍），通常能先縮小到一兩個嫌疑零件，我們會回覆您初步判斷和檢測建議；要完全確認，還是需要實機跑檢測，這部分評估不收費，請放心傳。</p>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm mt-10">相關文章：<a href="guide-overheat.html" class="text-brand-gold-dark font-bold">筆電過熱、風扇很大聲怎麼辦</a>、<a href="guide-no-display.html" class="text-brand-gold-dark font-bold">開機沒畫面、螢幕黑屏怎麼辦</a>、<a href="guide.html" class="text-brand-gold-dark font-bold">自救百科總覽</a></p>
+        </article>
+    </main>
+
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-4">藍屏一直來，就交給我們</h2>
+            <p class="text-gray-600 text-lg mb-10">迅修電腦在台中市南屯區，全預約制：平日晚上、假日都能約。先拍照評估不收費，價格確認後再決定修不修。</p>
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#00b300] transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fab fa-line mr-3 text-2xl"></i> 拍照傳 LINE 免費評估
+                </a>
+                <a href="guide.html" class="bg-brand-dark text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fas fa-book-medical mr-3"></i> 回自救百科看其他狀況
+                </a>
+            </div>
+        </div>
+    </section>
+
+<footer class="bg-gray-900 text-gray-400 py-12 text-center border-t border-white/10 flex flex-col items-center justify-center">
+        <a href="index.html" class="flex items-center justify-center gap-3 group select-none mb-6">
+            <div class="w-12 h-12 bg-brand-gold text-brand-dark flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-microchip text-2xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                 <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none group-hover:text-brand-gold transition-colors duration-300 italic">SWIFT</span>
+                 <span class="bg-brand-gold text-brand-dark text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </a>
+        <p class="text-sm text-gray-300 font-medium">夜間到府・客製組裝・透明報價</p>
+        <p class="mt-6 text-sm text-gray-500">© 2026 Swift 迅修電腦. 台中彰化專業電腦管家. 統編 94538172. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
