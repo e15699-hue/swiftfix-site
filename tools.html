@@ -305,32 +305,32 @@
         <!-- 系統資訊 -->
         <section id="panel-sysinfo" class="tool-panel hidden bg-white rounded-2xl shadow-md border border-gray-100 p-5 md:p-8">
             <h2 class="text-2xl font-bold mb-2">系統資訊偵測</h2>
-            <p class="text-gray-600 mb-5">問維修最常卡在「你電腦是什麼系統、規格多少」——這裡一次整理好，按「複製檢測摘要」，貼到 LINE 給我們就行。資料只在你的瀏覽器產生，不會上傳。<br>先講清楚：<strong>顯示卡型號大多能直接讀到</strong>，但 CPU、主機板、記憶體和硬碟的具體型號，是瀏覽器故意不給網頁讀的（隱私設計，任何網站都一樣）。要那些型號，請用下面的一鍵檢測小程式。</p>
+            <p class="text-gray-600 mb-5">諮詢維修時，最常需要先確認電腦的系統與規格——這裡幫您一次整理好，按下「複製檢測摘要」，再貼到 LINE 給我們就可以了。所有資料都只在您的瀏覽器裡產生，不會上傳，請放心。<br>小提醒：<strong>顯示卡型號大多可以直接讀到</strong>；不過 CPU、主機板、記憶體和硬碟的具體型號，瀏覽器基於隱私保護並不開放給網頁讀取（所有網站都一樣）。如果您需要這些具體型號，歡迎使用下方的一鍵檢測小程式，完成後再把結果複製傳給我們參考即可，謝謝您！</p>
             <div class="overflow-x-auto">
                 <table class="w-full text-left">
                     <tbody id="sysTable" class="divide-y divide-gray-100"></tbody>
                 </table>
             </div>
             <div class="mt-8 bg-gray-50 border-2 border-dashed border-brand-gold rounded-2xl p-5 md:p-6">
-                <h3 class="text-xl font-bold mb-2"><i class="fas fa-microchip text-brand-gold-dark mr-2"></i>要具體型號？Windows 一鍵規格檢測</h3>
-                <p class="text-gray-600 mb-3">下載這個小程式、在你的 Windows 電腦上雙擊執行，它只讀取硬體資訊，會產生一份報告在桌面（同時自動複製），內容包括：<strong>電腦品牌型號、CPU 完整型號、主機板型號、每一條記憶體的容量與型號、顯示卡型號、每一顆硬碟的型號與健康狀態</strong>。把報告貼到 LINE 給我們，規格就一清二楚。</p>
+                <h3 class="text-xl font-bold mb-2"><i class="fas fa-microchip text-brand-gold-dark mr-2"></i>需要具體型號嗎？Windows 一鍵規格檢測</h3>
+                <p class="text-gray-600 mb-3">您只要下載這個小程式，在 Windows 電腦上雙擊執行，它只會讀取硬體資訊，並在桌面產生一份報告（同時自動複製）。內容包括：<strong>電腦品牌型號、CPU 完整型號、主機板型號、每一條記憶體的容量與型號、顯示卡型號、每一顆硬碟的型號與健康狀態</strong>。再把報告貼到 LINE 給我們，規格就一清二楚了。</p>
                 <ul class="text-gray-600 text-sm space-y-1 mb-4">
-                    <li>✓ 只讀取、不修改任何東西，<strong>不會上傳</strong>，報告只產生在你自己的桌面</li>
-                    <li>✓ 不收集序號、不收集個人檔案；程式內容完全公開，懂的人可以先看原始碼再執行</li>
-                    <li>✓ Windows 跳出「Windows 已保護你的電腦」時，點「其他資訊」→「仍要執行」即可（未簽章的小程式都會跳這個畫面）</li>
+                    <li>✓ 只讀取、不修改任何設定，<strong>不會上傳</strong>，報告只產生在您自己的桌面，請放心</li>
+                    <li>✓ 不收集序號、不收集個人檔案；程式內容完全公開，您也可以先看過原始碼再執行</li>
+                    <li>✓ 若 Windows 跳出「Windows 已保護你的電腦」，點「其他資訊」→「仍要執行」即可（未簽章的小程式都會出現這個畫面）</li>
                 </ul>
                 <div class="flex flex-wrap gap-3">
                     <a href="spec/swiftfix-spec.bat" download class="px-5 py-3 rounded-lg bg-brand-dark text-white font-bold min-h-[48px] inline-flex items-center hover:bg-brand-gold hover:text-brand-dark transition"><i class="fas fa-download mr-2"></i>下載一鍵檢測（Windows）</a>
                     <a href="spec/swiftfix-spec.ps1" target="_blank" class="px-5 py-3 rounded-lg bg-white border border-gray-300 font-bold min-h-[48px] inline-flex items-center">先看原始碼</a>
                 </div>
-                <p class="text-sm text-gray-500 mt-3">Mac 的話：點左上角  →「關於這台 Mac」截圖傳給我們就可以，晶片、記憶體、序號以外的資訊都在那一頁。</p>
+                <p class="text-sm text-gray-500 mt-3">如果您用的是 Mac 也很簡單：點左上角  →「關於這台 Mac」截圖傳給我們就可以了，晶片、記憶體等資訊都在那一頁。</p>
             </div>
             <div class="flex flex-wrap gap-3 mt-6">
                 <button id="copySummary" class="px-5 py-3 rounded-lg bg-brand-dark text-white font-bold min-h-[48px] hover:bg-brand-gold hover:text-brand-dark transition"><i class="fas fa-copy mr-2"></i>複製檢測摘要</button>
                 <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="px-5 py-3 rounded-lg bg-[#00C300] text-white font-bold min-h-[48px] inline-flex items-center">貼到 LINE 評估</a>
                 <span id="copyStatus" class="self-center font-medium text-green-600"></span>
             </div>
-            <p class="text-sm text-gray-500 mt-4">摘要會包含上面這台裝置的資訊，加上你剛才做過的檢測結果（例如鍵盤按了幾顆、滑鼠有沒有疑似連點），傳給我們時就不用再重講一次。</p>
+            <p class="text-sm text-gray-500 mt-4">摘要會包含上面這台裝置的資訊，加上您剛才做過的檢測結果（例如鍵盤按了幾顆、滑鼠有沒有疑似連點），傳給我們時就不用再重講一次了。</p>
         </section>
 
         <div class="mt-8 bg-brand-dark text-white rounded-2xl p-6 md:p-8 text-center">
