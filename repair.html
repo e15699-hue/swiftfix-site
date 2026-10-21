@@ -40,7 +40,7 @@
             <div class="space-y-4">
                 <div>
                     <label class="block text-xs text-gray-400 mb-2 ml-1">請輸入您預約時留下的電話號碼</label>
-                    <input type="tel" id="phone" placeholder="例如: 0912345678" 
+                    <input type="tel" id="phone" placeholder="例如: 0912345678（可含空格或 -）" 
                         class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold transition-all text-lg shadow-inner">
                 </div>
                 <button onclick="doQuery()" id="btn"
@@ -118,7 +118,9 @@
             const loadingDiv = document.getElementById('loading');
             const btn = document.getElementById('btn');
             
-            const phone = phoneInput.value.trim();
+            // 回頭客常打空格或連字號（如 0912-345-678）：先去掉再送出，
+            // 試算表電話欄一律純數字文字格式，避免「查無資料」假陰性
+            const phone = phoneInput.value.trim().replace(/[\s-]/g, '');
             if (!phone) {
                 alert('請先輸入電話號碼');
                 phoneInput.focus();
@@ -136,7 +138,7 @@
             btn.disabled = true;
 
             try {
-                const response = await fetch(`${GAS_URL}?phone=${phone}`);
+                const response = await fetch(`${GAS_URL}?phone=${encodeURIComponent(phone)}`);
                 const data = await response.json();
 
                 loadingDiv.classList.add('hidden');
