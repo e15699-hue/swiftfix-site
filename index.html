@@ -139,7 +139,7 @@
       "name": "我是學生，宿舍的電腦壞了，方便送修嗎？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "方便！台中全區（含各大學宿舍）都可到府檢測。先把故障畫面拍照傳 LINE 免費評估，報價後再決定修不修，修好才收費；到府另收車馬費（20 分鐘內 $200、超過每 10 分鐘 +$100），金額會先說明清楚。"
+        "text": "方便！台中全區（含各大學宿舍）都可到府檢測。先把故障畫面拍照傳 LINE 免費評估，報價後再決定修不修，修好才收費；到府另收車馬費（20 分鐘內 $200、超過每 10 分鐘 +$100），金額會先說明清楚。檢測費 $300，有修全額折抵（等於免費檢測）；檢測後決定不修，只收 $300＋車馬費，不會有其他費用。"
       }
     },
     {
@@ -298,6 +298,22 @@
                 <span class="hidden md:inline">|</span>
                 <span><i class="fas fa-sun mr-2 text-brand-gold"></i> 假日：06:00 - 24:00</span>
             </div>
+            <div id="openNowBadge" class="mt-3 flex justify-center"></div>
+            <script>
+            (function(){
+                var badge=document.getElementById('openNowBadge');
+                if(!badge)return;
+                var now=new Date(),d=now.getDay(),t=now.getHours()*60+now.getMinutes();
+                var isWeekend=(d===0||d===6);
+                var open=isWeekend?(t>=360&&t<1440):(t>=1200&&t<1440);
+                if(open){
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-green-500 text-white text-sm font-bold px-4 py-1.5 rounded-full shadow"><span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>現在營業中（到 24:00）</span>';
+                }else{
+                    var next=isWeekend?'今天 06:00':'今天 20:00';
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-white/20 text-gray-200 text-sm font-bold px-4 py-1.5 rounded-full border border-white/30">現在休息中・'+next+' 開始營業</span>';
+                }
+            })();
+            </script>
             <p class="mt-3 text-gray-400 text-sm md:text-base">🏠 住家工作室・非店面｜為確保服務品質，請先預約再前來，謝謝！</p>
         </div>
     </header>
@@ -708,7 +724,7 @@
                         <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
                     </summary>
                     <div class="p-5 text-gray-600 leading-relaxed border-t border-gray-100">
-                        方便！台中全區（含各大學宿舍）都可到府檢測，不用自己搬主機去搭車。學生預算比較緊的話，先把故障畫面或異常狀況拍照，傳 <a href="https://line.me/R/ti/p/@077usxwz" class="text-brand-gold underline font-bold">LINE 免費評估</a>——我們先幫您判斷是小問題還是真的壞了、要花多少錢；能用升級省錢的（像換 SSD＋加記憶體讓舊機復活）就建議您升級，也不會隨便勸您換新機。修好才收費；到府會收一點車馬費（20 分鐘內 $200、超過每 10 分鐘 +$100），實際金額報價時先跟您說清楚。
+                        方便！台中全區（含各大學宿舍）都可到府檢測，不用自己搬主機去搭車。學生預算比較緊的話，先把故障畫面或異常狀況拍照，傳 <a href="https://line.me/R/ti/p/@077usxwz" class="text-brand-gold underline font-bold">LINE 免費評估</a>——我們先幫您判斷是小問題還是真的壞了、要花多少錢；能用升級省錢的（像換 SSD＋加記憶體讓舊機復活）就建議您升級，也不會隨便勸您換新機。修好才收費；到府會收一點車馬費（20 分鐘內 $200、超過每 10 分鐘 +$100），實際金額報價時先跟您說清楚。檢測費 $300，有修的話全額折抵（等於免費檢測）；檢測後決定不修，只收 $300＋車馬費，不會有其他費用。
                     </div>
                 </details>
                 
