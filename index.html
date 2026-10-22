@@ -816,10 +816,21 @@
         // 使用您提供的正確 Google Sheet 連結
         const googleSheetCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRvDI5AKBaKcM9bBwqGP74VoEKnSSpVlBSZNYdH05_z0N-gDV21bwp8vsHRLBR140mNQ0juK8ltqUsh/pub?gid=0&single=true&output=csv"; 
 
+        // 價目表載入超時備援：8 秒還沒載好就給客人出口，不讓他一直看轉圈
+        const pricingTbody = document.getElementById('pricing-body');
+        const pricingTimeout = setTimeout(function(){
+            if (pricingTbody.querySelector('.fa-spinner')) {
+                pricingTbody.innerHTML = `
+                    <tr><td colspan="3" class="py-10 text-center text-gray-500">價目表載入比較慢，<a href="https://line.me/R/ti/p/@077usxwz" class="text-brand-gold underline font-bold">直接傳 LINE 詢問最新價格</a>，或稍後重新整理再試看看。</td></tr>
+                `;
+            }
+        }, 8000);
+
         Papa.parse(googleSheetCSV, {
             download: true,
             header: true, 
             complete: function(results) {
+                clearTimeout(pricingTimeout);
                 const data = results.data;
                 const tbody = document.getElementById('pricing-body');
                 let html = '';
@@ -875,6 +886,7 @@
                 tbody.innerHTML = html;
             },
             error: function(err) {
+                clearTimeout(pricingTimeout);
                 console.error("無法讀取價目表", err);
                 document.getElementById('pricing-body').innerHTML = `
                     <tr><td colspan="3" class="py-5 text-center text-red-500">讀取價格失敗，請重新整理，或<a href="https://line.me/R/ti/p/@077usxwz" class="underline font-bold">傳 LINE 詢問最新價格</a>。</td></tr>
