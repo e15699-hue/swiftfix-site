@@ -954,6 +954,18 @@
                 alert('連線失敗，請稍後再試或聯繫客服。');
             }
         }
+
+        // 錨點跳轉（如 estimate.html、guide.html 連來的 #faq-kid-slow / #faq-kid-buy）：目標若在收合的 FAQ 內，先自動展開再定位
+        (function(){
+            try {
+                var h = location.hash;
+                if (!h) return;
+                var el = document.querySelector(h);
+                if (!el) return;
+                var d = el.tagName.toLowerCase() === 'details' ? el : el.closest('details');
+                if (d) d.open = true;
+            } catch (e) {}
+        })();
     </script>
 </body>
 </html>
