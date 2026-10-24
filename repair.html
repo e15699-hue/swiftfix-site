@@ -169,7 +169,7 @@
                 btn.disabled = false;
 
                 if (data && data.length > 0) {
-                    let html = '<div class="text-xs font-bold text-brand-gold mb-3 ml-1">查詢結果：共 ' + data.length + ' 筆（進行中＋已完成）</div>';
+                    let html = '<div class="text-sm font-bold text-brand-gold mb-3 ml-1">查詢結果：共 ' + data.length + ' 筆（進行中＋已完成）</div>';
                     data.forEach(item => {
                         const isCompleted = item.status === 'completed';
                         const themeColorClass = isCompleted ? 'text-emerald-500' : 'text-brand-gold';
@@ -183,6 +183,7 @@
                                     <h4 class="font-bold text-white text-base leading-tight">${escapeHtml(item.description)}</h4>
                                     <span class="text-[10px] text-gray-500 whitespace-nowrap bg-black/30 px-2 py-1 rounded-full">${escapeHtml(item.date)}</span>
                                 </div>
+                                <div class="mb-3"><span class="inline-block text-xs font-black px-2.5 py-1 rounded-full ${isCompleted ? 'bg-emerald-500/20 text-emerald-300' : 'bg-brand-gold/20 text-brand-gold'}">${isCompleted ? '✅ 已完成' : '⏳ 進行中'}</span></div>
                                 <div class="${bgColorClass} p-3 rounded-xl">
                                     <p class="${themeColorClass} text-sm font-bold flex items-center">
                                         <i class="fas ${iconClass} mr-2"></i>${escapeHtml(item.progress)}
