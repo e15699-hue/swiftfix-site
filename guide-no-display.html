@@ -173,6 +173,22 @@
             </div>
             <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">電腦開機沒畫面、螢幕黑屏？<br class="hidden md:block">先照 6 步自己叫醒它</h1>
             <p class="text-lg md:text-xl text-gray-200 leading-relaxed">主機有在跑、螢幕卻全黑，多半是螢幕沒被叫醒或畫面送錯地方。照本文檢查一次，真的排除不了，再拍照傳 LINE 給我們，<span class="text-brand-gold font-bold">免費幫您評估</span>。</p>
+            <div id="openNowBadge" class="mt-6 flex justify-center"></div>
+            <script>
+            (function(){
+                var badge=document.getElementById('openNowBadge');
+                if(!badge)return;
+                var now=new Date(),d=now.getDay(),t=now.getHours()*60+now.getMinutes();
+                var isWeekend=(d===0||d===6);
+                var open=isWeekend?(t>=360&&t<1440):(t>=1200&&t<1440);
+                if(open){
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-green-500 text-white text-sm font-bold px-4 py-1.5 rounded-full shadow"><span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>現在營業中（到 24:00）</span>';
+                }else{
+                    var next=isWeekend?'今天 06:00':'今天 20:00';
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-white/20 text-gray-200 text-sm font-bold px-4 py-1.5 rounded-full border border-white/30">現在休息中・'+next+' 開始營業</span>';
+                }
+            })();
+            </script>
         </div>
     </header>
 
