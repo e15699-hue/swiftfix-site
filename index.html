@@ -317,6 +317,7 @@
             </script>
             <p class="mt-3 text-gray-400 text-sm md:text-base">🏠 住家工作室・非店面｜為確保服務品質，請先預約再前來，謝謝！</p>
             <p class="mt-1 text-gray-400 text-sm md:text-base">✔ 統編 94538172・台中合法商行</p>
+            <p class="mt-1 text-gray-400 text-sm md:text-base">⭐ 想先看別人怎麼說？<a href="https://www.google.com/maps/search/?api=1&query=%E8%BF%85%E4%BF%AE%E9%9B%BB%E8%85%A6%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener" class="text-brand-gold underline hover:text-white transition">台中客人在 Google 地圖的真實評價</a></p>
         </div>
     </header>
 
@@ -724,7 +725,7 @@
                         現場檢測費 $300，只要有修就全額折抵維修費，等於免費檢測；若檢測後決定不修，只收 $300 檢測費＋車馬費（依 Google 導航時間計算）。LINE 拍照免費評估則完全免費，先評估、報價 OK 再決定要不要約現場最划算。
                     </div>
                 </details>
-                <details class="group border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                <details id="faq-student" class="group border border-gray-200 rounded-xl overflow-hidden shadow-sm">
                     <summary class="flex justify-between items-center p-5 cursor-pointer bg-gray-50 font-bold text-brand-dark list-none">
                         我是學生，宿舍的電腦壞了，方便送修嗎？
                         <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
@@ -974,7 +975,7 @@
             }
         }
 
-        // 錨點跳轉（如 estimate.html、guide.html 連來的 #faq-kid-slow / #faq-kid-buy）：目標若在收合的 FAQ 內，先自動展開再定位
+        // 錨點跳轉（如 estimate.html、guide.html 連來的 #faq-kid-slow / #faq-kid-buy / #faq-student）：目標若在收合的 FAQ 內，先自動展開再定位
         (function(){
             try {
                 var h = location.hash;
