@@ -896,7 +896,14 @@
                     `;
                 });
 
-                tbody.innerHTML = html;
+                // Sheet 成功載入但內容全空時不留白表：顯示已公開的靜態費用＋LINE 出口
+                if (html.trim() === '') {
+                    tbody.innerHTML = `
+                    <tr><td colspan="3" class="py-10 text-center text-gray-500">價目表暫時讀不到內容，先跟您說明已公開的費用：檢測費 $300（有修全額折抵）、22:00 後夜間服務費 $300，車馬費 20 分鐘內 $200、超過每 10 分鐘 +$100。<br><span class="text-sm">完整報價請<a href="https://line.me/R/ti/p/@077usxwz" class="text-brand-gold underline font-bold">直接傳 LINE 問老闆</a>。</td></tr>
+                    `;
+                } else {
+                    tbody.innerHTML = html;
+                }
             },
             error: function(err) {
                 clearTimeout(pricingTimeout);
