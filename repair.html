@@ -46,7 +46,7 @@
             <div class="space-y-4">
                 <div>
                     <label class="block text-sm text-gray-400 mb-2 ml-1">請輸入您預約時留下的電話號碼</label>
-                    <input type="tel" id="phone" autocomplete="tel" inputmode="tel" placeholder="例如: 0912345678（可含空格或 -）" 
+                    <input type="tel" id="phone" autocomplete="tel" inputmode="tel" placeholder="例如: 0912345678（可含空格、- 或 +886）" 
                         class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold transition-all text-lg shadow-inner">
                 </div>
                 <button onclick="doQuery()" id="btn"
@@ -136,9 +136,12 @@
             const loadingDiv = document.getElementById('loading');
             const btn = document.getElementById('btn');
             
-            // 回頭客常打空格或連字號（如 0912-345-678）：先去掉再送出，
-            // 試算表電話欄一律純數字文字格式，避免「查無資料」假陰性
-            const phone = phoneInput.value.trim().replace(/[\s-]/g, '');
+            // 回頭客常打空格、連字號（如 0912-345-678）或從通訊錄複製 +886 國碼：
+            // 先去掉空白與連字號，再把 +886／886 字首換回 0 開頭，
+            // 試算表電話欄一律 0 開頭純數字文字格式，避免「查無資料」假陰性
+            let phone = phoneInput.value.trim().replace(/[\s-]/g, '');
+            if (phone.startsWith('+886')) phone = '0' + phone.slice(4);
+            else if (/^886\d{9}$/.test(phone)) phone = '0' + phone.slice(3);
             if (!phone) {
                 alert('請先輸入電話號碼');
                 phoneInput.focus();
