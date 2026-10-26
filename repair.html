@@ -53,6 +53,10 @@
                     class="w-full bg-brand-gold hover:bg-[#c4a030] text-slate-900 font-black py-4 rounded-2xl transition shadow-lg flex items-center justify-center text-lg">
                     <i class="fas fa-search mr-2"></i> 立即查詢
                 </button>
+                <button type="button" onclick="clearSavedPhone()"
+                    class="w-full text-center text-xs text-gray-400 hover:text-brand-gold transition underline underline-offset-2 py-1">
+                    不是您的電話？清除已記住的號碼
+                </button>
             </div>
 
             <!-- Loading Segment -->
@@ -126,6 +130,14 @@
                 if (saved) { document.getElementById('phone').value = saved; }
             } catch (e) { /* localStorage 不可用時忽略 */ }
         })();
+
+        // 共用手機時可用：清除本機記住的電話，順便清空輸入欄（不動雲端紀錄）
+        function clearSavedPhone() {
+            try { localStorage.removeItem('swiftfix_last_phone'); } catch (e) { /* 忽略 */ }
+            const phoneInput = document.getElementById('phone');
+            phoneInput.value = '';
+            phoneInput.focus();
+        }
 
         async function doQuery() {
             const phoneInput = document.getElementById('phone');
