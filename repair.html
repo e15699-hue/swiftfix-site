@@ -143,7 +143,10 @@
             if (phone.startsWith('+886')) phone = '0' + phone.slice(4);
             else if (/^886\d{9}$/.test(phone)) phone = '0' + phone.slice(3);
             if (!phone) {
-                alert('請先輸入電話號碼');
+                errorMsg.textContent = '請先輸入電話號碼，再按查詢。';
+                resultDiv.classList.add('hidden');
+                emptyDiv.classList.add('hidden');
+                errorDiv.classList.remove('hidden');
                 phoneInput.focus();
                 return;
             }
@@ -195,6 +198,7 @@
                             </div>
                         `;
                     });
+                    html += '<a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="mt-2 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base"><i class="fab fa-line mr-2 text-xl"></i> 進度有問題？直接傳 LINE 問老闆</a>';
                     resultDiv.innerHTML = html;
                     resultDiv.classList.remove('hidden');
                 } else {
