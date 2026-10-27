@@ -131,11 +131,16 @@
             } catch (e) { /* localStorage 不可用時忽略 */ }
         })();
 
-        // 共用手機時可用：清除本機記住的電話，順便清空輸入欄（不動雲端紀錄）
+        // 共用手機時可用：清除本機記住的電話，順便清空輸入欄＋收起上一筆查詢結果（不動雲端紀錄）
         function clearSavedPhone() {
             try { localStorage.removeItem('swiftfix_last_phone'); } catch (e) { /* 忽略 */ }
             const phoneInput = document.getElementById('phone');
             phoneInput.value = '';
+            // 只清輸入欄不夠：上一筆結果還留在畫面上，共用手機時前一位的紀錄等於沒清掉
+            const resultDiv = document.getElementById('results');
+            if (resultDiv) { resultDiv.classList.add('hidden'); resultDiv.innerHTML = ''; }
+            document.getElementById('empty').classList.add('hidden');
+            document.getElementById('error').classList.add('hidden');
             phoneInput.focus();
         }
 
