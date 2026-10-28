@@ -218,8 +218,11 @@
                     html += '<a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="mt-2 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base"><i class="fab fa-line mr-2 text-xl"></i> 進度有問題？直接傳 LINE 問老闆</a>';
                     resultDiv.innerHTML = html;
                     resultDiv.classList.remove('hidden');
+                    // 回頭客手機視角：結果展開後整盒可能超出首屏，自動滑到結果區（已可見時不動）
+                    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 } else {
                     emptyDiv.classList.remove('hidden');
+                    emptyDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
             } catch (error) {
                 clearTimeout(timer);
@@ -231,6 +234,7 @@
                     ? '查詢逾時（超過 15 秒沒有回應），可能是雲端服務剛睡醒。'
                     : '連線雲端發生錯誤，請確認網路連線。';
                 errorDiv.classList.remove('hidden');
+                errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         }
     </script>
