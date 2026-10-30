@@ -48,6 +48,7 @@
                     <label class="block text-sm text-gray-400 mb-2 ml-1">請輸入您送修時留下的電話號碼</label>
                     <input type="tel" id="phone" autocomplete="tel" inputmode="tel" placeholder="例如: 0912345678（可含空格、- 或 +886）" 
                         class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold transition-all text-lg shadow-inner">
+                    <p id="savedHint" class="hidden text-sm text-brand-gold mt-2 ml-1">已自動帶入上次查詢的電話，直接按「立即查詢」即可。</p>
                 </div>
                 <button onclick="doQuery()" id="btn"
                     class="w-full bg-brand-gold hover:bg-[#c4a030] text-slate-900 font-black py-4 rounded-2xl transition shadow-lg flex items-center justify-center text-lg">
@@ -127,7 +128,7 @@
         (function () {
             try {
                 const saved = localStorage.getItem('swiftfix_last_phone');
-                if (saved) { document.getElementById('phone').value = saved; }
+                if (saved) { document.getElementById('phone').value = saved; document.getElementById('savedHint').classList.remove('hidden'); }
             } catch (e) { /* localStorage 不可用時忽略 */ }
         })();
 
@@ -136,6 +137,7 @@
             try { localStorage.removeItem('swiftfix_last_phone'); } catch (e) { /* 忽略 */ }
             const phoneInput = document.getElementById('phone');
             phoneInput.value = '';
+            document.getElementById('savedHint').classList.add('hidden');
             // 只清輸入欄不夠：上一筆結果還留在畫面上，共用手機時前一位的紀錄等於沒清掉
             const resultDiv = document.getElementById('results');
             if (resultDiv) { resultDiv.classList.add('hidden'); resultDiv.innerHTML = ''; }
