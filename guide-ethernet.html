@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Cit9iJR0JOyNt_9GMHej3IoXCdoUKiSxOjfvYKye6N8" />
+
+    <title>台中電腦網路線沒網路怎麼辦？6 步自救檢查先這樣做｜迅修電腦</title>
+    <link rel="canonical" href="https://swiftfix.com.tw/guide-ethernet.html" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <meta name="description" content="台中電腦網路線沒網路怎麼辦？先分清是線材、網路孔、分享器還是驅動：換孔換線交叉測試、看網路孔燈號、Wi-Fi 對照，迅修電腦教您 6 步檢查。台中電腦維修，狀況拍照傳 LINE 免費評估。">
+    <meta name="author" content="Swift 迅修電腦">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="台中電腦網路線沒網路怎麼辦？6 步自救檢查先這樣做｜迅修電腦">
+    <meta property="og:description" content="網路線插著卻沒網路，不一定是電腦壞了，先照順序分清是線、孔、分享器還是驅動問題，真的排除不了再交給我們檢測。">
+    <meta property="og:url" content="https://swiftfix.com.tw/guide-ethernet.html">
+    <meta property="og:type" content="article">
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-dark': '#013e47',
+                'brand-gold': '#eebb4d',
+                'brand-gold-dark': '#d4a036',
+              }
+            }
+          }
+        }
+      </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        html { scroll-behavior: smooth; }
+        article { scroll-margin-top: 96px; }
+        .check-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .check-list li i { margin-top: 0.3rem; }
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "台中電腦網路線沒網路怎麼辦？6 步自救檢查先這樣做",
+  "description": "台中電腦網路線沒網路怎麼辦？先分清是線材、網路孔、分享器還是驅動：換孔換線交叉測試、看網路孔燈號、Wi-Fi 對照，迅修電腦教您 6 步檢查。台中電腦維修，狀況拍照傳 LINE 免費評估。",
+  "author": { "@type": "Organization", "name": "迅修電腦", "url": "https://swiftfix.com.tw/" },
+  "publisher": { "@type": "Organization", "name": "迅修電腦", "url": "https://swiftfix.com.tw/" },
+  "mainEntityOfPage": "https://swiftfix.com.tw/guide-ethernet.html",
+  "inLanguage": "zh-TW"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "網路線插著卻沒網路，一定是網路卡壞了嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定。網路線沒網路最常見的原因是線材鬆脫、線材老化、分享器當機，或是驅動出問題，網路卡本身壞掉反而比較少見。先照本文 6 步做換孔換線交叉測試，通常就能縮小到是線、孔、分享器還是驅動其中一關；真的檢查完還是沒網路，才需要進一步檢測網路卡或主機板方向的問題。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wi-Fi 可以上網，但網路線沒網路，是怎麼回事？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "這代表您家裡的對外網路是通的，問題出在有線這一路：可能是網路線、電腦網路孔、分享器的有線孔，或有線網路的驅動設定。請先做本文第 1 到第 3 步的交叉測試，換一條線、換一個孔試試看；如果換線換孔都沒用，再往驅動方向查。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "網路沒通的狀況拍照傳 LINE 就可以先判斷嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以先給方向。把電腦網路孔的燈號、分享器上對應孔位的燈號、以及網路設定裡有線網路的狀態拍下來傳給我們，通常能先看出是線、孔、分享器還是設定方向的問題；要完全確認，還是需要實機檢測，這部分評估不收費，請放心傳。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://swiftfix.com.tw/" },
+    { "@type": "ListItem", "position": 2, "name": "電腦自救小百科", "item": "https://swiftfix.com.tw/guide.html" },
+    { "@type": "ListItem", "position": 3, "name": "台中電腦網路線沒網路", "item": "https://swiftfix.com.tw/guide-ethernet.html" }
+  ]
+}
+</script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845579320"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17845579320');
+</script>
+
+<body class="bg-gray-50 text-brand-dark">
+
+    <nav class="bg-white shadow-sm fixed w-full z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group select-none">
+                <div class="w-12 h-12 bg-brand-dark text-brand-gold flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-microchip text-2xl"></i>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                    <span class="text-3xl md:text-4xl font-black tracking-tighter text-brand-dark leading-none group-hover:text-brand-gold-dark transition-colors duration-300 italic">SWIFT</span>
+                    <span class="bg-brand-gold text-brand-dark text-sm md:text-base font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm -mt-1 md:mt-0">迅修電腦</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-3 md:gap-8">
+                <div class="hidden lg:flex space-x-5 items-center font-medium">
+                    <div class="relative group">
+                        <span class="cursor-pointer text-brand-dark hover:text-brand-gold transition inline-flex items-center gap-1.5">電腦維修 <i class="fas fa-chevron-down text-[10px]"></i></span>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block z-50">
+                            <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-44 text-[15px]">
+                                <a href="index.html#services" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">服務項目</a>
+                                <a href="index.html#pricing" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">價目表</a>
+                                <a href="index.html#process" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">預約流程</a>
+                                <a href="repair.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">維修進度</a>
+                                <a href="index.html#faq" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">常見問題</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="guide.html" class="text-brand-dark hover:text-brand-gold transition">自救百科</a>
+                    <a href="tools.html" class="text-brand-dark hover:text-brand-gold transition">線上檢測</a>
+                    <a href="estimate.html" class="text-brand-dark hover:text-brand-gold transition">零件回收估價器</a>
+                    <a href="website.html" class="text-brand-gold-dark font-bold hover:text-brand-gold transition">一頁式網站</a>
+                </div>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-4 md:px-5 py-3 rounded-lg hover:bg-[#00b300] font-bold transition shadow-sm flex items-center min-h-[48px] text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> LINE 評估
+                </a>
+            </div>
+        </div>
+        <div class="lg:hidden border-t border-gray-100 bg-white px-3 py-2 flex gap-2 overflow-x-auto whitespace-nowrap" style="scrollbar-width:none;-webkit-overflow-scrolling:touch">
+            <a href="index.html#services" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">服務項目</a>
+            <a href="index.html#pricing" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">價目表</a>
+            <a href="index.html#process" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">預約流程</a>
+            <a href="repair.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">維修進度</a>
+            <a href="guide.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">自救百科</a>
+            <a href="tools.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">線上檢測</a>
+            <a href="estimate.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">零件回收估價器</a>
+            <a href="website.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-yellow-100 text-brand-dark text-sm font-bold">一頁式網站</a>
+            <a href="index.html#faq" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">常見問題</a>
+        </div>
+    </nav>
+
+    <header class="bg-brand-dark text-white pt-32 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-brand-gold text-brand-dark font-bold px-4 py-1 rounded-full mb-6 text-sm md:text-base">
+                <i class="fas fa-book-medical mr-2"></i> 自救百科・有線網路篇
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">台中電腦網路線沒網路？<br class="hidden md:block">先分清是線、孔、分享器還是驅動問題</h1>
+            <p class="text-lg md:text-xl text-gray-200 leading-relaxed">網路線插著卻顯示沒網路，工作、追劇都被卡住，真的很惱人。但請先放心：很多時候不是電腦壞了，而是線鬆了、分享器當機了。照本文 6 步先自己檢查，真的排除不了，再把燈號拍下來傳 LINE 給我們，<span class="text-brand-gold font-bold">免費幫您評估</span>。</p>
+            <div id="openNowBadge" class="mt-6 flex justify-center"></div>
+            <script>
+            (function(){
+                var badge=document.getElementById('openNowBadge');
+                if(!badge)return;
+                var now=new Date(),d=now.getDay(),t=now.getHours()*60+now.getMinutes();
+                var isWeekend=(d===0||d===6);
+                var open=isWeekend?(t>=360&&t<1440):(t>=1200&&t<1440);
+                if(open){
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-green-500 text-white text-sm font-bold px-4 py-1.5 rounded-full shadow"><span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>現在營業中（到 24:00）</span>';
+                }else{
+                    var next=isWeekend?'今天 06:00':'今天 20:00';
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-white/20 text-gray-200 text-sm font-bold px-4 py-1.5 rounded-full border border-white/30">現在休息中・'+next+' 開始營業</span>';
+                }
+            })();
+            </script>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 max-w-4xl py-14">
+        <p class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-gold-dark">首頁</a> ＞ <a href="guide.html" class="hover:text-brand-gold-dark">電腦自救小百科</a> ＞ 台中電腦網路線沒網路</p>
+        <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+
+            <p class="text-gray-600 leading-relaxed mb-6">網路線明明插著、卻顯示沒有網際網路，先不要急著認定是電腦壞了。<span class="font-bold text-brand-dark">有線網路不通，線材、網路孔、分享器、驅動都有可能，交叉測試才是分清的關鍵</span>。檢查之前，請先確認您的網路是怎麼接的：電腦直接接分享器、還是經過牆上的網路孔。</p>
+            <p class="text-gray-600 leading-relaxed mb-8">開始之前先跟您說明分清的邏輯：<span class="font-bold text-brand-dark">一次只換一個東西，換完看有沒有恢復，就能鎖定是哪一關</span>。同時換線又換孔，恢復了也不知道是哪一個幫的忙。您照下面的順序，一次換一樣，答案就會自己浮現。</p>
+
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 my-8">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">網路孔與分享器的燈號先傳給我們看</span><br>把電腦網路孔的燈號、分享器上對應孔位的燈號拍下來傳 LINE，燈怎麼亮、哪個孔沒亮，一看就知道往哪個方向查。先免費評估、報價透明，確認後再預約維修。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
+            </div>
+
+            <h3 class="text-xl md:text-2xl font-bold mb-4">網路線沒網路自救檢查清單（由簡到難）</h3>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先重插兩端，再看網路孔燈號。</span>請把網路線在電腦端和分享器端都完整拔掉再插回去，確認插到底、有聽到「喀」一聲卡住。接著看電腦網路孔旁邊的小燈：正常連通時通常會有燈亮起或閃爍。怎麼判斷：重插後燈亮了、網路恢復了，就是接觸鬆脫；兩端都重插、燈還是不亮，再往下一步查。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-ethernet-1.svg" alt="網路線插到底、聽到卡扣聲，以及電腦網路孔燈號亮與不亮對照的品牌風格示意圖（非官方" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 換孔換線交叉測試，一次只換一樣。</span>請先換一條確定是好的網路線試試；如果還是沒網路，再把線換到分享器上另一個孔位試試。怎麼判斷：換線就通了，是原本那條線老化或斷了；換孔就通了，是原本那個孔位有問題；換線換孔都沒通，問題就不在線與孔，要往分享器或電腦設定查。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-ethernet-2.svg" alt="換線、換孔交叉測試步驟的品牌風格示意圖，標示「一次只換一樣」的檢查順序（非官方畫" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 用 Wi-Fi 做對照測試，分清是整戶斷網還是只有有線不通。</span>請用手機或筆電連家裡 Wi-Fi 試試看能不能上網。怎麼判斷：Wi-Fi 也不能上網，可能是分享器當機或對外網路本身有問題，請先看第 4 步；Wi-Fi 可以上網、只有網路線不通，代表對外網路是通的，問題就鎖定在有線這一路上。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-ethernet-3.svg" alt="手機 Wi-Fi 正常上網、桌機網路線卻不通的對照品牌風格示意圖，標示對照測試的" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 看分享器燈號，必要時把分享器電源重開一次。</span>請看分享器上面對應孔位的燈號有沒有亮、電源燈與網路燈是不是正常；如果分享器全部燈號都不對勁或當機了，可以把分享器電源拔掉、等約 30 秒再插回去，等它重新開機完成再測試。怎麼判斷：重開分享器後有線、Wi-Fi 都恢復了，就是分享器當機；只有有線不通、Wi-Fi 正常，就不是分享器整台的問題。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-ethernet-4.svg" alt="分享器各燈號（電源、網路、孔位）正常與異常對照的品牌風格示意圖，標示重開電源的步" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 看電腦的有線網路狀態與驅動。</span>請開啟 Windows「設定」→「網路和網際網路」→「乙太網路」，看它顯示的是「已連線」「未識別的網路」還是「網路纜線已拔除」；再到「裝置管理員」→「網路介面卡」，看有線網卡旁邊有沒有黃色驚嘆號或裝置消失。怎麼判斷：顯示「纜線已拔除」卻明明插著，多半還是線或孔的問題；出現驚嘆號或裝置消失，就要往驅動方向查，不確定的地方請先拍照問我們。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-ethernet-5.svg" alt="乙太網路狀態顯示與裝置管理員網路介面卡驚嘆號的品牌風格示意圖（非官方截圖）。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">6. 如果是走牆上網路孔，先確認孔位與線路走向，不要自己拆牆上面板。</span>請先確認：牆上網路孔後面那條線是接到分享器的哪一個孔、分享器那端有沒有插好；再拿一條短線把電腦直接接分享器測試，確認電腦本身有沒有問題。怎麼判斷：直接接分享器就通了，問題多半在牆內線路或牆上孔位那一段；如果直接接也還是不通，就回到線材與驅動方向查。牆上網路孔與分享器燈號異常時，請先拍照問業者或問我們。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-ethernet-6.svg" alt="牆上網路孔、分享器、電腦三者接線走向的品牌風格示意圖，標示「先拍照問，不要自己拆" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+            </ol>
+
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再自己試了</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>牆上網路孔或分享器燈號異常、懷疑是牆內線路問題——<span class="font-bold text-red-600">請不要自己拆牆上面板或拉扯牆內線路</span>，先拍照問業者或問我們</li>
+                    <li>網路孔裡面有異物、針腳彎曲或斷裂，不要用尖銳物品去挖或硬插</li>
+                    <li>分享器有燒焦味、異常發燙，或電源變壓器燙到不敢碰，請先斷電並拍照問我們</li>
+                    <li>網路上教的「改登錄檔修網路」「一鍵修復」工具來路不明，不要隨便下載安裝，以免越修越糟</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 leading-relaxed">如果您的狀況是「有線時通時不通」，也可以順手檢查線材有沒有被椅子壓到、被門夾到，或水晶頭卡扣是不是斷了。我們的檢測會把線材、孔位、分享器、驅動一起交叉比對，找出真正的問題再報價給您。</p>
+
+            <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10">常見問題</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 網路線插著卻沒網路，一定是網路卡壞了嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">不一定。網路線沒網路最常見的原因是線材鬆脫、線材老化、分享器當機，或是驅動出問題，網路卡本身壞掉反而比較少見。先照本文 6 步做換孔換線交叉測試，通常就能縮小到是線、孔、分享器還是驅動其中一關；真的檢查完還是沒網路，才需要進一步檢測網路卡或主機板方向的問題。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> Wi-Fi 可以上網，但網路線沒網路，是怎麼回事？</p>
+                    <p class="text-gray-600 leading-relaxed">這代表您家裡的對外網路是通的，問題出在有線這一路：可能是網路線、電腦網路孔、分享器的有線孔，或有線網路的驅動設定。請先做本文第 1 到第 3 步的交叉測試，換一條線、換一個孔試試看；如果換線換孔都沒用，再往驅動方向查。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 網路沒通的狀況拍照傳 LINE 就可以先判斷嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">可以先給方向。把電腦網路孔的燈號、分享器上對應孔位的燈號、以及網路設定裡有線網路的狀態拍下來傳給我們，通常能先看出是線、孔、分享器還是設定方向的問題；要完全確認，還是需要實機檢測，這部分評估不收費，請放心傳。</p>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm mt-10">相關文章：<a href="guide-wifi.html" class="text-brand-gold-dark font-bold">Wi-Fi 斷線、連不上怎麼辦</a>、<a href="guide.html" class="text-brand-gold-dark font-bold">自救百科總覽</a></p>
+        </article>
+    </main>
+
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-4">排除不了，就交給我們</h2>
+            <p class="text-gray-600 text-lg mb-4">排除不了，拍照傳 LINE 免費評估：把網路孔燈號、分享器燈號、有線網路狀態拍下來傳給我們，我們先幫您看是線、孔、分享器還是驅動方向的問題。</p>
+            <p class="text-gray-600 text-lg mb-10">台中電腦到府維修：全預約制，先拍照評估不收費，檢測費 $300（有修全額折抵），修好才收費，價格確認後再決定修不修。</p>
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#00b300] transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fab fa-line mr-3 text-2xl"></i> 拍照傳 LINE 免費評估
+                </a>
+                <a href="guide.html" class="bg-brand-dark text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fas fa-book-medical mr-3"></i> 回自救百科看其他狀況
+                </a>
+            </div>
+        </div>
+    </section>
+
+<footer class="bg-gray-900 text-gray-400 py-12 text-center border-t border-white/10 flex flex-col items-center justify-center">
+        <a href="index.html" class="flex items-center justify-center gap-3 group select-none mb-6">
+            <div class="w-12 h-12 bg-brand-gold text-brand-dark flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-microchip text-2xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                 <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none group-hover:text-brand-gold transition-colors duration-300 italic">SWIFT</span>
+                 <span class="bg-brand-gold text-brand-dark text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </a>
+        <p class="text-sm text-gray-300 font-medium">夜間到府・客製組裝・透明報價</p>
+        <p class="mt-6 text-sm text-gray-500">© 2026 Swift 迅修電腦. 台中彰化專業電腦管家. 統編 94538172. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
