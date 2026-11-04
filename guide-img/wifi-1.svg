@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="80" y="60" width="640" height="300" rx="14" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/>
+<rect x="80" y="60" width="640" height="44" rx="14" fill="#013e47"/>
+<circle cx="104" cy="82" r="7" fill="#ff5f57"/><circle cx="128" cy="82" r="7" fill="#eebb4d"/><circle cx="152" cy="82" r="7" fill="#28c840"/>
+<text x="176" y="89" font-size="20" fill="#ffffff">快速設定（示意）</text>
+
+<rect x="150" y="180" width="220" height="90" rx="12" fill="#f7f9f9" stroke="#d5dddd"/>
+<text x="260" y="225" font-size="24" fill="#013e47" text-anchor="middle" font-weight="bold">📶  Wi-Fi</text><text x="260" y="252" font-size="20" fill="#2fae6e" text-anchor="middle">已開啟</text>
+<rect x="430" y="180" width="220" height="90" rx="12" fill="#f7f9f9" stroke="#d5dddd"/>
+<text x="540" y="225" font-size="24" fill="#013e47" text-anchor="middle" font-weight="bold">✈  飛航模式</text><text x="540" y="252" font-size="20" fill="#8a9ba0" text-anchor="middle">已關閉</text>
+<text x="400" y="330" font-size="24" fill="#013e47" text-anchor="middle" font-weight="bold">先確認：Wi-Fi 開、飛航關</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 1：檢查 Wi-Fi 與飛航開關</text>
+</svg>

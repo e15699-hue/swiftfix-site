@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="80" y="60" width="640" height="300" rx="14" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/>
+<rect x="80" y="60" width="640" height="44" rx="14" fill="#013e47"/>
+<circle cx="104" cy="82" r="7" fill="#ff5f57"/><circle cx="128" cy="82" r="7" fill="#eebb4d"/><circle cx="152" cy="82" r="7" fill="#28c840"/>
+<text x="176" y="89" font-size="20" fill="#ffffff">工作管理員・效能（示意）</text>
+
+<text x="130" y="190" font-size="24" fill="#013e47" text-anchor="start" font-weight="bold">CPU</text><rect x="230" y="168" width="380" height="26" rx="8" fill="#e3e8e8"/><rect x="230" y="168" width="133" height="26" rx="8" fill="#eebb4d"/><text x="630" y="190" font-size="22" fill="#013e47" text-anchor="start">35%</text>
+<text x="130" y="250" font-size="24" fill="#013e47" text-anchor="start" font-weight="bold">記憶體</text><rect x="230" y="228" width="380" height="26" rx="8" fill="#e3e8e8"/><rect x="230" y="228" width="350" height="26" rx="8" fill="#e05252"/><text x="630" y="250" font-size="22" fill="#e05252" text-anchor="start" font-weight="bold">92%</text>
+<text x="130" y="310" font-size="24" fill="#013e47" text-anchor="start" font-weight="bold">磁碟</text><rect x="230" y="288" width="380" height="26" rx="8" fill="#e3e8e8"/><rect x="230" y="288" width="209" height="26" rx="8" fill="#eebb4d"/><text x="630" y="310" font-size="22" fill="#013e47" text-anchor="start">55%</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 4：看誰在拖速度</text>
+</svg>

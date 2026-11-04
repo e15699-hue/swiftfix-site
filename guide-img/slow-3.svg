@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+
+<text x="400" y="110" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">本機磁碟 (C:)</text>
+<rect x="150" y="160" width="500" height="52" rx="10" fill="#e3e8e8"/>
+<rect x="150" y="160" width="460" height="52" rx="10" fill="#e05252"/>
+<text x="400" y="245" font-size="24" fill="#e05252" text-anchor="middle" font-weight="bold">已用 92%　剩餘空間不足</text>
+<text x="400" y="300" font-size="22" fill="#8a9ba0" text-anchor="middle">剩不到 10% 時，Windows 會明顯變慢</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 3：看 C 槽剩多少空間</text>
+</svg>

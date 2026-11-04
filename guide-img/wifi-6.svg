@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+
+<rect x="150" y="300" width="500" height="16" fill="#013e47"/>
+<rect x="180" y="200" width="110" height="80" rx="10" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/>
+<text x="235" y="245" font-size="20" text-anchor="middle">分享器</text>
+<text x="330" y="210" font-size="28" fill="#eebb4d">◠ ◠ ◠</text>
+<rect x="480" y="210" width="130" height="86" rx="10" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/>
+<text x="545" y="258" font-size="20" text-anchor="middle">筆電</text>
+<text x="400" y="120" font-size="26" fill="#2fae6e" text-anchor="middle" font-weight="bold">✓ 拿到附近測試：穩定＝訊號問題</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 6：換位置測訊號覆蓋</text>
+</svg>
