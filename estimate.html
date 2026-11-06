@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="Cit9iJR0JOyNt_9GMHej3IoXCdoUKiSxOjfvYKye6N8" />
 
-    <title>零件回收估價器｜迅修電腦：CPU、顯卡、記憶體、Mac、iPad 店家回收價查詢</title>
+    <title>零件回收估價器｜迅修電腦：CPU、顯卡、記憶體、Mac、iPad、整機 店家回收價查詢</title>
     <link rel="canonical" href="https://swiftfix.com.tw/estimate.html" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
 
-    <meta name="description" content="迅修電腦免費「零件回收估價器」：近五年 CPU（Intel 12代～Core Ultra 200、AMD Ryzen 5000/7000/9000）、顯示卡（RTX 30/40/50、RX 6000/7000/9000、Intel Arc）、DDR4/DDR5 記憶體、MacBook、iPad 的店家回收參考價（約二手行情低標的半價）。實際回收價拍照傳 LINE 免費評估。">
+    <meta name="description" content="迅修電腦免費「零件回收估價器」：近五年 CPU（Intel 12代～Core Ultra 200、AMD Ryzen 5000/7000/9000）、顯示卡（RTX 30/40/50、RX 6000/7000/9000、Intel Arc）、DDR4/DDR5 記憶體、MacBook、iPad 的店家回收參考價（約二手行情低標的半價）；Windows 筆電／桌機整機新增大類指引，價差大先拍照評估。實際回收價拍照傳 LINE 免費評估。">
     <meta name="author" content="Swift 迅修電腦">
     <meta name="robots" content="index, follow">
 
@@ -72,7 +72,7 @@
       "name": "零件回收估價器的回收價怎麼算？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "估價器顯示的是「店家回收參考價」，約為二手市場行情低標的半價。涵蓋近五年 CPU（Intel 12 代～Core Ultra 200、AMD Ryzen 5000／7000／9000）、顯示卡（RTX 30／40／50、RX 6000／7000／9000、Intel Arc）、DDR4／DDR5 記憶體、MacBook 與 iPad。實際回收價依零件狀況而定，拍照傳 LINE 可免費評估。"
+        "text": "估價器顯示的是「店家回收參考價」，約為二手市場行情低標的半價。涵蓋近五年 CPU（Intel 12 代～Core Ultra 200、AMD Ryzen 5000／7000／9000）、顯示卡（RTX 30／40／50、RX 6000／7000／9000、Intel Arc）、DDR4／DDR5 記憶體、MacBook 與 iPad；Windows 筆電／桌機整機新增大類指引（價差大，先拍照報型號＋年份評估）。實際回收價依零件狀況而定，拍照傳 LINE 可免費評估。"
       }
     },
     {
@@ -159,7 +159,7 @@
             <p class="text-lg md:text-xl text-gray-200 leading-relaxed">
                 舊 CPU、顯卡、記憶體、Mac、iPad 想賣給店家，先看看大概能回收多少。<br class="hidden md:block">
                 選好分類和品項，馬上顯示<span class="text-brand-gold font-bold">店家回收參考價</span>。<br class="hidden md:block">
-                整台 Windows 筆電／桌機想估？這裡只收零件和蘋果產品，整機直接<a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="text-brand-gold underline font-bold">拍照傳 LINE</a>，報型號＋大概年份就幫您估（型號通常在筆電底部貼紙、桌機機殼背面貼紙上，連同貼紙拍一張即可）。
+                整台 Windows 筆電／桌機想估？下面選「Windows 筆電整機」或「Windows 桌機整機」大類，先看影響價格的因素，再<a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="text-brand-gold underline font-bold">拍照傳 LINE</a>，報型號＋大概年份就幫您估（型號通常在筆電底部貼紙、桌機機殼背面貼紙上，連同貼紙拍一張即可）。
                 <br class="hidden md:block">
                 💡 想幫孩子買二手電腦或 iPad 當學習機？先看<a href="index.html#faq-kid-buy" class="text-brand-gold underline font-bold">常見問題：買二手電腦／iPad 避坑 4 件事</a>——下面選「iPad」分類也有買方提醒。
                 先跟您說明：這是店家回收價，約為二手行情低標的半價——自己在二手平台慢慢賣可以賣更高，但要花時間面交、承擔風險；賣給店家就是省事、檢測完當場結清。
@@ -184,7 +184,7 @@
                 <p class="text-gray-300 mb-2">店家回收參考價</p>
                 <p id="resultName" class="text-xl font-bold text-brand-gold mb-3"></p>
                 <p id="resultRange" class="text-4xl md:text-5xl font-black tracking-tight mb-2"></p>
-                <p class="text-sm text-gray-400 mb-4">約為二手市場行情低標的半價，實際回收依機況認定</p>
+                <p id="resultCaption" class="text-sm text-gray-400 mb-4">約為二手市場行情低標的半價，實際回收依機況認定</p>
                 <p id="resultNote" class="text-gray-200 leading-relaxed text-left md:text-center"></p>
                 <p id="buyerTip" class="hidden mt-3 text-sm text-brand-gold bg-brand-gold/10 border border-brand-gold/40 rounded-xl px-4 py-3 leading-relaxed text-left"></p>
             </div>
@@ -829,6 +829,68 @@ const PRICE_DATA = {
       }
     ],
     "tip": "💡 想買給小孩當學習機？尺寸上，13 吋看課件比較大、11 吋好攜帶；WiFi 版就夠用（Cellular 版多花的錢拿去買保護殼更實在），二手 M1／M2、兩萬內就很夠用了。面交時檢查電池健康度 85% 以上、確認無維修紀錄、已登出前主人 Apple ID 無啟用鎖定，並請賣家出示購買證明。拿不定主意，拍照傳 LINE 請老闆幫您看一眼。"
+  },
+  "laptop_win": {
+    "label": "Windows 筆電整機",
+    "note": "整機回收價差很大（年份、規格、電池、機況），無法用單一數字代表：請先選最接近的大類，再把型號貼紙與大概年份拍照傳 LINE，我們報實際回收價。",
+    "items": [
+      {
+        "name": "文書筆電（i3／i5／R5、8GB、SSD）",
+        "buyback": null,
+        "note": "文書機看電池健康度與外觀最重；SSD 容量大、記憶體 16GB 的條件較好。拍照時請附筆電底部型號貼紙。"
+      },
+      {
+        "name": "效能筆電（i7／R7、16GB、SSD）",
+        "buyback": null,
+        "note": "效能機看 CPU 世代與散熱狀況；風扇異音、過熱降速會折價。拍照時請附型號貼紙與電池健康度畫面。"
+      },
+      {
+        "name": "電競筆電（RTX 4050／4060 等級）",
+        "buyback": null,
+        "note": "電競機看顯卡等級、螢幕更新率與電池狀況；有維修紀錄、換過面板的要先說明。"
+      },
+      {
+        "name": "高階電競筆電（RTX 4070 以上）",
+        "buyback": null,
+        "note": "高階機規格差異大（顯卡功耗、螢幕規格、保固），請拍照報完整型號與購買年份再估。"
+      },
+      {
+        "name": "老舊筆電（10 年以上／傳統硬碟）",
+        "buyback": null,
+        "note": "老舊機多半只剩零件價值；還能開機、有 SSD 的條件較好，不能開機的請先說，我們再看怎麼處理。"
+      }
+    ]
+  },
+  "desktop_win": {
+    "label": "Windows 桌機整機",
+    "note": "整機回收價差很大（年份、規格、顯卡、機況），無法用單一數字代表：請先選最接近的大類，再把規格與大概年份拍照傳 LINE，我們報實際回收價。",
+    "items": [
+      {
+        "name": "文書桌機（i3／i5、8–16GB、SSD）",
+        "buyback": null,
+        "note": "文書機看 CPU 世代與 SSD 容量；有原廠盒裝、線材齊全的條件較好。"
+      },
+      {
+        "name": "效能桌機（i7／R7、32GB、SSD）",
+        "buyback": null,
+        "note": "效能機看 CPU 世代、記憶體容量與主機板等級；機殼、電供品牌也會影響。"
+      },
+      {
+        "name": "電競桌機（RTX 4060 等級）",
+        "buyback": null,
+        "note": "電競機看顯卡等級與電供瓦數；礦卡疑慮、改裝水冷的請先說明，我們再看怎麼認定。"
+      },
+      {
+        "name": "高階電競桌機（RTX 4070 以上）",
+        "buyback": null,
+        "note": "高階機規格差異大（顯卡、電供、散熱、水冷），請拍照報完整規格與購買年份再估。"
+      },
+      {
+        "name": "老舊桌機（10 年以上／傳統硬碟）",
+        "buyback": null,
+        "note": "老舊機多半只剩零件價值；還能開機、有 SSD 的條件較好，不能開機的請先說，我們再看怎麼處理。"
+      }
+    ]
   }
 };
 
@@ -837,6 +899,7 @@ const itemSelect = document.getElementById('itemSelect');
 const resultName = document.getElementById('resultName');
 const resultRange = document.getElementById('resultRange');
 const resultNote = document.getElementById('resultNote');
+const resultCaption = document.getElementById('resultCaption');
 const buyerTip = document.getElementById('buyerTip');
 
 function fmt(n) { return 'NT$ ' + n.toLocaleString('en-US'); }
@@ -857,7 +920,8 @@ function showResult() {
   const cat = PRICE_DATA[catSelect.value];
   const item = cat.items[Number(itemSelect.value)];
   resultName.textContent = item.name;
-  resultRange.textContent = fmt(item.buyback);
+  resultRange.textContent = item.buyback ? fmt(item.buyback) : '拍照評估';
+  resultCaption.textContent = item.buyback ? '約為二手市場行情低標的半價，實際回收依機況認定' : '整機價差大，先拍照報型號＋年份，實際回收價依機況認定';
   resultNote.textContent = item.note || cat.note || '';
   if (cat.tip) { buyerTip.textContent = cat.tip; buyerTip.classList.remove('hidden'); }
   else { buyerTip.classList.add('hidden'); }

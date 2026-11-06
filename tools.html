@@ -186,6 +186,8 @@
             <button class="tab-btn shrink-0 px-4 py-2.5 rounded-full bg-white border border-gray-200 font-bold text-base min-h-[48px]" data-tab="speaker" role="tab"><i class="fas fa-volume-high mr-1.5"></i>喇叭 <span class="done-dot hidden">✓</span></button>
             <button class="tab-btn shrink-0 px-4 py-2.5 rounded-full bg-white border border-gray-200 font-bold text-base min-h-[48px]" data-tab="screen" role="tab"><i class="fas fa-display mr-1.5"></i>螢幕壞點 <span class="done-dot hidden">✓</span></button>
             <button class="tab-btn shrink-0 px-4 py-2.5 rounded-full bg-white border border-gray-200 font-bold text-base min-h-[48px]" data-tab="sysinfo" role="tab"><i class="fas fa-circle-info mr-1.5"></i>系統資訊 <span class="done-dot hidden">✓</span></button>
+            <button class="tab-btn shrink-0 px-4 py-2.5 rounded-full bg-white border border-gray-200 font-bold text-base min-h-[48px]" data-tab="speed" role="tab"><i class="fas fa-gauge-high mr-1.5"></i>網速 <span class="done-dot hidden">✓</span></button>
+            <button class="tab-btn shrink-0 px-4 py-2.5 rounded-full bg-white border border-gray-200 font-bold text-base min-h-[48px]" data-tab="disk" role="tab"><i class="fas fa-hard-drive mr-1.5"></i>硬碟健康 <span class="done-dot hidden">✓</span></button>
         </div>
 
         <!-- 鍵盤 -->
@@ -357,9 +359,55 @@
             <div class="flex flex-wrap gap-3 mt-6">
                 <button id="copySummary" class="px-5 py-3 rounded-lg bg-brand-dark text-white font-bold min-h-[48px] hover:bg-brand-gold hover:text-brand-dark transition"><i class="fas fa-copy mr-2"></i>複製檢測摘要</button>
                 <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="px-5 py-3 rounded-lg bg-[#00C300] text-white font-bold min-h-[48px] inline-flex items-center">貼到 LINE 評估</a>
+                <button type="button" onclick="document.querySelector('[data-tab=speed]').click()" class="px-5 py-3 rounded-lg bg-white border border-gray-300 font-bold min-h-[48px] hover:border-brand-gold transition">下一步：測網速 →</button>
                 <span id="copyStatus" class="self-center font-medium text-green-600"></span>
             </div>
             <p class="text-sm text-gray-500 mt-4">摘要會包含上面這台裝置的資訊，加上您剛才做過的檢測結果（例如鍵盤按了幾顆、滑鼠有沒有疑似連點），傳給我們時就不用再重講一次了。</p>
+        </section>
+
+        <section id="panel-speed" class="tool-panel hidden bg-white rounded-2xl shadow-md border border-gray-100 p-5 md:p-8">
+            <h2 class="text-2xl font-bold mb-2">網速檢測</h2>
+            <p class="text-gray-600 mb-5">按一下開始，瀏覽器會向本站連續抓 3 次檔案，量出平均延遲與粗估下載速度。所有測試都在您的瀏覽器裡執行，不會上傳任何資料。<br>先說清楚：這裡量的是「到本站的反應速度」，不是電信合約上的頻寬數字；小檔案測速誤差本來就比較大，數字僅供參考——真正要看合約速度，請用電信業者提供的測速頁面再測一次。</p>
+            <div class="flex flex-wrap gap-3 items-center mb-5">
+                <button id="speedStart" type="button" class="px-5 py-3 rounded-lg bg-brand-dark text-white font-bold min-h-[48px] hover:bg-brand-gold hover:text-brand-dark transition">開始測速</button>
+                <span id="speedStatus" class="font-medium text-gray-600"></span>
+            </div>
+            <div id="speedResult" class="hidden bg-gray-50 border border-gray-200 rounded-xl p-5 leading-relaxed">
+                <p class="mb-2"><span class="font-bold text-brand-dark">平均延遲：</span><span id="speedLatency"></span></p>
+                <p class="mb-2"><span class="font-bold text-brand-dark">粗估下載速度：</span><span id="speedMbps"></span></p>
+                <p class="mb-2"><span class="font-bold text-brand-dark">連線類型：</span><span id="speedConn"></span></p>
+                <p id="speedVerdict" class="font-bold text-brand-dark"></p>
+            </div>
+            <div class="flex flex-wrap gap-3 mt-6">
+                <button type="button" onclick="document.querySelector('[data-tab=disk]').click()" class="px-5 py-3 rounded-lg bg-brand-dark text-white font-bold min-h-[48px] hover:bg-brand-gold hover:text-brand-dark transition">下一步：看硬碟健康 →</button>
+                <a href="guide-wifi.html" class="px-5 py-3 rounded-lg bg-white border border-gray-300 font-bold min-h-[48px] inline-flex items-center">Wi-Fi 斷線先看這篇 →</a>
+            </div>
+        </section>
+
+        <section id="panel-disk" class="tool-panel hidden bg-white rounded-2xl shadow-md border border-gray-100 p-5 md:p-8">
+            <h2 class="text-2xl font-bold mb-2">硬碟健康檢查</h2>
+            <p class="text-gray-600 mb-5">先說清楚：瀏覽器基於隱私保護，讀不到硬碟的健康狀態（所有網站都一樣），所以這一頁不假裝能直接測，而是教您兩個正確的方法，兩分鐘就看得到答案。</p>
+            <h3 class="text-lg font-bold mb-2">方法一（最準）：用系統資訊頁的一鍵檢測</h3>
+            <p class="text-gray-600 mb-5">回到「系統資訊」頁下載 Windows 一鍵檢測小程式，在自己電腦上執行後，桌面報告裡就有每一顆硬碟的型號與健康狀態，再把報告貼到 LINE 給我們看就可以了。<button type="button" onclick="document.querySelector('[data-tab=sysinfo]').click()" class="text-brand-gold-dark font-bold underline ml-1">回系統資訊頁 →</button></p>
+            <h3 class="text-lg font-bold mb-2">方法二：Windows 內建指令自己看</h3>
+            <p class="text-gray-600 mb-2">按 Win＋R，輸入 cmd 後按 Enter，再貼上下面這行指令：</p>
+            <p class="bg-gray-900 text-green-300 rounded-lg px-4 py-3 mb-2 overflow-x-auto"><code>wmic diskdrive get status</code></p>
+            <p class="text-gray-600 mb-2">看 Status 那一欄：<strong>OK 就是正常</strong>；出現 <strong>Pred Fail</strong> 代表硬碟快壞了，請立刻備份、不要再重開機折騰它。如果您的 Windows 已經沒有 wmic，請改用 PowerShell 貼上這行：</p>
+            <p class="bg-gray-900 text-green-300 rounded-lg px-4 py-3 mb-5 overflow-x-auto"><code>Get-PhysicalDisk | Select FriendlyName, HealthStatus, OperationalStatus</code></p>
+            <p class="text-gray-600 mb-5">另外也可以下載免費軟體 CrystalDiskInfo（請到官方網站下載，不要點來路不明的連結），打開就能看到健康度百分比；出現 05、C5、C6 這類警告數字，代表已經有壞軌跡象，先備份再說。</p>
+            <h3 class="text-lg font-bold mb-2">出現這些警訊，先備份、再拍照問我們</h3>
+            <ul class="text-gray-600 leading-relaxed space-y-2 list-disc list-inside mb-5">
+                <li>硬碟發出喀喀聲、磨擦聲等平常沒有的異音</li>
+                <li>檔案突然打不開、資料夾點進去是空的</li>
+                <li>電腦常常卡住不動、開機越來越久</li>
+                <li>藍屏越來越頻繁（可對照 <a href="guide-bluescreen.html" class="text-brand-gold-dark font-bold underline">藍屏篇</a>）</li>
+            </ul>
+            <div class="flex flex-wrap gap-3">
+                <button id="diskDone" type="button" class="px-5 py-3 rounded-lg bg-brand-dark text-white font-bold min-h-[48px] hover:bg-brand-gold hover:text-brand-dark transition">警訊清單看完了</button>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="px-5 py-3 rounded-lg bg-[#00C300] text-white font-bold min-h-[48px] inline-flex items-center">拍照／傳結果到 LINE</a>
+                <a href="guide-data-rescue.html" class="px-5 py-3 rounded-lg bg-white border border-gray-300 font-bold min-h-[48px] inline-flex items-center">資料不見了先看這篇 →</a>
+                <span id="diskStatus" class="self-center font-medium text-green-600"></span>
+            </div>
         </section>
 
         <section class="mt-8 bg-white rounded-2xl shadow-md border border-gray-100 p-5 md:p-8">
@@ -422,7 +470,7 @@
 (function(){
 "use strict";
 var $ = function(id){ return document.getElementById(id);};
-var results = { keyboard:null, mouse:null, mic:null, camera:null, speaker:null, screen:null};
+var results = { keyboard:null, mouse:null, mic:null, camera:null, speaker:null, screen:null, speed:null, disk:null};
 function markDone(tab){
 var btn = document.querySelector('.tab-btn[data-tab="'+tab+'"]');
 if(btn){ var d = btn.querySelector('.done-dot'); if(d) d.classList.remove('hidden');}
@@ -446,7 +494,7 @@ window.scrollTo({ top: document.querySelector('main').offsetTop - 90, behavior:'
 /* ---------- 錨點直達：tools.html#camera 等 ---------- */
 (function(){
 var hashTab = (location.hash || '').replace('#', '');
-if (['keyboard','mouse','mic','camera','speaker','screen','sysinfo'].indexOf(hashTab) >= 0) {
+if (['keyboard','mouse','mic','camera','speaker','screen','sysinfo','speed','disk'].indexOf(hashTab) >= 0) {
 var hb = document.querySelector('.tab-btn[data-tab="' + hashTab + '"]');
 if (hb) hb.click();
 }
@@ -811,6 +859,49 @@ document.body.appendChild(ta); ta.select();
 try { document.execCommand('copy');} catch(e){}
 document.body.removeChild(ta);
 }
+
+/* ---------- 網速 ---------- */
+$('speedStart').addEventListener('click', function(){
+var btn = $('speedStart'), st = $('speedStatus');
+btn.disabled = true; st.textContent = '測試中，請稍候…';
+$('speedResult').classList.add('hidden');
+var times = [], sizes = [], i = 0;
+function one(){
+var url = 'index.html?speedtest=' + Date.now() + '-' + i;
+var t0 = performance.now();
+fetch(url, {cache:'no-store'}).then(function(res){ return res.blob(); }).then(function(blob){
+var dt = performance.now() - t0;
+times.push(dt); sizes.push(blob.size); i++;
+if (i < 3) { one(); } else { done(); }
+}).catch(function(){ fail(); });
+}
+function done(){
+var avg = times.reduce(function(a,b){ return a+b; }, 0) / times.length;
+var bytes = sizes.reduce(function(a,b){ return a+b; }, 0);
+var mbps = bytes * 8 / (times.reduce(function(a,b){ return a+b; }, 0) / 1000) / 1000000;
+$('speedLatency').textContent = '平均 ' + Math.round(avg) + ' 毫秒（3 次：' + times.map(function(x){ return Math.round(x); }).join('／') + ' 毫秒）';
+$('speedMbps').textContent = '約 ' + mbps.toFixed(1) + ' Mbps（以本站首頁檔案換算，僅供參考）';
+var conn = (navigator.connection && navigator.connection.effectiveType) ? navigator.connection.effectiveType : '瀏覽器未提供';
+$('speedConn').textContent = conn;
+$('speedVerdict').textContent = avg < 100 ? '到本站的反應很快：網速問題多半不在連線，先看電腦本身或分享器。' : (avg <= 300 ? '到本站的反應普通：先看 Wi-Fi 篇的分享器重開與忘記重連步驟。' : '到本站的反應偏慢：建議先重開分享器、換一條網路線或靠近分享器再測一次。');
+$('speedResult').classList.remove('hidden');
+st.textContent = '測試完成';
+results.speed = '網速：平均延遲 ' + Math.round(avg) + ' 毫秒（3 次測試）';
+markDone('speed'); btn.disabled = false;
+}
+function fail(){
+st.textContent = '測速失敗，請檢查網路連線後再試一次。';
+btn.disabled = false;
+}
+one();
+});
+
+/* ---------- 硬碟健康 ---------- */
+$('diskDone').addEventListener('click', function(){
+$('diskStatus').textContent = '已看過警訊清單，出現警訊請先備份、再拍照傳 LINE 給我們。';
+results.disk = '硬碟健康：已看過警訊清單';
+markDone('disk');
+});
 })();
 </script>
 </body>
