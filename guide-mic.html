@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Cit9iJR0JOyNt_9GMHej3IoXCdoUKiSxOjfvYKye6N8" />
+
+    <title>台中電腦麥克風沒聲音怎麼辦？6 步自救檢查先這樣做｜迅修電腦</title>
+    <link rel="canonical" href="https://swiftfix.com.tw/guide-mic.html" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <meta name="description" content="台中電腦麥克風沒聲音怎麼辦？先分清是內接麥克風、外接耳麥還是設定問題：隱私權限、預設輸入裝置、音量與增益、驅動與視訊軟體設定，迅修電腦教您 6 步檢查。台中電腦維修，狀況拍照傳 LINE 免費評估。">
+    <meta name="author" content="Swift 迅修電腦">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="台中電腦麥克風沒聲音怎麼辦？6 步自救檢查先這樣做｜迅修電腦">
+    <meta property="og:description" content="麥克風沒聲音不一定是壞了，先照順序分清是麥克風、耳麥還是設定問題，真的排除不了再交給我們檢測。">
+    <meta property="og:url" content="https://swiftfix.com.tw/guide-mic.html">
+    <meta property="og:type" content="article">
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-dark': '#013e47',
+                'brand-gold': '#eebb4d',
+                'brand-gold-dark': '#d4a036',
+              }
+            }
+          }
+        }
+      </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        html { scroll-behavior: smooth; }
+        article { scroll-margin-top: 96px; }
+        .check-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .check-list li i { margin-top: 0.3rem; }
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "台中電腦麥克風沒聲音怎麼辦？6 步自救檢查先這樣做",
+  "description": "台中電腦麥克風沒聲音怎麼辦？先分清是內接麥克風、外接耳麥還是設定問題：隱私權限、預設輸入裝置、音量與增益、驅動與視訊軟體設定，迅修電腦教您 6 步檢查。台中電腦維修，狀況拍照傳 LINE 免費評估。",
+  "author": { "@type": "Organization", "name": "迅修電腦", "url": "https://swiftfix.com.tw/" },
+  "publisher": { "@type": "Organization", "name": "迅修電腦", "url": "https://swiftfix.com.tw/" },
+  "mainEntityOfPage": "https://swiftfix.com.tw/guide-mic.html",
+  "inLanguage": "zh-TW"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "麥克風沒聲音，一定是麥克風壞了嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定。麥克風沒聲音最常見的原因其實是設定問題：隱私權限沒開、預設輸入裝置選錯、或是音量被調到最小。先照本文 6 步檢查一輪，很多狀況整理完就恢復了；真的檢查完還是沒聲音，才需要進一步檢測是麥克風、耳麥還是主機板音效線路的問題。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "視訊軟體裡聽不到我的聲音，但系統測試有聲音，是怎麼回事？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "這通常是視訊軟體裡的輸入裝置選錯了。系統測試有聲音，代表麥克風本身是好的；請到視訊軟體的音訊設定裡，把麥克風改成您正在用的那一個裝置，再確認軟體裡的音量沒有被靜音。不同軟體要分開設定，改完一個軟體，另一個軟體不會跟著改。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "麥克風的狀況拍照傳 LINE 就可以先判斷嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以先給方向。把聲音設定的輸入裝置頁面、音量測試條的反應、以及您用的是內接麥克風還是外接耳麥拍下來傳給我們，通常能先看出是設定問題還是硬體問題；要完全確認，還是需要實機檢測，這部分評估不收費，請放心傳。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://swiftfix.com.tw/" },
+    { "@type": "ListItem", "position": 2, "name": "電腦自救小百科", "item": "https://swiftfix.com.tw/guide.html" },
+    { "@type": "ListItem", "position": 3, "name": "台中電腦麥克風沒聲音", "item": "https://swiftfix.com.tw/guide-mic.html" }
+  ]
+}
+</script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845579320"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17845579320');
+</script>
+
+<body class="bg-gray-50 text-brand-dark">
+
+    <nav class="bg-white shadow-sm fixed w-full z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group select-none">
+                <div class="w-12 h-12 bg-brand-dark text-brand-gold flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-microchip text-2xl"></i>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                    <span class="text-3xl md:text-4xl font-black tracking-tighter text-brand-dark leading-none group-hover:text-brand-gold-dark transition-colors duration-300 italic">SWIFT</span>
+                    <span class="bg-brand-gold text-brand-dark text-sm md:text-base font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm -mt-1 md:mt-0">迅修電腦</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-3 md:gap-8">
+                <div class="hidden lg:flex space-x-5 items-center font-medium">
+                    <div class="relative group">
+                        <span class="cursor-pointer text-brand-dark hover:text-brand-gold transition inline-flex items-center gap-1.5">電腦維修 <i class="fas fa-chevron-down text-[10px]"></i></span>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block z-50">
+                            <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-44 text-[15px]">
+                                <a href="index.html#services" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">服務項目</a>
+                                <a href="index.html#pricing" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">價目表</a>
+                                <a href="index.html#process" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">預約流程</a>
+                                <a href="repair.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">維修進度</a>
+                                <a href="index.html#faq" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">常見問題</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="guide.html" class="text-brand-dark hover:text-brand-gold transition">自救百科</a>
+                    <a href="tools.html" class="text-brand-dark hover:text-brand-gold transition">線上檢測</a>
+                    <a href="estimate.html" class="text-brand-dark hover:text-brand-gold transition">零件回收估價器</a>
+                    <a href="website.html" class="text-brand-gold-dark font-bold hover:text-brand-gold transition">一頁式網站</a>
+                </div>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-4 md:px-5 py-3 rounded-lg hover:bg-[#00b300] font-bold transition shadow-sm flex items-center min-h-[48px] text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> LINE 評估
+                </a>
+            </div>
+        </div>
+        <div class="lg:hidden border-t border-gray-100 bg-white px-3 py-2 flex gap-2 overflow-x-auto whitespace-nowrap" style="scrollbar-width:none;-webkit-overflow-scrolling:touch">
+            <a href="index.html#services" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">服務項目</a>
+            <a href="index.html#pricing" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">價目表</a>
+            <a href="index.html#process" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">預約流程</a>
+            <a href="repair.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">維修進度</a>
+            <a href="guide.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">自救百科</a>
+            <a href="tools.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">線上檢測</a>
+            <a href="estimate.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">零件回收估價器</a>
+            <a href="website.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-yellow-100 text-brand-dark text-sm font-bold">一頁式網站</a>
+            <a href="index.html#faq" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">常見問題</a>
+        </div>
+    </nav>
+
+    <header class="bg-brand-dark text-white pt-32 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-brand-gold text-brand-dark font-bold px-4 py-1 rounded-full mb-6 text-sm md:text-base">
+                <i class="fas fa-book-medical mr-2"></i> 自救百科・麥克風篇
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">台中電腦麥克風沒聲音？<br class="hidden md:block">先分清是麥克風、耳麥還是設定問題</h1>
+            <p class="text-lg md:text-xl text-gray-200 leading-relaxed">開會對方聽不到您說話，真的很尷尬。但請先放心：很多時候不是麥克風壞了，而是權限沒開、裝置選錯。照本文 6 步先自己檢查，真的排除不了，再把設定畫面拍照傳 LINE 給我們，<span class="text-brand-gold font-bold">免費幫您評估</span>。</p>
+            <div id="openNowBadge" class="mt-6 flex justify-center"></div>
+            <script>
+            (function(){
+                var badge=document.getElementById('openNowBadge');
+                if(!badge)return;
+                var now=new Date(),d=now.getDay(),t=now.getHours()*60+now.getMinutes();
+                var isWeekend=(d===0||d===6);
+                var open=isWeekend?(t>=360&&t<1440):(t>=1200&&t<1440);
+                if(open){
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-green-500 text-white text-sm font-bold px-4 py-1.5 rounded-full shadow"><span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>現在營業中（到 24:00）</span>';
+                }else{
+                    var next=isWeekend?'今天 06:00':'今天 20:00';
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-white/20 text-gray-200 text-sm font-bold px-4 py-1.5 rounded-full border border-white/30">現在休息中・'+next+' 開始營業</span>';
+                }
+            })();
+            </script>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 max-w-4xl py-14">
+        <p class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-gold-dark">首頁</a> ＞ <a href="guide.html" class="hover:text-brand-gold-dark">電腦自救小百科</a> ＞ 台中電腦麥克風沒聲音</p>
+        <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+
+            <p class="text-gray-600 leading-relaxed mb-6">對方聽不到您的聲音，先不要急著買新的耳麥。<span class="font-bold text-brand-dark">麥克風沒聲音，最常見的是設定問題，不是硬體壞掉</span>。而且「哪一種麥克風沒聲音」本身就是重要線索，檢查之前，請先確認您現在用的是哪一種。</p>
+            <p class="text-gray-600 leading-relaxed mb-8">開始之前先跟您說明分清的方法：<span class="font-bold text-brand-dark">筆電內接麥克風、桌機外接麥克風、外接耳麥，是三條不同的線路</span>。如果內接麥克風有聲音、外接耳麥沒聲音，問題多半出在耳麥或插孔；如果每一種都沒聲音，就要往系統設定和驅動查。您先確認屬於哪一種，檢查時會更有方向。</p>
+
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 my-8">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">麥克風的設定畫面先傳給我們看</span><br>把聲音設定的輸入裝置頁面、音量測試條拍下來傳 LINE，權限、裝置、音量哪一關卡住了，一看就知道往哪個方向查。先免費評估、報價透明，確認後再預約維修。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
+            </div>
+
+            <h3 class="text-xl md:text-2xl font-bold mb-4">麥克風沒聲音自救檢查清單（由簡到難）</h3>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先確認您用的是哪一種麥克風，再做一次最簡單的對照測試。</span>請先看清楚：您現在說話用的是筆電內接麥克風、桌機外接麥克風，還是耳麥上的麥克風？接著換一種試試看，例如拔掉耳麥改用內接麥克風說話。怎麼判斷：換一種就有聲音，代表問題出在原本那支麥克風或插孔；每一種都沒聲音，再往系統設定查。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-mic-1.svg" alt="三種麥克風對照示意圖——筆電內接麥克風位置、桌機外接麥克風、耳麥麥克風，旁邊標示" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 檢查麥克風的隱私權限有沒有打開。</span>請開啟 Windows「設定」→「隱私權與安全性」→「麥克風」，確認「讓應用程式存取您的麥克風」是開啟的，而且您要用的那個視訊軟體也在允許清單裡。怎麼判斷：權限沒開時，所有軟體都會同時沒聲音；只開了系統權限、沒開軟體權限時，會變成只有某個軟體沒聲音。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-mic-2.svg" alt="Windows 隱私權設定中麥克風權限開關位置的品牌風格示意圖，標示總開關與個別" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 確認預設輸入裝置選的是您正在用的那一個。</span>請開啟「設定」→「系統」→「音效」→「輸入」，看下拉選單選到的是不是您現在用的麥克風。電腦常常會自動切到螢幕、攝影機或上一支耳麥的麥克風，您對著耳麥說話，它卻在收內接麥克風的聲音。怎麼判斷：對著麥克風說話時，「測試您的麥克風」那條音量條有沒有跟著跳動；選對裝置，音量條就會動。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-mic-3.svg" alt="音效設定輸入裝置下拉選單與音量測試條的品牌風格示意圖，標示選錯裝置與音量條跳動的" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 看音量與增益是不是被調到最小或靜音了。</span>在同一個輸入裝置設定裡，點「裝置內容」或麥克風內容，確認音量不是 0、沒有被靜音；如果聲音很小聲、對方說聽不清楚，可以把「增益」或「麥克風加強」稍微調高一點點試試。怎麼判斷：音量條從完全不動變成會跳動，就是音量這一關；調太高會出現雜音與回音，調到對方聽得清楚又不會爆音就好。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-mic-4.svg" alt="麥克風音量滑桿與增益調整位置的品牌風格示意圖，標示靜音、音量太小、適中三種狀態（" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 到視訊軟體裡，也要選對輸入裝置。</span>請打開您開會用的視訊軟體，到它的音訊設定裡看「麥克風」選的是哪一個，改成您正在用的裝置，再看軟體裡的音量有沒有被靜音或調到最小。怎麼判斷：系統測試有聲音、視訊軟體沒聲音，幾乎都是軟體這裡選錯；而且每套軟體要分開設定，改完一套，另一套不會跟著改。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-mic-5.svg" alt="視訊軟體音訊設定中麥克風選項的品牌風格示意圖，標示系統設定與軟體設定要分開選（非" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">6. 檢查驅動：先重新插拔，再看裝置管理員有沒有驚嘆號。</span>外接耳麥請先完整拔掉重插一次，確認插到底、插對孔（麥克風孔與耳機孔不要插反）。接著開啟「裝置管理員」→「音訊輸入及輸出」，看麥克風裝置旁邊有沒有黃色驚嘆號；如果有，請先拍照問我們，不要自己亂裝來路不明的驅動程式。怎麼判斷：重插就恢復，多半是接觸問題；一直有驚嘆號或裝置根本沒出現，就要往驅動或硬體方向查。</span><p class="mt-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-500"><figure class="my-5"><img src="guide-img/guide-mic-6.svg" alt="耳麥插頭插對孔（麥克風孔與耳機孔對照）與裝置管理員驚嘆號提醒的品牌風格示意圖（非" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+            </ol>
+
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再自己試了</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>筆電內接麥克風完全沒聲音，而且懷疑是內部排線或零件問題——<span class="font-bold text-red-600">請不要自己拆筆電麥克風排線</span>，排線很細、拆壞了反而更貴，請先拍照問我們</li>
+                    <li>耳麥插孔鬆動、插進去會晃動，或插頭斷在孔裡面，不要用尖銳物品去挖</li>
+                    <li>裝置管理員裡麥克風裝置消失、反覆出現又消失，或伴隨其他裝置一起異常</li>
+                    <li>網路上教的「一鍵修復音效」「驅動萬能包」來路不明，不要隨便下載安裝，以免越修越糟</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 leading-relaxed">如果您的狀況是「對方聽得到、但聲音很小或雜音很大」，也可以先從第 4 步的增益、以及耳麥麥克風有沒有對準嘴巴、離嘴巴會不會太遠開始看。我們的檢測會把設定、驅動、麥克風與插孔一起交叉比對，找出真正的問題再報價給您。</p>
+
+            <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10">常見問題</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 麥克風沒聲音，一定是麥克風壞了嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">不一定。麥克風沒聲音最常見的原因其實是設定問題：隱私權限沒開、預設輸入裝置選錯、或是音量被調到最小。先照本文 6 步檢查一輪，很多狀況整理完就恢復了；真的檢查完還是沒聲音，才需要進一步檢測是麥克風、耳麥還是主機板音效線路的問題。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 視訊軟體裡聽不到我的聲音，但系統測試有聲音，是怎麼回事？</p>
+                    <p class="text-gray-600 leading-relaxed">這通常是視訊軟體裡的輸入裝置選錯了。系統測試有聲音，代表麥克風本身是好的；請到視訊軟體的音訊設定裡，把麥克風改成您正在用的那一個裝置，再確認軟體裡的音量沒有被靜音。不同軟體要分開設定，改完一個軟體，另一個軟體不會跟著改。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 麥克風的狀況拍照傳 LINE 就可以先判斷嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">可以先給方向。把聲音設定的輸入裝置頁面、音量測試條的反應、以及您用的是內接麥克風還是外接耳麥拍下來傳給我們，通常能先看出是設定問題還是硬體問題；要完全確認，還是需要實機檢測，這部分評估不收費，請放心傳。</p>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm mt-10">相關文章：<a href="guide-no-sound.html" class="text-brand-gold-dark font-bold">電腦沒聲音怎麼辦</a>、<a href="guide.html" class="text-brand-gold-dark font-bold">自救百科總覽</a></p>
+        </article>
+    </main>
+
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-4">排除不了，就交給我們</h2>
+            <p class="text-gray-600 text-lg mb-4">排除不了，拍照傳 LINE 免費評估：把聲音設定畫面、您用的麥克風種類拍下來傳給我們，我們先幫您看是設定問題還是硬體問題。</p>
+            <p class="text-gray-600 text-lg mb-10">台中電腦到府維修：全預約制，先拍照評估不收費，檢測費 $300（有修全額折抵），修好才收費，價格確認後再決定修不修。</p>
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#00b300] transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fab fa-line mr-3 text-2xl"></i> 拍照傳 LINE 免費評估
+                </a>
+                <a href="guide.html" class="bg-brand-dark text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fas fa-book-medical mr-3"></i> 回自救百科看其他狀況
+                </a>
+            </div>
+        </div>
+    </section>
+
+<footer class="bg-gray-900 text-gray-400 py-12 text-center border-t border-white/10 flex flex-col items-center justify-center">
+        <a href="index.html" class="flex items-center justify-center gap-3 group select-none mb-6">
+            <div class="w-12 h-12 bg-brand-gold text-brand-dark flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-microchip text-2xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                 <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none group-hover:text-brand-gold transition-colors duration-300 italic">SWIFT</span>
+                 <span class="bg-brand-gold text-brand-dark text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </a>
+        <p class="text-sm text-gray-300 font-medium">夜間到府・客製組裝・透明報價</p>
+        <p class="mt-6 text-sm text-gray-500">© 2026 Swift 迅修電腦. 台中彰化專業電腦管家. 統編 94538172. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
