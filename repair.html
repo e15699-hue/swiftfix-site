@@ -155,6 +155,10 @@
             const loadingDiv = document.getElementById('loading');
             const btn = document.getElementById('btn');
             
+            // 查詢進行中再按 Enter 不重送：按鈕雖已 disabled，但 Enter keydown 仍會直 call doQuery，
+            // 連打會重複呼叫 GAS、loading 指示可能提早消失；載入中直接忽略
+            if (!loadingDiv.classList.contains('hidden')) return;
+
             // 回頭客常打空格、連字號（如 0912-345-678）或從通訊錄複製 +886 國碼：
             // 先去掉空白與連字號，再把 +886／886 字首換回 0 開頭，
             // 試算表電話欄一律 0 開頭純數字文字格式，避免「查無資料」假陰性
@@ -206,7 +210,7 @@
                             <div class="bg-white/5 border border-white/10 p-4 rounded-2xl border-l-4 ${borderColorClass} mb-4">
                                 <div class="flex justify-between items-start mb-2 gap-2">
                                     <h4 class="font-bold text-white text-base leading-tight">${escapeHtml(item.description)}</h4>
-                                    <span class="text-xs text-gray-500 whitespace-nowrap bg-black/30 px-2 py-1 rounded-full">${escapeHtml(item.date)}</span>
+                                    <span class="text-sm text-gray-300 whitespace-nowrap bg-black/30 px-2 py-1 rounded-full">${escapeHtml(item.date)}</span>
                                 </div>
                                 <div class="mb-3"><span class="inline-block text-xs font-black px-2.5 py-1 rounded-full ${isCompleted ? 'bg-emerald-500/20 text-emerald-300' : 'bg-brand-gold/20 text-brand-gold'}">${isCompleted ? '✅ 已完成' : '⏳ 進行中'}</span></div>
                                 <div class="${bgColorClass} p-3 rounded-xl">
@@ -219,7 +223,7 @@
                         `;
                     });
                     html += '<a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="mt-2 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base"><i class="fab fa-line mr-2 text-xl"></i> 進度有問題？直接傳 LINE 問老闆</a>';
-                    html += '<a href="#phone" class="mt-2 block w-full text-center text-base text-gray-300 underline underline-offset-4 py-3">換支電話再查 →</a>';
+                    html += '<a href="#phone" onclick="clearSavedPhone();return false;" class="mt-2 block w-full text-center text-base text-gray-300 underline underline-offset-4 py-3">換支電話再查 →</a>';
                     resultDiv.innerHTML = html;
                     resultDiv.classList.remove('hidden');
                     // 回頭客手機視角：結果展開後整盒可能超出首屏，自動滑到結果區（已可見時不動）
