@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Cit9iJR0JOyNt_9GMHej3IoXCdoUKiSxOjfvYKye6N8" />
+    <title>電腦沒聲音、喇叭沒反應怎麼辦？6 步自救檢查先這樣做｜迅修電腦</title>
+    <link rel="canonical" href="https://swiftfix.com.tw/guide-no-sound.html" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <meta name="description" content="電腦沒聲音、喇叭沒反應怎麼辦？迅修電腦教您照 6 步自救檢查：音量與混音程式、預設播放裝置、耳機孔誤判與驅動驚嘆號。台中南屯的朋友若需要台中電腦維修協助，狀況照片傳 LINE 免費評估。">
+    <meta name="author" content="Swift 迅修電腦">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="電腦沒聲音、喇叭沒反應怎麼辦？6 步自救檢查先這樣做｜迅修電腦">
+    <meta property="og:description" content="沒聲音不一定是喇叭壞了：先分清是喇叭、耳機、系統設定還是驅動問題，照順序排除，真的排除不了再交給我們檢測。">
+    <meta property="og:url" content="https://swiftfix.com.tw/guide-no-sound.html">
+    <meta property="og:type" content="article">
+<script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-dark': '#013e47',
+                'brand-gold': '#eebb4d',
+                'brand-gold-dark': '#d4a036',
+              }
+            }
+          }
+        }
+      </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        html { scroll-behavior: smooth; }
+        article { scroll-margin-top: 96px; }
+        .check-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .check-list li i { margin-top: 0.3rem; }
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "電腦沒聲音、喇叭沒反應怎麼辦？6 步自救檢查先這樣做",
+  "description": "電腦沒聲音、喇叭沒反應怎麼辦？迅修電腦教您照 6 步自救檢查：音量與混音程式、預設播放裝置、耳機孔誤判與驅動驚嘆號。台中南屯的朋友若需要台中電腦維修協助，狀況照片傳 LINE 免費評估。",
+  "author": {
+    "@type": "Organization",
+    "name": "迅修電腦",
+    "url": "https://swiftfix.com.tw/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "迅修電腦",
+    "url": "https://swiftfix.com.tw/"
+  },
+  "mainEntityOfPage": "https://swiftfix.com.tw/guide-no-sound.html",
+  "inLanguage": "zh-TW"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "耳機有聲音、內建喇叭沒聲音，是喇叭壞了嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定。耳機有聲音只代表系統能正常出聲，內建喇叭沒聲音可能是輸出裝置選錯、耳機孔誤判，或內建喇叭本身的問題。請先照本文第 3 步和第 5 步檢查，排除設定原因後還是沒聲音，再往喇叭硬體方向查。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "接上 HDMI 螢幕後電腦沒聲音，這樣正常嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "很常見，不一定是故障。接上 HDMI 螢幕或電視時，系統常常會自動把聲音輸出改成螢幕或電視，如果螢幕本身沒有喇叭，您就會覺得電腦沒聲音。請到音效設定裡把輸出改回內建喇叭，再試一次看看。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "音效驅動顯示驚嘆號，可以自己重裝驅動嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以先試著重新啟用或更新驅動，步驟就是本文第 6 步的做法。如果您不確定該選哪一個裝置，或重裝後還是沒聲音，請先把裝置管理員的畫面拍下來問我們，不要隨便解除安裝裝置，以免越改越複雜。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://swiftfix.com.tw/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "電腦自救小百科",
+      "item": "https://swiftfix.com.tw/guide.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "電腦沒聲音・喇叭沒反應",
+      "item": "https://swiftfix.com.tw/guide-no-sound.html"
+    }
+  ]
+}
+</script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845579320"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17845579320');
+</script>
+<body class="bg-gray-50 text-brand-dark">
+    <nav class="bg-white shadow-sm fixed w-full z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group select-none">
+                <div class="w-12 h-12 bg-brand-dark text-brand-gold flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-microchip text-2xl"></i>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                    <span class="text-3xl md:text-4xl font-black tracking-tighter text-brand-dark leading-none group-hover:text-brand-gold-dark transition-colors duration-300 italic">SWIFT</span>
+                    <span class="bg-brand-gold text-brand-dark text-sm md:text-base font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm -mt-1 md:mt-0">迅修電腦</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-3 md:gap-8">
+                <div class="hidden lg:flex space-x-5 items-center font-medium">
+                    <div class="relative group">
+                        <span class="cursor-pointer text-brand-dark hover:text-brand-gold transition inline-flex items-center gap-1.5">電腦維修 <i class="fas fa-chevron-down text-[10px]"></i></span>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block z-50">
+                            <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-44 text-[15px]">
+                                <a href="index.html#services" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">服務項目</a>
+                                <a href="index.html#pricing" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">價目表</a>
+                                <a href="index.html#process" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">預約流程</a>
+                                <a href="repair.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">維修進度</a>
+                                <a href="index.html#faq" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">常見問題</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="guide.html" class="text-brand-dark hover:text-brand-gold transition">自救百科</a>
+                    <a href="tools.html" class="text-brand-dark hover:text-brand-gold transition">線上檢測</a>
+                    <a href="estimate.html" class="text-brand-dark hover:text-brand-gold transition">零件回收估價器</a>
+                    <a href="website.html" class="text-brand-gold-dark font-bold hover:text-brand-gold transition">一頁式網站</a>
+                </div>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-4 md:px-5 py-3 rounded-lg hover:bg-[#00b300] font-bold transition shadow-sm flex items-center min-h-[48px] text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> LINE 評估
+                </a>
+            </div>
+        </div>
+        <div class="lg:hidden border-t border-gray-100 bg-white px-3 py-2 flex gap-2 overflow-x-auto whitespace-nowrap" style="scrollbar-width:none;-webkit-overflow-scrolling:touch">
+            <a href="index.html#services" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">服務項目</a>
+            <a href="index.html#pricing" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">價目表</a>
+            <a href="index.html#process" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">預約流程</a>
+            <a href="repair.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">維修進度</a>
+            <a href="guide.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">自救百科</a>
+            <a href="tools.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">線上檢測</a>
+            <a href="estimate.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">零件回收估價器</a>
+            <a href="website.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-yellow-100 text-brand-dark text-sm font-bold">一頁式網站</a>
+            <a href="index.html#faq" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">常見問題</a>
+        </div>
+    </nav>
+    <header class="bg-brand-dark text-white pt-32 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-brand-gold text-brand-dark font-bold px-4 py-1 rounded-full mb-6 text-sm md:text-base">
+                <i class="fas fa-book-medical mr-2"></i> 自救百科・沒聲音篇
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">電腦沒聲音、喇叭沒反應？<br class="hidden md:block">先分清喇叭、耳機還是設定問題</h1>
+            <p class="text-lg md:text-xl text-gray-200 leading-relaxed">影片播了卻沒聲音、開會時對方聽不到您的喇叭聲，確實很困擾。但請先放心：很多時候只是音量被靜音、輸出裝置選錯，或耳機孔誤判。照本文 6 步先自己檢查，真的排除不了，再把狀況拍照傳 LINE 給我們，<span class="text-brand-gold font-bold">免費幫您評估</span>。</p>
+            <div id="openNowBadge" class="mt-6 flex justify-center"></div>
+            <script>
+            (function(){
+                var badge=document.getElementById('openNowBadge');
+                if(!badge)return;
+                var now=new Date(),d=now.getDay(),t=now.getHours()*60+now.getMinutes();
+                var isWeekend=(d===0||d===6);
+                var open=isWeekend?(t>=360&&t<1440):(t>=1200&&t<1440);
+                if(open){
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-green-500 text-white text-sm font-bold px-4 py-1.5 rounded-full shadow"><span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>現在營業中（到 24:00）</span>';
+                }else{
+                    var next=isWeekend?'今天 06:00':'今天 20:00';
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-white/20 text-gray-200 text-sm font-bold px-4 py-1.5 rounded-full border border-white/30">現在休息中・'+next+' 開始營業</span>';
+                }
+            })();
+            </script>
+        </div>
+    </header>
+    <main class="container mx-auto px-6 max-w-4xl py-14">
+        <p class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-gold-dark">首頁</a> ＞ <a href="guide.html" class="hover:text-brand-gold-dark">電腦自救小百科</a> ＞ 電腦沒聲音・喇叭沒反應</p>
+        <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+            <p class="text-gray-600 leading-relaxed mb-6">先跟您說明一個判斷原則：<span class="font-bold text-brand-dark">「完全沒聲音」和「某個程式沒聲音」是兩種故事</span>。完全沒聲音，比較像是音量、輸出裝置或驅動的問題；只有某個程式沒聲音，比較像是該程式自己的音量被靜音了。您先分清屬於哪一種，檢查會快很多。</p>
+            <p class="text-gray-600 leading-relaxed mb-8">檢查時也請您留意：喇叭、耳機、螢幕和藍牙裝置都可能是聲音的出口，系統有時候會把聲音送到您沒想到的裝置上。下面的步驟就是幫您一個一個確認，聲音到底被送到哪裡去了。</p>
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 my-8">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">沒聲音的狀況先傳給我們看</span><br>把音量設定、播放裝置畫面和外接耳機測試的結果拍下來傳 LINE，通常能先判斷是設定問題還是喇叭問題。先免費評估、報價透明，確認後再預約維修。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">電腦沒聲音自救檢查清單（由簡到難）</h3>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先檢查系統音量與喇叭本身的音量。</span>請看右下角的音量圖示是不是被靜音或拉到很低，再確認外接喇叭自己的旋鈕、靜音鍵和電源是不是開啟的；筆電也請確認鍵盤上的靜音鍵沒有被誤觸。怎麼判斷：取消靜音、把音量調回來後就有聲音，就是音量問題；調了還是一樣，再往下查。<br></span><figure class="my-5"><img src="guide-img/guide-no-sound-1.svg" alt="品牌風格示意圖：工作列音量圖示與外接喇叭音量旋鈕的位置概念" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 打開音量混音程式，看個別程式是不是被靜音了。</span>請在音量圖示上按右鍵，開啟「音量混音程式」，看正在播放的程式（例如瀏覽器、播放器、會議軟體）是不是被單獨靜音或音量被拉到最低。怎麼判斷：只有某個程式沒聲音、其他程式有聲音，多半就是這裡被靜音了；全部程式都沒聲音，再往下查。<br></span><figure class="my-5"><img src="guide-img/guide-no-sound-2.svg" alt="品牌風格示意圖：音量混音程式中各程式音量條與靜音按鈕的位置概念" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 確認預設播放裝置有沒有選錯。</span>請到 Windows 設定裡的「系統、音效」，看輸出裝置目前選的是內建喇叭、HDMI 螢幕、藍牙裝置還是耳機；接上 HDMI 螢幕時，聲音常常會被自動送到螢幕那邊。怎麼判斷：改回內建喇叭後就有聲音，就是輸出裝置選錯；改了還是一樣，再往下查。<br></span><figure class="my-5"><img src="guide-img/guide-no-sound-3.svg" alt="品牌風格示意圖：音效設定中輸出裝置下拉選單的位置概念" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 用外接喇叭或耳機交叉測試。</span>請換一組確定是好的耳機或外接喇叭接上電腦，播放一段影片或音樂試聽。怎麼判斷：外接耳機或喇叭有聲音，問題多半在內建喇叭或輸出設定；外接也一樣沒聲音，問題多半在系統或驅動，請繼續往下查。<br></span><figure class="my-5"><img src="guide-img/guide-no-sound-4.svg" alt="品牌風格示意圖：筆電接著耳機與外接喇叭、正在播放音樂測試的情境" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 檢查耳機孔是不是誤判成一直插著耳機。</span>如果您剛拔掉耳機、但系統還顯示輸出是耳機，請把耳機再插拔一次、再完整重開機一次；耳機孔有灰塵時，可以用氣吹輕輕吹一下。怎麼判斷：插拔、重開後系統改回內建喇叭且有聲音，就是耳機孔誤判；如果還是一直顯示耳機，或不確定該怎麼處理，請先拍照問我們，不要用尖物去挖耳機孔。<br></span><figure class="my-5"><img src="guide-img/guide-no-sound-5.svg" alt="品牌風格示意圖：耳機插頭插拔與耳機孔位置的示意，強調輕插輕拔" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">6. 到裝置管理員看音效驅動有沒有驚嘆號。</span>請在裝置管理員裡找到音效相關裝置，看旁邊有沒有黃色驚嘆號；有的話先試著按右鍵「停用裝置」再「啟用裝置」，或選「更新驅動程式」。怎麼判斷：驚嘆號消失、聲音恢復，就是驅動問題；如果您不確定該點哪一個裝置，請先拍照問我們，不要隨便解除安裝裝置。<br></span><figure class="my-5"><img src="guide-img/guide-no-sound-6.svg" alt="品牌風格示意圖：裝置管理員中音效裝置與驚嘆號標示的位置概念" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+                
+            </ol>
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 別再自己試了：出現這些情況，請先停手</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>喇叭出現破音、燒焦味或冒煙——<span class="font-bold text-red-600">請立刻停用、關機，不要再開大音量測試</span>，先拍照問我們</li>
+                    <li>電腦或喇叭曾經潑到液體——請先關機、不要再開機通電測試，先拍照問我們</li>
+                    <li>想自己拆喇叭、拆機檢查音效線路但不確定怎麼拆——<span class="font-bold text-red-600">請先拍照問我們，不要硬拆</span></li>
+                    <li>音量已經開到最大還是完全沒聲音，又伴隨機身發燙或異味——請先停用、關機，拍照問我們再決定下一步</li>
+                    
+                </ul>
+            </div>
+            <p class="text-gray-600 leading-relaxed">如果您的電腦是接上電視或外接螢幕後才沒聲音，也建議把輸出裝置畫面拍下來傳給我們，常常只是聲音被送到螢幕那邊了。我們的檢測會把輸出設定、驅動與喇叭本身一起交叉比對，找出真正的問題再報價給您。</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10">常見問題</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 耳機有聲音、內建喇叭沒聲音，是喇叭壞了嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">不一定。耳機有聲音只代表系統能正常出聲，內建喇叭沒聲音可能是輸出裝置選錯、耳機孔誤判，或內建喇叭本身的問題。請先照本文第 3 步和第 5 步檢查，排除設定原因後還是沒聲音，再往喇叭硬體方向查。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 接上 HDMI 螢幕後電腦沒聲音，這樣正常嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">很常見，不一定是故障。接上 HDMI 螢幕或電視時，系統常常會自動把聲音輸出改成螢幕或電視，如果螢幕本身沒有喇叭，您就會覺得電腦沒聲音。請到音效設定裡把輸出改回內建喇叭，再試一次看看。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 音效驅動顯示驚嘆號，可以自己重裝驅動嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">可以先試著重新啟用或更新驅動，步驟就是本文第 6 步的做法。如果您不確定該選哪一個裝置，或重裝後還是沒聲音，請先把裝置管理員的畫面拍下來問我們，不要隨便解除安裝裝置，以免越改越複雜。</p>
+                </div>
+                
+            </div>
+            <p class="text-gray-500 text-sm mt-10">相關文章：<a href="guide-keyboard.html" class="text-brand-gold-dark font-bold">鍵盤打不出字、部分按鍵失靈怎麼辦</a>、<a href="guide-touchpad.html" class="text-brand-gold-dark font-bold">觸控板沒反應、游標亂跳怎麼辦</a>、<a href="guide.html" class="text-brand-gold-dark font-bold">自救百科總覽</a></p>
+        </article>
+    </main>
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-4">排除不了，就交給我們</h2>
+            <p class="text-gray-600 text-lg mb-10">迅修電腦在台中市南屯區，提供台中電腦到府維修，全預約制：平日晚上、假日都能約。先拍照評估不收費，檢測費 $300（有修全額折抵），修好才收費，價格確認後再決定修不修。</p>
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#00b300] transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fab fa-line mr-3 text-2xl"></i> 拍照傳 LINE 免費評估
+                </a>
+                <a href="guide.html" class="bg-brand-dark text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fas fa-book-medical mr-3"></i> 回自救百科看其他狀況
+                </a>
+            </div>
+        </div>
+    </section>
+<footer class="bg-gray-900 text-gray-400 py-12 text-center border-t border-white/10 flex flex-col items-center justify-center">
+        <a href="index.html" class="flex items-center justify-center gap-3 group select-none mb-6">
+            <div class="w-12 h-12 bg-brand-gold text-brand-dark flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-microchip text-2xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                 <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none group-hover:text-brand-gold transition-colors duration-300 italic">SWIFT</span>
+                 <span class="bg-brand-gold text-brand-dark text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </a>
+        <p class="text-sm text-gray-300 font-medium">夜間到府・客製組裝・透明報價</p>
+        <p class="mt-6 text-sm text-gray-500">© 2026 Swift 迅修電腦. 台中彰化專業電腦管家. 統編 94538172. All rights reserved.</p>
+    </footer>
+</body>
+</html>
