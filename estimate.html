@@ -165,13 +165,37 @@
                 <br class="hidden md:block">
                 🎓 學生宿舍電腦壞了、想先知道修多少錢？先看<a href="index.html#faq-student" class="text-brand-gold underline font-bold">常見問題學生題</a>——宿舍到府檢測、報價後再決定，修好才收費。
                 先跟您說明：這是店家回收價，約為二手行情低標的半價——自己在二手平台慢慢賣可以賣更高，但要花時間面交、承擔風險；賣給店家就是省事、檢測完當場結清。
+                <br class="hidden md:block">
+                🖥️ 想組一台新機？先看<a href="build.html" class="text-brand-gold underline font-bold">組新機專頁</a>，或在下面切換「組新機參考價」模式，選用途＋預算先看參考總價。
             </p>
         </div>
     </header>
 
     <main class="container mx-auto px-6 max-w-3xl py-14">
         <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-10">
-            <div class="space-y-6">
+            <div class="flex gap-3 mb-6">
+                <button id="modeBuyback" type="button" class="flex-1 py-3 rounded-xl font-bold text-base bg-brand-dark text-white" onclick="setMode('buyback')">零件回收估價</button>
+                <button id="modeBuild" type="button" class="flex-1 py-3 rounded-xl font-bold text-base bg-gray-100 text-brand-dark" onclick="setMode('build')">組新機參考價</button>
+            </div>
+            <div id="buildPanel" class="space-y-6 hidden">
+                <div>
+                    <label for="buildUse" class="block font-bold text-lg mb-2"><i class="fas fa-desktop text-brand-gold-dark mr-2"></i>第一步：選用途</label>
+                    <select id="buildUse" class="w-full border-2 border-gray-200 rounded-xl px-4 text-lg font-medium focus:border-brand-gold focus:outline-none bg-white">
+                        <option value="office">文書機（上網、文書、追劇）</option>
+                        <option value="game">遊戲機（順跑主流遊戲）</option>
+                        <option value="video">剪片直播機（剪片、直播、轉檔、多工）</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="buildBudget" class="block font-bold text-lg mb-2"><i class="fas fa-wallet text-brand-gold-dark mr-2"></i>第二步：選預算</label>
+                    <select id="buildBudget" class="w-full border-2 border-gray-200 rounded-xl px-4 text-lg font-medium focus:border-brand-gold focus:outline-none bg-white">
+                        <option value="low">$20,000 左右</option>
+                        <option value="mid">$50,000 左右</option>
+                        <option value="high">$80,000 以上</option>
+                    </select>
+                </div>
+            </div>
+            <div id="buybackPanel" class="space-y-6">
                 <div>
                     <label for="catSelect" class="block font-bold text-lg mb-2"><i class="fas fa-layer-group text-brand-gold-dark mr-2"></i>第一步：選分類</label>
                     <select id="catSelect" class="w-full border-2 border-gray-200 rounded-xl px-4 text-lg font-medium focus:border-brand-gold focus:outline-none bg-white"></select>
@@ -191,12 +215,21 @@
                 <p id="buyerTip" class="hidden mt-3 text-sm text-brand-gold bg-brand-gold/10 border border-brand-gold/40 rounded-xl px-4 py-3 leading-relaxed text-left"></p>
             </div>
 
-            <div class="mt-8 bg-brand-gold/15 border border-brand-gold/40 rounded-xl p-6 text-center">
+            <div id="buybackCta" class="mt-8 bg-brand-gold/15 border border-brand-gold/40 rounded-xl p-6 text-center">
                 <p class="font-bold text-lg mb-2">想把零件或整機賣給我們回收？</p>
                 <p class="text-gray-600 leading-relaxed mb-5">參考價只是大概，您的零件實際能回收多少要看實物狀況。整台筆電／桌機想估也直接拍照傳 LINE，報型號＋大概年份就幫您估（型號通常在筆電底部貼紙、桌機機殼背面貼紙上，連同貼紙拍一張即可）。或約時間拿來檢測，我們檢測後給您實際回收價；不賣也沒關係、不用有壓力。</p>
                 <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="inline-flex items-center justify-center bg-[#00C300] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#00b300] transition shadow-md min-h-[56px]">
                     <i class="fab fa-line mr-3 text-2xl"></i> 拍照傳 LINE 問實際回收價
                 </a>
+            </div>
+
+            <div id="buildCta" class="hidden mt-8 bg-brand-gold/15 border border-brand-gold/40 rounded-xl p-6 text-center">
+                <p class="font-bold text-lg mb-2">想組這台？先跟我們說用途和預算</p>
+                <p class="text-gray-600 leading-relaxed mb-5">參考總價只是大概，實際依零件行情報價。傳 LINE 告訴我們您的用途和預算，我們配好菜單再報價給您確認，確認後再決定，不用先付錢。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="inline-flex items-center justify-center bg-[#00C300] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#00b300] transition shadow-md min-h-[56px]">
+                    <i class="fab fa-line mr-3 text-2xl"></i> 傳 LINE 報用途＋預算
+                </a>
+                <p class="mt-4 text-sm text-gray-500">想先看完整說明？<a href="build.html" class="text-brand-gold-dark font-bold underline">組新機專頁 →</a></p>
             </div>
         </div>
 
@@ -940,6 +973,46 @@ Object.keys(PRICE_DATA).forEach(function (key) {
 catSelect.addEventListener('change', fillItems);
 itemSelect.addEventListener('change', showResult);
 fillItems();
+
+// 組新機參考價模式：用途三選一＋預算三選一，顯示與組新機專頁一致的參考總價
+const BUILD_DATA = {
+  office: { name: '文書機', price: 20000, hint: '文書、上網、追劇、輕度使用都夠用。' },
+  game: { name: '遊戲機', price: 50000, hint: '順跑主流遊戲為主，留升級空間。' },
+  video: { name: '剪片直播機', price: 80000, hint: '剪片、直播、轉檔、多工處理為主。' }
+};
+const BUILD_BUDGET = { low: 20000, mid: 50000, high: 80000 };
+const buildUse = document.getElementById('buildUse');
+const buildBudget = document.getElementById('buildBudget');
+const buildPanel = document.getElementById('buildPanel');
+const buybackPanel = document.getElementById('buybackPanel');
+const modeBuyback = document.getElementById('modeBuyback');
+const modeBuild = document.getElementById('modeBuild');
+const buildCta = document.getElementById('buildCta');
+const buybackCta = document.getElementById('buybackCta');
+
+function updateBuild() {
+  const d = BUILD_DATA[buildUse.value];
+  const b = BUILD_BUDGET[buildBudget.value];
+  resultName.textContent = d.name + '・參考總價';
+  resultRange.textContent = fmt(d.price) + ' 起';
+  resultCaption.textContent = '參考總價，實際依零件行情報價；傳 LINE 詳談需求後報價';
+  resultNote.textContent = d.hint + (b < d.price ? '這個用途的參考價比您選的預算高一些，建議先傳 LINE 跟我們討論怎麼配最划算。' : '這個用途的參考價在您選的預算帶內，傳 LINE 報用途與預算，我們配好菜單再報價給您確認。');
+  buyerTip.classList.add('hidden');
+}
+
+function setMode(mode) {
+  const isBuild = mode === 'build';
+  buildPanel.classList.toggle('hidden', !isBuild);
+  buybackPanel.classList.toggle('hidden', isBuild);
+  buildCta.classList.toggle('hidden', !isBuild);
+  buybackCta.classList.toggle('hidden', isBuild);
+  modeBuild.className = 'flex-1 py-3 rounded-xl font-bold text-base ' + (isBuild ? 'bg-brand-dark text-white' : 'bg-gray-100 text-brand-dark');
+  modeBuyback.className = 'flex-1 py-3 rounded-xl font-bold text-base ' + (isBuild ? 'bg-gray-100 text-brand-dark' : 'bg-brand-dark text-white');
+  if (isBuild) { updateBuild(); } else { showResult(); }
+}
+
+buildUse.addEventListener('change', updateBuild);
+buildBudget.addEventListener('change', updateBuild);
 </script>
 
 </body>
