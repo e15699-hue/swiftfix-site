@@ -995,7 +995,7 @@ function updateBuild() {
   const b = BUILD_BUDGET[buildBudget.value];
   resultName.textContent = d.name + '・參考總價';
   resultRange.textContent = fmt(d.price) + ' 起';
-  resultCaption.textContent = '參考總價，實際依零件行情報價；傳 LINE 詳談需求後報價';
+  resultCaption.textContent = '參考總價，實際依零件行情報價；傳 LINE 詳談需求後報價，正式報價會列出每個零件的品牌、型號和價格，讓您自己比價';
   resultNote.textContent = d.hint + (b < d.price ? '這個用途的參考價比您選的預算高一些，建議先傳 LINE 跟我們討論怎麼配最划算。' : '這個用途的參考價在您選的預算帶內，傳 LINE 報用途與預算，我們配好菜單再報價給您確認。');
   buyerTip.classList.add('hidden');
 }
