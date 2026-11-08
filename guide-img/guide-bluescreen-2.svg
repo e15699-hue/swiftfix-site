@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="90" y="70" width="620" height="290" rx="14" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/>
+<rect x="90" y="70" width="620" height="44" rx="14" fill="#013e47"/>
+<circle cx="114" cy="92" r="7" fill="#ff5f57"/><circle cx="138" cy="92" r="7" fill="#eebb4d"/><circle cx="162" cy="92" r="7" fill="#28c840"/>
+<text x="186" y="99" font-size="20" fill="#ffffff">最近的變動（示意）</text>
+<rect x="130" y="150" width="150" height="90" rx="10" fill="#eef2f2" stroke="#d5dddd"/><text x="205" y="185" font-size="24" fill="#013e47" text-anchor="middle">裝新軟體</text><text x="205" y="218" font-size="22" fill="#5a6b70" text-anchor="middle">？</text>
+<rect x="300" y="150" width="150" height="90" rx="10" fill="#eef2f2" stroke="#d5dddd"/><text x="375" y="185" font-size="24" fill="#013e47" text-anchor="middle">更新驅動</text><text x="375" y="218" font-size="22" fill="#5a6b70" text-anchor="middle">？</text>
+<rect x="470" y="150" width="150" height="90" rx="10" fill="#eef2f2" stroke="#d5dddd"/><text x="545" y="185" font-size="24" fill="#013e47" text-anchor="middle">加新硬體</text><text x="545" y="218" font-size="22" fill="#5a6b70" text-anchor="middle">？</text>
+<text x="400" y="300" font-size="28" fill="#013e47" text-anchor="middle" font-weight="bold">藍屏十之八九跟最近的變動有關</text>
+<text x="400" y="340" font-size="22" fill="#5a6b70" text-anchor="middle">先把想到的記下來，再往下查</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 2：回想藍屏前改了什麼</text>
+</svg>

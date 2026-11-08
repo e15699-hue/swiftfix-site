@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="110" y="70" width="360" height="260" rx="10" fill="#1f5fa8"/>
+<text x="290" y="140" font-size="44" fill="#ffffff" text-anchor="middle">:(</text>
+<text x="290" y="200" font-size="24" fill="#ffffff" text-anchor="middle">您的電腦發生問題</text>
+<text x="290" y="250" font-size="22" fill="#cfe3f5" text-anchor="middle">MEMORY_MANAGEMENT</text>
+<rect x="520" y="90" width="150" height="280" rx="16" fill="#013e47"/>
+<rect x="532" y="102" width="126" height="220" rx="8" fill="#ffffff"/>
+<circle cx="595" cy="180" r="34" fill="none" stroke="#013e47" stroke-width="4"/>
+<circle cx="595" cy="180" r="14" fill="#013e47"/>
+<text x="595" y="250" font-size="20" fill="#013e47" text-anchor="middle">拍照</text>
+<circle cx="595" cy="345" r="10" fill="#5a6b70"/>
+<text x="400" y="385" font-size="26" fill="#013e47" text-anchor="middle" font-weight="bold">錯誤代碼就是電腦留給我們的「病歷」</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 1：把藍屏拍下來</text>
+</svg>

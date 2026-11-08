@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="110" y="110" width="300" height="170" rx="12" fill="#013e47"/>
+<rect x="130" y="130" width="260" height="110" rx="8" fill="#20262b"/>
+<circle cx="170" cy="165" r="10" fill="#8a9ba0"/><circle cx="230" cy="200" r="12" fill="#8a9ba0"/><circle cx="300" cy="160" r="9" fill="#8a9ba0"/><circle cx="350" cy="205" r="11" fill="#8a9ba0"/>
+<text x="260" y="265" font-size="22" fill="#013e47" text-anchor="middle">出風口積灰・毛髮卡住</text>
+<text x="520" y="180" font-size="60" fill="#eebb4d" text-anchor="middle">🖌</text>
+<text x="520" y="240" font-size="24" fill="#013e47" text-anchor="middle">軟毛刷刷掉就好</text>
+<text x="400" y="330" font-size="28" fill="#013e47" text-anchor="middle" font-weight="bold">不用拆機，不要用嘴巴吹</text>
+<text x="400" y="368" font-size="22" fill="#5a6b70" text-anchor="middle">口水和濕氣反而傷零件</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 3：清出風口的灰塵</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<circle cx="250" cy="200" r="85" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/>
+<circle cx="250" cy="200" r="70" fill="none" stroke="#013e47" stroke-width="4"/>
+<text x="250" y="225" font-size="44" fill="#013e47" text-anchor="middle">10 分鐘</text>
+<text x="250" y="262" font-size="20" fill="#5a6b70" text-anchor="middle">關機休息</text>
+<rect x="449" y="135" width="223" height="130" rx="10" fill="#013e47"/>
+<rect x="461" y="147" width="199" height="106" rx="6" fill="#2e6b74"/>
+<text x="560" y="194" font-size="16" fill="#cfe3e6" text-anchor="middle" font-weight="bold">Z z</text>
+<rect x="419" y="265" width="283" height="11" rx="8" fill="#c9d4d4"/>
+<text x="400" y="340" font-size="28" fill="#013e47" text-anchor="middle" font-weight="bold">先只做文書、上網這種輕量工作</text>
+<text x="400" y="378" font-size="22" fill="#5a6b70" text-anchor="middle">輕量就安靜、重度才吵 → 散熱效率變差；連輕量都燙 → 建議安排檢測</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 6：涼一點再觀察一次</text>
+</svg>

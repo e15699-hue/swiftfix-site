@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="110" y="130" width="110" height="150" rx="10" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/><text x="165" y="200" font-size="22" fill="#013e47" text-anchor="middle">隨身碟</text><text x="165" y="232" font-size="30" fill="#e5484d" text-anchor="middle">✕</text>
+<rect x="250" y="130" width="110" height="150" rx="10" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/><text x="305" y="200" font-size="22" fill="#013e47" text-anchor="middle">外接硬碟</text><text x="305" y="232" font-size="30" fill="#e5484d" text-anchor="middle">✕</text>
+<rect x="390" y="130" width="110" height="150" rx="10" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/><text x="445" y="200" font-size="22" fill="#013e47" text-anchor="middle">讀卡機</text><text x="445" y="232" font-size="30" fill="#e5484d" text-anchor="middle">✕</text>
+<rect x="530" y="130" width="110" height="150" rx="10" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/><text x="585" y="200" font-size="22" fill="#013e47" text-anchor="middle">印表機</text><text x="585" y="232" font-size="30" fill="#e5484d" text-anchor="middle">✕</text>
+<text x="400" y="340" font-size="28" fill="#013e47" text-anchor="middle" font-weight="bold">先全拔，只留電源、螢幕、鍵盤滑鼠</text>
+<text x="400" y="378" font-size="22" fill="#5a6b70" text-anchor="middle">能正常進桌面，再逐一插回找兇手</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 3：拔掉外接裝置再開機</text>
+</svg>

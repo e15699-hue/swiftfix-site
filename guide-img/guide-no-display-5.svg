@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="119" y="135" width="223" height="130" rx="10" fill="#013e47"/>
+<rect x="131" y="147" width="199" height="106" rx="6" fill="#20262b"/>
+<text x="230" y="194" font-size="16" fill="#8a9ba0" text-anchor="middle" font-weight="bold">黑畫面</text>
+<rect x="89" y="265" width="283" height="11" rx="8" fill="#c9d4d4"/>
+<text x="400" y="200" font-size="56" fill="#eebb4d" text-anchor="middle" font-weight="bold">→</text>
+<text x="400" y="240" font-size="20" fill="#013e47" text-anchor="middle">HDMI</text>
+<rect x="480" y="110" width="220" height="160" rx="10" fill="#013e47"/>
+<rect x="492" y="122" width="196" height="136" rx="6" fill="#ffffff"/>
+<text x="590" y="185" font-size="30" fill="#28c840" text-anchor="middle" font-weight="bold">✓ 有畫面</text>
+<text x="590" y="225" font-size="22" fill="#013e47" text-anchor="middle">桌面正常顯示</text>
+<rect x="575" y="270" width="30" height="14" rx="4" fill="#013e47"/><rect x="550" y="284" width="80" height="10" rx="5" fill="#013e47"/>
+<text x="400" y="350" font-size="28" fill="#013e47" text-anchor="middle" font-weight="bold">外接有畫面 → 原本的面板或排線問題</text>
+<text x="400" y="385" font-size="22" fill="#5a6b70" text-anchor="middle">外接也沒畫面 → 比較像顯示晶片或主機板問題</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 5：外接螢幕交叉測試</text>
+</svg>

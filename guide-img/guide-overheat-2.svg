@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="90" y="100" width="280" height="180" rx="12" fill="#f7e8c8" stroke="#d5dddd" stroke-width="2"/>
+<text x="230" y="140" font-size="24" fill="#013e47" text-anchor="middle">床上・沙發・棉被</text>
+<rect x="131" y="158" width="198" height="115" rx="10" fill="#013e47"/>
+<rect x="143" y="170" width="174" height="91" rx="6" fill="#c9a86a"/>
+<text x="230" y="209" font-size="14" fill="#7a5b1e" text-anchor="middle" font-weight="bold">悶住！</text>
+<rect x="101" y="273" width="258" height="9" rx="8" fill="#c9d4d4"/>
+<text x="230" y="310" font-size="40" fill="#e5484d" text-anchor="middle" font-weight="bold">✕ 進風口被堵住</text>
+<rect x="430" y="100" width="280" height="180" rx="12" fill="#e6f4ea" stroke="#d5dddd" stroke-width="2"/>
+<text x="570" y="140" font-size="24" fill="#013e47" text-anchor="middle">平整桌面・後方墊高</text>
+<rect x="471" y="158" width="198" height="115" rx="10" fill="#013e47"/>
+<rect x="483" y="170" width="174" height="91" rx="6" fill="#2e6b74"/>
+<text x="570" y="209" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">透氣 ✓</text>
+<rect x="441" y="273" width="258" height="9" rx="8" fill="#c9d4d4"/>
+<text x="570" y="310" font-size="40" fill="#28c840" text-anchor="middle" font-weight="bold">✓ 幫助進風</text>
+<text x="400" y="370" font-size="24" fill="#5a6b70" text-anchor="middle">桌機出風口離牆至少留 10 公分</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 2：讓它透氣</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="110" y="130" width="170" height="130" rx="10" fill="#eebb4d"/>
+<text x="195" y="185" font-size="26" fill="#013e47" text-anchor="middle" font-weight="bold">📁 文件</text>
+<text x="195" y="225" font-size="22" fill="#013e47" text-anchor="middle">照片・報告</text>
+<text x="330" y="205" font-size="56" fill="#013e47" text-anchor="middle" font-weight="bold">→</text>
+<rect x="420" y="130" width="170" height="130" rx="10" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/>
+<text x="505" y="185" font-size="26" fill="#013e47" text-anchor="middle" font-weight="bold">外接硬碟</text>
+<text x="505" y="225" font-size="22" fill="#013e47" text-anchor="middle">或雲端</text>
+<text x="400" y="320" font-size="28" fill="#013e47" text-anchor="middle" font-weight="bold">千萬不要在藍屏頻繁時直接重灌</text>
+<text x="400" y="360" font-size="24" fill="#e5484d" text-anchor="middle" font-weight="bold">資料會先不見</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 4：先備份重要檔案</text>
+</svg>

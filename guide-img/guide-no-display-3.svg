@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="90" y="90" width="240" height="170" rx="10" fill="#013e47"/>
+<rect x="102" y="102" width="216" height="146" rx="6" fill="#2e6b74"/>
+<text x="210" y="185" font-size="26" fill="#ffffff" text-anchor="middle">電腦螢幕</text>
+<rect x="180" y="260" width="60" height="12" rx="4" fill="#013e47"/><rect x="160" y="272" width="100" height="10" rx="5" fill="#013e47"/>
+<text x="400" y="190" font-size="56" fill="#eebb4d" text-anchor="middle" font-weight="bold">→</text>
+<text x="400" y="230" font-size="22" fill="#013e47" text-anchor="middle">Win + P</text>
+<rect x="470" y="90" width="240" height="170" rx="10" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/>
+<rect x="486" y="106" width="208" height="120" rx="6" fill="#eef2f2"/>
+<text x="590" y="150" font-size="24" fill="#013e47" text-anchor="middle">第二螢幕？</text>
+<text x="590" y="190" font-size="24" fill="#e5484d" text-anchor="middle" font-weight="bold">沒有接！</text>
+<rect x="560" y="260" width="60" height="12" rx="4" fill="#013e47"/><rect x="540" y="272" width="100" height="10" rx="5" fill="#013e47"/>
+<text x="400" y="340" font-size="28" fill="#013e47" text-anchor="middle" font-weight="bold">切回「僅電腦螢幕」</text>
+<text x="400" y="380" font-size="22" fill="#5a6b70" text-anchor="middle">畫面可能被送到不存在的第二台螢幕</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 3：切換投影模式</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="120" y="80" width="280" height="190" rx="10" fill="#013e47"/>
+<rect x="132" y="92" width="256" height="166" rx="6" fill="#2e6b74"/>
+<text x="260" y="185" font-size="26" fill="#ffffff" text-anchor="middle">螢幕沒訊號？</text>
+<circle cx="380" cy="255" r="8" fill="#28c840"/><text x="398" y="263" font-size="20" fill="#013e47">電源燈有亮嗎</text>
+<rect x="240" y="270" width="40" height="14" rx="4" fill="#013e47"/><rect x="210" y="284" width="100" height="10" rx="5" fill="#013e47"/>
+<path d="M 430 300 L 430 350 L 560 350" stroke="#013e47" stroke-width="6" fill="none"/>
+<rect x="560" y="330" width="70" height="40" rx="8" fill="#ffffff" stroke="#d5dddd" stroke-width="2"/>
+<text x="595" y="357" font-size="20" fill="#013e47" text-anchor="middle">HDMI</text>
+<text x="470" y="390" font-size="22" fill="#5a6b70" text-anchor="middle">訊號來源選對了嗎？線兩端重插一次</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 4：確認螢幕與訊號線</text>
+</svg>
