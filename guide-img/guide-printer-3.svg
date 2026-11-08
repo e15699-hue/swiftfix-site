@@ -1,9 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
-<rect width="800" height="450" fill="#f2f5f5"/>
-<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
-<circle cx="400" cy="140" r="58" fill="#eebb4d"/>
-<text x="400" y="162" font-size="56" fill="#013e47" text-anchor="middle" font-weight="bold">3</text>
-<text x="400" y="190" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">清除卡住的列印工作</text>
+<rect width="800" height="450" fill="#e9f2f1"/>
+<circle cx="690" cy="70" r="90" fill="#dcebe8"/>
+<circle cx="110" cy="380" r="70" fill="#f3e5bd" opacity="0.7"/>
+<text x="700" y="34" font-size="20" fill="#8a9ba0">示意圖</text>
+<circle cx="80" cy="64" r="40" fill="#eebb4d"/>
+<text x="80" y="80" font-size="42" fill="#013e47" text-anchor="middle" font-weight="bold">3</text>
+<g transform="translate(300,96)">
+
+<rect x="62" y="32" width="76" height="52" fill="#ffffff" stroke="#013e47" stroke-width="7"/>
+<path d="M72 48 h56 M72 62 h56" stroke="#013e47" stroke-width="6" stroke-linecap="round"/>
+<rect x="38" y="78" width="124" height="66" rx="10" fill="#013e47"/>
+<rect x="62" y="138" width="76" height="34" fill="#ffffff" stroke="#013e47" stroke-width="7"/>
+<circle cx="142" cy="100" r="7" fill="#eebb4d"/>
+</g>
+<text x="400" y="352" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">清除卡住的列印工作</text>
 <rect x="0" y="410" width="800" height="40" fill="#013e47"/>
 <text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 3：清除卡住的列印工作</text>
 </svg>
