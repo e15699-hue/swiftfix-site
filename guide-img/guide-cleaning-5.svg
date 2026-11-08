@@ -1,9 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
-<rect width="800" height="450" fill="#f2f5f5"/>
-<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
-<circle cx="400" cy="140" r="58" fill="#eebb4d"/>
-<text x="400" y="162" font-size="56" fill="#013e47" text-anchor="middle" font-weight="bold">5</text>
-<text x="400" y="190" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">螢幕清潔</text>
+<rect width="800" height="450" fill="#e9f2f1"/>
+<circle cx="690" cy="70" r="90" fill="#dcebe8"/>
+<circle cx="110" cy="380" r="70" fill="#f3e5bd" opacity="0.7"/>
+<text x="700" y="34" font-size="20" fill="#8a9ba0">示意圖</text>
+<circle cx="80" cy="64" r="40" fill="#eebb4d"/>
+<text x="80" y="80" font-size="42" fill="#013e47" text-anchor="middle" font-weight="bold">5</text>
+<g transform="translate(300,96)">
+
+<rect x="32" y="38" width="136" height="96" rx="8" fill="#013e47"/>
+<rect x="42" y="48" width="116" height="76" fill="#ffffff"/>
+<rect x="42" y="48" width="116" height="12" fill="#eebb4d"/>
+<rect x="94" y="134" width="12" height="24" fill="#013e47"/>
+<rect x="66" y="158" width="68" height="10" rx="5" fill="#013e47"/>
+<circle cx="150" cy="56" r="4" fill="#eebb4d"/>
+</g>
+<text x="400" y="352" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">螢幕清潔</text>
 <rect x="0" y="410" width="800" height="40" fill="#013e47"/>
 <text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 5：螢幕清潔</text>
 </svg>

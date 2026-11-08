@@ -1,10 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
-<rect width="800" height="450" fill="#f2f5f5"/>
-<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
-<circle cx="400" cy="140" r="58" fill="#eebb4d"/>
-<text x="400" y="162" font-size="56" fill="#013e47" text-anchor="middle" font-weight="bold">4</text>
-<text x="400" y="168" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">把鼓起的樣子從多個角度拍照留</text>
-<text x="400" y="212" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">存</text>
+<rect width="800" height="450" fill="#e9f2f1"/>
+<circle cx="690" cy="70" r="90" fill="#dcebe8"/>
+<circle cx="110" cy="380" r="70" fill="#f3e5bd" opacity="0.7"/>
+<text x="700" y="34" font-size="20" fill="#8a9ba0">示意圖</text>
+<circle cx="80" cy="64" r="40" fill="#eebb4d"/>
+<text x="80" y="80" font-size="42" fill="#013e47" text-anchor="middle" font-weight="bold">4</text>
+<g transform="translate(300,96)">
+
+<rect x="32" y="68" width="122" height="72" rx="12" fill="#013e47"/>
+<rect x="154" y="90" width="16" height="28" fill="#013e47"/>
+<rect x="42" y="78" width="102" height="52" rx="8" fill="#ffffff"/>
+<polygon points="98,84 74,112 92,112 84,134 112,104 94,104" fill="#eebb4d"/>
+<path d="M52 158 q10 8 20 0 q10 8 20 0" stroke="#eebb4d" stroke-width="6" fill="none" stroke-linecap="round"/>
+</g>
+<text x="400" y="332" font-size="26" fill="#013e47" text-anchor="middle" font-weight="bold">把鼓起的樣子從多</text><text x="400" y="366" font-size="26" fill="#013e47" text-anchor="middle" font-weight="bold">個角度拍照留存</text>
 <rect x="0" y="410" width="800" height="40" fill="#013e47"/>
 <text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 4：把鼓起的樣子從多個角度拍照留存</text>
 </svg>

@@ -1,9 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
-<rect width="800" height="450" fill="#f2f5f5"/>
-<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
-<circle cx="400" cy="140" r="58" fill="#eebb4d"/>
-<text x="400" y="162" font-size="56" fill="#013e47" text-anchor="middle" font-weight="bold">5</text>
-<text x="400" y="190" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">組裝整線燒機測試</text>
+<rect width="800" height="450" fill="#e9f2f1"/>
+<circle cx="690" cy="70" r="90" fill="#dcebe8"/>
+<circle cx="110" cy="380" r="70" fill="#f3e5bd" opacity="0.7"/>
+<text x="700" y="34" font-size="20" fill="#8a9ba0">示意圖</text>
+<circle cx="80" cy="64" r="40" fill="#eebb4d"/>
+<text x="80" y="80" font-size="42" fill="#013e47" text-anchor="middle" font-weight="bold">5</text>
+<g transform="translate(300,96)">
+
+<circle cx="88" cy="88" r="48" fill="none" stroke="#013e47" stroke-width="12"/>
+<path d="M122 122 L158 158" stroke="#013e47" stroke-width="15" stroke-linecap="round"/>
+<circle cx="88" cy="88" r="20" fill="#eebb4d" opacity="0.55"/>
+</g>
+<text x="400" y="352" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">組裝整線燒機測試</text>
 <rect x="0" y="410" width="800" height="40" fill="#013e47"/>
 <text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 5：組裝整線燒機測試</text>
 </svg>
