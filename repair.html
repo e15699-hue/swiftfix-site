@@ -66,6 +66,18 @@
                 <p class="mt-2 text-base text-gray-400">正在連線雲端資料庫...</p>
             </div>
 
+            <!-- 無 JavaScript 時的備援：查詢鈕靠 JS 運作，沒開 JS 的回頭客不該只看到一個按不動的按鈕 -->
+            <noscript>
+                <div class="mt-8 text-center bg-yellow-500/10 p-5 rounded-2xl border border-yellow-500/30">
+                    <i class="fas fa-exclamation-circle text-2xl text-yellow-300 mb-2"></i>
+                    <p class="text-yellow-200 font-bold text-base">您的瀏覽器未開啟 JavaScript，無法直接查詢進度。</p>
+                    <p class="text-gray-300 text-base mt-1 leading-relaxed">請直接傳 LINE 問老闆目前的維修進度，<br>報上您送修時留下的電話號碼即可。</p>
+                    <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
+                        <i class="fab fa-line mr-2 text-xl"></i> 直接傳 LINE 問進度
+                    </a>
+                </div>
+            </noscript>
+
             <!-- Result Segment -->
             <div id="results" class="mt-8 hidden animate-fade-in space-y-4">
                 <!-- Dynamically Inserted Items -->
