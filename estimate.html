@@ -21,6 +21,7 @@
     <meta property="og:type" content="website">
 
 <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script>
         tailwind.config = {
           theme: {
@@ -215,7 +216,7 @@
                 <li><span class="font-bold text-brand-dark">顯卡特別注意</span>：礦卡翻新、仿冒卡很多，買賣都建議面交並上機測試，不要只看照片和價格。</li>
             </ul>
             <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 mt-6 text-sm text-gray-500 leading-relaxed">
-                <p><i class="fas fa-exclamation-triangle text-brand-gold-dark mr-1"></i> 本頁為「店家回收參考價」，計算方式約為二手市場行情低標的半價，整理自 PTT、拍賣平台與海外二手市場 2026 年公開行情推估（資料日期：2026-10）。回收價不是二手自售價——自己賣可以賣更高，店家回收圖的是省事與當場結清。實際回收金額依實物檢測（功能、機況、保固、配件）認定，本頁數字不構成收購承諾；部分型號二手流通量少，價格為估算，誤差可能較大。</p>
+                <p><i class="fas fa-exclamation-triangle text-brand-gold-dark mr-1"></i> 本頁為「店家回收參考價」，計算方式約為二手市場行情低標的半價，整理自 PTT、拍賣平台與海外二手市場 2026 年公開行情推估（資料日期：<span id="dataDate">2026-10</span>）。回收價不是二手自售價——自己賣可以賣更高，店家回收圖的是省事與當場結清。實際回收金額依實物檢測（功能、機況、保固、配件）認定，本頁數字不構成收購承諾；部分型號二手流通量少，價格為估算，誤差可能較大。</p>
             </div>
         </div>
 
@@ -247,7 +248,9 @@
     </footer>
 
 <script>
-const PRICE_DATA = {
+// 內嵌備援價格：試算表讀不到時（沒網路、試算表未公開）直接用這份，頁面一樣能估。
+// 平常價格以 Google 試算表「迅修電腦_零件回收估價」為準，改表就同步網站。
+const FALLBACK_PRICE_DATA = {
   "cpu_intel": {
     "label": "CPU（Intel）",
     "note": "回收價以功能正常為準；附主機板一起賣、或盒裝發票齊全，通常可以談到略高。針腳彎曲、燒機不穩會折價。",
@@ -903,6 +906,8 @@ const PRICE_DATA = {
   }
 };
 
+let PRICE_DATA = FALLBACK_PRICE_DATA;
+
 const catSelect = document.getElementById('catSelect');
 const itemSelect = document.getElementById('itemSelect');
 const resultName = document.getElementById('resultName');
@@ -936,16 +941,90 @@ function showResult() {
   else { buyerTip.classList.add('hidden'); }
 }
 
-Object.keys(PRICE_DATA).forEach(function (key) {
-  const opt = document.createElement('option');
-  opt.value = key;
-  opt.textContent = PRICE_DATA[key].label;
-  catSelect.appendChild(opt);
-});
+// 下拉選單初始化（試算表載入後會重跑一次，盡量保留客人已選的分類／品項）
+function initEstimator() {
+  var prevCat = catSelect.value;
+  var prevItem = itemSelect.value;
+  catSelect.innerHTML = '';
+  Object.keys(PRICE_DATA).forEach(function (key) {
+    var opt = document.createElement('option');
+    opt.value = key;
+    opt.textContent = PRICE_DATA[key].label;
+    catSelect.appendChild(opt);
+  });
+  if (prevCat && PRICE_DATA[prevCat]) catSelect.value = prevCat;
+  fillItems();
+  if (prevItem !== '' && itemSelect.options[prevItem]) itemSelect.value = prevItem;
+  showResult();
+}
 
 catSelect.addEventListener('change', fillItems);
 itemSelect.addEventListener('change', showResult);
-fillItems();
+initEstimator();
+
+// 價格同步：Google 試算表「迅修電腦_零件回收估價」→ 估價器價格／設定 兩頁
+// 改表存檔後，客人下次開頁就看到新價格（Google 端快取約數分鐘）；讀不到就繼續用內嵌備援價。
+(function syncPricesFromSheet() {
+  if (typeof Papa === 'undefined') return;
+  var SHEET_ID = '122zGc7_HVLYXnKKStBz1uTUOPP2LJYKJRQ1Xv48tn9E';
+  var csvUrl = function (tab) {
+    return 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(tab) + '&headers=1';
+  };
+  function parsePrice(raw) {
+    var s = String(raw == null ? '' : raw).replace(/[,\sNT$]/g, '').trim();
+    if (s === '') return null;
+    var n = parseFloat(s);
+    return isNaN(n) ? null : n;
+  }
+  function buildPriceData(rows) {
+    var out = {};
+    rows.forEach(function (r) {
+      var code = String(r['分類代碼'] || '').trim();
+      var name = String(r['品項名稱'] || '').trim();
+      if (!code || !name) return;
+      if (!out[code]) {
+        out[code] = { label: String(r['分類名稱'] || code).trim(), note: String(r['分類說明'] || '').trim(), tip: String(r['分類提示'] || '').trim(), items: [] };
+      }
+      var cat = out[code];
+      if (!cat.label && r['分類名稱']) cat.label = String(r['分類名稱']).trim();
+      if (!cat.note && r['分類說明']) cat.note = String(r['分類說明']).trim();
+      if (!cat.tip && r['分類提示']) cat.tip = String(r['分類提示']).trim();
+      var item = { name: name, buyback: parsePrice(r['回收價']), note: String(r['品項備註'] || '').trim() };
+      if (!item.note) delete item.note;
+      cat.items.push(item);
+    });
+    var total = 0;
+    Object.keys(out).forEach(function (k) {
+      if (!out[k].items.length) delete out[k];
+      else {
+        total += out[k].items.length;
+        if (!out[k].tip) delete out[k].tip;
+      }
+    });
+    if (Object.keys(out).length < 3 || total < 20) return null;
+    return out;
+  }
+  Papa.parse(csvUrl('估價器價格'), {
+    download: true, header: true, skipEmptyLines: true,
+    complete: function (res) {
+      var data = buildPriceData(res.data || []);
+      if (!data) return;
+      PRICE_DATA = data;
+      initEstimator();
+    }
+  });
+  Papa.parse(csvUrl('設定'), {
+    download: true, header: true, skipEmptyLines: true,
+    complete: function (res) {
+      (res.data || []).forEach(function (r) {
+        if (String(r['項目'] || '').trim() === '資料日期' && String(r['值'] || '').trim()) {
+          var el = document.getElementById('dataDate');
+          if (el) el.textContent = String(r['值']).trim();
+        }
+      });
+    }
+  });
+})();
 
 </script>
 
