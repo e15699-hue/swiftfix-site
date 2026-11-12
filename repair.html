@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
+        /* 字體放大（長輩視力友善，2026-11-13 03:07 輪跨頁沿用）：根字級 16px→18px，Tailwind rem 字級跟著放大 */
+        html.font-large { font-size: 18px; }
         body { font-family: 'Noto Sans TC', sans-serif; background-color: #0f172a; color: #f8fafc; }
         .brand-gold { color: #d4af37; }
         .bg-brand-gold { background-color: #d4af37; }
@@ -22,6 +24,10 @@
         .animate-fade-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+    <script>
+        /* 字體放大偏好：頁面繪製前就套用，避免先小後大的閃爍（2026-11-13 03:07 輪：跨頁沿用，長輩在首頁放大後進子頁不再縮回） */
+        try { if (localStorage.getItem('swiftfix-font-large') === '1') document.documentElement.classList.add('font-large'); } catch (e) {}
+    </script>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center p-4">
     <div class="w-full max-w-2xl mb-8 flex flex-wrap justify-center gap-x-4 gap-y-2 text-base text-gray-400 repair-nav"><a href="index.html#services" class="hover:text-brand-gold transition py-3 px-1">服務項目</a><a href="index.html#pricing" class="hover:text-brand-gold transition py-3 px-1">價目表</a><a href="index.html#process" class="hover:text-brand-gold transition py-3 px-1">預約流程</a><a href="repair.html" class="hover:text-brand-gold transition py-3 px-1">維修進度</a><a href="guide.html" class="hover:text-brand-gold transition py-3 px-1">自救百科</a><a href="tools.html" class="hover:text-brand-gold transition py-3 px-1">線上檢測</a><a href="estimate.html" class="hover:text-brand-gold transition py-3 px-1">零件回收估價器</a><a href="website.html" class="hover:text-brand-gold transition py-3 px-1">一頁式網站</a><a href="index.html#faq" class="hover:text-brand-gold transition py-3 px-1">常見問題</a></div>
