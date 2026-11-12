@@ -28,6 +28,10 @@ tailwind.config = {
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>body{font-family:'Noto Sans TC',sans-serif}</style>
+<style>
+        /* 字體放大（長輩視力友善，2026-11-13 03:07 輪跨頁沿用）：根字級 16px→18px，Tailwind rem 字級跟著放大 */
+        html.font-large { font-size: 18px; }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -54,6 +58,10 @@ tailwind.config = {
   ]
 }
 </script>
+    <script>
+        /* 字體放大偏好：頁面繪製前就套用，避免先小後大的閃爍（2026-11-13 03:07 輪：跨頁沿用，長輩在首頁放大後進子頁不再縮回） */
+        try { if (localStorage.getItem('swiftfix-font-large') === '1') document.documentElement.classList.add('font-large'); } catch (e) {}
+    </script>
 </head>
 <body class="bg-gray-50 text-brand-dark">
 
