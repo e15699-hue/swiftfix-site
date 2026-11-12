@@ -179,6 +179,10 @@
           }
         }
       </script>
+    <script>
+        /* 字體放大偏好：頁面繪製前就套用，避免先小後大的閃爍 */
+        try { if (localStorage.getItem('swiftfix-font-large') === '1') document.documentElement.classList.add('font-large'); } catch (e) {}
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
@@ -192,6 +196,10 @@
             background-position: center;
         }
         html { scroll-behavior: smooth; }
+
+        /* 字體放大切換（長輩視力友善，2026-11-12 11:07 輪）：根字級 16px→18px，
+           Tailwind rem 字級跟著放大；偏好存 localStorage，下次開頁自動沿用 */
+        html.font-large { font-size: 18px; }
 
         /* 預約錨點定位：用原生 CSS（不依賴 Tailwind CDN 即時產生），解析時就生效，
            避免手機 LINE 內建瀏覽器在 Tailwind 編譯完成前跳轉、標題被固定導覽列蓋住 */
@@ -264,6 +272,7 @@
                     <a href="estimate.html" class="text-brand-dark hover:text-brand-gold transition">零件回收估價器</a>
                     <a href="website.html" class="text-brand-gold-dark font-bold hover:text-brand-gold transition">一頁式網站</a>
                 </div>
+                <button id="fontToggle" type="button" aria-pressed="false" title="把字體放大一點，看得更輕鬆" class="bg-white text-brand-dark border-2 border-brand-dark/20 px-3 md:px-4 py-3 rounded-lg hover:bg-gray-50 font-bold transition shadow-sm flex items-center min-h-[48px] text-base">🔍 字大一點</button>
                 <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-4 md:px-5 py-3 rounded-lg hover:bg-[#00b300] font-bold transition shadow-sm flex items-center min-h-[48px] text-base">
                     <i class="fab fa-line mr-2 text-xl"></i> LINE 評估
                 </a>
@@ -1022,6 +1031,24 @@
                 var d = el.tagName.toLowerCase() === 'details' ? el : el.closest('details');
                 if (d) d.open = true;
             } catch (e) {}
+        })();
+
+        // 字體放大切換（長輩視力友善，2026-11-12 11:07 輪）：根字級 16px↔18px，
+        // 偏好存 localStorage；頁面載入時 head 內小腳本已先套用，避免閃爍。
+        (function(){
+            var btn = document.getElementById('fontToggle');
+            if (!btn) return;
+            function sync(){
+                var large = document.documentElement.classList.contains('font-large');
+                btn.textContent = large ? '🔍 字體恢復' : '🔍 字大一點';
+                btn.setAttribute('aria-pressed', large ? 'true' : 'false');
+            }
+            btn.addEventListener('click', function(){
+                var large = document.documentElement.classList.toggle('font-large');
+                try { localStorage.setItem('swiftfix-font-large', large ? '1' : '0'); } catch (e) {}
+                sync();
+            });
+            sync();
         })();
 
         // 手機錨點二次定位：若載入完成後目標標題仍被固定導覽列蓋住（Tailwind CDN 尚未產生 scroll-mt 時
