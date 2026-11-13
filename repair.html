@@ -30,7 +30,7 @@
     </script>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center p-4">
-    <div class="w-full max-w-2xl mb-8 flex flex-wrap justify-center gap-x-4 gap-y-2 text-base text-gray-400 repair-nav"><a href="index.html#services" class="hover:text-brand-gold transition py-3 px-1">服務項目</a><a href="index.html#pricing" class="hover:text-brand-gold transition py-3 px-1">價目表</a><a href="index.html#process" class="hover:text-brand-gold transition py-3 px-1">預約流程</a><a href="repair.html" class="hover:text-brand-gold transition py-3 px-1">維修進度</a><a href="guide.html" class="hover:text-brand-gold transition py-3 px-1">自救百科</a><a href="tools.html" class="hover:text-brand-gold transition py-3 px-1">線上檢測</a><a href="estimate.html" class="hover:text-brand-gold transition py-3 px-1">零件回收估價器</a><a href="website.html" class="hover:text-brand-gold transition py-3 px-1">一頁式網站</a><a href="index.html#faq" class="hover:text-brand-gold transition py-3 px-1">常見問題</a></div>
+    <div class="w-full max-w-2xl mb-8 flex flex-wrap justify-center gap-x-4 gap-y-2 text-base text-gray-400 repair-nav"><a href="index.html#services" class="hover:text-brand-gold transition py-3 px-1">服務項目</a><a href="index.html#pricing" class="hover:text-brand-gold transition py-3 px-1">價目表</a><a href="index.html#process" class="hover:text-brand-gold transition py-3 px-1">預約流程</a><a href="repair.html" class="hover:text-brand-gold transition py-3 px-1">維修進度</a><a href="guide.html" class="hover:text-brand-gold transition py-3 px-1">自救百科</a><a href="tools.html" class="hover:text-brand-gold transition py-3 px-1">線上檢測</a><a href="estimate.html" class="hover:text-brand-gold transition py-3 px-1">零件回收估價器</a><a href="website.html" class="hover:text-brand-gold transition py-3 px-1">一頁式網站</a><a href="index.html#faq" class="hover:text-brand-gold transition py-3 px-1">常見問題</a><button id="fontToggle" type="button" aria-pressed="false" title="把字體放大一點，看得更輕鬆" class="hover:text-brand-gold transition py-3 px-1 text-base">🔍 字大一點</button></div>
     <div class="w-full max-w-md">
         <!-- Logo/Header -->
         <div class="flex items-center justify-center gap-3 cursor-pointer group select-none mb-10" onclick="window.location.href='/'">
@@ -277,6 +277,26 @@
                 errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         }
+    </script>
+<script>
+        // 字體放大切換（2026-11-13 20:07 輪，補齊 19:07 輪 P2 排隊項）：根字級 16px↔18px，
+        // 偏好存 localStorage；頁面載入時 head 內小腳本已先套用，避免閃爍。
+        (function(){
+            var btn = document.getElementById('fontToggle');
+            if (!btn) return;
+            function sync(){
+                var large = document.documentElement.classList.contains('font-large');
+                btn.innerHTML = '🔍<span class="hidden md:inline">' + (large ? ' 字體恢復' : ' 字大一點') + '</span>';
+                btn.setAttribute('aria-pressed', large ? 'true' : 'false');
+                btn.setAttribute('aria-label', large ? '把字體恢復原大小' : '把字體放大一點，看得更輕鬆');
+            }
+            btn.addEventListener('click', function(){
+                var large = document.documentElement.classList.toggle('font-large');
+                try { localStorage.setItem('swiftfix-font-large', large ? '1' : '0'); } catch (e) {}
+                sync();
+            });
+            sync();
+        })();
     </script>
 </body>
 </html>
