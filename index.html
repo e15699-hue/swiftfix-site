@@ -722,7 +722,15 @@
 
 <section id="faq" class="scroll-mt-24 py-20 bg-white">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl font-bold text-center mb-12">常見問題 FAQ</h2>
+            <h2 class="text-3xl font-bold text-center mb-6">常見問題 FAQ</h2>
+            <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <a href="#faq-phone" class="inline-block px-4 py-2 rounded-full bg-pink-50 text-brand-dark text-base font-medium border border-pink-100 hover:bg-pink-100 transition">📞 不會用 LINE</a>
+                <a href="#faq-urgent" class="inline-block px-4 py-2 rounded-full bg-pink-50 text-brand-dark text-base font-medium border border-pink-100 hover:bg-pink-100 transition">🚨 電腦突然壞掉</a>
+                <a href="#faq-kid-slow" class="inline-block px-4 py-2 rounded-full bg-pink-50 text-brand-dark text-base font-medium border border-pink-100 hover:bg-pink-100 transition">👨‍👩‍👧 小孩的學習電腦</a>
+                <a href="#faq-student" class="inline-block px-4 py-2 rounded-full bg-pink-50 text-brand-dark text-base font-medium border border-pink-100 hover:bg-pink-100 transition">🎓 學生／宿舍</a>
+                <a href="#faq-visit-taichung" class="inline-block px-4 py-2 rounded-full bg-pink-50 text-brand-dark text-base font-medium border border-pink-100 hover:bg-pink-100 transition">🚗 到府維修怎麼約</a>
+                <a href="#faq-cleaning" class="inline-block px-4 py-2 rounded-full bg-pink-50 text-brand-dark text-base font-medium border border-pink-100 hover:bg-pink-100 transition">🧹 電腦清潔</a>
+            </div>
             <div class="space-y-4">
                 <details id="faq-phone" class="group border border-gray-200 rounded-xl overflow-hidden shadow-sm" open>
                     <summary class="flex justify-between items-center p-5 cursor-pointer bg-gray-50 font-bold text-brand-dark list-none">
@@ -1032,6 +1040,16 @@
                 if (d) d.open = true;
             } catch (e) {}
         })();
+
+        // FAQ 主題錨點（2026-11-13 12:07 輪，學生視角）：同頁點錨點時也先展開目標題目再定位
+        document.querySelectorAll('a[href^="#faq-"]').forEach(function(a){
+            a.addEventListener('click', function(){
+                var el = document.querySelector(a.getAttribute('href'));
+                if (!el) return;
+                var d = el.tagName.toLowerCase() === 'details' ? el : el.closest('details');
+                if (d) d.open = true;
+            });
+        });
 
         // 字體放大切換（長輩視力友善，2026-11-12 11:07 輪）：根字級 16px↔18px，
         // 偏好存 localStorage；頁面載入時 head 內小腳本已先套用，避免閃爍。
