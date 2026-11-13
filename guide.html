@@ -195,6 +195,7 @@
                     <a href="estimate.html" class="text-brand-dark hover:text-brand-gold transition">零件回收估價器</a>
                     <a href="website.html" class="text-brand-gold-dark font-bold hover:text-brand-gold transition">一頁式網站</a>
                 </div>
+                <button id="fontToggle" type="button" aria-pressed="false" title="把字體放大一點，看得更輕鬆" class="bg-white text-brand-dark border-2 border-brand-dark/20 px-3 md:px-4 py-3 rounded-lg hover:bg-gray-50 font-bold transition shadow-sm flex items-center min-h-[48px] text-base">🔍 字大一點</button>
                 <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="bg-[#00C300] text-white px-4 md:px-5 py-3 rounded-lg hover:bg-[#00b300] font-bold transition shadow-sm flex items-center min-h-[48px] text-base">
                     <i class="fab fa-line mr-2 text-xl"></i> LINE 評估
                 </a>
@@ -744,5 +745,24 @@
         <p class="mt-6 text-sm text-gray-500">© 2026 Swift 迅修電腦. 台中彰化專業電腦管家. 統編 94538172. All rights reserved.</p>
     </footer>
 
+    <script>
+        // 字體放大切換（長輩視力友善，2026-11-13 19:07 輪）：與首頁同一按鈕，文章頁／總覽頁直接進站也能放大；偏好存 localStorage 跨頁沿用。
+        (function(){
+            var btn = document.getElementById('fontToggle');
+            if (!btn) return;
+            function sync(){
+                var large = document.documentElement.classList.contains('font-large');
+                btn.innerHTML = '🔍<span class="hidden md:inline">' + (large ? ' 字體恢復' : ' 字大一點') + '</span>';
+                btn.setAttribute('aria-pressed', large ? 'true' : 'false');
+                btn.setAttribute('aria-label', large ? '把字體恢復原大小' : '把字體放大一點，看得更輕鬆');
+            }
+            btn.addEventListener('click', function(){
+                var large = document.documentElement.classList.toggle('font-large');
+                try { localStorage.setItem('swiftfix-font-large', large ? '1' : '0'); } catch (e) {}
+                sync();
+            });
+            sync();
+        })();
+    </script>
 </body>
 </html>
