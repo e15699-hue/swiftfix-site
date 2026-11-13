@@ -143,9 +143,13 @@
             if (e.key === 'Enter') { e.preventDefault(); doQuery(); }
         });
 
-        // 回頭客：記住上次查詢的電話，開啟頁面自動帶入（僅本機 localStorage，不外傳）
+        // 回頭客：記住上次查詢的電話，開啟頁面自動帶入（僅本機 localStorage，不外傳）；
+        // 首頁 #repair-progress 專區內嵌查詢框帶來的 ?phone= 優先帶入，仍須手動按一次查詢才送出，不自動查
         (function () {
             try {
+                const params = new URLSearchParams(window.location.search);
+                const fromUrl = (params.get('phone') || '').trim();
+                if (fromUrl) { document.getElementById('phone').value = fromUrl; return; }
                 const saved = localStorage.getItem('swiftfix_last_phone');
                 if (saved) { document.getElementById('phone').value = saved; document.getElementById('savedHint').classList.remove('hidden'); }
             } catch (e) { /* localStorage 不可用時忽略 */ }

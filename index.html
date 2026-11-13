@@ -677,10 +677,14 @@
     <section id="repair-progress" class="scroll-mt-24 py-16 bg-white border-b border-gray-100">
         <div class="container mx-auto px-6 max-w-4xl text-center">
             <h2 class="text-3xl font-bold text-brand-dark mb-4">維修進度查詢</h2>
-            <p class="text-gray-600 text-lg mb-8">已送修的客戶，輸入電話號碼即可查詢目前的維修進度。</p>
-            <a href="repair.html" class="inline-flex items-center justify-center bg-brand-dark text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition shadow-md min-h-[56px]">
-                <i class="fas fa-search mr-3"></i> 查詢維修進度
-            </a>
+            <p class="text-gray-600 text-lg mb-8">已送修的客戶，在這裡輸入電話號碼，立即查詢目前的維修進度。</p>
+            <form id="repairQuickForm" class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto" onsubmit="return goRepairQuery();">
+                <input type="tel" id="repairQuickPhone" autocomplete="tel" inputmode="tel" placeholder="例如：0912345678" aria-label="送修時留下的電話號碼" class="flex-1 border border-gray-300 rounded-lg px-5 py-4 text-lg focus:outline-none focus:border-brand-gold min-h-[56px]">
+                <button type="submit" class="inline-flex items-center justify-center bg-brand-dark text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition shadow-md min-h-[56px] whitespace-nowrap">
+                    <i class="fas fa-search mr-3"></i> 立即查詢
+                </button>
+            </form>
+            <p class="mt-4 text-gray-500 text-base">還沒輸入也沒關係，<a href="repair.html" class="text-brand-gold underline font-bold hover:text-brand-dark transition">直接前往查詢頁 →</a></p>
         </div>
     </section>
 
@@ -1093,6 +1097,14 @@
                 window.addEventListener('load', function(){ setTimeout(fixAnchor, 350); });
             }
         })();
+
+        // 回頭客：首頁 #repair-progress 專區內嵌查詢框，輸入電話後帶到 repair.html（repair.html 會自動帶入，仍須手動按一次查詢才送出，不自動查）
+        function goRepairQuery() {
+            var input = document.getElementById('repairQuickPhone');
+            var phone = input ? input.value.trim() : '';
+            location.href = phone ? 'repair.html?phone=' + encodeURIComponent(phone) : 'repair.html';
+            return false;
+        }
     </script>
 </body>
 </html>
