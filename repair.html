@@ -242,7 +242,7 @@
                             <div class="bg-white/5 border border-white/10 p-4 rounded-2xl border-l-4 ${borderColorClass} mb-4">
                                 <div class="flex justify-between items-start mb-2 gap-2">
                                     <h4 class="font-bold text-white text-base leading-tight">${escapeHtml(item.description)}</h4>
-                                    <span class="text-base text-gray-300 whitespace-nowrap bg-black/30 px-2 py-1 rounded-full">${escapeHtml(item.date)}</span>
+                                    <span class="text-base text-gray-300 whitespace-nowrap bg-black/30 px-2 py-1 rounded-full">收件 ${escapeHtml(item.date)}</span>
                                 </div>
                                 <div class="mb-3"><span class="inline-block text-base font-black px-2.5 py-1 rounded-full ${isCompleted ? 'bg-emerald-500/20 text-emerald-300' : 'bg-brand-gold/20 text-brand-gold'}">${isCompleted ? '✅ 已完成' : '⏳ 進行中'}</span></div>
                                 <div class="${bgColorClass} p-3 rounded-xl">
