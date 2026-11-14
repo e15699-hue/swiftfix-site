@@ -1099,7 +1099,7 @@
             }
         })();
 
-        // 回頭客：首頁 #repair-progress 專區內嵌查詢框，輸入電話後帶到 repair.html（repair.html 會自動帶入，仍須手動按一次查詢才送出，不自動查）
+        // 回頭客：首頁 #repair-progress 專區內嵌查詢框，輸入電話後帶到 repair.html（repair.html 帶入後直接自動查詢，不用再按一次）
         function goRepairQuery() {
             var input = document.getElementById('repairQuickPhone');
             var phone = input ? input.value.trim() : '';
