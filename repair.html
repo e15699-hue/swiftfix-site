@@ -288,7 +288,7 @@
             if (!btn) return;
             function sync(){
                 var large = document.documentElement.classList.contains('font-large');
-                btn.innerHTML = '🔍<span class="hidden md:inline">' + (large ? ' 字體恢復' : ' 字大一點') + '</span>';
+                btn.innerHTML = '🔍<span>' + (large ? ' 字體恢復' : ' 字大一點') + '</span>';
                 btn.setAttribute('aria-pressed', large ? 'true' : 'false');
                 btn.setAttribute('aria-label', large ? '把字體恢復原大小' : '把字體放大一點，看得更輕鬆');
             }
