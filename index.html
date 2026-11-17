@@ -1111,6 +1111,14 @@
             location.href = phone ? 'repair.html?phone=' + encodeURIComponent(phone) : 'repair.html';
             return false;
         }
+        // 回頭客：首頁查詢框也自動帶入上次查過的電話（僅本機 localStorage，不外傳、不自動送出，按「立即查詢」才查）
+        (function prefillRepairPhone() {
+            try {
+                var saved = localStorage.getItem('swiftfix_last_phone');
+                var input = document.getElementById('repairQuickPhone');
+                if (saved && input && !input.value) input.value = saved;
+            } catch (e) { /* localStorage 不可用時忽略 */ }
+        })();
     </script>
 </body>
 </html>
