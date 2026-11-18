@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Cit9iJR0JOyNt_9GMHej3IoXCdoUKiSxOjfvYKye6N8" />
+    <title>台中電腦重灌 Windows 怎麼辦？重灌前備份、重灌後驅動 6 步先這樣做｜迅修電腦</title>
+    <link rel="canonical" href="https://swiftfix.com.tw/guide-reinstall.html" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <meta name="description" content="台中電腦重灌 Windows 前要備份什麼？迅修電腦教您重灌前備份清單、確認 Windows 授權與驅動，重灌後 6 步檢查網路、音效、顯示一次到位。重灌會清空系統碟，重要資料請先備份；需要協助，可以傳 LINE 聯繫我們。">
+    <meta name="author" content="Swift 迅修電腦">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="台中電腦重灌 Windows 怎麼辦？重灌前備份、重灌後驅動 6 步先這樣做｜迅修電腦">
+    <meta property="og:description" content="重灌前先備份、授權先綁定帳號，重灌後驅動照順序裝，6 步一次說清楚。">
+    <meta property="og:url" content="https://swiftfix.com.tw/guide-reinstall.html">
+    <meta property="og:type" content="article">
+<script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-dark': '#013e47',
+                'brand-gold': '#eebb4d',
+                'brand-gold-dark': '#d4a036',
+              }
+            }
+          }
+        }
+      </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        html { scroll-behavior: smooth; }
+        /* 字體放大（長輩視力友善，2026-11-13 11:07 輪跨頁沿用）：根字級 16px→18px，Tailwind rem 字級跟著放大 */
+        html.font-large { font-size: 18px; }
+        article { scroll-margin-top: 96px; }
+        .check-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .check-list li i { margin-top: 0.3rem; }
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "台中電腦重灌 Windows 怎麼辦？重灌前備份、重灌後驅動 6 步先這樣做",
+  "description": "筆電螢幕破裂、出現亮線黑塊怎麼辦？先分清外力破裂與排線、顯卡問題，再用外接螢幕測試判斷是面板還是主機問題，破裂螢幕不要按壓、不要自己拆面板。台中電腦維修、台中南屯電腦維修，狀況照片傳 LINE 免費評估。",
+  "author": { "@type": "Organization", "name": "迅修電腦", "url": "https://swiftfix.com.tw/" },
+  "publisher": { "@type": "Organization", "name": "迅修電腦", "url": "https://swiftfix.com.tw/" },
+  "mainEntityOfPage": "https://swiftfix.com.tw/guide-reinstall.html",
+  "inLanguage": "zh-TW"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "台中電腦重灌 Windows，會不會把 D 槽的資料也刪掉？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "只格式化系統碟（通常是 C 槽）就不會動到 D 槽，但重灌時選錯磁碟，資料就真的不見了。所以動手之前，請先把桌面、文件、照片都備份到外接硬碟或雲端，不確定選哪一個磁碟時，先拍照問我們，不要憑感覺按下一步。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "重灌 Windows 後沒有網路、沒聲音，怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "多半是驅動程式還沒裝。請先到筆電或主機板品牌官網，用型號下載驅動，照晶片組、顯示、網路、音效的順序安裝，網路驅動請優先裝好，有網路之後 Windows Update 也能幫忙補一部分驅動。裝完還是不行，需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "重灌前忘記備份，資料還救得回來嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "請先停用這台電腦，不要再寫入新檔案，越早停用，處理的機會越大。重灌後的磁碟請不要再反覆開關機或安裝軟體，盡快把情況傳 LINE 告訴我們，我們會陪您確認接下來怎麼做比較好。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://swiftfix.com.tw/" },
+    { "@type": "ListItem", "position": 2, "name": "電腦自救小百科", "item": "https://swiftfix.com.tw/guide.html" },
+    { "@type": "ListItem", "position": 3, "name": "重灌 Windows 怎麼辦", "item": "https://swiftfix.com.tw/guide-reinstall.html" }
+  ]
+}
+</script>
+    <script>
+        /* 字體放大偏好：頁面繪製前就套用，避免先小後大的閃爍（2026-11-13 11:07 輪：跨頁沿用，長輩在首頁放大後進文章頁不再縮回） */
+        try { if (localStorage.getItem('swiftfix-font-large') === '1') document.documentElement.classList.add('font-large'); } catch (e) {}
+    </script>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845579320"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17845579320');
+</script>
+<body class="bg-gray-50 text-brand-dark">
+    <nav class="bg-white shadow-sm fixed w-full z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group select-none">
+                <div class="w-12 h-12 bg-brand-dark text-brand-gold flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-microchip text-2xl"></i>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                    <span class="text-3xl md:text-4xl font-black tracking-tighter text-brand-dark leading-none group-hover:text-brand-gold-dark transition-colors duration-300 italic">SWIFT</span>
+                    <span class="bg-brand-gold text-brand-dark text-sm md:text-base font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm -mt-1 md:mt-0">迅修電腦</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-3 md:gap-8">
+                <div class="hidden lg:flex space-x-5 items-center font-medium">
+                    <div class="relative group">
+                        <span class="cursor-pointer text-brand-dark hover:text-brand-gold transition inline-flex items-center gap-1.5">電腦維修 <i class="fas fa-chevron-down text-[10px]"></i></span>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block z-50">
+                            <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-44 text-[15px]">
+                                <a href="index.html#services" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">服務項目</a>
+                                <a href="index.html#pricing" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">價目表</a>
+                                <a href="index.html#process" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">預約流程</a>
+                                <a href="repair.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">維修進度</a>
+                                <a href="index.html#faq" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">常見問題</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="guide.html" class="text-brand-dark hover:text-brand-gold transition">自救百科</a>
+                    <a href="tools.html" class="text-brand-dark hover:text-brand-gold transition">線上檢測</a>
+                    <a href="estimate.html" class="text-brand-dark hover:text-brand-gold transition">零件回收估價器</a>
+                    <a href="website.html" class="text-brand-gold-dark font-bold hover:text-brand-gold transition">一頁式網站</a>
+                </div>
+                <button id="fontToggle" type="button" aria-pressed="false" title="把字體放大一點，看得更輕鬆" class="bg-white text-brand-dark border-2 border-brand-dark/20 px-3 md:px-4 py-3 rounded-lg hover:bg-gray-50 font-bold transition shadow-sm flex items-center min-h-[48px] text-base">🔍 字大一點</button>
+                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E9%87%8D%E7%81%8C%20Windows%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E5%A0%B1%E5%83%B9" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="bg-[#00C300] text-white px-4 md:px-5 py-3 rounded-lg hover:bg-[#00b300] font-bold transition shadow-sm flex items-center min-h-[48px] text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> LINE 評估
+                </a>
+            </div>
+        </div>
+        <div class="lg:hidden border-t border-gray-100 bg-white px-3 py-2 flex gap-2 overflow-x-auto whitespace-nowrap" style="scrollbar-width:none;-webkit-overflow-scrolling:touch">
+            <a href="index.html#services" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">服務項目</a>
+            <a href="index.html#pricing" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">價目表</a>
+            <a href="index.html#process" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">預約流程</a>
+            <a href="repair.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">維修進度</a>
+            <a href="guide.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">自救百科</a>
+            <a href="tools.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">線上檢測</a>
+            <a href="estimate.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">零件回收估價器</a>
+            <a href="website.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-yellow-100 text-brand-dark text-sm font-bold">一頁式網站</a>
+            <a href="index.html#faq" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">常見問題</a>
+        </div>
+    </nav>
+    <header class="bg-brand-dark text-white pt-32 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-brand-gold text-brand-dark font-bold px-4 py-1 rounded-full mb-6 text-sm md:text-base">
+                <i class="fas fa-book-medical mr-2"></i> 自救百科・重灌篇
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">台中電腦重灌 Windows 怎麼辦？<br class="hidden md:block">重灌前先備份，重灌後照 6 步檢查</h1>
+            <p class="text-lg md:text-xl text-gray-200 leading-relaxed">電腦越用越慢、系統常常出錯，有時重灌確實是最乾淨的解法。但重灌不可怕，可怕的是沒備份就動手。照本文 6 步走，需要協助，可以傳 LINE 聯繫我們，<span class="text-brand-gold font-bold">免費幫您評估</span>。</p>
+        </div>
+    </header>
+    <main class="container mx-auto px-6 max-w-4xl py-14">
+        <p class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-gold-dark">首頁</a> ＞ <a href="guide.html" class="hover:text-brand-gold-dark">電腦自救小百科</a> ＞ 重灌 Windows 怎麼辦</p>
+        <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+
+            <p class="text-gray-600 leading-relaxed mb-6">電腦越用越慢、開機要等很久、系統常常出錯，很多人第一個想到的就是重灌。<span class="font-bold text-brand-dark">重灌本身不可怕，可怕的是沒備份就動手</span>。重灌會把系統碟裡的 Windows 和程式全部清空，桌面、文件、照片如果還在系統碟裡，沒備份就真的不見了。</p>
+            <p class="text-gray-600 leading-relaxed mb-8">原則：<span class="font-bold text-brand-dark">「備份、授權、驅動」三件事先準備好，重灌才不會卡關</span>。備份是保住資料，授權是重灌後能正常啟用，驅動是重灌後能上網、有聲音。照下面 6 步走，一步一步來就好。</p>
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 my-8">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">重灌前先傳給我們看</span><br>把您的電腦型號和想重灌的原因傳 LINE 給我們，我們陪您確認備份清單和授權狀況，真的需要重灌再約時間。先免費評估，確認後再預約。</p>
+                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E9%87%8D%E7%81%8C%20Windows%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E5%A0%B1%E5%83%B9" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">台中電腦重灌 Windows 自救檢查清單（由簡到難）</h3>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先列出備份清單，重要資料先搬出來。</span>請先把桌面、文件、照片、影片都複製到外接硬碟或雲端；瀏覽器的書籤和密碼、LINE 的聊天記錄備份、郵件裡的附件也別漏掉。怎麼確認：備份完把外接硬碟拔下來，換一台電腦打開看一次，檔案打得開才算真的備份好。 這一步卡住了嗎？需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-reinstall-1.svg" alt="備份清單與外接硬碟示意圖，列出桌面檔案、文件照片、瀏覽器書籤等備份項目" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 確認 Windows 授權與帳號。</span>重灌前請先確認 Windows 是數位授權、而且已經綁定您的微軟帳號（設定→系統→啟用可以看到），版本是 Home 還是 Pro 也記下來；Office 或其他付費軟體的授權序號、帳號密碼也先抄好。怎麼確認：授權有綁定帳號，重灌後登入同一個帳號通常就能自動啟用；沒綁定就重灌，之後可能要重新買授權。 做到這裡不太確定也沒關係，把畫面拍下來傳 LINE 給我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-reinstall-2.svg" alt="Windows 授權已綁定微軟帳號的示意圖，提醒先確認版本與帳號" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 準備驅動程式與安裝碟。</span>請先到筆電或主機板品牌官網，用型號下載驅動程式，特別是網路驅動要先準備好（沒網路就什麼都裝不了）；再準備一支 8GB 以上的 USB 隨身碟做安裝碟。怎麼確認：驅動先存在另一支隨身碟或手機裡，不要只放在要重灌的那台電腦上。 這一步做完還是不放心嗎？需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-reinstall-3.svg" alt="USB 安裝碟與官網驅動程式示意圖，提醒網路驅動先備好" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 重灌時選對磁碟，系統碟會清空。</span>重灌會把系統碟（通常是 C 槽）裡的 Windows 和程式全部清空，這是正常的，但請務必確認您選的是系統碟，不要誤選到放資料的 D 槽。怎麼確認：安裝畫面出現磁碟清單時先停下來，核對容量和磁碟代號，不確定就先拍照問我們，不要急著按下一步。 這一步卡住了嗎？需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-reinstall-4.svg" alt="系統碟與資料碟對照示意圖，提醒只格式化系統碟、不要動資料碟" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 重灌後先裝驅動，再裝常用軟體。</span>重灌完成後請照順序裝驅動：晶片組、顯示、網路、音效，再跑一次 Windows Update；驅動都正常了，再裝瀏覽器、Office、LINE 等常用軟體，最後才把備份的檔案搬回來。怎麼確認：裝置管理員裡沒有黃色驚嘆號，網路、聲音、畫面都正常，才算裝好。 做到這裡不太確定也沒關係，把畫面拍下來傳 LINE 給我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-reinstall-5.svg" alt="驅動安裝順序示意圖，晶片組、顯示、網路、音效依序安裝" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">6. 最後逐項檢查一次再開始用。</span>請逐項測試：能上網、聲音正常、螢幕解析度正確、印表機印得出來，備份的檔案也都在、打得開；防毒與 Windows 更新確認有開啟。怎麼確認：每一項都打勾再開始正常使用，缺哪一項就先處理哪一項，不要將就著用。 這一步做完還是不放心嗎？需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-reinstall-6.svg" alt="重灌後檢查清單示意圖，網路、聲音、畫面、印表機逐項打勾" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+            </ol>
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再自己試了</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>重灌到一半突然斷電、或安裝畫面卡住不動——<span class="font-bold text-red-600">請先停手</span>，反覆重開可能讓系統碟更亂</li>
+                    <li>硬碟發出「喀喀」異音、檔案莫名損壞——硬碟可能快壞了，請先停手保資料，不要直接重灌</li>
+                    <li>Windows 授權還沒綁定帳號就重灌，之後可能無法啟用</li>
+                    <li>系統碟和資料碟分不清楚，怕選錯磁碟——請先拍照問我們，不要憑感覺按下一步</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 leading-relaxed">如果重灌之後還是很慢，或是驅動怎麼裝都有黃色驚嘆號，也建議順手看一下變慢篇和升級篇：有些老電腦慢的原因是硬碟老化或記憶體不夠，重灌只能治標。需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10">常見問題</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 台中電腦重灌 Windows，會不會把 D 槽的資料也刪掉？</p>
+                    <p class="text-gray-600 leading-relaxed">只格式化系統碟（通常是 C 槽）就不會動到 D 槽，但重灌時選錯磁碟，資料就真的不見了。所以動手之前，請先把桌面、文件、照片都備份到外接硬碟或雲端，不確定選哪一個磁碟時，先拍照問我們，不要憑感覺按下一步。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 重灌 Windows 後沒有網路、沒聲音，怎麼辦？</p>
+                    <p class="text-gray-600 leading-relaxed">多半是驅動程式還沒裝。請先到筆電或主機板品牌官網，用型號下載驅動，照晶片組、顯示、網路、音效的順序安裝，網路驅動請優先裝好，有網路之後 Windows Update 也能幫忙補一部分驅動。裝完還是不行，需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 重灌前忘記備份，資料還救得回來嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">請先停用這台電腦，不要再寫入新檔案，越早停用，處理的機會越大。重灌後的磁碟請不要再反覆開關機或安裝軟體，盡快把情況傳 LINE 告訴我們，我們會陪您確認接下來怎麼做比較好。</p>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm mt-10">相關文章：<a href="guide-data-rescue.html" class="text-brand-gold-dark font-bold">檔案誤刪、資料不見了</a>、<a href="guide-slow.html" class="text-brand-gold-dark font-bold">電腦變慢卡頓、開機很久怎麼辦</a>、<a href="tools.html" class="text-brand-gold-dark font-bold">線上檢測</a>、<a href="guide.html" class="text-brand-gold-dark font-bold">自救百科總覽</a></p>
+        </article>
+    </main>
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-4">重灌卡住了，就交給我們</h2>
+            <p class="text-gray-600 text-lg mb-10">迅修電腦在台中市南屯區，提供台中電腦到府維修，全預約制。先拍照評估不收費，確認價格後再決定。</p>
+            <p class="text-gray-500 text-base mb-6">📱 不會用 LINE？<a href="index.html#faq-phone" class="text-brand-gold underline font-bold">常見問題第一題有說明</a></p>
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E9%87%8D%E7%81%8C%20Windows%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E5%A0%B1%E5%83%B9" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="bg-[#00C300] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#00b300] transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fab fa-line mr-3 text-2xl"></i> 拍照傳 LINE 免費評估
+                </a>
+                <a href="guide.html" class="bg-brand-dark text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fas fa-book-medical mr-3"></i> 回自救百科看其他狀況
+                </a>
+            </div>
+        </div>
+    </section>
+<footer class="bg-gray-900 text-gray-400 py-12 text-center border-t border-white/10 flex flex-col items-center justify-center">
+        <a href="index.html" class="flex items-center justify-center gap-3 group select-none mb-6">
+            <div class="w-12 h-12 bg-brand-gold text-brand-dark flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-microchip text-2xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                 <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none group-hover:text-brand-gold transition-colors duration-300 italic">SWIFT</span>
+                 <span class="bg-brand-gold text-brand-dark text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </a>
+        <p class="text-sm text-gray-300 font-medium">透明報價・客製組裝</p>
+        <p class="mt-6 text-sm text-gray-500">© 2026 Swift 迅修電腦. 台中彰化專業電腦管家. 統編 94538172. All rights reserved.</p>
+    </footer>
+    <script>
+        // 字體放大切換（長輩視力友善，2026-11-13 19:07 輪）：與首頁同一按鈕，文章頁／總覽頁直接進站也能放大；偏好存 localStorage 跨頁沿用。
+        (function(){
+            var btn = document.getElementById('fontToggle');
+            if (!btn) return;
+            function sync(){
+                var large = document.documentElement.classList.contains('font-large');
+                btn.innerHTML = '🔍<span class="hidden md:inline">' + (large ? ' 字體恢復' : ' 字大一點') + '</span>';
+                btn.setAttribute('aria-pressed', large ? 'true' : 'false');
+                btn.setAttribute('aria-label', large ? '把字體恢復原大小' : '把字體放大一點，看得更輕鬆');
+            }
+            btn.addEventListener('click', function(){
+                var large = document.documentElement.classList.toggle('font-large');
+                try { localStorage.setItem('swiftfix-font-large', large ? '1' : '0'); } catch (e) {}
+                sync();
+            });
+            sync();
+        })();
+    </script>
+</body>
+</html>
