@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<circle cx="400" cy="180" r="80" fill="#ffffff" stroke="#013e47" stroke-width="6"/>
+<path d="M400 120 L400 180 L450 210" stroke="#013e47" stroke-width="8" fill="none" stroke-linecap="round"/>
+<text x="400" y="300" font-size="24" fill="#013e47" text-anchor="middle">什麼時候重開？記下來</text>
+<text x="400" y="385" font-size="26" fill="#013e47" text-anchor="middle" font-weight="bold">一開機就重開，還是進桌面才重開？</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 5：記下反覆重開的時機</text>
+</svg>
