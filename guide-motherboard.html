@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Cit9iJR0JOyNt_9GMHej3IoXCdoUKiSxOjfvYKye6N8" />
+    <title>台中電腦主機板故障怎麼辦？開不了機、反覆重開、USB 全失靈 6 步先分清｜迅修電腦</title>
+    <link rel="canonical" href="https://swiftfix.com.tw/guide-motherboard.html" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <meta name="description" content="台中電腦主機板故障怎麼辦？開不了機、反覆重開、USB 全失靈，迅修電腦教您 6 步先分清是電源、記憶體還是主機板問題。不要自己拆焊、拆晶片；真的需要協助，可以傳 LINE 聯繫我們。">
+    <meta name="author" content="Swift 迅修電腦">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="台中電腦主機板故障怎麼辦？開不了機、反覆重開、USB 全失靈 6 步先分清｜迅修電腦">
+    <meta property="og:description" content="開不了機、反覆重開、USB 全失靈，不一定是主機板壞了，先看燈號、記時機，6 步分清方向。">
+    <meta property="og:url" content="https://swiftfix.com.tw/guide-motherboard.html">
+    <meta property="og:type" content="article">
+<script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-dark': '#013e47',
+                'brand-gold': '#eebb4d',
+                'brand-gold-dark': '#d4a036',
+              }
+            }
+          }
+        }
+      </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        html { scroll-behavior: smooth; }
+        /* 字體放大（長輩視力友善，2026-11-13 11:07 輪跨頁沿用）：根字級 16px→18px，Tailwind rem 字級跟著放大 */
+        html.font-large { font-size: 18px; }
+        article { scroll-margin-top: 96px; }
+        .check-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .check-list li i { margin-top: 0.3rem; }
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "台中電腦主機板故障怎麼辦？開不了機、反覆重開、USB 全失靈 6 步先分清",
+  "description": "筆電螢幕破裂、出現亮線黑塊怎麼辦？先分清外力破裂與排線、顯卡問題，再用外接螢幕測試判斷是面板還是主機問題，破裂螢幕不要按壓、不要自己拆面板。台中電腦維修、台中南屯電腦維修，狀況照片傳 LINE 免費評估。",
+  "author": { "@type": "Organization", "name": "迅修電腦", "url": "https://swiftfix.com.tw/" },
+  "publisher": { "@type": "Organization", "name": "迅修電腦", "url": "https://swiftfix.com.tw/" },
+  "mainEntityOfPage": "https://swiftfix.com.tw/guide-motherboard.html",
+  "inLanguage": "zh-TW"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "台中電腦主機板故障，是不是一定要整片換掉？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定。開不了機、反覆重開、USB 失靈，可能是主機板、電源供應器或記憶體其中一邊出問題，表現很像，一定要檢測分清才能確定。我們會先看您拍的燈號和現象，報一個總價給您確認，您確認後再決定要不要修。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "USB 全部失靈，就是主機板壞了嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定。驅動程式、供電不足或設定跑掉也可能讓 USB 全部沒反應。請先換孔、拔掉外接裝置重開機交叉測試；如果全部的孔都沒反應、而且重開機也一樣，再拍照傳 LINE 給我們，我們會陪您看、幫您確認。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "電腦反覆重開，是主機板還是電源問題？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "兩者都可能，要看發生的時機：一開機就重開、風扇轉一下就停，比較往電源和主機板供電方向查；進桌面、用一陣子才重開，過熱和驅動也要一起看。把重開的時機和燈號拍下來傳 LINE，我們會陪您分清方向。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://swiftfix.com.tw/" },
+    { "@type": "ListItem", "position": 2, "name": "電腦自救小百科", "item": "https://swiftfix.com.tw/guide.html" },
+    { "@type": "ListItem", "position": 3, "name": "主機板故障怎麼辦", "item": "https://swiftfix.com.tw/guide-motherboard.html" }
+  ]
+}
+</script>
+    <script>
+        /* 字體放大偏好：頁面繪製前就套用，避免先小後大的閃爍（2026-11-13 11:07 輪：跨頁沿用，長輩在首頁放大後進文章頁不再縮回） */
+        try { if (localStorage.getItem('swiftfix-font-large') === '1') document.documentElement.classList.add('font-large'); } catch (e) {}
+    </script>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845579320"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17845579320');
+</script>
+<body class="bg-gray-50 text-brand-dark">
+    <nav class="bg-white shadow-sm fixed w-full z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group select-none">
+                <div class="w-12 h-12 bg-brand-dark text-brand-gold flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-microchip text-2xl"></i>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                    <span class="text-3xl md:text-4xl font-black tracking-tighter text-brand-dark leading-none group-hover:text-brand-gold-dark transition-colors duration-300 italic">SWIFT</span>
+                    <span class="bg-brand-gold text-brand-dark text-sm md:text-base font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm -mt-1 md:mt-0">迅修電腦</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-3 md:gap-8">
+                <div class="hidden lg:flex space-x-5 items-center font-medium">
+                    <div class="relative group">
+                        <span class="cursor-pointer text-brand-dark hover:text-brand-gold transition inline-flex items-center gap-1.5">電腦維修 <i class="fas fa-chevron-down text-[10px]"></i></span>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block z-50">
+                            <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-44 text-[15px]">
+                                <a href="index.html#services" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">服務項目</a>
+                                <a href="index.html#pricing" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">價目表</a>
+                                <a href="index.html#process" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">預約流程</a>
+                                <a href="repair.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">維修進度</a>
+                                <a href="index.html#faq" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">常見問題</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="guide.html" class="text-brand-dark hover:text-brand-gold transition">自救百科</a>
+                    <a href="tools.html" class="text-brand-dark hover:text-brand-gold transition">線上檢測</a>
+                    <a href="estimate.html" class="text-brand-dark hover:text-brand-gold transition">零件回收估價器</a>
+                    <a href="website.html" class="text-brand-gold-dark font-bold hover:text-brand-gold transition">一頁式網站</a>
+                </div>
+                <button id="fontToggle" type="button" aria-pressed="false" title="把字體放大一點，看得更輕鬆" class="bg-white text-brand-dark border-2 border-brand-dark/20 px-3 md:px-4 py-3 rounded-lg hover:bg-gray-50 font-bold transition shadow-sm flex items-center min-h-[48px] text-base">🔍 字大一點</button>
+                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E7%9A%84%E9%9B%BB%E8%85%A6%E4%B8%BB%E6%A9%9F%E6%9D%BF%E6%95%85%E9%9A%9C%E3%80%81%E9%96%8B%E4%B8%8D%E4%BA%86%E6%A9%9F%EF%BC%8C%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="bg-[#00C300] text-white px-4 md:px-5 py-3 rounded-lg hover:bg-[#00b300] font-bold transition shadow-sm flex items-center min-h-[48px] text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> LINE 評估
+                </a>
+            </div>
+        </div>
+        <div class="lg:hidden border-t border-gray-100 bg-white px-3 py-2 flex gap-2 overflow-x-auto whitespace-nowrap" style="scrollbar-width:none;-webkit-overflow-scrolling:touch">
+            <a href="index.html#services" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">服務項目</a>
+            <a href="index.html#pricing" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">價目表</a>
+            <a href="index.html#process" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">預約流程</a>
+            <a href="repair.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">維修進度</a>
+            <a href="guide.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">自救百科</a>
+            <a href="tools.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">線上檢測</a>
+            <a href="estimate.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">零件回收估價器</a>
+            <a href="website.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-yellow-100 text-brand-dark text-sm font-bold">一頁式網站</a>
+            <a href="index.html#faq" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">常見問題</a>
+        </div>
+    </nav>
+    <header class="bg-brand-dark text-white pt-32 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-brand-gold text-brand-dark font-bold px-4 py-1 rounded-full mb-6 text-sm md:text-base">
+                <i class="fas fa-book-medical mr-2"></i> 自救百科・主機板篇
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">台中電腦主機板故障怎麼辦？<br class="hidden md:block">開不了機、反覆重開，先分清是哪一邊出問題</h1>
+            <p class="text-lg md:text-xl text-gray-200 leading-relaxed">開不了機、一直反覆重開、USB 全部失靈，聽起來很像主機板壞了，但請先放心，很多時候是電源或記憶體在作怪。照本文 6 步先分清方向，真的需要協助，可以傳 LINE 聯繫我們，<span class="text-brand-gold font-bold">免費幫您評估</span>。</p>
+        </div>
+    </header>
+    <main class="container mx-auto px-6 max-w-4xl py-14">
+        <p class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-gold-dark">首頁</a> ＞ <a href="guide.html" class="hover:text-brand-gold-dark">電腦自救小百科</a> ＞ 主機板故障怎麼辦</p>
+        <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+
+            <p class="text-gray-600 leading-relaxed mb-6">電腦按了電源沒反應、開到一半自己重開、USB 插什麼都沒反應，很多人第一個念頭就是「主機板壞了」。請先放心：<span class="font-bold text-brand-dark">這些症狀很像，但兇手不一定是主機板</span>，電源供應器、記憶體、甚至只是一條鬆掉的電源線，都可能長得一模一樣。</p>
+            <p class="text-gray-600 leading-relaxed mb-8">開始之前先跟您說明一個原則：<span class="font-bold text-brand-dark">「先看現象、再分邊」</span>。燈號、風扇、嗶聲、重開的時機，都是分清方向的線索；先把現象記下來，再一步一步排除。主機板上的零件請不要自己拆焊、拆晶片，交給檢測來判斷。</p>
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 my-8">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">現象先傳給我們看</span><br>把燈號、風扇狀況和重開的時機拍下來傳 LINE，我們先陪您分清是電源、記憶體還是主機板的問題。先免費評估、報價透明，確認後再預約到府檢測。</p>
+                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E7%9A%84%E9%9B%BB%E8%85%A6%E4%B8%BB%E6%A9%9F%E6%9D%BF%E6%95%85%E9%9A%9C%E3%80%81%E9%96%8B%E4%B8%8D%E4%BA%86%E6%A9%9F%EF%BC%8C%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">台中電腦主機板故障自救檢查清單（由簡到難）</h3>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先看燈號、聽聲音，把開機現象記下來。</span>按電源鍵之後請留意：主機板上的燈有沒有亮？風扇是轉一下就停、一直轉、還是不轉？有沒有「嗶」聲、幾聲？怎麼判斷：完全沒燈沒聲音，比較往電源方向查；有燈有風扇但沒畫面，就要再往記憶體、主機板方向查；把現象記下來，傳 LINE 時一起告訴我們。 這一步卡住了嗎？真的需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-motherboard-1.svg" alt="主機板燈號與風扇狀態示意圖，提醒記下燈號、嗶聲與風扇情形" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 拔掉所有外接裝置，只留最基本的再開機。</span>USB 隨身碟、外接硬碟、讀卡機、印表機線全部拔掉，只留電源、螢幕、鍵盤滑鼠，再開機一次。怎麼判斷：拔掉之後能正常開機，再逐一插回，大概就能找到是哪個裝置在卡開機；拔掉還是一樣，再往下一步查。 做到這裡不太確定也沒關係，把畫面拍下來傳 LINE 給我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-motherboard-2.svg" alt="拔掉外接裝置只留基本設備的示意圖" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 換插座、檢查電源線，排除電源問題。</span>主機後面的電源線請重插一次、確認插緊，延長線開關確認有開，換一個插座再試一次；筆電則換一條確認正常的充電器交叉測試。怎麼判斷：換插座、換線就好了，就是供電問題；換了還是一樣，才往主機板方向查。 這一步做完還是不放心嗎？真的需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-motherboard-3.svg" alt="換插座、檢查電源線與延長線開關的示意圖" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. USB 是全部失靈，還是只有一兩個孔？</span>請逐一試每個 USB 孔：滑鼠、隨身碟換孔、換裝置交叉測試。怎麼判斷：只有一兩個孔不行，可能是那個孔本身接觸不良；全部的孔都沒反應，而且重開機也一樣，就要往主機板供電或驅動方向查；先把測試結果記下來，傳 LINE 時一起告訴我們。 這一步卡住了嗎？真的需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-motherboard-4.svg" alt="逐一測試 USB 孔的示意圖，分清全部失靈還是單一孔問題" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 注意反覆重開發生的時機。</span>請留意重開是「一按電源就重開」「進桌面才重開」還是「打遊戲、剪影片這種高負載才重開」。怎麼判斷：一開機就重開，比較往電源、主機板供電方向查；高負載才重開，過熱和電源瓦數也要一起看；把時機記下來，判斷方向會準很多。 做到這裡不太確定也沒關係，把畫面拍下來傳 LINE 給我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-motherboard-5.svg" alt="記錄反覆重開發生時機的示意圖，時鐘標示不同時機" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+<li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">6. 記下型號、現象拍照傳 LINE，預約到府檢測。</span>請把主機或筆電的型號、燈號、風扇和重開時機拍下來傳 LINE 給我們，我們先陪您分清是電源、記憶體還是主機板的問題，再報一個總價給您確認，您確認後再預約到府檢測。怎麼判斷：分得越清楚，檢測越快；分不清也沒關係，真的需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。 這一步做完還是不放心嗎？真的需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。</span><figure class="my-5"><img src="guide-img/guide-motherboard-6.svg" alt="型號與現象拍照傳 LINE、預約到府檢測的示意圖，提醒不要自己拆焊" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></li>
+            </ol>
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再自己試了</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>聞到燒焦味、看到冒煙，或電源供應器有異音、火花——<span class="font-bold text-red-600">請馬上斷電，不要再開機</span></li>
+                    <li>想自己拆焊主機板、拆晶片、換電容——<span class="font-bold text-red-600">請不要動手</span>，主機板維修需要專業設備，拆壞了反而更難處理</li>
+                    <li>筆電底殼或觸控板鼓起來——這是電池膨脹，不要再充電使用</li>
+                    <li>反覆開機都自動斷電，還伴隨「喀喀」異音，請先停手保資料</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 leading-relaxed">如果照 6 步走還是分不清是哪一邊出問題，也沒關係，真的需要協助，可以傳 LINE 聯繫我們，我們會陪您看、幫您確認。檢測會把電源、記憶體、主機板一起交叉比對，找出真正的問題再報一個總價給您確認，您確認後再決定修不修。</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10">常見問題</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 台中電腦主機板故障，是不是一定要整片換掉？</p>
+                    <p class="text-gray-600 leading-relaxed">不一定。開不了機、反覆重開、USB 失靈，可能是主機板、電源供應器或記憶體其中一邊出問題，表現很像，一定要檢測分清才能確定。我們會先看您拍的燈號和現象，報一個總價給您確認，您確認後再決定要不要修。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> USB 全部失靈，就是主機板壞了嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">不一定。驅動程式、供電不足或設定跑掉也可能讓 USB 全部沒反應。請先換孔、拔掉外接裝置重開機交叉測試；如果全部的孔都沒反應、而且重開機也一樣，再拍照傳 LINE 給我們，我們會陪您看、幫您確認。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 電腦反覆重開，是主機板還是電源問題？</p>
+                    <p class="text-gray-600 leading-relaxed">兩者都可能，要看發生的時機：一開機就重開、風扇轉一下就停，比較往電源和主機板供電方向查；進桌面、用一陣子才重開，過熱和驅動也要一起看。把重開的時機和燈號拍下來傳 LINE，我們會陪您分清方向。</p>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm mt-10">相關文章：<a href="guide-no-display.html" class="text-brand-gold-dark font-bold">電腦開機沒畫面、螢幕黑屏</a>、<a href="guide-reboot.html" class="text-brand-gold-dark font-bold">台中電腦一直自動重開機</a>、<a href="guide-no-charge.html" class="text-brand-gold-dark font-bold">筆電充不進去、插電沒反應</a>、<a href="guide.html" class="text-brand-gold-dark font-bold">自救百科總覽</a></p>
+        </article>
+    </main>
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-4">分不清是哪一邊壞，就交給我們</h2>
+            <p class="text-gray-600 text-lg mb-10">迅修電腦在台中市南屯區，提供台中電腦到府維修，全預約制。先拍照評估不收費，價格確認後再決定修不修。</p>
+            <p class="text-gray-500 text-base mb-6">📱 不會用 LINE？<a href="index.html#faq-phone" class="text-brand-gold underline font-bold">常見問題第一題有說明</a></p>
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E7%9A%84%E9%9B%BB%E8%85%A6%E4%B8%BB%E6%A9%9F%E6%9D%BF%E6%95%85%E9%9A%9C%E3%80%81%E9%96%8B%E4%B8%8D%E4%BA%86%E6%A9%9F%EF%BC%8C%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="bg-[#00C300] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#00b300] transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fab fa-line mr-3 text-2xl"></i> 拍照傳 LINE 免費評估
+                </a>
+                <a href="guide.html" class="bg-brand-dark text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fas fa-book-medical mr-3"></i> 回自救百科看其他狀況
+                </a>
+            </div>
+        </div>
+    </section>
+<footer class="bg-gray-900 text-gray-400 py-12 text-center border-t border-white/10 flex flex-col items-center justify-center">
+        <a href="index.html" class="flex items-center justify-center gap-3 group select-none mb-6">
+            <div class="w-12 h-12 bg-brand-gold text-brand-dark flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-microchip text-2xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                 <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none group-hover:text-brand-gold transition-colors duration-300 italic">SWIFT</span>
+                 <span class="bg-brand-gold text-brand-dark text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </a>
+        <p class="text-sm text-gray-300 font-medium">透明報價・客製組裝</p>
+        <p class="mt-6 text-sm text-gray-500">© 2026 Swift 迅修電腦. 台中彰化專業電腦管家. 統編 94538172. All rights reserved.</p>
+    </footer>
+    <script>
+        // 字體放大切換（長輩視力友善，2026-11-13 19:07 輪）：與首頁同一按鈕，文章頁／總覽頁直接進站也能放大；偏好存 localStorage 跨頁沿用。
+        (function(){
+            var btn = document.getElementById('fontToggle');
+            if (!btn) return;
+            function sync(){
+                var large = document.documentElement.classList.contains('font-large');
+                btn.innerHTML = '🔍<span class="hidden md:inline">' + (large ? ' 字體恢復' : ' 字大一點') + '</span>';
+                btn.setAttribute('aria-pressed', large ? 'true' : 'false');
+                btn.setAttribute('aria-label', large ? '把字體恢復原大小' : '把字體放大一點，看得更輕鬆');
+            }
+            btn.addEventListener('click', function(){
+                var large = document.documentElement.classList.toggle('font-large');
+                try { localStorage.setItem('swiftfix-font-large', large ? '1' : '0'); } catch (e) {}
+                sync();
+            });
+            sync();
+        })();
+    </script>
+</body>
+</html>
