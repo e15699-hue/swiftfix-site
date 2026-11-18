@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#e9f2f1"/>
+<circle cx="690" cy="70" r="90" fill="#dcebe8"/>
+<circle cx="110" cy="380" r="70" fill="#f3e5bd" opacity="0.7"/>
+<text x="700" y="34" font-size="20" fill="#8a9ba0">示意圖</text>
+<circle cx="80" cy="64" r="40" fill="#eebb4d"/>
+<text x="80" y="80" font-size="42" fill="#013e47" text-anchor="middle" font-weight="bold">配</text>
+<g>
+<rect x="90" y="130" width="300" height="170" rx="16" fill="#013e47"/>
+<text x="240" y="175" font-size="24" fill="#eebb4d" text-anchor="middle" font-weight="bold">遊戲機 $50,000 起</text>
+<text x="240" y="215" font-size="20" fill="#ffffff" text-anchor="middle">16GB 顯存等級顯示卡</text>
+<text x="240" y="248" font-size="20" fill="#ffffff" text-anchor="middle">32GB 記憶體・2TB SSD</text>
+<text x="240" y="281" font-size="20" fill="#ffffff" text-anchor="middle">現在就能順跑 3A 大作</text>
+<rect x="410" y="130" width="300" height="170" rx="16" fill="#ffffff" stroke="#013e47" stroke-width="4"/>
+<text x="560" y="175" font-size="24" fill="#013e47" text-anchor="middle" font-weight="bold">高階預備機 $80,000 起</text>
+<text x="560" y="215" font-size="20" fill="#013e47" text-anchor="middle">更高階顯示卡・64GB 記憶體</text>
+<text x="560" y="248" font-size="20" fill="#013e47" text-anchor="middle">2TB 以上 SSD・大電源</text>
+<text x="560" y="281" font-size="20" fill="#013e47" text-anchor="middle">4K、直播、剪片都夠用</text>
+</g>
+<text x="400" y="352" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">兩種等級，都是參考價</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">正式報價列出每個零件品牌、型號、價格</text>
+</svg>
