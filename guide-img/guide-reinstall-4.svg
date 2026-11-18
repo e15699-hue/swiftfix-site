@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="220" y="90" width="360" height="230" rx="12" fill="#013e47"/>
+<rect x="236" y="106" width="328" height="198" rx="6" fill="#ffffff"/>
+<rect x="180" y="320" width="440" height="14" rx="7" fill="#5a6b70"/><rect x="270" y="140" width="240" height="60" rx="8" fill="#c0392b"/><text x="390" y="178" font-size="22" fill="#fff" text-anchor="middle">C: 系統碟・會清空</text>
+<rect x="270" y="215" width="240" height="60" rx="8" fill="#2e8b57"/><text x="390" y="253" font-size="22" fill="#fff" text-anchor="middle">D: 資料碟・不要動</text>
+<text x="400" y="385" font-size="26" fill="#013e47" text-anchor="middle" font-weight="bold">系統碟會清空，選錯之前先再確認一次</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 4：選對磁碟再重灌</text>
+</svg>
