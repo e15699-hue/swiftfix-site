@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="220" y="90" width="360" height="230" rx="12" fill="#013e47"/>
+<rect x="236" y="106" width="328" height="198" rx="6" fill="#ffffff"/>
+<rect x="180" y="320" width="440" height="14" rx="7" fill="#5a6b70"/><rect x="236" y="106" width="328" height="198" rx="6" fill="#dff0fa"/>
+<path d="M300 120 L380 200 L340 300" stroke="#c0392b" stroke-width="5" fill="none"/>
+<circle cx="480" cy="200" r="40" fill="#013e47"/>
+<text x="400" y="330" font-size="22" fill="#013e47" text-anchor="middle" opacity="0">.</text>
+<text x="400" y="385" font-size="26" fill="#013e47" text-anchor="middle" font-weight="bold">裂痕黑塊，還是只有亮線？先分清</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 1：先看外觀分清種類</text>
+</svg>
