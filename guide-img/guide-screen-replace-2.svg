@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="120" y="110" width="260" height="170" rx="10" fill="#013e47"/><rect x="132" y="122" width="236" height="146" rx="6" fill="#dff0fa"/>
+<text x="250" y="200" font-size="22" fill="#013e47" text-anchor="middle">筆電螢幕</text>
+<rect x="430" y="110" width="260" height="170" rx="10" fill="#013e47"/><rect x="442" y="122" width="236" height="146" rx="6" fill="#ffffff"/>
+<text x="560" y="200" font-size="22" fill="#2e8b57" text-anchor="middle">✓ 外接正常</text>
+<text x="405" y="330" font-size="22" fill="#013e47" text-anchor="middle">用傳輸線接電視或外接螢幕</text>
+<text x="400" y="385" font-size="26" fill="#013e47" text-anchor="middle" font-weight="bold">外接正常就是面板側，外接也異常就是主機側</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 2：外接螢幕交叉測試</text>
+</svg>
