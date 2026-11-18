@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#e9f2f1"/>
+<circle cx="690" cy="70" r="90" fill="#dcebe8"/>
+<circle cx="110" cy="380" r="70" fill="#f3e5bd" opacity="0.7"/>
+<text x="700" y="34" font-size="20" fill="#8a9ba0">示意圖</text>
+<circle cx="80" cy="64" r="40" fill="#eebb4d"/>
+<text x="80" y="80" font-size="42" fill="#013e47" text-anchor="middle" font-weight="bold">1</text>
+<rect x="270" y="150" width="260" height="130" rx="16" fill="#013e47"/><rect x="300" y="180" width="200" height="26" rx="6" fill="#ffffff"/><rect x="300" y="180" width="184" height="26" rx="6" fill="#eebb4d"/><text x="400" y="248" font-size="24" fill="#ffffff" text-anchor="middle">212GB / 已滿 92%</text>
+<text x="400" y="352" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">GTA6 一裝就 212GB</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 1：PS5 容量一下就滿了</text>
+</svg>
