@@ -228,7 +228,45 @@
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 裝好先格式化，再把遊戲搬過去。</span>開機後 PS5 會提示格式化新的 SSD，格式化完再到設定把遊戲搬到新 SSD 上。怎麼判斷：格式化完先看讀取速度有沒有達標，再搬 GTA6 過去；搬完實際開遊戲跑跑看，讀取正常、玩起來順，就表示擴充成功了。<figure class="my-5"><img src="guide-img/guide-gta6-ps5-ssd-5.svg" alt="裝好先格式化再把遊戲搬過去的示意圖。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">6. 不想自己拆，就預約到店處理。</span>台中可預約到店擴充，全預約制，請先約好時間再過來。怎麼判斷：把 PS5 型號與想買的 SSD 型號先傳 LINE 給我們，我們會先幫您確認規格、報一個總價給您確認，您確認後再決定要不要擴充。<figure class="my-5"><img src="guide-img/guide-gta6-ps5-ssd-6.svg" alt="台中到店預約、傳 LINE 先問問看的示意圖。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></span></li>
             </ol>
-            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                        <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10" id="ps5-calc">PS5 容量計算器：GTA6 裝下去還剩多少？</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">選您的 PS5 機型、填現在已裝遊戲的總容量，就幫您算裝完 GTA6 212GB 還剩多少、建議擴充 1TB 還是 2TB。數字都在您的瀏覽器裡算，不會上傳。</p>
+            <div class="bg-gray-50 border border-gray-100 rounded-2xl p-6 mb-8">
+                <label class="block font-bold mb-2" for="ps5Model">您的 PS5 機型</label>
+                <select id="ps5Model" class="w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 bg-white">
+                    <option value="667">PS5 原版 825GB（約可用 667GB）</option>
+                    <option value="842">PS5 Slim 1TB（約可用 842GB）</option>
+                    <option value="1700">PS5 Pro 2TB（約可用 1700GB）</option>
+                </select>
+                <label class="block font-bold mb-2" for="ps5Installed">現在已裝遊戲的總容量（GB）</label>
+                <input id="ps5Installed" type="number" min="0" max="2000" value="300" class="w-full border border-gray-300 rounded-lg px-4 py-3 mb-2 bg-white">
+                <p class="text-sm text-gray-500 mb-4">不知道多少？先看 PS5 設定裡的儲存空間，已用容量減掉系統，就是已裝遊戲的容量。</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <button type="button" onclick="ps5Add(100)" class="px-4 py-2 rounded-full bg-white border border-gray-300 font-bold">＋100GB</button>
+                    <button type="button" onclick="ps5Add(200)" class="px-4 py-2 rounded-full bg-white border border-gray-300 font-bold">＋200GB</button>
+                    <button type="button" onclick="ps5Add(-100)" class="px-4 py-2 rounded-full bg-white border border-gray-300 font-bold">－100GB</button>
+                </div>
+                <p class="text-gray-700 leading-relaxed">GTA6 安裝：<span class="font-bold text-brand-dark">212GB</span>（固定計入）</p>
+                <div id="ps5Result" class="mt-4 bg-white border border-gray-100 rounded-xl p-5"></div>
+            </div>
+            <script>
+            function ps5Add(n){var el=document.getElementById('ps5Installed');var v=(parseInt(el.value||'0',10)||0)+n;if(v<0)v=0;if(v>2000)v=2000;el.value=v;ps5Calc();}
+            function ps5Calc(){
+              var usable=parseInt(document.getElementById('ps5Model').value,10);
+              var installed=parseInt(document.getElementById('ps5Installed').value||'0',10)||0;
+              if(installed<0)installed=0;
+              var remain=usable-installed-212;
+              var box=document.getElementById('ps5Result');
+              var msg='',rec='';
+              if(remain>=200){msg='裝完 GTA6 還剩約 <b>'+remain+'GB</b>，暫時還夠用。';rec='建議：先不用急著擴充，等遊戲再多一點再考慮 1TB。';}
+              else if(remain>=0){msg='裝完 GTA6 還剩約 <b>'+remain+'GB</b>，空間已經很緊了。';rec='建議：擴充 <b>1TB</b>，GTA6 加常玩的遊戲一次裝好。';}
+              else{msg='裝完 GTA6 會不夠，<b>差約 '+(-remain)+'GB</b>，下載到一半會裝不下。';rec='建議：擴充 <b>2TB</b>，一次到位，免得以後又要再買一顆。';}
+              box.innerHTML='<p class="text-gray-700 leading-relaxed mb-2">'+msg+'</p><p class="font-bold text-brand-dark leading-relaxed">'+rec+'</p><p class="text-sm text-gray-500 mt-2">可用容量為約略值，實際以您的 PS5 顯示為準；不確定怎麼選，截圖傳 LINE 給我們，我們會幫您看。</p>';
+            }
+            document.getElementById('ps5Model').addEventListener('change',ps5Calc);
+            document.getElementById('ps5Installed').addEventListener('input',ps5Calc);
+            ps5Calc();
+            </script>
+<div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
                 <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再自己試了</p>
                 <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
                     <li>不確定 SSD 規格合不合 PS5、不知道該買哪一顆——<span class="font-bold text-red-600">請先拍照或傳訊息問我們，不要憑感覺亂買</span>，規格不合裝不上去事小，硬裝可能傷到插槽</li>
@@ -261,7 +299,35 @@
                     <p class="text-gray-600 leading-relaxed">還不行。GTA6 首發只有 PS5 和 Xbox Series X/S，PC 版尚未公布。現在買電腦是為將來 PC 版先準備，不是買了馬上就能玩；網路上說能下載 PC 版的連結，請不要點，多半是詐騙。</p>
                 </div>
             </div>
-            <p class="text-gray-500 text-sm mt-10">相關文章：<a href="guide-disk-full.html" class="text-brand-gold-dark font-bold">台中電腦 C 槽爆滿・先看是誰吃空間</a>、<a href="guide-build-game.html" class="text-brand-gold-dark font-bold">遊戲電腦怎麼配？先看玩什麼遊戲</a>、<a href="guide.html" class="text-brand-gold-dark font-bold">自救百科總覽</a></p>
+                        <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10" id="ps5-service">台中 PS5 擴充 SSD 服務：到店、到府都可以</h3>
+            <p class="text-gray-600 leading-relaxed mb-6">不想自己拆機、怕買錯規格，就交給我們。台中到店預約、到府安裝都可以，全預約制，請先約好時間再過來。</p>
+            <div class="grid gap-5 md:grid-cols-2 mb-6">
+                <div class="border border-gray-100 rounded-2xl p-6 bg-gray-50">
+                    <p class="text-3xl mb-3">🏬</p>
+                    <p class="font-bold text-lg mb-2">到店預約</p>
+                    <p class="text-gray-600 leading-relaxed">請先傳 LINE 約好時間再過來，我們會先幫您確認 PS5 型號與 SSD 規格，現場裝好、測試開機、確認 GTA6 212GB 能裝，再交機給您。</p>
+                </div>
+                <div class="border border-gray-100 rounded-2xl p-6 bg-gray-50">
+                    <p class="text-3xl mb-3">🚗</p>
+                    <p class="font-bold text-lg mb-2">到府安裝</p>
+                    <p class="text-gray-600 leading-relaxed">不方便出門，我們可以到府安裝。車馬費照官網新制：自南屯出發，10 分鐘內 $200、超過每 10 分鐘 +$100，不折抵維修費。</p>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-100 rounded-2xl p-6 mb-6">
+                <p class="font-bold text-lg mb-3">服務內容</p>
+                <ul class="text-gray-700 leading-relaxed space-y-2 list-disc list-inside">
+                    <li>帶 SSD 來裝：規格先幫您確認合 PS5，現場安裝、裝好散熱片</li>
+                    <li>搬遊戲：把遊戲搬到新的 SSD 上，GTA6 也幫您確認能裝</li>
+                    <li>測試開機：裝好先格式化、測試開機，確認讀取正常才交機</li>
+                    <li>確認 212GB 能裝：實際確認 GTA6 212GB 的空間夠不夠，不夠會先跟您說</li>
+                </ul>
+                <p class="text-gray-600 leading-relaxed mt-4">報價方式：<span class="font-bold text-brand-dark">傳 LINE 詳談需求後報價</span>，我們會報一個總價給您確認，您確認後再決定要不要擴充。</p>
+            </div>
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 my-8">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">PS5 擴充 SSD，現在就約</span><br>把 PS5 型號、現在剩多少空間拍照傳 LINE 給我們，我們會先幫您看該擴充多少，再報一個總價給您確認。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> LINE 預約擴充</a>
+            </div>
+<p class="text-gray-500 text-sm mt-10">相關文章：<a href="guide-disk-full.html" class="text-brand-gold-dark font-bold">台中電腦 C 槽爆滿・先看是誰吃空間</a>、<a href="guide-build-game.html" class="text-brand-gold-dark font-bold">遊戲電腦怎麼配？先看玩什麼遊戲</a>、<a href="guide.html" class="text-brand-gold-dark font-bold">自救百科總覽</a></p>
         </article>
     </main>
     <section class="py-16 bg-white border-t border-gray-100">
