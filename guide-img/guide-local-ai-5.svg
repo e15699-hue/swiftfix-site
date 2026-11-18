@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#e9f2f1"/>
+<circle cx="690" cy="70" r="90" fill="#dcebe8"/>
+<circle cx="110" cy="380" r="70" fill="#f3e5bd" opacity="0.7"/>
+<text x="700" y="34" font-size="20" fill="#8a9ba0">示意圖</text>
+<circle cx="80" cy="64" r="40" fill="#eebb4d"/>
+<text x="80" y="80" font-size="42" fill="#013e47" text-anchor="middle" font-weight="bold">安</text>
+
+<g transform="translate(300,96)">
+<rect x="140" y="70" width="120" height="100" rx="12" fill="#013e47"/>
+<circle cx="200" cy="115" r="22" fill="#eebb4d"/>
+<rect x="182" y="112" width="36" height="30" rx="6" fill="#013e47"/>
+<path d="M186 112 v-10 a14 14 0 0 1 28 0 v10" fill="none" stroke="#eebb4d" stroke-width="6"/>
+<text x="200" y="200" font-size="20" fill="#013e47" text-anchor="middle">🔒 資料鎖在自己電腦</text>
+</g>
+<text x="400" y="352" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">資料安全</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">不上傳雲端・對外先人工確認</text>
+</svg>

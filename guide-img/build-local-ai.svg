@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#e9f2f1"/>
+<circle cx="690" cy="70" r="90" fill="#dcebe8"/>
+<circle cx="110" cy="380" r="70" fill="#f3e5bd" opacity="0.7"/>
+<text x="700" y="34" font-size="20" fill="#8a9ba0">示意圖</text>
+<circle cx="80" cy="64" r="40" fill="#eebb4d"/>
+<text x="80" y="80" font-size="42" fill="#013e47" text-anchor="middle" font-weight="bold">智</text>
+
+<g transform="translate(300,96)">
+<rect x="38" y="58" width="124" height="84" rx="10" fill="#013e47"/>
+<rect x="50" y="70" width="100" height="60" rx="6" fill="#ffffff"/>
+<rect x="62" y="82" width="76" height="10" rx="5" fill="#eebb4d"/>
+<rect x="62" y="100" width="56" height="8" rx="4" fill="#9db8b3"/>
+<circle cx="330" cy="100" r="46" fill="#eebb4d"/>
+<text x="330" y="116" font-size="44" fill="#013e47" text-anchor="middle" font-weight="bold">AI</text>
+<rect x="70" y="150" width="60" height="8" rx="4" fill="#013e47"/>
+</g>
+<text x="400" y="352" font-size="30" fill="#013e47" text-anchor="middle" font-weight="bold">本地 AI 主機</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">資料留在自己電腦・不用上傳雲端</text>
+</svg>
