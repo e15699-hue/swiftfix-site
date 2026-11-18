@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://swiftfix.com.tw/guide.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -237,6 +237,12 @@
   <url>
     <loc>https://swiftfix.com.tw/guide-build-game.html</loc>
     <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://swiftfix.com.tw/guide-gta6-ps5-ssd.html</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
