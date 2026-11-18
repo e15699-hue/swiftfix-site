@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="200" y="100" width="400" height="220" rx="12" fill="#013e47"/>
+<rect x="230" y="130" width="80" height="60" rx="8" fill="#c0392b"/><rect x="330" y="130" width="80" height="60" rx="8" fill="#c0392b"/><rect x="430" y="130" width="80" height="60" rx="8" fill="#c0392b"/>
+<text x="400" y="250" font-size="24" fill="#fff" text-anchor="middle">三個孔都沒反應？</text>
+<text x="400" y="285" font-size="20" fill="#cfe3f5" text-anchor="middle">還是一個孔不行？</text>
+<text x="400" y="385" font-size="26" fill="#013e47" text-anchor="middle" font-weight="bold">全部失靈往供電查，單一孔先換孔試試</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 4：USB 是全失靈還是單一孔</text>
+</svg>
