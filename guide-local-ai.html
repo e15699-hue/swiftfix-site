@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Cit9iJR0JOyNt_9GMHej3IoXCdoUKiSxOjfvYKye6N8" />
+    <title>台中本地 AI 主機怎麼配？資料留在自己電腦，不上傳雲端｜迅修電腦</title>
+    <link rel="canonical" href="https://swiftfix.com.tw/guide-local-ai.html" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <meta name="description" content="台中本地 AI 主機怎麼配？自己的 AI 助理跑在本機，資料留在自己電腦、不上傳雲端。先看用途再挑硬體：大 VRAM 顯卡、大記憶體、大容量 SSD，繁體中文為主。台中客製組裝，正式報價附零件明細、價格透明可比價。">
+    <meta name="author" content="Swift 迅修電腦">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="台中本地 AI 主機怎麼配？資料留在自己電腦，不上傳雲端｜迅修電腦">
+    <meta property="og:description" content="本地 AI 主機怎麼配：先看用途再挑硬體，資料留在自己電腦、不上傳雲端，台中客製組裝。">
+    <meta property="og:url" content="https://swiftfix.com.tw/guide-local-ai.html">
+    <meta property="og:type" content="article">
+<script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-dark': '#013e47',
+                'brand-gold': '#eebb4d',
+                'brand-gold-dark': '#d4a036',
+              }
+            }
+          }
+        }
+      </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        html { scroll-behavior: smooth; }
+        /* 字體放大（長輩視力友善，2026-11-13 11:07 輪跨頁沿用）：根字級 16px→18px，Tailwind rem 字級跟著放大 */
+        html.font-large { font-size: 18px; }
+        article { scroll-margin-top: 96px; }
+        .check-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .check-list li i { margin-top: 0.3rem; }
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "台中本地 AI 主機怎麼配？資料留在自己電腦，不上傳雲端",
+  "description": "台中本地 AI 主機怎麼配？自己的 AI 助理跑在本機，資料留在自己電腦、不上傳雲端。先看用途再挑硬體：大 VRAM 顯卡、大記憶體、大容量 SSD，繁體中文為主。台中客製組裝，正式報價附零件明細、價格透明可比價。",
+  "author": {
+    "@type": "Organization",
+    "name": "迅修電腦",
+    "url": "https://swiftfix.com.tw/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "迅修電腦",
+    "url": "https://swiftfix.com.tw/"
+  },
+  "mainEntityOfPage": "https://swiftfix.com.tw/guide-build-game.html",
+  "inLanguage": "zh-TW"
+}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "本地 AI 主機跟一般電腦差在哪？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "差在用途跟配法：本地 AI 主機是為了在本機跑 AI 模型而配的，重點是顯卡 VRAM 要夠大、記憶體要夠大、硬碟空間要夠放模型；一般文書機不需要這些。我們會先問您的用途，再決定配多強，不會配過頭浪費錢。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "資料真的不會上傳嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "本地跑的時候，模型在您自己的電腦裡運作，文件與對話留在本機，不上傳雲端。不過要提醒您：AI 寫出來的東西真的要對外發送之前，請您自己先看過一次再發，養成先確認再發送的習慣。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "本地 AI 主機大概要多少錢？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "本地 AI 主機 $50,000 起，是參考價，實際依顯卡與記憶體規格而定；傳 LINE 聯繫我們，詳談需求後再報價，正式報價會列出每一個零件的品牌、型號和價格，讓您自己比價，確認後再決定要不要組。可開立統一發票。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "舊電腦能不能改裝成 AI 主機？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "要看舊電腦的顯卡 VRAM 與記憶體夠不夠：顯卡 VRAM 建議 12GB 以上、記憶體建議 32GB 以上。把舊電腦的型號拍照傳 LINE 給我們，我們先免費幫您評估，看是升級划算還是直接組一台新的划算。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "不會用 AI，要怎麼開始？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不用擔心。交機時我們會現場教您基本使用方式，從怎麼問問題、怎麼整理文件開始，先從一個用途練起，用順了再慢慢加。真的需要協助，可以傳 LINE 聯繫我們，我們會陪您看。"
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://swiftfix.com.tw/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "電腦自救小百科",
+      "item": "https://swiftfix.com.tw/guide.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "本地 AI 主機怎麼配",
+      "item": "https://swiftfix.com.tw/guide-local-ai.html"
+    }
+  ]
+}</script>
+    <script>
+        /* 字體放大偏好：頁面繪製前就套用，避免先小後大的閃爍（2026-11-13 11:07 輪：跨頁沿用，長輩在首頁放大後進文章頁不再縮回） */
+        try { if (localStorage.getItem('swiftfix-font-large') === '1') document.documentElement.classList.add('font-large'); } catch (e) {}
+    </script>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845579320"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17845579320');
+</script>
+<body class="bg-gray-50 text-brand-dark">
+    <nav class="bg-white shadow-sm fixed w-full z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group select-none">
+                <div class="w-12 h-12 bg-brand-dark text-brand-gold flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-microchip text-2xl"></i>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                    <span class="text-3xl md:text-4xl font-black tracking-tighter text-brand-dark leading-none group-hover:text-brand-gold-dark transition-colors duration-300 italic">SWIFT</span>
+                    <span class="bg-brand-gold text-brand-dark text-sm md:text-base font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm -mt-1 md:mt-0">迅修電腦</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-3 md:gap-8">
+                <div class="hidden lg:flex space-x-5 items-center font-medium">
+                    <div class="relative group">
+                        <span class="cursor-pointer text-brand-dark hover:text-brand-gold transition inline-flex items-center gap-1.5">電腦維修 <i class="fas fa-chevron-down text-[10px]"></i></span>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block z-50">
+                            <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-44 text-[15px]">
+                                <a href="index.html#services" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">服務項目</a>
+                                <a href="index.html#pricing" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">價目表</a>
+                                <a href="index.html#process" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">預約流程</a>
+                                <a href="repair.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">維修進度</a>
+                                <a href="index.html#faq" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">常見問題</a>
+                                <a href="build.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-brand-gold transition">組新機</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="guide.html" class="text-brand-dark hover:text-brand-gold transition">自救百科</a>
+                    <a href="tools.html" class="text-brand-dark hover:text-brand-gold transition">線上檢測</a>
+                    <a href="estimate.html" class="text-brand-dark hover:text-brand-gold transition">零件回收估價器</a>
+                    <a href="website.html" class="text-brand-gold-dark font-bold hover:text-brand-gold transition">一頁式網站</a>
+                </div>
+                <button id="fontToggle" type="button" aria-pressed="false" title="把字體放大一點，看得更輕鬆" class="bg-white text-brand-dark border-2 border-brand-dark/20 px-3 md:px-4 py-3 rounded-lg hover:bg-gray-50 font-bold transition shadow-sm flex items-center min-h-[48px] text-base">🔍 字大一點</button>
+                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E7%9C%8B%E4%BA%86%E6%9C%AC%E5%9C%B0%20AI%20%E4%B8%BB%E6%A9%9F%E7%9A%84%E6%96%87%E7%AB%A0%EF%BC%8C%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0" target="_blank" class="bg-[#00C300] text-white px-4 md:px-5 py-3 rounded-lg hover:bg-[#00b300] font-bold transition shadow-sm flex items-center min-h-[48px] text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> LINE 評估
+                </a>
+            </div>
+        </div>
+        <div class="lg:hidden border-t border-gray-100 bg-white px-3 py-2 flex gap-2 overflow-x-auto whitespace-nowrap" style="scrollbar-width:none;-webkit-overflow-scrolling:touch">
+            <a href="index.html#services" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">服務項目</a>
+            <a href="index.html#pricing" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">價目表</a>
+            <a href="index.html#process" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">預約流程</a>
+            <a href="repair.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">維修進度</a>
+            <a href="guide.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">自救百科</a>
+            <a href="tools.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">線上檢測</a>
+            <a href="estimate.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">零件回收估價器</a>
+            <a href="website.html" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-yellow-100 text-brand-dark text-sm font-bold">一頁式網站</a>
+            <a href="index.html#faq" class="inline-block shrink-0 px-3.5 py-1.5 rounded-full bg-gray-100 text-brand-dark text-sm font-medium">常見問題</a>
+        </div>
+    </nav>
+    <header class="bg-brand-dark text-white pt-32 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-brand-gold text-brand-dark font-bold px-4 py-1 rounded-full mb-6 text-sm md:text-base">
+                <i class="fas fa-book-medical mr-2"></i> 自救百科・組新機篇
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">台中本地 AI 主機怎麼配？<br class="hidden md:block">資料留在自己電腦，不上傳雲端</h1>
+            <p class="text-lg md:text-xl text-gray-200 leading-relaxed">想在公司或家裡跑自己的 AI 助理，又不想把客戶資料傳上雲端嗎？本地 AI 主機就是把 AI 模型裝在您自己的電腦裡跑，文件與對話留在本機，不上傳雲端。本文 6 步帶您走一遍，真的需要協助，可以傳 LINE 聯繫我們，我們會陪您看，<span class="text-brand-gold font-bold">免費幫您評估</span>。</p>
+            <div id="openNowBadge" class="mt-6 flex justify-center"></div>
+            <script>
+            (function(){
+                var badge=document.getElementById('openNowBadge');
+                if(!badge)return;
+                var now=new Date(),d=now.getDay(),t=now.getHours()*60+now.getMinutes();
+                var isWeekend=(d===0||d===6);
+                var open=isWeekend?(t>=360&&t<1440):(t>=1200&&t<1440);
+                if(open){
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-green-500 text-white text-sm font-bold px-4 py-1.5 rounded-full shadow"><span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>現在營業中（到 24:00）</span>';
+                }else{
+                    var next=isWeekend?'今天 06:00':'今天 20:00';
+                    badge.innerHTML='<span class="inline-flex items-center gap-1.5 bg-white/20 text-gray-200 text-sm font-bold px-4 py-1.5 rounded-full border border-white/30">現在休息中・'+next+' 開始營業</span>';
+                }
+            })();
+            </script>
+        </div>
+    </header>
+    <main class="container mx-auto px-6 max-w-4xl py-14">
+        <p class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-gold-dark">首頁</a> ＞ <a href="guide.html" class="hover:text-brand-gold-dark">電腦自救小百科</a> ＞ 本地 AI 主機怎麼配</p>
+        <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+            <p class="text-gray-600 leading-relaxed mb-6">本地 AI 主機沒有一種配法適合所有人。<span class="font-bold text-brand-dark">先看您想讓 AI 幫您做什麼，再決定配多強。</span>只是問答查資料，和要整理大量文件、分析資料，需要的效能差很多；先把用途列出來，配菜單才不會配太強浪費錢，也不會配太弱跑不動。</p>
+            <p class="text-gray-600 leading-relaxed mb-8">開始之前先跟您說明：<span class="font-bold text-brand-dark">組新機報價透明</span>，正式報價會列出每一個零件的品牌、型號和價格，讓您自己比價；傳 LINE 聯繫我們，詳談需求後再報價給您確認。文章裡不寫零件型號的行情價，因為行情會變動，正式報價才會列出每個零件的實際價格；這裡只跟您談方向。本地 AI 主機 $50,000 起，是參考價，實際依顯卡與記憶體規格而定；可開立統一發票。</p>
+            <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 my-8">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">用途先傳給我們看</span><br>把想讓 AI 幫您做的事、平常處理的資料量傳 LINE 給我們，我們會先幫您看方向對不對，再報一個總價給您確認。先免費評估，確認後再決定要不要組。</p>
+                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E7%9C%8B%E4%BA%86%E6%9C%AC%E5%9C%B0%20AI%20%E4%B8%BB%E6%A9%9F%E7%9A%84%E6%96%87%E7%AB%A0%EF%BC%8C%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 傳 LINE 問本地 AI 主機</a>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">本地 AI 主機怎麼挑 6 步：先看用途再決定</h3>
+            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先想用途：想讓 AI 幫您做什麼，比想配多強更重要。</span>請先列出想讓 AI 做的事：問答查資料、整理文件、寫客服回覆草稿、還是分析資料。怎麼判斷：用途越清楚，配法就越準；如果只說「想要一台 AI 電腦」，我們很難知道該配到什麼程度。把用途寫下來，再來談預算會順很多。<figure class="my-5"><img src="guide-img/guide-local-ai-1.svg" alt="先想用途的示意圖，列出問答、整理文件、客服草稿、資料分析。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 本地 AI 跟雲端 AI 差在哪：資料去哪裡，先問清楚。</span>雲端 AI 是把資料傳到別人的伺服器上跑，方便但資料離開了您的電腦；本地 AI 是模型裝在您自己的電腦裡跑，文件與對話留在本機，不上傳雲端。怎麼判斷：如果處理的是客戶資料、合約、帳務這些不想外流的東西，本地跑會比較安心；如果只是隨便問問一般問題，雲端也可以。先分清資料的敏感程度，再決定要不要本地跑。<figure class="my-5"><img src="guide-img/guide-local-ai-2.svg" alt="本地跟雲端差別的示意圖，雲端資料傳上雲、本地資料留在家。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 硬體怎麼挑：大 VRAM 顯卡、大記憶體、大容量 SSD。</span>本地 AI 吃的不是遊戲畫面，而是顯卡的記憶體（VRAM）和電腦的記憶體。怎麼判斷：顯卡 VRAM 建議 12GB 以上、記憶體建議 32GB 以上，64GB 可以跑全部量化；VRAM 越大，模型跑起來越快、能跑的模型也越大；硬碟要留夠大的空間放模型檔案，建議用大容量 SSD，讀取才不會等太久。我們會依您的用途，幫您抓這個方向。<figure class="my-5"><img src="guide-img/guide-local-ai-3.svg" alt="硬體挑選的示意圖，標示大顯存、大記憶體、大容量。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 模型先求夠用：不要一開始就追最大。</span>模型有大有小，大的比較聰明，但跑起來比較慢、對硬體要求也比較高。怎麼判斷：先從夠用的大小開始，實際用一陣子，覺得不夠再往上加；一開始就追最大的模型，電腦配得貴，日常用起來也不一定比較順。我們會先幫您看用途，再建議從哪個大小開始。<figure class="my-5"><img src="guide-img/guide-local-ai-4.svg" alt="模型大小的示意圖，標示先從夠用的開始。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 資料安全：資料留在自己電腦，對外發送前先人工確認。</span>本地跑最大的好處就是資料不離開您的電腦，但這不代表什麼都不用管。怎麼判斷：AI 寫出來的回覆、整理好的文件，真的要對外發送之前，請您自己先看過一次再發；客戶資料、合約這些檔案，也請放在只有您能碰到的地方。我們交機時會教您基本的使用方式，養成先確認再發送的習慣。<figure class="my-5"><img src="guide-img/guide-local-ai-5.svg" alt="資料安全的示意圖，標示資料留在自己電腦裡。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></span></li>
+                <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">6. 預約到府安裝＋交機驗收：現場開機試，教您基本使用。</span>組好之後，我們會預約到府安裝，現場開機測試，確認 AI 跑得起來、您要用的功能都沒問題，再教您基本使用方式，有疑問當場問最清楚。怎麼判斷：現場實際用用看，確認問答、整理文件都順了再交機；如果交機時發現哪裡不對，請當場跟我們說，我們會先幫您確認再交機。<figure class="my-5"><img src="guide-img/guide-local-ai-6.svg" alt="到府安裝驗收的示意圖，標示預約到府、現場開機教您用。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure></span></li>
+            </ol>
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl mb-8">
+                <p class="font-bold text-red-600 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 出現這些情況，就別再自己試了</p>
+                <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
+                    <li>不確定顯卡 VRAM 夠不夠、記憶體要配多大——<span class="font-bold text-red-600">請先拍照或傳訊息問我們，不要憑感覺亂買亂裝</span>，規格不合裝不上去事小，硬裝可能傷到零件</li>
+                    <li>想自己裝模型但不知道怎麼裝、跑起來一直出錯——<span class="font-bold text-red-600">請先拍照問我們，不要硬裝硬試</span>，模型裝錯或設定錯，跑出來的東西不準反而更麻煩</li>
+                    <li>自備零件想請我們組裝——<span class="font-bold text-red-600">請先提供型號給我們確認相容</span>，零件本身不保固，確認合得來再安排組裝</li>
+                    <li>用途還沒想好、想讓 AI 做什麼也還沒想清楚——<span class="font-bold text-red-600">請先把用途和期待想一想再來問</span>，方向清楚了，報價才會準</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 leading-relaxed">本地 AI 主機配多強沒有標準答案，要看您想讓 AI 做什麼、資料量多少、預算多少。把用途和預算傳 LINE 給我們，我們會報一個總價給您確認，您確認後再決定要不要組。營業時段平日 20:00–24:00、假日 06:00–24:00，全預約制，請先約好時間再過來。</p>
+                        <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 my-8">
+                <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">想直接組一台本地 AI 主機？先看組新機專頁</span><br>用途、預算、參考總價一次看清楚，再傳 LINE 給我們報一個總價確認。</p>
+                <a href="build.html#local-ai" class="shrink-0 bg-brand-gold text-brand-dark px-6 py-3 rounded-lg font-bold hover:bg-white transition flex items-center min-h-[48px]"><i class="fas fa-desktop mr-2 text-xl"></i> 看本地 AI 主機方案</a>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10">常見問題</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 本地 AI 主機跟一般電腦差在哪？</p>
+                    <p class="text-gray-600 leading-relaxed">差在用途跟配法：本地 AI 主機是為了在本機跑 AI 模型而配的，重點是顯卡 VRAM 要夠大、記憶體要夠大、硬碟空間要夠放模型；一般文書機不需要這些。我們會先問您的用途，再決定配多強，不會配過頭浪費錢。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 資料真的不會上傳嗎？</p>
+                    <p class="text-gray-600 leading-relaxed">本地跑的時候，模型在您自己的電腦裡運作，文件與對話留在本機，不上傳雲端。不過要提醒您：AI 寫出來的東西真的要對外發送之前，請您自己先看過一次再發，養成先確認再發送的習慣。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 本地 AI 主機大概要多少錢？</p>
+                    <p class="text-gray-600 leading-relaxed">本地 AI 主機 $50,000 起，是參考價，實際依顯卡與記憶體規格而定；傳 LINE 聯繫我們，詳談需求後再報價，正式報價會列出每一個零件的品牌、型號和價格，讓您自己比價，確認後再決定要不要組。可開立統一發票。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 舊電腦能不能改裝成 AI 主機？</p>
+                    <p class="text-gray-600 leading-relaxed">要看舊電腦的顯卡 VRAM 與記憶體夠不夠：顯卡 VRAM 建議 12GB 以上、記憶體建議 32GB 以上。把舊電腦的型號拍照傳 LINE 給我們，我們先免費幫您評估，看是升級划算還是直接組一台新的划算。</p>
+                </div>
+                <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
+                    <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 不會用 AI，要怎麼開始？</p>
+                    <p class="text-gray-600 leading-relaxed">不用擔心。交機時我們會現場教您基本使用方式，從怎麼問問題、怎麼整理文件開始，先從一個用途練起，用順了再慢慢加。真的需要協助，可以傳 LINE 聯繫我們，我們會陪您看。</p>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm mt-10">相關文章：<a href="build.html#local-ai" class="text-brand-gold-dark font-bold">本地 AI 主機方案・組新機專頁</a>、<a href="guide-build-pc.html" class="text-brand-gold-dark font-bold">台中組電腦推薦・先說用途再配菜單</a>、<a href="guide-build-price.html" class="text-brand-gold-dark font-bold">組裝電腦多少錢・三種預算這樣抓</a>、<a href="guide.html" class="text-brand-gold-dark font-bold">自救百科總覽</a></p>
+        </article>
+    </main>
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-4">拿不定主意，就交給我們</h2>
+            <p class="text-gray-600 text-lg mb-10">迅修電腦在台中，全預約制：平日 20:00–24:00、假日 06:00–24:00都能約。先免費幫您評估，報價確認後再決定組不組，組好才收費。</p>
+            <p class="text-gray-500 text-base mb-6">💡 點下面按鈕，訊息已幫您打好，手機點開後直接按傳送就好，不用自己打字；電腦版請把訊息複製再貼到 LINE。</p>
+            <p class="text-gray-500 text-base mb-6">📱 不會用 LINE？<a href="index.html#faq-phone" class="text-brand-gold underline font-bold">常見問題第一題有說明</a></p>
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E7%9C%8B%E4%BA%86%E6%9C%AC%E5%9C%B0%20AI%20%E4%B8%BB%E6%A9%9F%E7%9A%84%E6%96%87%E7%AB%A0%EF%BC%8C%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0" target="_blank" class="bg-[#00C300] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#00b300] transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fab fa-line mr-3 text-2xl"></i> 傳 LINE 問本地 AI 主機
+                </a>
+                <a href="guide.html" class="bg-brand-dark text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition shadow-md flex items-center justify-center min-h-[56px]">
+                    <i class="fas fa-book-medical mr-3"></i> 回自救百科看其他狀況
+                </a>
+            </div>
+            <p class="text-gray-600 mt-8">台中本地 AI 主機、台中組電腦：用途與預算傳 LINE 給我們，我們先免費幫您評估，再報一個總價確認。</p>
+        </div>
+    </section>
+<footer class="bg-gray-900 text-gray-400 py-12 text-center border-t border-white/10 flex flex-col items-center justify-center">
+        <a href="index.html" class="flex items-center justify-center gap-3 group select-none mb-6">
+            <div class="w-12 h-12 bg-brand-gold text-brand-dark flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-microchip text-2xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                 <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none group-hover:text-brand-gold transition-colors duration-300 italic">SWIFT</span>
+                 <span class="bg-brand-gold text-brand-dark text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </a>
+        <p class="text-sm text-gray-300 font-medium">夜間到府・客製組裝・透明報價</p>
+        <p class="mt-6 text-sm text-gray-500">© 2026 Swift 迅修電腦. 台中彰化專業電腦管家. 統編 94538172. All rights reserved.</p>
+    </footer>
+    <script>
+        // 字體放大切換（長輩視力友善，2026-11-13 19:07 輪）：與首頁同一按鈕，文章頁／總覽頁直接進站也能放大；偏好存 localStorage 跨頁沿用。
+        (function(){
+            var btn = document.getElementById('fontToggle');
+            if (!btn) return;
+            function sync(){
+                var large = document.documentElement.classList.contains('font-large');
+                btn.innerHTML = '🔍<span class="hidden md:inline">' + (large ? ' 字體恢復' : ' 字大一點') + '</span>';
+                btn.setAttribute('aria-pressed', large ? 'true' : 'false');
+                btn.setAttribute('aria-label', large ? '把字體恢復原大小' : '把字體放大一點，看得更輕鬆');
+            }
+            btn.addEventListener('click', function(){
+                var large = document.documentElement.classList.toggle('font-large');
+                try { localStorage.setItem('swiftfix-font-large', large ? '1' : '0'); } catch (e) {}
+                sync();
+            });
+            sync();
+        })();
+    </script>
+</body>
+</html>
