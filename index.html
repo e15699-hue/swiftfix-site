@@ -690,6 +690,7 @@
                     <i class="fas fa-search mr-3"></i> 立即查詢
                 </button>
             </form>
+            <p id="repairQuickHint" class="hidden mt-3 text-base text-gray-500">已自動帶入上次查詢的電話。<button type="button" onclick="clearRepairQuickPhone()" class="text-brand-gold underline font-bold hover:text-brand-dark transition">不是您的電話？清除</button></p>
             <p class="mt-4 text-gray-500 text-base">還沒輸入也沒關係，<a href="repair.html" class="text-brand-gold underline font-bold hover:text-brand-dark transition">直接前往查詢頁 →</a></p>
         </div>
     </section>
@@ -1111,12 +1112,24 @@
             location.href = phone ? 'repair.html?phone=' + encodeURIComponent(phone) : 'repair.html';
             return false;
         }
+        // 回頭客：共用手機時清除首頁查詢框記住的電話（僅清本機，不動雲端紀錄）
+        function clearRepairQuickPhone() {
+            try { localStorage.removeItem('swiftfix_last_phone'); } catch (e) { /* localStorage 不可用時忽略 */ }
+            var input = document.getElementById('repairQuickPhone');
+            if (input) { input.value = ''; input.focus(); }
+            var hint = document.getElementById('repairQuickHint');
+            if (hint) hint.classList.add('hidden');
+        }
         // 回頭客：首頁查詢框也自動帶入上次查過的電話（僅本機 localStorage，不外傳、不自動送出，按「立即查詢」才查）
         (function prefillRepairPhone() {
             try {
                 var saved = localStorage.getItem('swiftfix_last_phone');
                 var input = document.getElementById('repairQuickPhone');
-                if (saved && input && !input.value) input.value = saved;
+                if (saved && input && !input.value) {
+                    input.value = saved;
+                    var hint = document.getElementById('repairQuickHint');
+                    if (hint) hint.classList.remove('hidden');
+                }
             } catch (e) { /* localStorage 不可用時忽略 */ }
         })();
     </script>
