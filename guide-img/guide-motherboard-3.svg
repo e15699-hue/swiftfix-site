@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Noto Sans TC, sans-serif">
+<rect width="800" height="450" fill="#f2f5f5"/>
+<text x="700" y="30" font-size="20" fill="#8a9ba0">示意圖</text>
+<rect x="250" y="110" width="140" height="180" rx="10" fill="#eebb4d"/><circle cx="320" cy="170" r="22" fill="#013e47"/><circle cx="320" cy="230" r="22" fill="#013e47"/>
+<text x="320" y="320" font-size="22" fill="#013e47" text-anchor="middle">換個插座試試</text>
+<text x="520" y="180" font-size="24" fill="#013e47">電源線插緊了嗎？</text><text x="520" y="220" font-size="22" fill="#5a6b70">延長線開關有開嗎？</text>
+<text x="400" y="385" font-size="26" fill="#013e47" text-anchor="middle" font-weight="bold">先排除電源問題，再往主機板方向查</text>
+<rect x="0" y="410" width="800" height="40" fill="#013e47"/>
+<text x="400" y="437" font-size="22" fill="#ffffff" text-anchor="middle">步驟 3：換插座、檢查電源線</text>
+</svg>
