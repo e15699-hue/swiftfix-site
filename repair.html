@@ -95,7 +95,7 @@
                 <i class="fas fa-info-circle text-2xl brand-gold mb-2"></i>
                 <p class="text-brand-gold font-bold text-base">找不到這支電話的維修紀錄。</p>
                 <p class="text-gray-400 text-base mt-1 leading-relaxed">請確認輸入的是送修時留下的電話號碼；<br>若剛送修不久，資料可能還在登記中，<br>直接傳 LINE 問老闆最快。</p>
-                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%95%8F%E7%B6%AD%E4%BF%AE%E9%80%B2%E5%BA%A6%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E6%9F%A5%E8%A9%A2" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
+                <a id="emptyLineBtn" href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%95%8F%E7%B6%AD%E4%BF%AE%E9%80%B2%E5%BA%A6%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E6%9F%A5%E8%A9%A2" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
                     <i class="fab fa-line mr-2 text-xl"></i> 一鍵開啟 LINE 客服
                 </a>
             </div>
@@ -105,7 +105,7 @@
                 <i class="fas fa-exclamation-triangle text-2xl text-red-400 mb-2"></i>
                 <p id="errorMsg" class="text-red-300 font-bold text-base leading-relaxed"></p>
                 <p class="text-gray-400 text-base mt-1 leading-relaxed">可以按查詢再試一次，<br>或直接傳 LINE 問老闆維修進度。</p>
-                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%95%8F%E7%B6%AD%E4%BF%AE%E9%80%B2%E5%BA%A6%EF%BC%8C%E6%88%91%E9%80%81%E4%BF%AE%E6%99%82%E7%95%99%E7%9A%84%E9%9B%BB%E8%A9%B1%E6%98%AF%EF%BC%9A%EF%BC%BF%EF%BC%BF" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
+                <a id="errorLineBtn" href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%95%8F%E7%B6%AD%E4%BF%AE%E9%80%B2%E5%BA%A6%EF%BC%8C%E6%88%91%E9%80%81%E4%BF%AE%E6%99%82%E7%95%99%E7%9A%84%E9%9B%BB%E8%A9%B1%E6%98%AF%EF%BC%9A%EF%BC%BF%EF%BC%BF" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
                     <i class="fab fa-line mr-2 text-xl"></i> 直接傳 LINE 問進度
                 </a>
             </div>
@@ -172,6 +172,12 @@
             phoneInput.focus();
         }
 
+        // 回頭客：問進度時 LINE 預填訊息直接帶上剛輸入的電話，客人不用在 LINE 裡再打一次
+        // （電話是客人自己剛輸入的、只傳給店家官方 LINE；JS 失敗時錨點保留原本 ＿＿ 版靜態連結）
+        function lineAskUrl(phone) {
+            return 'https://line.me/R/oaMessage/%40077usxwz/?' + encodeURIComponent('您好，我想問維修進度，我送修時留下的電話是：' + phone);
+        }
+
         async function doQuery() {
             const phoneInput = document.getElementById('phone');
             const resultDiv = document.getElementById('results');
@@ -199,6 +205,13 @@
                 phoneInput.focus();
                 return;
             }
+
+            // 問進度 LINE 出口帶上電話（結果／查無資料／連線失敗三處共用；號碼是客人剛輸入的）
+            const askUrl = lineAskUrl(phone);
+            const emptyBtn = document.getElementById('emptyLineBtn');
+            if (emptyBtn) emptyBtn.href = askUrl;
+            const errorBtn = document.getElementById('errorLineBtn');
+            if (errorBtn) errorBtn.href = askUrl;
 
             // 手機視角：按查詢後收起鍵盤，查詢結果才能完整顯示（否則鍵盤會蓋住下半個結果卡）
             phoneInput.blur();
@@ -257,7 +270,7 @@
                             </div>
                         `;
                     });
-                    html += '<a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%95%8F%E7%B6%AD%E4%BF%AE%E9%80%B2%E5%BA%A6%EF%BC%8C%E6%88%91%E9%80%81%E4%BF%AE%E6%99%82%E7%95%99%E7%9A%84%E9%9B%BB%E8%A9%B1%E6%98%AF%EF%BC%9A%EF%BC%BF%EF%BC%BF" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="mt-2 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base"><i class="fab fa-line mr-2 text-xl"></i> 進度有問題？直接傳 LINE 問老闆</a>';
+                    html += '<a href="' + askUrl + '" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="mt-2 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base"><i class="fab fa-line mr-2 text-xl"></i> 進度有問題？直接傳 LINE 問老闆</a>';
                     html += '<a href="#phone" onclick="clearSavedPhone();return false;" class="mt-2 block w-full text-center text-base text-gray-300 underline underline-offset-4 py-3">換支電話再查 →</a>';
                     resultDiv.innerHTML = html;
                     resultDiv.classList.remove('hidden');
