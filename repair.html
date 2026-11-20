@@ -94,6 +94,7 @@
             <div id="empty" class="mt-8 hidden text-center bg-brand-gold/10 p-5 rounded-2xl border border-brand-gold/20">
                 <i class="fas fa-info-circle text-2xl brand-gold mb-2"></i>
                 <p class="text-brand-gold font-bold text-base">找不到這支電話的維修紀錄。</p>
+                <p id="emptyPhone" class="text-gray-300 text-base mt-1"></p>
                 <p class="text-gray-400 text-base mt-1 leading-relaxed">請確認輸入的是送修時留下的電話號碼；<br>若剛送修不久，資料可能還在登記中，<br>直接傳 LINE 問老闆最快。</p>
                 <a id="emptyLineBtn" href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%95%8F%E7%B6%AD%E4%BF%AE%E9%80%B2%E5%BA%A6%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E6%9F%A5%E8%A9%A2" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
                     <i class="fab fa-line mr-2 text-xl"></i> 一鍵開啟 LINE 客服
@@ -277,6 +278,9 @@
                     // 回頭客手機視角：結果展開後整盒可能超出首屏，自動滑到結果區（已可見時不動）
                     resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 } else {
+                    // 回頭客：查無資料時把剛查的號碼印出來，打錯一位一眼就能對上
+                    const emptyPhone = document.getElementById('emptyPhone');
+                    if (emptyPhone) emptyPhone.textContent = '您查詢的電話：' + phone;
                     emptyDiv.classList.remove('hidden');
                     emptyDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
