@@ -72,7 +72,7 @@
       "name": "組一台新電腦大概要多少錢？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "看您的用途和零件行情：文書機 $20,000 起、遊戲機 $60,000 起、剪片直播機 $120,000 起、本地 AI 主機 $200,000 起（依顯卡與記憶體規格而定）、GTA6 預備機 $90,000 起、高階預備機 $155,000 起（以上皆參考價，實際依零件行情報價）。傳 LINE 聯繫我們，詳談需求後再報價，正式報價列出每一個零件的品牌、型號和價格，可自己比價，確認後再決定。"
+        "text": "看您的用途和零件行情：文書機 $20,000 起、遊戲機 $60,000 起、剪片直播機 $120,000 起、本地 AI 主機 $200,000 起（依顯卡與記憶體規格而定）、GTA6 預備機 $90,000 起、高階預備機 $155,000 起、旗艦 AI 主機 $435,000 起（以上皆參考價，實際依零件行情報價）。傳 LINE 聯繫我們，詳談需求後再報價，正式報價列出每一個零件的品牌、型號和價格，可自己比價，確認後再決定。"
       }
     },
     {
@@ -224,6 +224,7 @@
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">4. 燒機測試：組好後先開機測試，穩定了再交機。</span>檢查能不能正常開機、運作穩不穩定，確認沒問題才安排交機。有狀況先在這一步處理好，不會留到您手上。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">5. 交機驗收：約時間交機，現場開機給您驗收。</span>確認沒問題再交給您，也教您基本使用，有問題再問我們就好。交機時間配合您的方便，假日也可以約。</span></li>
             </ol>
+            <figure class="my-5"><img src="guide-img/build-assembly.jpg" alt="組裝過程實拍照：雙手將處理器裝上主機板" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">照片來源：網路實拍</figcaption></figure>
             <div class="my-6" role="img" aria-label="組新機五步驟流程圖：用途溝通、報價確認、組裝整線、燒機測試、交機驗收">
                 <div class="flex flex-col md:flex-row items-stretch gap-2 md:gap-0">
         <div class="flex-1 bg-white border-2 border-brand-dark/15 rounded-2xl p-4 text-center shadow-sm">
@@ -260,13 +261,14 @@
             </div>
             <!-- 2026-11-21 依新品市價＋2成重估六級起價（原 20/50/70/80/80/200 → 20/55/80/110/125/200），例如配法同步改誠實規格；5090 新品 16 萬起塞不下 20 萬級，AI 改 5080 -->
             <!-- 2026-11-21 顯卡優先重配：5 萬以上一律 1TB SSD，預算拉給顯卡（20/60/90/120/155/200）-->
+            <!-- 2026-11-21 5090 旗艦級：拉 BAR 上限 45 萬，新增旗艦 AI 主機 $435,000 起（5090 以使用者錨點 25 萬計，零售 36.4 萬 x1.2）-->
             <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10">拉一下預算，看看能組到什麼</h3>
             <p class="text-gray-600 leading-relaxed mb-6">預算拉到哪，就做到哪。預算越高，能做的事往上加，下面的功能都還在。先拉拉看，再傳 LINE 跟我們說預算，我們配好再報價給您確認。</p>
             <div class="border-2 border-brand-gold/60 rounded-2xl p-6 md:p-8 bg-white mb-6">
                 <p class="text-center text-gray-500 text-sm mb-1">我的預算</p>
                 <p class="text-center mb-1"><span id="budgetValue" class="text-4xl font-black text-brand-dark">$20,000</span> <span class="text-gray-500">起</span></p>
                 <p id="stageName" class="text-center font-bold text-lg text-brand-gold-dark mb-5">文書機</p>
-                <input id="budgetRange" type="range" min="20000" max="200000" step="5000" value="20000" aria-label="組新機預算">
+                <input id="budgetRange" type="range" min="20000" max="450000" step="5000" value="20000" aria-label="組新機預算">
                 <div class="flex justify-between mt-3">
                     <button type="button" class="tick-btn text-sm font-bold text-gray-500 hover:text-brand-gold-dark" data-value="20000">$20,000</button>
                     <button type="button" class="tick-btn text-sm font-bold text-gray-500 hover:text-brand-gold-dark" data-value="60000">$60,000</button>
@@ -274,6 +276,7 @@
                     <button type="button" class="tick-btn text-sm font-bold text-gray-500 hover:text-brand-gold-dark" data-value="120000">$120,000</button>
                     <button type="button" class="tick-btn text-sm font-bold text-gray-500 hover:text-brand-gold-dark" data-value="155000">$155,000</button>
                     <button type="button" class="tick-btn text-sm font-bold text-gray-500 hover:text-brand-gold-dark" data-value="200000">$200,000</button>
+                    <button type="button" class="tick-btn text-sm font-bold text-gray-500 hover:text-brand-gold-dark" data-value="435000">$435,000</button>
                 </div>
                 <p id="nextHint" class="text-center text-sm text-gray-500 mt-4">再加 $40,000，就能升級到遊戲機（$60,000 起）</p>
                 <div id="funcChips" class="flex flex-wrap justify-center gap-2 mt-5">
@@ -284,6 +287,7 @@
                     <span class="func-chip" data-stage="3">🎞️ 剪片直播</span>
                     <span class="func-chip" data-stage="4">🎯 3A 高幀率</span>
                     <span class="func-chip" data-stage="5">🧠 本地 AI</span>
+                    <span class="func-chip" data-stage="6">🚀 5090 旗艦</span>
                 </div>
                 <p class="text-center text-xs text-gray-400 mt-3">金色＝這一級新解鎖的功能，深色＝已經包含的功能</p>
                 <div id="liveSpec" class="mt-6 border-t border-gray-100 pt-5">
@@ -312,7 +316,7 @@
                 <p class="text-sm text-gray-600 bg-white border border-gray-100 rounded-lg px-3 py-2 mb-5">例如配法：i3-14100／Ryzen 3、16GB DDR4、500GB SSD <span class="text-gray-400">（實際依報價為準）</span></p>
                 <p class="text-4xl font-black text-brand-dark mb-1">$20,000 起</p>
                 <p class="text-sm text-gray-500 mb-5">參考價，實際依零件行情報價；正式報價列出每個零件的品牌、型號和價格，可自己比價</p>
-                                <figure class="my-5"><img src="guide-img/build-office.svg" alt="文書機示意圖：上網、文書、追劇、輕度使用的桌上型電腦。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure>
+                                <figure class="my-5"><img src="guide-img/build-office.jpg" alt="文書機實拍照：桌上型電腦放在整齊的工作桌上" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">照片：Jiri Brozovsky（CC BY 2.0）</figcaption></figure>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%83%B9%E6%96%87%E6%9B%B8%E6%A9%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E5%A0%B1%E5%83%B9" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="inline-flex bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 傳 LINE 問文書機報價</a>
             </div>
 <div id="panel-game" class="plan-panel border border-gray-100 rounded-2xl p-6 md:p-8 bg-gray-50 mb-8">
@@ -326,7 +330,7 @@
                 <p class="text-sm text-gray-600 bg-white border border-gray-100 rounded-lg px-3 py-2 mb-5">例如配法：i5-14400F／Core Ultra 5／Ryzen 5、RTX 5060 Ti 16GB、32GB DDR4、1TB SSD <span class="text-gray-400">（實際依報價為準）</span></p>
                 <p class="text-4xl font-black text-brand-dark mb-1">$60,000 起</p>
                 <p class="text-sm text-gray-500 mb-5">參考價，實際依零件行情報價；正式報價列出每個零件的品牌、型號和價格，可自己比價</p>
-                <figure class="my-5"><img src="guide-img/build-game.svg" alt="遊戲機示意圖：順跑主流遊戲、留有升級空間的桌上型電腦。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure>
+                <figure class="my-5"><img src="guide-img/build-game.jpg" alt="遊戲機實拍照：RGB 電競主機與遊戲螢幕" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">照片來源：網路實拍</figcaption></figure>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%83%B9%E9%81%8A%E6%88%B2%E6%A9%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E5%A0%B1%E5%83%B9" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="inline-flex bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 傳 LINE 問遊戲機報價</a>
             </div>
 <div id="panel-gta6" class="plan-panel border border-gray-100 rounded-2xl p-6 md:p-8 bg-gray-50 mb-8">
@@ -341,7 +345,7 @@
                 <p class="text-sm text-gray-600 bg-white border border-gray-100 rounded-lg px-3 py-2 mb-5">例如配法：i5-14400F／Core Ultra 5／Ryzen 5、RTX 5070 Ti、32GB DDR5、1TB SSD <span class="text-gray-400">（實際依報價為準）</span></p>
                 <p class="text-4xl font-black text-brand-dark mb-1">$90,000 起</p>
                 <p class="text-sm text-gray-500 mb-5">參考價，實際依零件行情報價；正式報價列出每個零件的品牌、型號和價格，可自己比價</p>
-                <figure class="my-5"><img src="guide-img/build-gta6-1.svg" alt="GTA6 預備機示意圖：顯示卡 16GB 顯存等級，現在順跑 3A 大作，將來等 PC 版。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure>
+                <figure class="my-5"><img src="guide-img/build-gta6-1.jpg" alt="GTA6 預備機實拍照：高階電競主機與雙螢幕" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">照片：rkhampra（CC0）</figcaption></figure>
 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%83%B9%20GTA6%20%E9%A0%90%E5%82%99%E6%A9%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E5%A0%B1%E5%83%B9" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="inline-flex bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 傳 LINE 問 GTA6 預備機報價</a>
             </div>
 <div id="panel-video" class="plan-panel border border-gray-100 rounded-2xl p-6 md:p-8 bg-gray-50 mb-8">
@@ -355,7 +359,7 @@
                 <p class="text-sm text-gray-600 bg-white border border-gray-100 rounded-lg px-3 py-2 mb-5">例如配法：i7-14700K／Core Ultra 7／Ryzen 9、RTX 5070 Ti、64GB DDR5、1TB SSD <span class="text-gray-400">（實際依報價為準）</span></p>
                 <p class="text-4xl font-black text-brand-dark mb-1">$120,000 起</p>
                 <p class="text-sm text-gray-500 mb-5">參考價，實際依零件行情報價；正式報價列出每個零件的品牌、型號和價格，可自己比價</p>
-                <figure class="my-5"><img src="guide-img/build-video.svg" alt="剪片直播機示意圖：剪片、直播、轉檔、多工處理的桌上型電腦。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure>
+                <figure class="my-5"><img src="guide-img/build-video.jpg" alt="剪片直播機實拍照：剪輯工作區的雙螢幕與時間軸" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">照片：Rego（CC BY-SA 2.0）</figcaption></figure>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%83%B9%E7%9B%B4%E6%92%AD%E5%89%AA%E7%89%87%E6%A9%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E5%A0%B1%E5%83%B9" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="inline-flex bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 傳 LINE 問剪片直播機報價</a>
             </div>
 <div id="panel-highend" class="plan-panel border border-gray-100 rounded-2xl p-6 md:p-8 bg-gray-50 mb-8">
@@ -369,7 +373,7 @@
                 <p class="text-sm text-gray-600 bg-white border border-gray-100 rounded-lg px-3 py-2 mb-5">例如配法：i7-14700K／Core Ultra 7／Ryzen 9、RTX 5080、64GB DDR5、1TB SSD <span class="text-gray-400">（實際依報價為準）</span></p>
                 <p class="text-4xl font-black text-brand-dark mb-1">$155,000 起</p>
                 <p class="text-sm text-gray-500 mb-5">參考價，實際依零件行情報價；正式報價列出每個零件的品牌、型號和價格，可自己比價</p>
-                <figure class="my-5"><img src="guide-img/build-gta6-2.svg" alt="GTA6 預備機兩種等級示意圖：GTA6 預備機 $90,000 起、高階預備機 $155,000 起，都是參考價。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure>
+                <figure class="my-5"><img src="guide-img/build-gta6-2.jpg" alt="高階遊戲主機實拍照：RGB 主機與遊戲配備" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">照片：Brian Wong（CC BY-SA 2.0）</figcaption></figure>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%83%B9%E9%AB%98%E9%9A%8E%20GTA6%20%E9%A0%90%E5%82%99%E6%A9%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E5%A0%B1%E5%83%B9" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="inline-flex bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 傳 LINE 問高階預備機報價</a>
             </div>
 <div id="local-ai" class="plan-panel border border-gray-100 rounded-2xl p-6 md:p-8 bg-gray-50 mb-8 scroll-mt-24">
@@ -385,9 +389,25 @@
                 <p class="text-sm text-gray-600 bg-white border border-gray-100 rounded-lg px-3 py-2 mb-5">例如配法：i9-14900K／Core Ultra 9／Ryzen 9 9950X、RTX 5080、128GB DDR5、1TB SSD <span class="text-gray-400">（實際依報價為準）</span></p>
                 <p class="text-4xl font-black text-brand-dark mb-1">$200,000 起</p>
                 <p class="text-sm text-gray-500 mb-5">參考價，依顯卡與記憶體規格而定，實際依零件行情報價；正式報價列出每個零件的品牌、型號和價格，可自己比價</p>
-                                <figure class="my-5"><img src="guide-img/build-local-ai.svg" alt="本地 AI 主機示意圖：自己的 AI 助理，資料留在自己電腦裡，不上傳雲端。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure>
+                                <figure class="my-5"><img src="guide-img/build-local-ai.jpg" alt="本地 AI 主機實拍照：高階三風扇顯示卡" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">照片：Benlisquare（CC BY-SA）</figcaption></figure>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E7%B5%84%E6%9C%AC%E5%9C%B0%20AI%20%E4%B8%BB%E6%A9%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0%E5%A0%B1%E5%83%B9" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="inline-flex bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 傳 LINE 問本地 AI 主機報價</a>
                             </div>
+<div id="panel-flagship" class="plan-panel border border-gray-100 rounded-2xl p-6 md:p-8 bg-gray-50 mb-8 scroll-mt-24">
+                <h4 class="text-xl font-bold mb-3"><i class="fas fa-rocket text-brand-gold-dark mr-2"></i> 旗艦 AI 主機：RTX 5090，本地 AI 再升一級</h4>
+                <p class="text-gray-600 leading-relaxed mb-5">本地 AI 主機的旗艦版，顯示卡換成目前最強的 RTX 5090，32GB 顯存跑更大的模型、一次處理更多資料，速度再往上拉一級。<span class="font-bold text-brand-dark">模型一樣跑在您自己的電腦裡，文件與對話留在本機，不上傳雲端。</span>適合想一次配到頂、之後幾年都不用再升級的工作室與店家。詳細說明：<a href="guide-local-ai.html" class="text-brand-gold-dark font-bold">台中本地 AI 主機怎麼配？</a></p>
+                <ul class="text-gray-700 leading-relaxed space-y-2 list-disc list-inside mb-5">
+                    <li>適合誰：想一次配到頂的工作室、店家，跑更大的本地模型</li>
+                    <li>能做什麼：本地問答、整理文件、客服草稿、資料分析，繁體中文為主</li>
+                    <li>重點規格：RTX 5090 旗艦顯示卡、32GB 顯存、128GB 記憶體、2TB SSD</li>
+                    <li>最大賣點：目前最強的消費級顯卡，本地 AI 速度再往上拉一級</li>
+                    <li>安裝方式：預約到府安裝，現場開機測試，教您基本使用</li>
+                </ul>
+                <p class="text-sm text-gray-600 bg-white border border-gray-100 rounded-lg px-3 py-2 mb-5">例如配法：i9-14900K／Core Ultra 9／Ryzen 9 9950X、RTX 5090、128GB DDR5、2TB SSD <span class="text-gray-400">（實際依報價為準）</span></p>
+                <p class="text-4xl font-black text-brand-dark mb-1">$435,000 起</p>
+                <p class="text-sm text-gray-500 mb-5">參考價，依顯卡與記憶體規格而定，實際依零件行情報價；正式報價列出每個零件的品牌、型號和價格，可自己比價</p>
+                <figure class="my-5"><img src="guide-img/build-flagship.jpg" alt="旗艦 AI 主機實拍照：RTX 5090 旗艦顯示卡" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">照片：PantheraLeo1359531（CC BY）</figcaption></figure>
+                <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E7%B5%84%E6%97%97%E8%89%A6%20AI%20%E4%B8%BB%E6%A9%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0%E5%A0%B1%E5%83%B9" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="inline-flex bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 傳 LINE 問旗艦 AI 主機報價</a>
+            </div>
             </div>
             
             
@@ -401,7 +421,7 @@
             <p class="text-gray-600 leading-relaxed mb-6">提醒您：文書機 $20,000 起是上網、文書、追劇用的，玩 3A 大作會不夠力，不適合當 GTA6 預備機。不確定適合哪一級，把平常玩的遊戲、想玩的解析度傳 LINE 給我們，我們先免費幫您評估，再報價給您確認。</p>
             <h3 class="text-xl md:text-2xl font-bold mb-4 mt-10">交機驗收：現場開機給您看，教您基本使用</h3>
             <p class="text-gray-600 leading-relaxed mb-6">交機不是把電腦放下就走。我們現場開機給您驗收，確認開機正常、您要用的功能都沒問題，再交給您。也教您基本使用，像是怎麼開機、關機，常用的東西放在哪裡，讓您回家就能直接用。有問題再問我們就好，不用自己摸索。</p>
-            <figure class="my-5"><img src="guide-img/build-handover.svg" alt="交機驗收示意圖：現場開機驗收，並教您基本使用。" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">示意圖（非官方截圖）</figcaption></figure>
+            <figure class="my-5"><img src="guide-img/build-handover.jpg" alt="交機驗收實拍照：現場按下主機電源鍵開機驗收" class="w-full rounded-xl border border-gray-100"><figcaption class="text-center text-sm text-gray-400 mt-2">照片來源：網路實拍</figcaption></figure>
             <div class="bg-gray-50 border border-gray-100 rounded-xl p-5 mb-8">
                 <p class="font-bold mb-2"><i class="fas fa-info-circle text-brand-gold-dark mr-1"></i> 先跟您說明</p>
                 <ul class="text-gray-700 text-sm leading-relaxed space-y-1 list-disc list-inside">
@@ -416,7 +436,7 @@
             <div class="space-y-4">
                 <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
                     <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 組一台新電腦大概要多少錢？</p>
-                    <p class="text-gray-600 leading-relaxed">看您的用途和零件行情：文書機 $20,000 起、遊戲機 $60,000 起、剪片直播機 $120,000 起、本地 AI 主機 $200,000 起（依顯卡與記憶體規格而定）、GTA6 預備機 $90,000 起、高階預備機 $155,000 起（以上皆參考價，實際依零件行情報價）。傳 LINE 聯繫我們，詳談需求後再報價，正式報價列出每一個零件的品牌、型號和價格，可自己比價，確認後再決定。</p>
+                    <p class="text-gray-600 leading-relaxed">看您的用途和零件行情：文書機 $20,000 起、遊戲機 $60,000 起、剪片直播機 $120,000 起、本地 AI 主機 $200,000 起（依顯卡與記憶體規格而定）、GTA6 預備機 $90,000 起、高階預備機 $155,000 起、旗艦 AI 主機 $435,000 起（以上皆參考價，實際依零件行情報價）。傳 LINE 聯繫我們，詳談需求後再報價，正式報價列出每一個零件的品牌、型號和價格，可自己比價，確認後再決定。</p>
                 </div>
                 <div class="border border-gray-100 rounded-xl p-5 bg-gray-50">
                     <p class="font-bold mb-2"><i class="fas fa-question-circle text-brand-gold-dark mr-1"></i> 組一台 GTA6 預備機，現在就能玩 GTA6 嗎？</p>
@@ -500,7 +520,8 @@
                 {price:90000,name:'GTA6 預備機',panels:['panel-gta6']},
                 {price:120000,name:'剪片直播機',panels:['panel-video']},
                 {price:155000,name:'高階預備機',panels:['panel-highend']},
-                {price:200000,name:'本地 AI 主機',panels:['local-ai']}
+                {price:200000,name:'本地 AI 主機',panels:['local-ai']},
+                {price:435000,name:'旗艦 AI 主機',panels:['panel-flagship']}
             ];
             var valueEl=document.getElementById('budgetValue');
             var nameEl=document.getElementById('stageName');
@@ -518,14 +539,15 @@
                 else if(v<=55000)gpu='RTX 5060';
                 else if(v<=85000)gpu='RTX 5060 Ti 16GB';
                 else if(v<=150000)gpu='RTX 5070 Ti';
-                else gpu='RTX 5080';
+                else if(v<=430000)gpu='RTX 5080';
+                else gpu='RTX 5090';
                 if(v<=35000)ram='16GB DDR4';
                 else if(v<=60000)ram='32GB DDR4';
                 else if(v<=85000)ram='64GB DDR4';
                 else if(v<=115000)ram='32GB DDR5';
                 else if(v<=190000)ram='64GB DDR5';
                 else ram='128GB DDR5';
-                ssd=(v<=20000)?'500GB SSD':'1TB SSD';
+                ssd=(v<=20000)?'500GB SSD':(v>=300000?'2TB SSD':'1TB SSD');
                 return {cpu:cpu,gpu:gpu,ram:ram,ssd:ssd};}
             function update(){
                 var v=parseInt(range.value,10);
@@ -538,18 +560,19 @@
                 document.getElementById('liveGpu').textContent=sp.gpu;
                 document.getElementById('liveRam').textContent=sp.ram;
                 document.getElementById('liveSsd').textContent=sp.ssd;
-                range.style.setProperty('--fill',((v-20000)/180000*100)+'%');
+                range.style.setProperty('--fill',((v-20000)/430000*100)+'%');
                 Array.prototype.forEach.call(document.querySelectorAll('.plan-panel'),function(p){p.classList.remove('active');});
                 st.panels.forEach(function(id){var el=document.getElementById(id);if(el)el.classList.add('active');});
                 chips.forEach(function(c){var cs=parseInt(c.getAttribute('data-stage'),10);c.classList.toggle('on',cs<=idx);c.classList.toggle('new',cs===idx);});
                 if(idx<STAGES.length-1){var nx=STAGES[idx+1];hintEl.textContent='再加 '+fmt(nx.price-v)+'，就能升級到'+nx.name+'（'+fmt(nx.price)+' 起）';}
-                else{hintEl.textContent='已經是最高預算，本地 AI 主機全配';}
+                else{hintEl.textContent='已經是最高預算，旗艦 AI 主機全配';}
                 ticks.forEach(function(b){b.classList.toggle('active',parseInt(b.getAttribute('data-value'),10)===st.price);});
             }
             range.addEventListener('input',update);
             ticks.forEach(function(b){b.addEventListener('click',function(){range.value=b.getAttribute('data-value');update();});});
             var hash=(location.hash||'').replace('#','');
             if(hash==='local-ai')range.value=200000;
+            if(hash==='flagship')range.value=435000;
             if(hash==='gta6')range.value=90000;
             update();
         })();
