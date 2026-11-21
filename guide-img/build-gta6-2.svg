@@ -7,12 +7,12 @@
 <text x="80" y="80" font-size="42" fill="#013e47" text-anchor="middle" font-weight="bold">配</text>
 <g>
 <rect x="90" y="130" width="300" height="170" rx="16" fill="#013e47"/>
-<text x="240" y="175" font-size="24" fill="#eebb4d" text-anchor="middle" font-weight="bold">遊戲機 $50,000 起</text>
+<text x="240" y="175" font-size="22" fill="#eebb4d" text-anchor="middle" font-weight="bold">GTA6 預備機 $80,000 起</text>
 <text x="240" y="215" font-size="20" fill="#ffffff" text-anchor="middle">16GB 顯存等級顯示卡</text>
-<text x="240" y="248" font-size="20" fill="#ffffff" text-anchor="middle">32GB 記憶體・2TB SSD</text>
+<text x="240" y="248" font-size="20" fill="#ffffff" text-anchor="middle">32GB 記憶體・1TB SSD</text>
 <text x="240" y="281" font-size="20" fill="#ffffff" text-anchor="middle">現在就能順跑 3A 大作</text>
 <rect x="410" y="130" width="300" height="170" rx="16" fill="#ffffff" stroke="#013e47" stroke-width="4"/>
-<text x="560" y="175" font-size="24" fill="#013e47" text-anchor="middle" font-weight="bold">高階預備機 $80,000 起</text>
+<text x="560" y="175" font-size="22" fill="#013e47" text-anchor="middle" font-weight="bold">高階預備機 $125,000 起</text>
 <text x="560" y="215" font-size="20" fill="#013e47" text-anchor="middle">更高階顯示卡・64GB 記憶體</text>
 <text x="560" y="248" font-size="20" fill="#013e47" text-anchor="middle">2TB 以上 SSD・大電源</text>
 <text x="560" y="281" font-size="20" fill="#013e47" text-anchor="middle">4K、直播、剪片都夠用</text>
