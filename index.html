@@ -405,6 +405,13 @@
         </div>
     </section>
 
+<details class="group">
+<summary class="cursor-pointer list-none bg-gray-50 border-b border-gray-200">
+<div class="container mx-auto px-6 py-5 flex items-center justify-between font-bold text-brand-dark text-xl">
+<span>為什麼選我們</span>
+<i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark"></i>
+</div>
+</summary>
 <section id="why-us" class="scroll-mt-24 py-16 bg-white border-b border-gray-100">
         <div class="container mx-auto px-6">
             <div class="flex flex-wrap -mx-4 items-center">
@@ -455,6 +462,7 @@
             </div>
         </div>
     </section>
+</details>
 
 <section id="services" class="scroll-mt-24 py-20 container mx-auto px-6">
         <div class="text-center mb-16">
@@ -463,8 +471,14 @@
             <p class="mt-6 text-gray-600 text-lg">台中全區、彰化部分地區維修、組裝、維護技術支援</p>
         </div>
         
+                <div class="flex flex-wrap justify-center gap-2 mb-10" id="serviceFilter">
+            <button type="button" data-filter="all" class="svc-chip px-4 py-2 rounded-full text-sm font-bold border border-gray-200 bg-white text-brand-dark transition">全部服務</button>
+            <button type="button" data-filter="repair" class="svc-chip px-4 py-2 rounded-full text-sm font-bold border border-gray-200 bg-brand-dark text-white transition">🛠️ 修電腦</button>
+            <button type="button" data-filter="build" class="svc-chip px-4 py-2 rounded-full text-sm font-bold border border-gray-200 bg-white text-brand-dark transition">💻 組電腦・升級</button>
+            <button type="button" data-filter="other" class="svc-chip px-4 py-2 rounded-full text-sm font-bold border border-gray-200 bg-white text-brand-dark transition">✨ 其他服務</button>
+        </div>
         <div class="grid md:grid-cols-4 gap-6">
-            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+            <div data-cat="repair" class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
                 <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
                     <i class="fas fa-stethoscope"></i>
                 </div>
@@ -472,7 +486,7 @@
                 <p class="text-gray-600 text-base leading-relaxed">台中、彰化到府檢測開機無畫面、藍屏死機，精準找出病因。</p>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 border-t-4 border-brand-dark group ring-2 ring-brand-gold/20">
+            <div data-cat="build" class="bg-white p-6 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 border-t-4 border-brand-dark group ring-2 ring-brand-gold/20">
                 <div class="w-14 h-14 bg-brand-dark rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 shadow-sm group-hover:scale-110 transition">
                     <i class="fas fa-gamepad"></i>
                 </div>
@@ -480,7 +494,7 @@
                 <p class="text-gray-600 text-base leading-relaxed">依預算規劃高 CP 值文書機或 3A 電競主機，拒絕庫存品。</p>
             </div>
 
-            <a href="build.html" class="block bg-white p-6 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 border-t-4 border-brand-dark group ring-2 ring-brand-gold/20">
+            <a data-cat="build" href="build.html" class="block bg-white p-6 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 border-t-4 border-brand-dark group ring-2 ring-brand-gold/20">
                 <div class="w-14 h-14 bg-brand-dark rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 shadow-sm group-hover:scale-110 transition">
                     <i class="fas fa-desktop"></i>
                 </div>
@@ -488,7 +502,7 @@
                 <p class="text-gray-600 text-base leading-relaxed">文書、遊戲、剪片、本地 AI、GTA6、高階、旗艦七種範例配置，參考總價先看得到，報價確認後再決定。點進來看 →</p>
             </a>
 
-            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+            <div data-cat="repair" class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
                 <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
                     <i class="fas fa-laptop-medical"></i>
                 </div>
@@ -496,7 +510,7 @@
                 <p class="text-gray-600 text-base leading-relaxed">電池蓄電力差、鍵盤失靈、螢幕破裂更換，各廠牌皆可評估。</p>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+            <div data-cat="build" class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
                 <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
                     <i class="fas fa-rocket"></i>
                 </div>
@@ -504,7 +518,7 @@
                 <p class="text-gray-600 text-base leading-relaxed">舊電腦換 SSD、記憶體升級，開機、開網頁明顯變快。</p>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+            <div data-cat="other" class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
                 <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
                     <i class="fas fa-broom"></i>
                 </div>
@@ -512,7 +526,7 @@
                 <p class="text-gray-600 text-base leading-relaxed">風扇狂轉很吵？電腦過熱？更換高效散熱膏，解決過熱降頻。</p>
             </div>
 
-             <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+             <div data-cat="repair" class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
                 <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
                     <i class="fas fa-hdd"></i>
                 </div>
@@ -520,7 +534,7 @@
                 <p class="text-gray-600 text-base leading-relaxed">誤刪檔案軟體救援、新舊電腦資料搬家。嚴重損壞可代送專業實驗室。</p>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+            <div data-cat="other" class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
                 <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
                     <i class="fas fa-building"></i>
                 </div>
@@ -528,7 +542,7 @@
                 <p class="text-gray-600 text-base leading-relaxed">專為 5-10 人微型企業設計，週末假日可優化／維修，不影響平日工作。</p>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
+            <div data-cat="repair" class="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-2 transition duration-300 border-t-4 border-brand-gold group">
                 <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition">
                     <i class="fas fa-moon"></i>
                 </div>
@@ -536,7 +550,7 @@
                 <p class="text-gray-600 text-base leading-relaxed">專為上班族設計，平日下班後（20:00~24:00）及週末全天可預約到府。<span class="text-gray-500">※22:00 後的案件，費用先含在總價裡說明。</span></p>
             </div>
 
-            <a href="website.html#works" class="block bg-white p-6 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 border-t-4 border-brand-dark group ring-2 ring-brand-gold/20">
+            <a data-cat="other" href="website.html#works" class="block bg-white p-6 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 border-t-4 border-brand-dark group ring-2 ring-brand-gold/20">
                 <div class="w-14 h-14 bg-brand-dark rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 shadow-sm group-hover:scale-110 transition">
                     <i class="fas fa-globe"></i>
                 </div>
@@ -547,6 +561,13 @@
         <p class="mt-8 text-center text-gray-500 text-base">💡 正在比價嗎？各項服務的費用都在下面公開列出 → <a href="#pricing" class="text-brand-gold underline font-bold">服務價目表</a></p>
     </section>
 
+<details class="group">
+<summary class="cursor-pointer list-none bg-gray-50 border-b border-gray-200">
+<div class="container mx-auto px-6 py-5 flex items-center justify-between font-bold text-brand-dark text-xl">
+<span>做網站服務</span>
+<i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark"></i>
+</div>
+</summary>
 <section id="website-service" class="scroll-mt-24 py-20 bg-brand-dark text-white">
         <div class="container mx-auto px-6 max-w-5xl">
             <div class="text-center mb-10">
@@ -581,6 +602,7 @@
             </div>
         </div>
     </section>
+</details>
 
 <section id="pricing" class="scroll-mt-24 py-20 bg-gray-50">
         <div class="container mx-auto px-6 max-w-5xl">
@@ -702,6 +724,13 @@
         </div>
     </section>
 
+<details class="group">
+<summary class="cursor-pointer list-none bg-gray-50 border-b border-gray-200">
+<div class="container mx-auto px-6 py-5 flex items-center justify-between font-bold text-brand-dark text-xl">
+<span>先自己檢查看看</span>
+<i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark"></i>
+</div>
+</summary>
 <section id="tools" class="scroll-mt-24 py-20 bg-gray-50 border-b border-gray-100">
         <div class="container mx-auto px-6">
             <div class="text-center mb-14">
@@ -737,6 +766,7 @@
             </div>
         </div>
     </section>
+</details>
 
 <section id="faq" class="scroll-mt-24 py-20 bg-white">
         <div class="container mx-auto px-6 max-w-4xl">
@@ -872,6 +902,13 @@
         </div>
     </section>
 
+<details class="group">
+<summary class="cursor-pointer list-none bg-gray-50 border-b border-gray-200">
+<div class="container mx-auto px-6 py-5 flex items-center justify-between font-bold text-brand-dark text-xl">
+<span>服務區域</span>
+<i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark"></i>
+</div>
+</summary>
 <section id="areas" class="scroll-mt-24 py-20 bg-gray-50">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold text-brand-dark mb-4">服務區域</h2>
@@ -902,7 +939,15 @@
             </p>
         </div>
     </section>
+</details>
 
+<details class="group">
+<summary class="cursor-pointer list-none bg-gray-50 border-b border-gray-200">
+<div class="container mx-auto px-6 py-5 flex items-center justify-between font-bold text-brand-dark text-xl">
+<span>服務據點</span>
+<i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark"></i>
+</div>
+</summary>
 <section id="location" class="scroll-mt-24 py-20 bg-brand-dark text-white">
         <div class="container mx-auto px-6 max-w-5xl">
             <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
@@ -944,6 +989,7 @@
             </div>
         </div>
     </section>
+</details>
 
 <footer class="bg-gray-900 text-gray-400 py-12 text-center border-t border-white/10 flex flex-col items-center justify-center">
         <div class="flex items-center justify-center gap-3 cursor-pointer group select-none mb-6" onclick="window.scrollTo(0,0)">
@@ -1142,5 +1188,40 @@
         })();
     </script>
 <script src="/track.js" defer></script>
+<script>
+// 服務分類篩選（預設「修電腦」，像組電腦拉 BAR 一樣分級呈現）
+function filterServices(cat){
+    document.querySelectorAll('#services [data-cat]').forEach(function(card){
+        card.classList.toggle('hidden', cat !== 'all' && card.getAttribute('data-cat') !== cat);
+    });
+    document.querySelectorAll('#serviceFilter .svc-chip').forEach(function(btn){
+        var active = btn.getAttribute('data-filter') === cat;
+        btn.classList.toggle('bg-brand-dark', active);
+        btn.classList.toggle('text-white', active);
+        btn.classList.toggle('bg-white', !active);
+        btn.classList.toggle('text-brand-dark', !active);
+    });
+}
+document.querySelectorAll('#serviceFilter .svc-chip').forEach(function(btn){
+    btn.addEventListener('click', function(){ filterServices(btn.getAttribute('data-filter')); });
+});
+filterServices('repair');
+// 錨點進來時自動展開對應的摺疊內容（例如頁尾連結 #location）
+function openDetailsForHash(){
+    try{
+        var h = location.hash ? document.querySelector(location.hash) : null;
+        if(!h) return;
+        var opened = false, list = [];
+        if(h.tagName === 'DETAILS') list.push(h);
+        Array.prototype.forEach.call(h.querySelectorAll('details'), function(d){ list.push(d); });
+        list.forEach(function(d){ if(!d.open){ d.open = true; opened = true; } });
+        var p = h.parentElement;
+        while(p){ if(p.tagName === 'DETAILS' && !p.open){ p.open = true; opened = true; } p = p.parentElement; }
+        if(opened){ setTimeout(function(){ h.scrollIntoView(); }, 60); }
+    }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', openDetailsForHash);
+window.addEventListener('hashchange', openDetailsForHash);
+</script>
 </body>
 </html>

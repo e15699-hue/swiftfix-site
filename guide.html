@@ -289,11 +289,27 @@
     </section>
 
     <main class="container mx-auto px-6 max-w-4xl py-14 space-y-16">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+            <p class="text-gray-600 text-base">共 9 篇常見狀況，先看標題，點開看完整步驟。</p>
+            <div class="flex gap-2">
+                <button type="button" onclick="document.querySelectorAll('main article details').forEach(function(d){d.open=true})" class="px-4 py-2 rounded-full bg-brand-dark text-white text-sm font-bold">全部展開</button>
+                <button type="button" onclick="document.querySelectorAll('main article details').forEach(function(d){d.open=false})" class="px-4 py-2 rounded-full bg-white text-brand-dark text-sm font-bold border border-gray-200">全部收起</button>
+            </div>
+        </div>
 
-        <article id="guide-power" class="scroll-mt-24 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">電腦開不了機怎麼辦？5 個自己能做的檢查</h2>
-            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>按電源鍵完全沒反應、燈不亮；或風扇有轉、燈有亮，但螢幕一片黑。先分清是「完全沒電」還是「有電沒畫面」，照下面順序查：</p>
-            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+        <article id="guide-power" class="scroll-mt-24">
+            <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <summary class="p-6 md:p-10 cursor-pointer list-none">
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h2 class="text-2xl md:text-3xl font-bold">電腦開不了機怎麼辦？5 個自己能做的檢查</h2>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark text-xl mt-2 shrink-0"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>按電源鍵完全沒反應、燈不亮；或風扇有轉、燈有亮，但螢幕一片黑。先分清是「完全沒電」還是「有電沒畫面」，照下面順序查：</p>
+                    <span class="inline-block mt-2 text-sm font-bold text-brand-gold-dark group-open:hidden">展開看完整步驟 ▾</span>
+                    <span class="hidden mt-2 text-sm font-bold text-brand-gold-dark group-open:inline-block">收起 ▲</span>
+                </summary>
+                <div class="px-6 md:px-10 pb-6 md:pb-10">
+<ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 確認電源真的有進來。</span>插座換一個試試、延長線開關有沒有被踢掉、電源線有沒有插緊（主機後面那條最常鬆）。筆電先插著充電器等 10 分鐘再開機，電池完全沒電時不會馬上有反應。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 確認螢幕是醒著的。</span>螢幕電源燈有亮嗎？訊號來源（HDMI／DP）有沒有選對？螢幕線兩端重插一次，這一步救回的人比您想像的還多。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 拔掉所有外接裝置。</span>USB 隨身碟、外接硬碟、讀卡機、印表機線全部拔掉，只留電源、螢幕、鍵盤滑鼠，再開機一次。壞掉的外接裝置會卡住開機流程。</span></li>
@@ -316,12 +332,23 @@
                 <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">還是開不了機？</span><br>把主機燈號、螢幕畫面拍下來傳 LINE，我們看照片就能判斷大概是哪裡壞、修起來多少錢。</p>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0%E9%9B%BB%E8%85%A6%E5%95%8F%E9%A1%8C" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
             </div>
+                        </div>
+            </details>
         </article>
 
-        <article id="guide-slow" class="scroll-mt-24 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">電腦變慢、卡頓？先做這 6 個自救動作</h2>
-            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>開機要等很久、開程式轉圈圈、滑鼠會頓、風扇一直狂轉。變慢通常不是壞掉，而是太操勞或太久沒整理：</p>
-            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+        <article id="guide-slow" class="scroll-mt-24">
+            <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <summary class="p-6 md:p-10 cursor-pointer list-none">
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h2 class="text-2xl md:text-3xl font-bold">電腦變慢、卡頓？先做這 6 個自救動作</h2>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark text-xl mt-2 shrink-0"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>開機要等很久、開程式轉圈圈、滑鼠會頓、風扇一直狂轉。變慢通常不是壞掉，而是太操勞或太久沒整理：</p>
+                    <span class="inline-block mt-2 text-sm font-bold text-brand-gold-dark group-open:hidden">展開看完整步驟 ▾</span>
+                    <span class="hidden mt-2 text-sm font-bold text-brand-gold-dark group-open:inline-block">收起 ▲</span>
+                </summary>
+                <div class="px-6 md:px-10 pb-6 md:pb-10">
+<ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先重開機，不是關螢幕。</span>很多人一個月沒真正重開過。從開始選單選「重新啟動」，讓系統把卡住的東西清乾淨。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 看誰在吃效能。</span>按 Ctrl+Shift+Esc 開「工作管理員」，看 CPU、記憶體、磁碟哪個衝到 90% 以上，排第一名的程式就是兇手，先把它關掉。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 清出硬碟空間。</span>C 槽至少留 15% 空間。桌面、下載資料夾最容易塞爆，先把大檔案搬到外接硬碟或雲端。</span></li>
@@ -342,12 +369,23 @@
                 <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">做完還是慢？</span><br>老電腦換 SSD、加記憶體通常就能回春。拍下電腦型號傳 LINE，我們幫您看升級划不划算，不換新也沒關係。</p>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0%E9%9B%BB%E8%85%A6%E5%95%8F%E9%A1%8C" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
             </div>
+                        </div>
+            </details>
         </article>
 
-        <article id="guide-wifi" class="scroll-mt-24 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">網路、Wi-Fi 突然斷線？照順序這樣排除</h2>
-            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>Wi-Fi 圖示出現驚嘆號、連得上但沒網路、只有某一台裝置上不了網。網路問題最忌亂按，照順序來：</p>
-            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+        <article id="guide-wifi" class="scroll-mt-24">
+            <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <summary class="p-6 md:p-10 cursor-pointer list-none">
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h2 class="text-2xl md:text-3xl font-bold">網路、Wi-Fi 突然斷線？照順序這樣排除</h2>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark text-xl mt-2 shrink-0"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>Wi-Fi 圖示出現驚嘆號、連得上但沒網路、只有某一台裝置上不了網。網路問題最忌亂按，照順序來：</p>
+                    <span class="inline-block mt-2 text-sm font-bold text-brand-gold-dark group-open:hidden">展開看完整步驟 ▾</span>
+                    <span class="hidden mt-2 text-sm font-bold text-brand-gold-dark group-open:inline-block">收起 ▲</span>
+                </summary>
+                <div class="px-6 md:px-10 pb-6 md:pb-10">
+<ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先確認範圍。</span>手機、其他電腦也斷嗎？只有一台斷→問題在那台；全部都斷→問題在分享器或電信業者。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 正確重開網路設備。</span>把數據機和 Wi-Fi 分享器電源都拔掉，等 30 秒，先插數據機、等燈號穩定（約 2 分鐘），再插分享器。順序錯了常常白重開。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 看燈號。</span>數據機如果亮紅燈、或該亮的燈沒亮，先拍照記下，這通常是線路或業者端問題。</span></li>
@@ -371,12 +409,23 @@
                 <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">搞不清楚是哪一段壞？</span><br>把數據機、分享器燈號拍下來傳 LINE，我們看燈號就能先判斷是線路、設備還是設定問題。</p>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0%E9%9B%BB%E8%85%A6%E5%95%8F%E9%A1%8C" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
             </div>
+                        </div>
+            </details>
         </article>
 
-        <article id="guide-bsod" class="scroll-mt-24 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">藍屏、當機一直重開？初步判斷這樣做</h2>
-            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>用到一半跳藍色畫面（藍屏）、畫面凍結滑鼠不動、或自己重新開機。藍屏不是世界末日，它其實是電腦在告訴您哪裡出問題：</p>
-            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+        <article id="guide-bsod" class="scroll-mt-24">
+            <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <summary class="p-6 md:p-10 cursor-pointer list-none">
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h2 class="text-2xl md:text-3xl font-bold">藍屏、當機一直重開？初步判斷這樣做</h2>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark text-xl mt-2 shrink-0"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>用到一半跳藍色畫面（藍屏）、畫面凍結滑鼠不動、或自己重新開機。藍屏不是世界末日，它其實是電腦在告訴您哪裡出問題：</p>
+                    <span class="inline-block mt-2 text-sm font-bold text-brand-gold-dark group-open:hidden">展開看完整步驟 ▾</span>
+                    <span class="hidden mt-2 text-sm font-bold text-brand-gold-dark group-open:inline-block">收起 ▲</span>
+                </summary>
+                <div class="px-6 md:px-10 pb-6 md:pb-10">
+<ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 把藍屏拍下來。</span>藍屏下方有一串錯誤代碼（例如 MEMORY_MANAGEMENT、IRQL_NOT_LESS_OR_EQUAL），先拍清楚，這是師傅最需要的線索。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 回想最近改了什麼。</span>藍屏前有沒有裝新軟體、更新驅動、加新硬體、或 Windows 剛更新完？十之八九跟最近的變動有關，先記下來。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 先拔外接裝置再開機。</span>外接硬碟、USB 裝置先全拔，只留鍵盤滑鼠螢幕，能正常進桌面就逐一插回找兇手。</span></li>
@@ -395,12 +444,23 @@
                 <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">藍屏照片拍好了？</span><br>直接傳 LINE 給我們，錯誤代碼一看就知道往哪查，先免費評估、報價透明，確認後再預約維修。</p>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0%E9%9B%BB%E8%85%A6%E5%95%8F%E9%A1%8C" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
             </div>
+                        </div>
+            </details>
         </article>
 
-        <article id="guide-laptop-power" class="scroll-mt-24 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">筆電完全沒反應、開不了機？先做放電重置</h2>
-            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>筆電按電源鍵完全沒反應、燈不亮，昨天還好好的今天就開不起來。<span class="font-bold text-red-600">⚠️ 如果是進水、倒到飲料，千萬不要充電、不要開機，直接看下方紅框。</span>筆電有一招最有名的自救動作，先做這套「放電重置」，很多假故障一次就好：</p>
-            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+        <article id="guide-laptop-power" class="scroll-mt-24">
+            <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <summary class="p-6 md:p-10 cursor-pointer list-none">
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h2 class="text-2xl md:text-3xl font-bold">筆電完全沒反應、開不了機？先做放電重置</h2>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark text-xl mt-2 shrink-0"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>筆電按電源鍵完全沒反應、燈不亮，昨天還好好的今天就開不起來。<span class="font-bold text-red-600">⚠️ 如果是進水、倒到飲料，千萬不要充電、不要開機，直接看下方紅框。</span>筆電有一招最有名的自救動作，先做這套「放電重置」，很多假故障一次就好：</p>
+                    <span class="inline-block mt-2 text-sm font-bold text-brand-gold-dark group-open:hidden">展開看完整步驟 ▾</span>
+                    <span class="hidden mt-2 text-sm font-bold text-brand-gold-dark group-open:inline-block">收起 ▲</span>
+                </summary>
+                <div class="px-6 md:px-10 pb-6 md:pb-10">
+<ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先插著充電器等 10 分鐘。</span>電池完全放到乾的筆電，插上充電器不會馬上有反應。先插著等 10 分鐘（順便看充電燈亮不亮），再按一次電源鍵。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 長按電源鍵 40 秒（放電重置）。</span>把充電器和所有外接（滑鼠、隨身碟、HDMI 線）都拔掉，按住電源鍵整整 40 秒不要放，放開後插回充電器，再按電源鍵開機。主機板殘留的靜電和當掉的電源管理晶片，常常靠這招就醒了。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 檢查充電燈和充電器。</span>充電燈完全不亮，換一個插座試試；充電線有沒有被椅子壓傷、變壓器有沒有發燙或異味。家裡如果有同廠牌充電器，可以交叉測一下。</span></li>
@@ -420,11 +480,22 @@
                 <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">放電重置也沒用？</span><br>把筆電型號和充電燈狀態拍下來傳 LINE，我們先幫您判斷是電池、充電器還是主機板的問題，估好價再決定修不修。</p>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0%E9%9B%BB%E8%85%A6%E5%95%8F%E9%A1%8C" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
             </div>
+                        </div>
+            </details>
         </article>
-        <article id="guide-black-screen" class="scroll-mt-24 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">開機有聲音、風扇有轉，但螢幕黑畫面？</h2>
-            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>電源燈亮、風扇在轉、甚至聽得到開機音效，但螢幕就是一片黑。先別急著送修，很多時候是螢幕沒被「叫醒」而已：</p>
-            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+        <article id="guide-black-screen" class="scroll-mt-24">
+            <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <summary class="p-6 md:p-10 cursor-pointer list-none">
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h2 class="text-2xl md:text-3xl font-bold">開機有聲音、風扇有轉，但螢幕黑畫面？</h2>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark text-xl mt-2 shrink-0"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>電源燈亮、風扇在轉、甚至聽得到開機音效，但螢幕就是一片黑。先別急著送修，很多時候是螢幕沒被「叫醒」而已：</p>
+                    <span class="inline-block mt-2 text-sm font-bold text-brand-gold-dark group-open:hidden">展開看完整步驟 ▾</span>
+                    <span class="hidden mt-2 text-sm font-bold text-brand-gold-dark group-open:inline-block">收起 ▲</span>
+                </summary>
+                <div class="px-6 md:px-10 pb-6 md:pb-10">
+<ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先按亮度鍵。</span>筆電鍵盤上的亮度「＋」按幾次（通常要配合 Fn 鍵）。亮度被調到最低時，螢幕看起來跟沒開一樣，這一步救回很多人。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 按 Win+Ctrl+Shift+B。</span>這是 Windows 重啟顯示驅動的快捷鍵，按下去會「嗶」一聲、畫面閃一下。螢幕驅動當掉時，這招常常直接讓畫面回來。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 切換投影模式。</span>按 Win+P，再按方向鍵或連按幾次 Win+P 切換「僅電腦螢幕」。系統有時會誤以為接了第二台螢幕，把畫面送到不存在的螢幕去。筆電也可試 Fn＋投影鍵（圖示是螢幕的那顆）。</span></li>
@@ -443,11 +514,22 @@
                 <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">外接也沒畫面？</span><br>把黑屏狀況（燈號、嗶聲、風扇聲）錄一段或拍下來傳 LINE，我們先幫您縮小範圍，判斷是螢幕、排線還是主機板。</p>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0%E9%9B%BB%E8%85%A6%E5%95%8F%E9%A1%8C" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
             </div>
+                        </div>
+            </details>
         </article>
-        <article id="guide-no-sound" class="scroll-mt-24 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">電腦沒聲音？喇叭、耳機都沒聲這樣查</h2>
-            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>影片、會議、遊戲突然沒聲音。沒聲音十次有八次是「聲音被送錯地方」，照著查通常不用花錢：</p>
-            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+        <article id="guide-no-sound" class="scroll-mt-24">
+            <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <summary class="p-6 md:p-10 cursor-pointer list-none">
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h2 class="text-2xl md:text-3xl font-bold">電腦沒聲音？喇叭、耳機都沒聲這樣查</h2>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark text-xl mt-2 shrink-0"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>影片、會議、遊戲突然沒聲音。沒聲音十次有八次是「聲音被送錯地方」，照著查通常不用花錢：</p>
+                    <span class="inline-block mt-2 text-sm font-bold text-brand-gold-dark group-open:hidden">展開看完整步驟 ▾</span>
+                    <span class="hidden mt-2 text-sm font-bold text-brand-gold-dark group-open:inline-block">收起 ▲</span>
+                </summary>
+                <div class="px-6 md:px-10 pb-6 md:pb-10">
+<ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 先確認沒被靜音。</span>右下角喇叭圖示看是不是靜音、音量有沒有被關到 0；筆電鍵盤上的靜音鍵（Fn＋喇叭圖示）也確認，可能是不小心按到的。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 換輸出裝置（最常見兇手）。</span>點右下角喇叭圖示旁的箭頭，切換輸出裝置：喇叭、耳機、螢幕（HDMI 也會送聲音）都試一次。很多人是聲音跑去沒開的螢幕喇叭了。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 耳機拔掉重插。</span>耳機孔有時會誤判「耳機還插著」，把聲音一直送耳機。拔掉重插幾次，或先拿別副耳機交叉測試。</span></li>
@@ -466,11 +548,22 @@
                 <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">還是沒聲音？</span><br>把您的狀況（全部沒聲還是只有某個程式、用喇叭還是耳機）打字或拍照傳 LINE，我們先幫您判斷是不是硬體問題。</p>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0%E9%9B%BB%E8%85%A6%E5%95%8F%E9%A1%8C" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
             </div>
+                        </div>
+            </details>
         </article>
-        <article id="guide-usb" class="scroll-mt-24 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">USB 讀不到：隨身碟、滑鼠、鍵盤沒反應</h2>
-            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>插上去沒反應、或跳出「無法辨識的 USB 裝置」。先用交叉測試分清是裝置壞、還是電腦的問題：</p>
-            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+        <article id="guide-usb" class="scroll-mt-24">
+            <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <summary class="p-6 md:p-10 cursor-pointer list-none">
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h2 class="text-2xl md:text-3xl font-bold">USB 讀不到：隨身碟、滑鼠、鍵盤沒反應</h2>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark text-xl mt-2 shrink-0"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>插上去沒反應、或跳出「無法辨識的 USB 裝置」。先用交叉測試分清是裝置壞、還是電腦的問題：</p>
+                    <span class="inline-block mt-2 text-sm font-bold text-brand-gold-dark group-open:hidden">展開看完整步驟 ▾</span>
+                    <span class="hidden mt-2 text-sm font-bold text-brand-gold-dark group-open:inline-block">收起 ▲</span>
+                </summary>
+                <div class="px-6 md:px-10 pb-6 md:pb-10">
+<ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 換一個 USB 孔。</span>同一個裝置換插另一個孔（桌機優先插主機後面的孔，前置孔最常接觸不良）；無線滑鼠鍵盤接收器也一樣，換孔常常就活了。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 交叉測試。</span>把裝置拿去插另一台電腦：別台也讀不到→裝置壞了；別台正常→問題在您這台。反過來，拿另一個正常裝置插您這台，確認孔位是不是好的。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 無線鍵鼠先換電池、重配對。</span>接收器拔起來重插、鍵鼠開關重開一次；藍牙鍵鼠就移除裝置重新配對。這類「沒反應」一半以上只是沒電。</span></li>
@@ -489,11 +582,22 @@
                 <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">重要資料在讀不到的隨身碟裡？</span><br>先別再插拔，拍下隨身碟外觀傳 LINE，我們先評估資料救援的做法和費用，您再決定要不要救。</p>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0%E9%9B%BB%E8%85%A6%E5%95%8F%E9%A1%8C" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
             </div>
+                        </div>
+            </details>
         </article>
-        <article id="guide-hot" class="scroll-mt-24 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">風扇很吵、機身很燙？過熱自救這樣做</h2>
-            <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>風扇像吹風機一樣狂轉、筆電燙手、桌機熱風一直吹。過熱會讓電腦降速、當機，長期還傷零件，先做這幾步：</p>
-            <ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
+        <article id="guide-hot" class="scroll-mt-24">
+            <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <summary class="p-6 md:p-10 cursor-pointer list-none">
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h2 class="text-2xl md:text-3xl font-bold">風扇很吵、機身很燙？過熱自救這樣做</h2>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition text-brand-gold-dark text-xl mt-2 shrink-0"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6"><span class="font-bold text-brand-dark">症狀：</span>風扇像吹風機一樣狂轉、筆電燙手、桌機熱風一直吹。過熱會讓電腦降速、當機，長期還傷零件，先做這幾步：</p>
+                    <span class="inline-block mt-2 text-sm font-bold text-brand-gold-dark group-open:hidden">展開看完整步驟 ▾</span>
+                    <span class="hidden mt-2 text-sm font-bold text-brand-gold-dark group-open:inline-block">收起 ▲</span>
+                </summary>
+                <div class="px-6 md:px-10 pb-6 md:pb-10">
+<ol class="check-list space-y-4 text-gray-700 leading-relaxed mb-8">
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">1. 看誰在讓它操勞。</span>按 Ctrl+Shift+Esc 開工作管理員，看 CPU 使用率最高的是誰。Windows 更新、防毒掃描在跑時吵是正常的，等它跑完；不認識的程式長期佔用 90% 以上，先關掉它。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">2. 讓它透氣。</span>筆電不要放在床上、沙發、棉被上用（會堵住底部進風口），墊高後方或用散熱墊；桌機確認後方和側邊出風口沒貼牆、沒被雜物擋住。</span></li>
                 <li><i class="fas fa-check-circle text-brand-gold-dark"></i><span><span class="font-bold">3. 清出風口灰塵。</span>用軟毛刷把出風口、進風口的灰塵刷掉就好（不用拆機）。養寵物的家庭灰塵和毛特別多，清完常常立刻安靜一截。</span></li>
@@ -513,6 +617,8 @@
                 <p class="flex-1 text-center md:text-left"><span class="font-bold text-brand-gold">清完灰還是燙？</span><br>拍下工作管理員畫面（誰在吃 CPU）和機身狀況傳 LINE，我們幫您判斷是清灰塵換散熱膏就能解決，還是風扇該換了。</p>
                 <a href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AB%8B%E6%82%A8%E5%8D%94%E5%8A%A9%E8%A9%95%E4%BC%B0%E9%9B%BB%E8%85%A6%E5%95%8F%E9%A1%8C" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="shrink-0 bg-[#00C300] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#00b300] transition flex items-center min-h-[48px]"><i class="fab fa-line mr-2 text-xl"></i> 拍照免費評估</a>
             </div>
+                        </div>
+            </details>
         </article>
 
         <section class="mt-14">
@@ -856,5 +962,23 @@
         })();
     </script>
 <script src="/track.js" defer></script>
+<script>
+// 錨點進來時自動展開對應的摺疊內容（例如首頁症狀直達 guide.html#guide-power）
+function openDetailsForHash(){
+    try{
+        var h = location.hash ? document.querySelector(location.hash) : null;
+        if(!h) return;
+        var opened = false, list = [];
+        if(h.tagName === 'DETAILS') list.push(h);
+        Array.prototype.forEach.call(h.querySelectorAll('details'), function(d){ list.push(d); });
+        list.forEach(function(d){ if(!d.open){ d.open = true; opened = true; } });
+        var p = h.parentElement;
+        while(p){ if(p.tagName === 'DETAILS' && !p.open){ p.open = true; opened = true; } p = p.parentElement; }
+        if(opened){ setTimeout(function(){ h.scrollIntoView(); }, 60); }
+    }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', openDetailsForHash);
+window.addEventListener('hashchange', openDetailsForHash);
+</script>
 </body>
 </html>
