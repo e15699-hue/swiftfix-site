@@ -254,7 +254,20 @@
                         const borderColorClass = isCompleted ? 'border-l-emerald-500' : 'border-l-brand-gold';
                         const bgColorClass = isCompleted ? 'bg-emerald-500/10' : 'bg-brand-gold/10';
                         const iconClass = isCompleted ? 'fa-check-circle' : 'fa-tools';
-                        
+
+                        // 進度卡時間資訊（2026-11-23 週檢討提案 1，學 ASUS 維修進度查詢）：
+                        // 最後更新：GAS 若回傳 item.updated（試算表 H 欄「最後更新」）就顯示該值；
+                        // 目前 GAS 只回 date/description/progress/status，尚未回傳更新時間，
+                        // 因此顯示本次即時查詢時間——GAS 每次查詢都即時讀取試算表，
+                        // 畫面上的進度就是查詢當下的最新狀態，不拿收件日假裝是更新日。
+                        // 預估完成日：GAS 若回傳 item.eta（試算表 G 欄「預估完成日」）就顯示該值；
+                        // 未填時不編日期承諾客人：已完成顯示「已完成」，進行中顯示「檢測後由店家確認」。
+                        const pad2 = function (n) { return String(n).padStart(2, '0'); };
+                        const now = new Date();
+                        const queryTime = pad2(now.getMonth() + 1) + '/' + pad2(now.getDate()) + ' ' + pad2(now.getHours()) + ':' + pad2(now.getMinutes());
+                        const updatedText = item.updated ? escapeHtml(item.updated) : ('即時查詢 ' + queryTime);
+                        const etaText = item.eta ? escapeHtml(item.eta) : (isCompleted ? '已完成' : '檢測後由店家確認');
+
                         html += `
                             <div class="bg-white/5 border border-white/10 p-4 rounded-2xl border-l-4 ${borderColorClass} mb-4">
                                 <div class="flex justify-between items-start mb-2 gap-2">
@@ -262,6 +275,16 @@
                                     <span class="text-base text-gray-300 whitespace-nowrap bg-black/30 px-2 py-1 rounded-full">收件 ${escapeHtml(item.date)}</span>
                                 </div>
                                 <div class="mb-3"><span class="inline-block text-base font-black px-2.5 py-1 rounded-full ${isCompleted ? 'bg-emerald-500/20 text-emerald-300' : 'bg-brand-gold/20 text-brand-gold'}">${isCompleted ? '✅ 已完成' : '⏳ 進行中'}</span></div>
+                                <div class="grid grid-cols-2 gap-2 mb-3">
+                                    <div class="bg-black/20 rounded-xl px-3 py-2">
+                                        <p class="text-gray-400 text-sm leading-tight">🕐 最後更新</p>
+                                        <p class="text-white font-bold text-base leading-snug">${updatedText}</p>
+                                    </div>
+                                    <div class="bg-black/20 rounded-xl px-3 py-2">
+                                        <p class="text-gray-400 text-sm leading-tight">📅 預估完成</p>
+                                        <p class="text-white font-bold text-base leading-snug">${etaText}</p>
+                                    </div>
+                                </div>
                                 <div class="${bgColorClass} p-3 rounded-xl">
                                     <p class="${themeColorClass} text-base font-bold flex items-center">
                                         <i class="fas ${iconClass} mr-2"></i>${escapeHtml(item.progress)}
