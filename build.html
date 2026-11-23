@@ -233,6 +233,7 @@
                     <button type="button" class="tick-btn text-sm font-bold text-gray-500 hover:text-brand-gold-dark" data-value="350000">$350,000</button>
                 </div>
                 <p id="nextHint" class="text-center text-sm text-gray-500 mt-4">再加 $40,000，就能升級到遊戲機（$60,000 起）</p>
+                <div class="text-center mt-5"><a id="budgetLineBtn" href="https://line.me/R/oaMessage/%40077usxwz/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E7%B5%84%E4%B8%80%E5%8F%B0%E9%A0%90%E7%AE%97%20%2420%2C000%20%E7%9A%84%E9%9B%BB%E8%85%A6%EF%BC%8C%E9%BA%BB%E7%85%A9%E5%B9%AB%E6%88%91%E5%A0%B1%E5%83%B9" title="手機點開後訊息已幫您打好，點傳送即可；電腦版請複製訊息再貼上" target="_blank" class="inline-flex bg-[#00C300] text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-[#00b300] transition items-center min-h-[48px] shadow-sm"><i class="fab fa-line mr-2 text-xl"></i> 傳 LINE 問報價</a></div>
                 <div id="funcChips" class="flex flex-wrap justify-center gap-2 mt-5">
                     <span class="func-chip" data-stage="0">💻 上網文書</span>
                     <span class="func-chip" data-stage="0">🎬 追劇</span>
@@ -528,6 +529,7 @@
             var valueEl=document.getElementById('budgetValue');
             var nameEl=document.getElementById('stageName');
             var hintEl=document.getElementById('nextHint');
+            var lineBtn=document.getElementById('budgetLineBtn');
                         var chips=Array.prototype.slice.call(document.querySelectorAll('#funcChips .func-chip'));
             var ticks=Array.prototype.slice.call(document.querySelectorAll('.tick-btn'));
             function fmt(n){return '$'+n.toLocaleString('en-US');}
@@ -557,6 +559,7 @@
                 var idx=STAGES.indexOf(st);
                 valueEl.textContent=fmt(v);
                 nameEl.textContent=st.name;
+                if(lineBtn)lineBtn.href='https://line.me/R/oaMessage/%40077usxwz/?'+encodeURIComponent('您好，我想組一台預算 '+fmt(v)+' 的電腦，麻煩幫我報價');
                 var sp=specFor(v);
                 document.getElementById('liveCpu').textContent=sp.cpu;
                 document.getElementById('liveGpu').textContent=sp.gpu;
