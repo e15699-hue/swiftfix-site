@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 收件確認頁（LIFF 專用）：不收錄、不出現在導覽與 sitemap -->
+    <meta name="robots" content="noindex, follow">
+    <title>收件確認｜迅修電腦</title>
+    <meta name="description" content="請確認收件照片與物品清單無誤，留下您的姓名與電話，迅修電腦會立即為您安排檢測。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+        html.font-large { font-size: 18px; }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .brand-gold { color: #d4af37; }
+        .bg-brand-gold { background-color: #d4af37; }
+        .border-brand-gold { border-color: #d4af37; }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* 收件照片：橫向可滑動 */
+        .photo-strip { display: flex; gap: 0.75rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 0.25rem; }
+        .photo-strip img { scroll-snap-align: start; flex: 0 0 auto; width: 11rem; height: 11rem; object-fit: cover; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.2); background: #1e293b; }
+    </style>
+    <script>
+        try { if (localStorage.getItem('swiftfix-font-large') === '1') document.documentElement.classList.add('font-large'); } catch (e) {}
+    </script>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <!-- Logo/Header -->
+        <div class="flex items-center justify-center gap-3 select-none mb-8">
+            <div class="w-14 h-14 bg-brand-gold text-[#0f172a] flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-lg">
+                <i class="fas fa-microchip text-3xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none italic">SWIFT</span>
+                <span class="bg-brand-gold text-[#0f172a] text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl p-6 sm:p-8">
+            <h1 class="text-xl font-bold mb-6 flex items-center justify-center">
+                <i class="fas fa-inbox mr-3 brand-gold"></i> 收件確認
+            </h1>
+
+            <!-- 載入中 -->
+            <div id="loading" class="text-center py-6">
+                <i class="fas fa-circle-notch fa-spin text-3xl brand-gold"></i>
+                <p class="mt-2 text-base text-gray-400">正在帶入您的收件資料…</p>
+            </div>
+
+            <!-- 載入失敗（無案件編號／查無案件／連線失敗） -->
+            <div id="loadError" class="hidden text-center bg-red-500/10 p-5 rounded-2xl border border-red-500/30">
+                <i class="fas fa-exclamation-triangle text-2xl text-red-400 mb-2"></i>
+                <p id="loadErrorMsg" class="text-red-300 font-bold text-base leading-relaxed"></p>
+                <p class="text-gray-400 text-base mt-1 leading-relaxed">請直接傳 LINE 聯繫老闆，<br>我們會馬上為您確認。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> 直接傳 LINE 聯繫老闆
+                </a>
+            </div>
+
+            <!-- 表單 -->
+            <form id="intakeForm" class="hidden animate-fade-in space-y-5" novalidate>
+                <!-- 收件資訊卡 -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-4 space-y-3">
+                    <div class="flex justify-between items-start gap-2">
+                        <h2 class="font-bold text-white text-base leading-tight"><i class="fas fa-receipt mr-2 brand-gold"></i>收件資訊</h2>
+                        <span id="caseBadge" class="text-base text-gray-300 whitespace-nowrap bg-black/30 px-2 py-1 rounded-full"></span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="bg-black/20 rounded-xl px-3 py-2">
+                            <p class="text-gray-400 text-sm leading-tight">📅 收件日期</p>
+                            <p id="caseDate" class="text-white font-bold text-base leading-snug">—</p>
+                        </div>
+                        <div class="bg-black/20 rounded-xl px-3 py-2">
+                            <p class="text-gray-400 text-sm leading-tight">💻 物品清單</p>
+                            <p id="caseItems" class="text-white font-bold text-base leading-snug">—</p>
+                        </div>
+                    </div>
+                    <div id="caseStatusWrap" class="hidden">
+                        <span id="caseStatus" class="inline-block text-base font-black px-2.5 py-1 rounded-full bg-brand-gold/20 text-brand-gold"></span>
+                    </div>
+                </div>
+
+                <!-- 收件照片：橫向可滑動 -->
+                <div>
+                    <p class="text-base text-gray-400 mb-2 ml-1"><i class="fas fa-camera mr-2 brand-gold"></i>收件照片 <span class="text-sm">（左右滑動可看更多）</span></p>
+                    <div id="photoStrip" class="photo-strip"></div>
+                    <div id="noPhoto" class="hidden bg-black/20 rounded-2xl px-4 py-6 text-center text-gray-400 text-base">
+                        <i class="fas fa-image text-2xl mb-2 block"></i>本次收件未附照片
+                    </div>
+                </div>
+
+                <p class="text-base leading-relaxed text-gray-300">請確認上面的照片與物品清單無誤，再留下您的資料，<br>我們會立即為您安排檢測。</p>
+
+                <!-- 姓名：自動帶入 LINE 顯示名稱，可改 -->
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="name">您的姓名 <span class="text-red-300">*</span></label>
+                    <input type="text" id="name" autocomplete="name" placeholder="請填寫本名"
+                        class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold transition-all text-lg shadow-inner">
+                    <p id="nameHint" class="text-sm text-gray-500 mt-1 ml-1">請填寫本名，方便我們為您建檔。</p>
+                </div>
+
+                <!-- 電話：必填，日後查詢進度的憑證 -->
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="phone">您的電話號碼（0 開頭） <span class="text-red-300">*</span></label>
+                    <input type="tel" id="phone" autocomplete="tel" inputmode="tel" placeholder="例如：0912345678"
+                        class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold transition-all text-lg shadow-inner">
+                    <p class="text-sm text-gray-500 mt-1 ml-1">電話是日後查詢維修進度的憑證，請務必填寫正確。</p>
+                </div>
+
+                <!-- 送出錯誤 -->
+                <div id="submitError" class="hidden text-center bg-red-500/10 p-5 rounded-2xl border border-red-500/30">
+                    <i class="fas fa-exclamation-triangle text-2xl text-red-400 mb-2"></i>
+                    <p id="submitErrorMsg" class="text-red-300 font-bold text-base leading-relaxed"></p>
+                    <p class="text-gray-400 text-base mt-1 leading-relaxed">請直接傳 LINE 聯繫老闆，<br>我們會馬上為您處理。</p>
+                    <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
+                        <i class="fab fa-line mr-2 text-xl"></i> 直接傳 LINE 聯繫老闆
+                    </a>
+                </div>
+
+                <button type="submit" id="submitBtn"
+                    class="w-full bg-brand-gold hover:bg-[#c4a030] text-slate-900 font-black py-4 rounded-2xl transition shadow-lg flex items-center justify-center text-lg">
+                    <i class="fas fa-paper-plane mr-2"></i> 確認收件並送出
+                </button>
+            </form>
+
+            <!-- 送出成功 -->
+            <div id="successBox" class="hidden text-center animate-fade-in py-4">
+                <div class="w-20 h-20 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-check text-4xl text-emerald-400"></i>
+                </div>
+                <p class="text-xl font-black text-emerald-300">✅ 已收到您的資料，案件已建檔</p>
+                <p class="text-gray-300 text-base mt-2 leading-relaxed">謝謝您，我們會盡快為您檢測，<br>有結果會馬上用 LINE 通知您。</p>
+                <a href="repair.html" class="mt-5 flex items-center justify-center w-full bg-brand-gold hover:bg-[#c4a030] text-slate-900 font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
+                    <i class="fas fa-search-location mr-2"></i> 查詢維修進度
+                </a>
+                <p class="text-gray-500 text-sm mt-3">查詢時請輸入您剛剛留下的電話號碼。</p>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center text-gray-500 text-xs">
+            <p>© 2026 Swift 迅修電腦. 統編 94538172. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // =====================================================================
+        // LIFF 設定（待辦：尚未註冊）
+        // 本頁的 LIFF App 尚未在 LINE Developers Console 註冊。
+        // 待使用者註冊完成後，把下方 'REPLACE_WITH_LIFF_ID' 換成真正的 LIFF ID
+        // （例如 '2001234567-abcdefgh'），即可啟用 LIFF 登入與取得顯示名稱。
+        // LIFF 未設定時，頁面仍可正常顯示表單與送出，姓名欄請客人自行填寫，
+        // 僅跳過 LIFF 登入與顯示名稱預填，方便先用一般瀏覽器測試整條流程。
+        // =====================================================================
+        const LIFF_ID = 'REPLACE_WITH_LIFF_ID';
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbzDiaoCACOzF_RvjQIfUErTsADnc7pic2OBNRvMToG4ovR9EBwVeUnLBy1Rae8p-BrT/exec";
+
+        var caseId = '';
+
+        function escapeHtml(s) {
+            return String(s == null ? '' : s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        // 電話正規化（與 repair.html 相同規則）：
+        // 去空白與連字號，+886／886 字首換回 0 開頭
+        function normalizePhone(raw) {
+            var phone = String(raw || '').trim().replace(/[\s-]/g, '');
+            if (phone.startsWith('+886')) phone = '0' + phone.slice(4);
+            else if (/^886\d{9}$/.test(phone)) phone = '0' + phone.slice(3);
+            return phone;
+        }
+
+        function showLoadError(msg) {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('intakeForm').classList.add('hidden');
+            document.getElementById('loadErrorMsg').textContent = msg;
+            document.getElementById('loadError').classList.remove('hidden');
+        }
+
+        // ---------- LIFF：有設定才初始化，未設定就跳過 ----------
+        // 客人就是從 LINE 聊天室點開本頁，顯示名稱就是店家平常叫他的名字，
+        // 因此自動帶入 liff.getProfile() 的顯示名稱；若顯示名稱是綽號、不是本名，
+        // 客人順手在欄位改掉即可（欄位可改）。
+        async function initLiff() {
+            if (!LIFF_ID || LIFF_ID === 'REPLACE_WITH_LIFF_ID') return;
+            try {
+                if (typeof liff === 'undefined') return;
+                await liff.init({ liffId: LIFF_ID });
+                if (!liff.isLoggedIn()) { liff.login(); return; }
+                var profile = await liff.getProfile();
+                var displayName = profile && profile.displayName ? String(profile.displayName) : '';
+                if (displayName) {
+                    var nameInput = document.getElementById('name');
+                    if (nameInput && !nameInput.value) {
+                        nameInput.value = displayName;
+                        document.getElementById('nameHint').textContent = '已自動帶入您在 LINE 的顯示名稱；若是綽號、不是本名，請改為本名，方便我們建檔。';
+                    }
+                }
+            } catch (e) {
+                // LIFF 初始化／取 profile 失敗不擋收件確認流程：姓名欄請客人自行填寫
+                console.warn('LIFF init/profile failed, continue without LIFF:', e);
+            }
+        }
+
+        // ---------- 開頁：用 ?case= 向 GAS 查詢案件 ----------
+        async function loadCase() {
+            var params = new URLSearchParams(window.location.search);
+            caseId = (params.get('case') || '').trim();
+            if (!caseId) {
+                showLoadError('這個收件連結沒有帶案件編號，請從收件卡上的按鈕重新開啟。');
+                return;
+            }
+            try {
+                var controller = new AbortController();
+                var timer = setTimeout(function () { controller.abort(); }, 15000);
+                var res = await fetch(GAS_URL + '?case=' + encodeURIComponent(caseId), { signal: controller.signal });
+                clearTimeout(timer);
+                var data = await res.json();
+                if (Array.isArray(data)) data = data[0] || null;
+                if (!data || data.error) {
+                    showLoadError((data && data.error) ? data.error : '找不到這筆收件資料，請確認案件編號是否正確。');
+                    return;
+                }
+                renderCase(data);
+            } catch (e) {
+                showLoadError(e && e.name === 'AbortError'
+                    ? '查詢逾時（超過 15 秒沒回應），可能是雲端服務剛睡醒，請重新整理再試一次。'
+                    : '連線雲端發生錯誤，請確認網路連線後重新整理。');
+            }
+        }
+
+        function renderCase(data) {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('caseBadge').textContent = '案件 ' + (data.caseId || caseId);
+            document.getElementById('caseDate').textContent = data.date ? String(data.date) : '—';
+            // items：可能是字串「筆電・有配件」，也可能是陣列
+            var itemsText = '';
+            if (Array.isArray(data.items)) itemsText = data.items.join('、');
+            else if (data.items != null && String(data.items).trim() !== '') itemsText = String(data.items);
+            document.getElementById('caseItems').textContent = itemsText || '—';
+            if (data.status) {
+                document.getElementById('caseStatus').textContent = String(data.status);
+                document.getElementById('caseStatusWrap').classList.remove('hidden');
+            }
+            // 收件照片（1–3 張，橫向可滑動；無照片顯示提示卡）
+            var strip = document.getElementById('photoStrip');
+            var photos = Array.isArray(data.photos) ? data.photos.filter(Boolean) : [];
+            if (photos.length) {
+                strip.innerHTML = '';
+                photos.slice(0, 3).forEach(function (url, i) {
+                    var img = document.createElement('img');
+                    img.src = url;
+                    img.alt = '收件照片 ' + (i + 1);
+                    img.loading = 'lazy';
+                    img.onerror = function () { img.remove(); if (!strip.children.length) document.getElementById('noPhoto').classList.remove('hidden'); };
+                    strip.appendChild(img);
+                });
+            } else {
+                document.getElementById('noPhoto').classList.remove('hidden');
+            }
+            document.getElementById('intakeForm').classList.remove('hidden');
+        }
+
+        function showSubmitError(msg) {
+            document.getElementById('submitErrorMsg').textContent = msg;
+            document.getElementById('submitError').classList.remove('hidden');
+            document.getElementById('submitError').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // ---------- 送出收件確認 ----------
+        document.getElementById('intakeForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            document.getElementById('submitError').classList.add('hidden');
+            var btn = document.getElementById('submitBtn');
+
+            var name = document.getElementById('name').value.trim();
+            if (!name) {
+                showSubmitError('請填寫您的姓名（本名），方便我們為您建檔。');
+                document.getElementById('name').focus();
+                return;
+            }
+            var phone = normalizePhone(document.getElementById('phone').value);
+            if (!/^0\d{8,9}$/.test(phone)) {
+                showSubmitError('請輸入正確的電話號碼（0 開頭，共 9–10 碼）。');
+                document.getElementById('phone').focus();
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> 送出中…';
+            try {
+                var controller = new AbortController();
+                var timer = setTimeout(function () { controller.abort(); }, 20000);
+                var res = await fetch(GAS_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ action: 'confirm_intake', caseId: caseId, name: name, phone: phone }),
+                    signal: controller.signal
+                });
+                clearTimeout(timer);
+                var data = null;
+                try { data = await res.json(); } catch (parseErr) { data = null; }
+                if (data && data.error) throw new Error(data.error);
+                if (data && data.ok === false) throw new Error(data.message || '送出失敗，請再試一次。');
+                if (!res.ok) throw new Error('伺服器回應異常（' + res.status + '），請再試一次。');
+
+                document.getElementById('intakeForm').classList.add('hidden');
+                document.getElementById('successBox').classList.remove('hidden');
+                document.getElementById('successBox').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } catch (err) {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> 確認收件並送出';
+                showSubmitError(err && err.name === 'AbortError'
+                    ? '送出逾時（超過 20 秒沒回應），請確認網路後再試一次。'
+                    : (err && err.message ? err.message : '送出失敗，請再試一次。'));
+            }
+        });
+
+        (async function () {
+            await initLiff();
+            loadCase();
+        })();
+    </script>
+</body>
+</html>

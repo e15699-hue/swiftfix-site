@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 取件簽收頁（LIFF 專用）：不收錄、不出現在導覽與 sitemap -->
+    <meta name="robots" content="noindex, follow">
+    <title>取件簽收｜迅修電腦</title>
+    <meta name="description" content="請確認取件內容與付款無誤後簽名，謝謝您選擇迅修電腦。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+        html.font-large { font-size: 18px; }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .brand-gold { color: #d4af37; }
+        .bg-brand-gold { background-color: #d4af37; }
+        .border-brand-gold { border-color: #d4af37; }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        #sigPad { touch-action: none; cursor: crosshair; }
+    </style>
+    <script>
+        try { if (localStorage.getItem('swiftfix-font-large') === '1') document.documentElement.classList.add('font-large'); } catch (e) {}
+    </script>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <!-- Logo/Header -->
+        <div class="flex items-center justify-center gap-3 select-none mb-8">
+            <div class="w-14 h-14 bg-brand-gold text-[#0f172a] flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-lg">
+                <i class="fas fa-microchip text-3xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                <span class="text-4xl font-black tracking-tighter text-gray-100 leading-none italic">SWIFT</span>
+                <span class="bg-brand-gold text-[#0f172a] text-xs md:text-sm font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">電腦到府維修</span>
+            </div>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl p-6 sm:p-8">
+            <h1 class="text-xl font-bold mb-6 flex items-center justify-center">
+                <i class="fas fa-pen-nib mr-3 brand-gold"></i> 取件簽收
+            </h1>
+
+            <!-- 載入中 -->
+            <div id="loading" class="text-center py-6">
+                <i class="fas fa-circle-notch fa-spin text-3xl brand-gold"></i>
+                <p class="mt-2 text-base text-gray-400">正在帶入您的案件資料…</p>
+            </div>
+
+            <!-- 載入失敗（無案件編號／查無案件／連線失敗） -->
+            <div id="loadError" class="hidden text-center bg-red-500/10 p-5 rounded-2xl border border-red-500/30">
+                <i class="fas fa-exclamation-triangle text-2xl text-red-400 mb-2"></i>
+                <p id="loadErrorMsg" class="text-red-300 font-bold text-base leading-relaxed"></p>
+                <p class="text-gray-400 text-base mt-1 leading-relaxed">請直接傳 LINE 聯繫老闆，<br>我們會馬上為您確認。</p>
+                <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
+                    <i class="fab fa-line mr-2 text-xl"></i> 直接傳 LINE 聯繫老闆
+                </a>
+            </div>
+
+            <!-- 表單 -->
+            <form id="pickupForm" class="hidden animate-fade-in space-y-5" novalidate>
+                <!-- 案件摘要 -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-4 space-y-3">
+                    <div class="flex justify-between items-start gap-2">
+                        <h2 class="font-bold text-white text-base leading-tight"><i class="fas fa-receipt mr-2 brand-gold"></i>案件摘要</h2>
+                        <span id="caseBadge" class="text-base text-gray-300 whitespace-nowrap bg-black/30 px-2 py-1 rounded-full"></span>
+                    </div>
+                    <div class="bg-black/20 rounded-xl px-3 py-3">
+                        <p class="text-gray-400 text-sm leading-tight">💻 物品清單</p>
+                        <p id="caseItems" class="text-white font-bold text-lg leading-snug">—</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div id="quoteWrap" class="bg-black/20 rounded-xl px-3 py-2 hidden">
+                            <p class="text-gray-400 text-sm leading-tight">💰 報價</p>
+                            <p id="caseQuote" class="text-white font-bold text-base leading-snug">—</p>
+                        </div>
+                        <div id="paidWrap" class="bg-black/20 rounded-xl px-3 py-2 hidden">
+                            <p class="text-gray-400 text-sm leading-tight">🧾 實收金額</p>
+                            <p id="casePaid" class="text-white font-bold text-base leading-snug">—</p>
+                        </div>
+                    </div>
+                    <div id="methodWrap" class="bg-black/20 rounded-xl px-3 py-2 hidden">
+                        <p class="text-gray-400 text-sm leading-tight">💳 付款方式</p>
+                        <p id="caseMethod" class="text-white font-bold text-base leading-snug">—</p>
+                    </div>
+                    <div id="caseStatusWrap" class="hidden">
+                        <span id="caseStatus" class="inline-block text-base font-black px-2.5 py-1 rounded-full bg-brand-gold/20 text-brand-gold"></span>
+                    </div>
+                </div>
+
+                <p class="text-base leading-relaxed text-gray-300">請確認上面的物品、報價與實收金額無誤，<br>再勾選確認並簽名。</p>
+
+                <!-- 兩個確認勾選 -->
+                <div class="space-y-3">
+                    <label class="flex items-center gap-3 bg-black/20 rounded-2xl px-4 py-4 cursor-pointer border border-white/10">
+                        <input type="checkbox" id="checkPicked" class="w-6 h-6 shrink-0 accent-[#d4af37]">
+                        <span class="text-lg font-bold">我已取件</span>
+                    </label>
+                    <label class="flex items-center gap-3 bg-black/20 rounded-2xl px-4 py-4 cursor-pointer border border-white/10">
+                        <input type="checkbox" id="checkPaid" class="w-6 h-6 shrink-0 accent-[#d4af37]">
+                        <span class="text-lg font-bold">我已付款</span>
+                    </label>
+                </div>
+
+                <!-- 手寫簽名板 -->
+                <div>
+                    <div class="flex justify-between items-center mb-2 ml-1">
+                        <label class="block text-base text-gray-400">請在下方簽名</label>
+                        <button type="button" id="clearSig" class="text-base text-brand-gold underline underline-offset-2 py-1 px-2">
+                            <i class="fas fa-eraser mr-1"></i>清除重簽
+                        </button>
+                    </div>
+                    <canvas id="sigPad" class="w-full h-44 bg-white rounded-2xl border border-slate-700 shadow-inner"></canvas>
+                    <p class="text-sm text-gray-500 mt-1 ml-1">請用手指或滑鼠直接在白框內簽名。</p>
+                </div>
+
+                <!-- 送出錯誤 -->
+                <div id="submitError" class="hidden text-center bg-red-500/10 p-5 rounded-2xl border border-red-500/30">
+                    <i class="fas fa-exclamation-triangle text-2xl text-red-400 mb-2"></i>
+                    <p id="submitErrorMsg" class="text-red-300 font-bold text-base leading-relaxed"></p>
+                    <p class="text-gray-400 text-base mt-1 leading-relaxed">請直接傳 LINE 聯繫老闆，<br>我們會馬上為您處理。</p>
+                    <a href="https://line.me/R/ti/p/@077usxwz" target="_blank" class="mt-4 flex items-center justify-center w-full bg-[#00C300] hover:bg-[#00b300] text-white font-bold py-3.5 rounded-2xl transition shadow-lg text-base">
+                        <i class="fab fa-line mr-2 text-xl"></i> 直接傳 LINE 聯繫老闆
+                    </a>
+                </div>
+
+                <button type="submit" id="submitBtn"
+                    class="w-full bg-brand-gold hover:bg-[#c4a030] text-slate-900 font-black py-4 rounded-2xl transition shadow-lg flex items-center justify-center text-lg disabled:opacity-40 disabled:cursor-not-allowed">
+                    <i class="fas fa-pen-nib mr-2"></i> 確認取件並簽收
+                </button>
+                <p id="submitHint" class="text-center text-sm text-gray-500">請先勾選「我已取件」「我已付款」，並完成簽名。</p>
+            </form>
+
+            <!-- 送出成功 -->
+            <div id="successBox" class="hidden text-center animate-fade-in py-4">
+                <div class="w-20 h-20 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-check text-4xl text-emerald-400"></i>
+                </div>
+                <p class="text-xl font-black text-emerald-300">✅ 簽收完成，謝謝您</p>
+                <p class="text-gray-300 text-base mt-2 leading-relaxed">謝謝您選擇迅修電腦，<br>日後電腦有任何問題，歡迎隨時傳 LINE 找我們。</p>
+                <p id="liffNote" class="text-gray-500 text-sm mt-3 hidden">正在回報聊天室，視窗會自動關閉…</p>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center text-gray-500 text-xs">
+            <p>© 2026 Swift 迅修電腦. 統編 94538172. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // =====================================================================
+        // LIFF 設定（待辦：尚未註冊）
+        // 本頁的 LIFF App 尚未在 LINE Developers Console 註冊。
+        // 待使用者註冊完成後，把下方 'REPLACE_WITH_LIFF_ID' 換成真正的 LIFF ID
+        // （例如 '2001234567-abcdefgh'），即可啟用 LIFF 登入與傳訊回報。
+        // LIFF 未設定時，頁面仍可正常顯示表單與送出，僅跳過 LIFF 登入與
+        // liff.sendMessages，方便先用一般瀏覽器測試整條取件簽收流程。
+        // =====================================================================
+        const LIFF_ID = 'REPLACE_WITH_LIFF_ID';
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbzDiaoCACOzF_RvjQIfUErTsADnc7pic2OBNRvMToG4ovR9EBwVeUnLBy1Rae8p-BrT/exec";
+
+        var caseId = '';
+        var liffReady = false;
+
+        function escapeHtml(s) {
+            return String(s == null ? '' : s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function formatMoney(v) {
+            var n = Number(String(v).replace(/[$,\s]/g, ''));
+            return isNaN(n) ? escapeHtml(v) : '$' + n.toLocaleString('en-US');
+        }
+
+        function showLoadError(msg) {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('pickupForm').classList.add('hidden');
+            document.getElementById('loadErrorMsg').textContent = msg;
+            document.getElementById('loadError').classList.remove('hidden');
+        }
+
+        // ---------- LIFF：有設定才初始化，未設定就跳過 ----------
+        async function initLiff() {
+            if (!LIFF_ID || LIFF_ID === 'REPLACE_WITH_LIFF_ID') return;
+            try {
+                if (typeof liff === 'undefined') return;
+                await liff.init({ liffId: LIFF_ID });
+                if (!liff.isLoggedIn()) { liff.login(); return; }
+                liffReady = true;
+            } catch (e) {
+                // LIFF 初始化失敗不擋取件簽收流程：表單照常可用
+                console.warn('LIFF init failed, continue without LIFF:', e);
+                liffReady = false;
+            }
+        }
+
+        // ---------- 開頁：用 ?case= 向 GAS 查詢案件 ----------
+        async function loadCase() {
+            var params = new URLSearchParams(window.location.search);
+            caseId = (params.get('case') || '').trim();
+            if (!caseId) {
+                showLoadError('這個取件簽收連結沒有帶案件編號，請從收款卡上的「取件簽收」按鈕重新開啟。');
+                return;
+            }
+            try {
+                var controller = new AbortController();
+                var timer = setTimeout(function () { controller.abort(); }, 15000);
+                var res = await fetch(GAS_URL + '?case=' + encodeURIComponent(caseId), { signal: controller.signal });
+                clearTimeout(timer);
+                var data = await res.json();
+                if (Array.isArray(data)) data = data[0] || null;
+                if (!data || data.error) {
+                    showLoadError((data && data.error) ? data.error : '找不到這筆案件資料，請確認案件編號是否正確。');
+                    return;
+                }
+                renderCase(data);
+            } catch (e) {
+                showLoadError(e && e.name === 'AbortError'
+                    ? '查詢逾時（超過 15 秒沒回應），可能是雲端服務剛睡醒，請重新整理再試一次。'
+                    : '連線雲端發生錯誤，請確認網路連線後重新整理。');
+            }
+        }
+
+        function renderCase(data) {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('caseBadge').textContent = '案件 ' + (data.caseId || caseId);
+            // items：可能是字串「筆電・有配件」，也可能是陣列
+            var itemsText = '';
+            if (Array.isArray(data.items)) itemsText = data.items.join('、');
+            else if (data.items != null && String(data.items).trim() !== '') itemsText = String(data.items);
+            document.getElementById('caseItems').textContent = itemsText || '—';
+            // 報價（有值才顯示）
+            if (data.quote != null && data.quote !== 0 && data.quote !== false && String(data.quote).trim() !== '') {
+                // formatMoney 非數字時已做 escapeHtml，innerHTML 安全
+                document.getElementById('caseQuote').innerHTML = formatMoney(data.quote);
+                document.getElementById('quoteWrap').classList.remove('hidden');
+            }
+            // 實收金額：paid 文字優先（例如「$3,800（現金）」），否則用 amount 數字
+            var paidText = '';
+            if (data.paid != null && data.paid !== 0 && data.paid !== false && String(data.paid).trim() !== '') {
+                paidText = data.paid === true ? '已收款' : String(data.paid);
+            } else if (data.amount != null && data.amount !== 0 && data.amount !== false && String(data.amount).trim() !== '') {
+                paidText = formatMoney(data.amount);
+            }
+            if (paidText) {
+                document.getElementById('casePaid').textContent = paidText;
+                document.getElementById('paidWrap').classList.remove('hidden');
+            }
+            // 付款方式：有值、且未已包含在實收文字裡時才另行顯示
+            var method = (data.method != null && String(data.method).trim() !== '') ? String(data.method) : '';
+            if (method && paidText.indexOf(method) === -1) {
+                document.getElementById('caseMethod').textContent = method;
+                document.getElementById('methodWrap').classList.remove('hidden');
+            }
+            if (data.status) {
+                document.getElementById('caseStatus').textContent = String(data.status);
+                document.getElementById('caseStatusWrap').classList.remove('hidden');
+            }
+            document.getElementById('pickupForm').classList.remove('hidden');
+            setupSignaturePad();
+            syncSubmitState();
+        }
+
+        // ---------- canvas 手寫簽名板 ----------
+        var sigCtx = null;
+        var sigDrawn = false;
+        var sigDrawing = false;
+
+        function setupSignaturePad() {
+            var canvas = document.getElementById('sigPad');
+            var dpr = window.devicePixelRatio || 1;
+            var w = canvas.clientWidth;
+            var h = canvas.clientHeight;
+            canvas.width = w * dpr;
+            canvas.height = h * dpr;
+            sigCtx = canvas.getContext('2d');
+            sigCtx.scale(dpr, dpr);
+            sigCtx.lineWidth = 2.5;
+            sigCtx.lineCap = 'round';
+            sigCtx.lineJoin = 'round';
+            sigCtx.strokeStyle = '#0f172a';
+
+            function pos(e) {
+                var rect = canvas.getBoundingClientRect();
+                var t = (e.touches && e.touches[0]) || e;
+                return { x: t.clientX - rect.left, y: t.clientY - rect.top };
+            }
+            function start(e) {
+                e.preventDefault();
+                sigDrawing = true;
+                var p = pos(e);
+                sigCtx.beginPath();
+                sigCtx.moveTo(p.x, p.y);
+            }
+            function move(e) {
+                if (!sigDrawing) return;
+                e.preventDefault();
+                var p = pos(e);
+                sigCtx.lineTo(p.x, p.y);
+                sigCtx.stroke();
+                sigDrawn = true;
+                syncSubmitState();
+            }
+            function end(e) {
+                if (e) e.preventDefault();
+                sigDrawing = false;
+            }
+            canvas.addEventListener('pointerdown', start);
+            canvas.addEventListener('pointermove', move);
+            canvas.addEventListener('pointerup', end);
+            canvas.addEventListener('pointerleave', end);
+            // 舊裝置備援：沒有 Pointer Events 時用 touch／mouse
+            if (!window.PointerEvent) {
+                canvas.addEventListener('touchstart', start, { passive: false });
+                canvas.addEventListener('touchmove', move, { passive: false });
+                canvas.addEventListener('touchend', end);
+                canvas.addEventListener('mousedown', start);
+                canvas.addEventListener('mousemove', move);
+                canvas.addEventListener('mouseup', end);
+            }
+            document.getElementById('clearSig').addEventListener('click', function () {
+                sigCtx.clearRect(0, 0, canvas.width, canvas.height);
+                sigDrawn = false;
+                syncSubmitState();
+            });
+            document.getElementById('checkPicked').addEventListener('change', syncSubmitState);
+            document.getElementById('checkPaid').addEventListener('change', syncSubmitState);
+        }
+
+        // 兩項都勾＋有簽名才能送出（按鈕即時啟用／停用；送出時再驗一次）
+        function canSubmit() {
+            return document.getElementById('checkPicked').checked
+                && document.getElementById('checkPaid').checked
+                && sigDrawn;
+        }
+
+        function syncSubmitState() {
+            var btn = document.getElementById('submitBtn');
+            var hint = document.getElementById('submitHint');
+            var ok = canSubmit();
+            btn.disabled = !ok;
+            hint.textContent = ok ? '已確認取件與付款，簽名完成，可以送出了。' : '請先勾選「我已取件」「我已付款」，並完成簽名。';
+        }
+
+        function showSubmitError(msg) {
+            document.getElementById('submitErrorMsg').textContent = msg;
+            document.getElementById('submitError').classList.remove('hidden');
+            document.getElementById('submitError').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // ---------- 送出取件簽收 ----------
+        document.getElementById('pickupForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            document.getElementById('submitError').classList.add('hidden');
+            if (!document.getElementById('checkPicked').checked || !document.getElementById('checkPaid').checked) {
+                showSubmitError('請先勾選「我已取件」與「我已付款」，再按送出。');
+                return;
+            }
+            if (!sigDrawn) {
+                showSubmitError('請先在簽名框內簽名，再按送出。');
+                return;
+            }
+            var signatureBase64 = document.getElementById('sigPad').toDataURL('image/png');
+            var btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> 送出中…';
+            try {
+                var controller = new AbortController();
+                var timer = setTimeout(function () { controller.abort(); }, 20000);
+                var res = await fetch(GAS_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ action: 'sign_pickup', caseId: caseId, signatureBase64: signatureBase64 }),
+                    signal: controller.signal
+                });
+                clearTimeout(timer);
+                var data = null;
+                try { data = await res.json(); } catch (parseErr) { data = null; }
+                if (data && data.error) throw new Error(data.error);
+                if (data && data.ok === false) throw new Error(data.message || '送出失敗，請再試一次。');
+                if (!res.ok) throw new Error('伺服器回應異常（' + res.status + '），請再試一次。');
+
+                // 成功：顯示確認，LIFF 有設定才回報聊天室並關閉視窗
+                document.getElementById('pickupForm').classList.add('hidden');
+                document.getElementById('successBox').classList.remove('hidden');
+                if (liffReady) {
+                    document.getElementById('liffNote').classList.remove('hidden');
+                    try {
+                        await liff.sendMessages([{ type: 'text', text: '您好，我已取件並完成簽收（案件編號：' + caseId + '）。' }]);
+                    } catch (sendErr) { console.warn('liff.sendMessages failed:', sendErr); }
+                    setTimeout(function () { try { liff.closeWindow(); } catch (closeErr) { /* 已在一般瀏覽器時忽略 */ } }, 1200);
+                }
+            } catch (err) {
+                btn.disabled = false;
+                syncSubmitState();
+                btn.innerHTML = '<i class="fas fa-pen-nib mr-2"></i> 確認取件並簽收';
+                showSubmitError(err && err.name === 'AbortError'
+                    ? '送出逾時（超過 20 秒沒回應），請確認網路後再試一次。'
+                    : (err && err.message ? err.message : '送出失敗，請再試一次。'));
+            }
+        });
+
+        (async function () {
+            await initLiff();
+            loadCase();
+        })();
+    </script>
+</body>
+</html>
