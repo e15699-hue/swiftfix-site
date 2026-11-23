@@ -64,7 +64,7 @@
                     class="w-full text-center text-base text-gray-400 hover:text-brand-gold transition underline underline-offset-2 py-1.5">
                     不是您的電話？清除已記住號碼
                 </button>
-                <p class="text-center text-base text-gray-400">🕐 營業時間：平日 20:00–24:00｜假日 06:00–24:00；LINE 隨時可傳，看到就會回覆您。</p>
+                <p class="text-center text-base text-gray-400">🕐 進度查詢隨時可用；營業時間：平日 20:00–24:00｜假日 06:00–24:00，LINE 隨時可傳，看到就會回覆您。</p>
             </div>
 
             <!-- Loading Segment -->
@@ -266,6 +266,7 @@
                         const now = new Date();
                         const queryTime = pad2(now.getMonth() + 1) + '/' + pad2(now.getDate()) + ' ' + pad2(now.getHours()) + ':' + pad2(now.getMinutes());
                         const updatedText = item.updated ? escapeHtml(item.updated) : ('即時查詢 ' + queryTime);
+                        const updatedLabel = item.updated ? '🕐 最後更新' : '🕐 本次查詢';
                         const etaText = item.eta ? escapeHtml(item.eta) : (isCompleted ? '已完成' : '檢測後由店家確認');
 
                         // 新增條件顯示行（2026-11-24 簽收／報價／收款流程）：
@@ -304,7 +305,7 @@
                                 <div class="mb-3"><span class="inline-block text-base font-black px-2.5 py-1 rounded-full ${isCompleted ? 'bg-emerald-500/20 text-emerald-300' : 'bg-brand-gold/20 text-brand-gold'}">${isCompleted ? '✅ 已完成' : '⏳ 進行中'}</span></div>
                                 <div class="grid grid-cols-2 gap-2 mb-3">
                                     <div class="bg-black/20 rounded-xl px-3 py-2">
-                                        <p class="text-gray-400 text-sm leading-tight">🕐 最後更新</p>
+                                        <p class="text-gray-400 text-sm leading-tight">${updatedLabel}</p>
                                         <p class="text-white font-bold text-base leading-snug">${updatedText}</p>
                                     </div>
                                     <div class="bg-black/20 rounded-xl px-3 py-2">
