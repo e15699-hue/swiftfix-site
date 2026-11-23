@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 店家專用小工具：不收錄、不出現在導覽與 sitemap，請勿轉發此頁連結 -->
+    <meta name="robots" content="noindex, follow">
+    <title>店家發卡小工具｜迅修電腦</title>
+    <meta name="description" content="迅修電腦店家專用：收件、報價、收款發卡小工具。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        html.font-large { font-size: 18px; }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .brand-gold { color: #d4af37; }
+        .bg-brand-gold { background-color: #d4af37; }
+        .border-brand-gold { border-color: #d4af37; }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* 三選一按鈕群：選中＝金底深字，未選＝深底灰字 */
+        .choice-btn { flex: 1; padding: 0.9rem 0.25rem; border-radius: 1rem; border: 1px solid #334155; background: #1e293b; color: #cbd5e1; font-weight: 700; font-size: 1.05rem; transition: all 0.15s; }
+        .choice-btn[aria-pressed="true"] { background: #d4af37; border-color: #d4af37; color: #0f172a; }
+        .tab-btn { flex: 1; padding: 0.9rem 0.25rem; border-radius: 1rem; font-weight: 900; font-size: 1.05rem; border: 1px solid #334155; background: #1e293b; color: #cbd5e1; transition: all 0.15s; }
+        .tab-btn[aria-selected="true"] { background: #d4af37; border-color: #d4af37; color: #0f172a; }
+        .field { width: 100%; background: #0f172a; border: 1px solid #334155; border-radius: 1rem; padding: 0.9rem 1.1rem; color: #fff; font-size: 1.1rem; }
+        .field:focus { outline: none; border-color: #d4af37; }
+        .field::placeholder { color: #64748b; }
+        input[type="date"].field, input[type="number"].field { color-scheme: dark; }
+    </style>
+    <script>
+        try { if (localStorage.getItem('swiftfix-font-large') === '1') document.documentElement.classList.add('font-large'); } catch (e) {}
+    </script>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4">
+    <div class="w-full max-w-md">
+        <!-- Logo/Header -->
+        <div class="flex items-center justify-center gap-3 select-none mt-4 mb-6">
+            <div class="w-12 h-12 bg-brand-gold text-[#0f172a] flex items-center justify-center rounded-tr-2xl rounded-bl-2xl shadow-lg">
+                <i class="fas fa-microchip text-2xl"></i>
+            </div>
+            <div class="flex flex-col items-start">
+                <span class="text-3xl font-black tracking-tighter text-gray-100 leading-none italic">SWIFT</span>
+                <span class="bg-brand-gold text-[#0f172a] text-xs font-bold px-2 py-0.5 rounded-md tracking-widest shadow-sm mt-1">店家發卡小工具</span>
+            </div>
+        </div>
+
+        <!-- 共用密鑰：每次開啟由老闆手動輸入，絕不寫死、不存 localStorage -->
+        <div class="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl p-5 sm:p-6 mb-4">
+            <label class="block text-base text-gray-300 mb-2 ml-1 font-bold" for="secret">
+                <i class="fas fa-key mr-2 brand-gold"></i>共用密鑰
+            </label>
+            <input type="password" id="secret" autocomplete="off" placeholder="每次開啟請手動輸入"
+                class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold transition-all text-lg shadow-inner">
+            <p class="text-sm text-gray-500 mt-2 ml-1">密鑰只用在這次開啟的頁面內，不會寫入程式碼，也不會存在手機裡。</p>
+            <p id="secretMsg" class="hidden text-base text-red-300 font-bold mt-2 ml-1">請先輸入共用密鑰，再按送出。</p>
+        </div>
+
+        <!-- 頁籤 -->
+        <div class="flex gap-2 mb-4" role="tablist" aria-label="發卡功能">
+            <button type="button" class="tab-btn" id="tab-intake" role="tab" aria-selected="true" onclick="switchTab('intake')">📥 收件</button>
+            <button type="button" class="tab-btn" id="tab-quote" role="tab" aria-selected="false" onclick="switchTab('quote')">💰 報價</button>
+            <button type="button" class="tab-btn" id="tab-receipt" role="tab" aria-selected="false" onclick="switchTab('receipt')">🧾 收款</button>
+        </div>
+
+        <!-- ① 收件 -->
+        <section id="panel-intake" class="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl p-5 sm:p-6 animate-fade-in" role="tabpanel">
+            <h1 class="text-xl font-bold mb-5 flex items-center"><i class="fas fa-inbox mr-3 brand-gold"></i>收件・傳送收件卡</h1>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="inName">客人姓名 <span class="text-red-300">*</span></label>
+                    <input type="text" id="inName" placeholder="例如：王先生" class="field">
+                </div>
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="inPhone">電話（可空）</label>
+                    <input type="tel" id="inPhone" inputmode="tel" placeholder="例如：0912345678" class="field">
+                </div>
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="inLineId">LINE userId（可空）</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="inLineId" placeholder="U 開頭的 userId" class="field flex-1 min-w-0">
+                        <button type="button" id="lookupBtn" onclick="lookupLineId()" class="shrink-0 bg-slate-700 hover:bg-slate-600 text-white font-bold px-4 rounded-2xl transition text-base">
+                            <i class="fas fa-search mr-1"></i>電話反查
+                        </button>
+                    </div>
+                    <p id="lookupMsg" class="hidden text-base mt-2 ml-1"></p>
+                </div>
+                <div>
+                    <p class="block text-base text-gray-400 mb-2 ml-1">裝置類型</p>
+                    <div class="flex gap-2" id="deviceGroup">
+                        <button type="button" class="choice-btn" data-value="桌機" aria-pressed="false" onclick="pickChoice('deviceGroup', this)">🖥️ 桌機</button>
+                        <button type="button" class="choice-btn" data-value="筆電" aria-pressed="true" onclick="pickChoice('deviceGroup', this)">💻 筆電</button>
+                        <button type="button" class="choice-btn" data-value="其他" aria-pressed="false" onclick="pickChoice('deviceGroup', this)">🔧 其他</button>
+                    </div>
+                </div>
+                <div>
+                    <p class="block text-base text-gray-400 mb-2 ml-1">配件</p>
+                    <div class="flex gap-2" id="accGroup">
+                        <button type="button" class="choice-btn" data-value="有" aria-pressed="false" onclick="pickChoice('accGroup', this)">🎒 有配件</button>
+                        <button type="button" class="choice-btn" data-value="無" aria-pressed="true" onclick="pickChoice('accGroup', this)">🚫 無配件</button>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="inDate">收件日期</label>
+                    <input type="date" id="inDate" class="field">
+                </div>
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="inPhotos">收件照片（1–3 張，可手機拍照）</label>
+                    <input type="file" id="inPhotos" accept="image/*" multiple class="field">
+                    <div id="photoPreview" class="flex gap-2 mt-2 overflow-x-auto"></div>
+                    <p id="photoMsg" class="hidden text-base text-gray-400 mt-1 ml-1"></p>
+                </div>
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="inDesc">故障描述（可空）</label>
+                    <textarea id="inDesc" rows="2" placeholder="待檢測" class="field resize-none"></textarea>
+                </div>
+                <div id="intakeMsg" class="hidden rounded-2xl p-4 text-base font-bold leading-relaxed"></div>
+                <button type="button" id="intakeBtn" onclick="submitIntake()"
+                    class="w-full bg-brand-gold hover:bg-[#c4a030] text-slate-900 font-black py-4 rounded-2xl transition shadow-lg flex items-center justify-center text-lg">
+                    <i class="fas fa-paper-plane mr-2"></i> 傳送收件卡
+                </button>
+            </div>
+        </section>
+
+        <!-- ② 報價 -->
+        <section id="panel-quote" class="hidden bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl p-5 sm:p-6 animate-fade-in" role="tabpanel">
+            <h1 class="text-xl font-bold mb-5 flex items-center"><i class="fas fa-tag mr-3 brand-gold"></i>報價・傳送報價卡</h1>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="qCase">案件編號 <span class="text-red-300">*</span></label>
+                    <input type="text" id="qCase" placeholder="例如：SF-20261124-001" class="field">
+                </div>
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="qPrice">報價總價（元） <span class="text-red-300">*</span></label>
+                    <input type="number" id="qPrice" inputmode="numeric" min="0" placeholder="例如：3800" class="field">
+                </div>
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="qContent">報價內容 <span class="text-red-300">*</span></label>
+                    <textarea id="qContent" rows="3" placeholder="例如：更換主機板電容、清理風扇、重灌系統" class="field resize-none"></textarea>
+                </div>
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="qEta">預估完成日（可空）</label>
+                    <input type="date" id="qEta" class="field">
+                </div>
+                <div id="quoteMsg" class="hidden rounded-2xl p-4 text-base font-bold leading-relaxed"></div>
+                <button type="button" id="quoteBtn" onclick="submitQuote()"
+                    class="w-full bg-brand-gold hover:bg-[#c4a030] text-slate-900 font-black py-4 rounded-2xl transition shadow-lg flex items-center justify-center text-lg">
+                    <i class="fas fa-paper-plane mr-2"></i> 傳送報價卡
+                </button>
+            </div>
+        </section>
+
+        <!-- ③ 收款 -->
+        <section id="panel-receipt" class="hidden bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl p-5 sm:p-6 animate-fade-in" role="tabpanel">
+            <h1 class="text-xl font-bold mb-5 flex items-center"><i class="fas fa-receipt mr-3 brand-gold"></i>收款・傳送收據</h1>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="rCase">案件編號 <span class="text-red-300">*</span></label>
+                    <div class="flex gap-2">
+                        <input type="text" id="rCase" placeholder="例如：SF-20261124-001" class="field flex-1 min-w-0">
+                        <button type="button" id="fetchQuoteBtn" onclick="fetchQuoteAmount()" class="shrink-0 bg-slate-700 hover:bg-slate-600 text-white font-bold px-4 rounded-2xl transition text-base">
+                            帶入報價金額
+                        </button>
+                    </div>
+                    <p id="fetchQuoteMsg" class="hidden text-base mt-2 ml-1"></p>
+                </div>
+                <div>
+                    <label class="block text-base text-gray-400 mb-2 ml-1" for="rAmount">實收金額（元） <span class="text-red-300">*</span></label>
+                    <input type="number" id="rAmount" inputmode="numeric" min="0" placeholder="查不到報價時請手填" class="field">
+                </div>
+                <div>
+                    <p class="block text-base text-gray-400 mb-2 ml-1">付款方式</p>
+                    <div class="flex gap-2" id="payGroup">
+                        <button type="button" class="choice-btn" data-value="現金" aria-pressed="true" onclick="pickChoice('payGroup', this)">💵 現金</button>
+                        <button type="button" class="choice-btn" data-value="轉帳" aria-pressed="false" onclick="pickChoice('payGroup', this)">🏦 轉帳</button>
+                    </div>
+                </div>
+                <label class="flex items-center gap-3 bg-black/20 rounded-2xl px-4 py-3 cursor-pointer">
+                    <input type="checkbox" id="rInspection" class="w-6 h-6 accent-[#d4af37]">
+                    <span class="text-base font-bold">這筆是檢測費（不維修的案件請勾選）</span>
+                </label>
+                <div id="receiptMsg" class="hidden rounded-2xl p-4 text-base font-bold leading-relaxed"></div>
+                <button type="button" id="receiptBtn" onclick="submitReceipt()"
+                    class="w-full bg-brand-gold hover:bg-[#c4a030] text-slate-900 font-black py-4 rounded-2xl transition shadow-lg flex items-center justify-center text-lg">
+                    <i class="fas fa-paper-plane mr-2"></i> 確認收款並傳送收據
+                </button>
+            </div>
+        </section>
+
+        <!-- 標示已完成 -->
+        <section class="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl p-5 sm:p-6 mt-4">
+            <h2 class="text-lg font-bold mb-4 flex items-center"><i class="fas fa-check-circle mr-3 brand-gold"></i>標示已完成</h2>
+            <div class="flex gap-2">
+                <input type="text" id="dCase" placeholder="案件編號" class="field flex-1 min-w-0">
+                <button type="button" id="doneBtn" onclick="markDone()" class="shrink-0 bg-emerald-600 hover:bg-emerald-500 text-white font-black px-5 rounded-2xl transition text-base">
+                    標示已完成
+                </button>
+            </div>
+            <div id="doneMsg" class="hidden rounded-2xl p-4 text-base font-bold leading-relaxed mt-4"></div>
+        </section>
+
+        <div class="mt-8 text-center text-gray-500 text-xs">
+            <p>© 2026 Swift 迅修電腦. 店家專用，請勿轉發此頁連結。</p>
+        </div>
+    </div>
+
+    <script>
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbzDiaoCACOzF_RvjQIfUErTsADnc7pic2OBNRvMToG4ovR9EBwVeUnLBy1Rae8p-BrT/exec";
+
+        // 收件日期預設今天
+        (function () {
+            var d = new Date();
+            var pad = function (n) { return String(n).padStart(2, '0'); };
+            document.getElementById('inDate').value = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+        })();
+
+        // ---------- 共用小工具 ----------
+        function escapeHtml(s) {
+            return String(s == null ? '' : s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        // 電話正規化（與 repair.html 相同規則）：去空白與連字號，+886／886 換回 0
+        function normalizePhone(raw) {
+            var phone = String(raw || '').trim().replace(/[\s-]/g, '');
+            if (phone.startsWith('+886')) phone = '0' + phone.slice(4);
+            else if (/^886\d{9}$/.test(phone)) phone = '0' + phone.slice(3);
+            return phone;
+        }
+
+        // 共用密鑰：每次開啟由老闆手動輸入；絕不寫死、不存 localStorage。
+        // 送出前才讀取，讀不到就請老闆先輸入。
+        function getSecret() {
+            var secret = document.getElementById('secret').value;
+            var msg = document.getElementById('secretMsg');
+            if (!secret || !secret.trim()) {
+                msg.classList.remove('hidden');
+                document.getElementById('secret').focus();
+                return '';
+            }
+            msg.classList.add('hidden');
+            return secret;
+        }
+
+        function showMsg(id, ok, text) {
+            var el = document.getElementById(id);
+            el.classList.remove('hidden');
+            el.className = 'rounded-2xl p-4 text-base font-bold leading-relaxed ' + (ok
+                ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-300'
+                : 'bg-red-500/10 border border-red-500/30 text-red-300');
+            el.textContent = text;
+            el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function hideMsg(id) { document.getElementById(id).classList.add('hidden'); }
+
+        // 所有 POST 都帶上 secret；GAS 回傳 {error} 時把錯誤文字原樣顯示，不用 alert
+        async function postToGas(payload) {
+            var controller = new AbortController();
+            var timer = setTimeout(function () { controller.abort(); }, 25000);
+            try {
+                var res = await fetch(GAS_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload),
+                    signal: controller.signal
+                });
+                clearTimeout(timer);
+                var data = null;
+                try { data = await res.json(); } catch (parseErr) { data = null; }
+                if (data && data.error) throw new Error(data.error);
+                if (data && data.ok === false) throw new Error(data.message || '送出失敗，請再試一次。');
+                if (!res.ok) throw new Error('伺服器回應異常（' + res.status + '），請再試一次。');
+                return data || {};
+            } catch (err) {
+                clearTimeout(timer);
+                if (err && err.name === 'AbortError') throw new Error('送出逾時（超過 25 秒沒回應），請確認網路後再試一次。');
+                throw err;
+            }
+        }
+
+        async function getFromGas(query) {
+            var controller = new AbortController();
+            var timer = setTimeout(function () { controller.abort(); }, 15000);
+            try {
+                var res = await fetch(GAS_URL + query, { signal: controller.signal });
+                clearTimeout(timer);
+                return await res.json();
+            } catch (err) {
+                clearTimeout(timer);
+                if (err && err.name === 'AbortError') throw new Error('查詢逾時（超過 15 秒沒回應），請再試一次。');
+                throw new Error('連線雲端發生錯誤，請確認網路連線。');
+            }
+        }
+
+        // ---------- 頁籤切換 ----------
+        function switchTab(name) {
+            ['intake', 'quote', 'receipt'].forEach(function (n) {
+                document.getElementById('tab-' + n).setAttribute('aria-selected', n === name ? 'true' : 'false');
+                document.getElementById('panel-' + n).classList.toggle('hidden', n !== name);
+            });
+        }
+
+        // ---------- 三選一按鈕群 ----------
+        function pickChoice(groupId, btn) {
+            var group = document.getElementById(groupId);
+            group.querySelectorAll('.choice-btn').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+            btn.setAttribute('aria-pressed', 'true');
+        }
+
+        function chosenValue(groupId) {
+            var sel = document.querySelector('#' + groupId + ' .choice-btn[aria-pressed="true"]');
+            return sel ? sel.getAttribute('data-value') : '';
+        }
+
+        function setBusy(btnId, busy, busyText, normalHtml) {
+            var btn = document.getElementById(btnId);
+            btn.disabled = busy;
+            if (busy) btn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> ' + busyText;
+            else btn.innerHTML = normalHtml;
+        }
+
+        // ---------- ① 收件 ----------
+        var intakePhotos = []; // base64 data URL（已縮圖），最多 3 張
+
+        document.getElementById('inPhotos').addEventListener('change', function (e) {
+            var files = Array.prototype.slice.call(e.target.files || []).slice(0, 3);
+            var msg = document.getElementById('photoMsg');
+            if ((e.target.files || []).length > 3) {
+                msg.textContent = '一次最多 3 張照片，已取前 3 張。';
+                msg.classList.remove('hidden');
+            } else { msg.classList.add('hidden'); }
+            intakePhotos = [];
+            var preview = document.getElementById('photoPreview');
+            preview.innerHTML = '';
+            if (!files.length) return;
+            var pending = files.length;
+            files.forEach(function (file) {
+                downscaleImage(file, function (dataUrl) {
+                    if (dataUrl) {
+                        intakePhotos.push(dataUrl);
+                        var img = document.createElement('img');
+                        img.src = dataUrl;
+                        img.alt = '收件照片預覽';
+                        img.className = 'w-20 h-20 object-cover rounded-xl border border-white/20 shrink-0';
+                        preview.appendChild(img);
+                    }
+                    pending -= 1;
+                });
+            });
+        });
+
+        // 手機照片先縮到最長邊 1024px、JPEG 0.8，GAS 單次 POST 才不會太大
+        function downscaleImage(file, cb) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var img = new Image();
+                img.onload = function () {
+                    var maxSide = 1024;
+                    var scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+                    var canvas = document.createElement('canvas');
+                    canvas.width = Math.round(img.width * scale);
+                    canvas.height = Math.round(img.height * scale);
+                    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+                    cb(canvas.toDataURL('image/jpeg', 0.8));
+                };
+                img.onerror = function () { cb(null); };
+                img.src = reader.result;
+            };
+            reader.onerror = function () { cb(null); };
+            reader.readAsDataURL(file);
+        }
+
+        // 電話反查 LINE 對照表：GET ?lookup_phone=，查到帶入 userId
+        async function lookupLineId() {
+            var phone = normalizePhone(document.getElementById('inPhone').value);
+            var msg = document.getElementById('lookupMsg');
+            msg.classList.remove('hidden');
+            if (!phone) {
+                msg.textContent = '請先輸入電話，再按電話反查。';
+                msg.className = 'text-base mt-2 ml-1 text-red-300 font-bold';
+                return;
+            }
+            msg.textContent = '反查中…';
+            msg.className = 'text-base mt-2 ml-1 text-gray-400';
+            var btn = document.getElementById('lookupBtn');
+            btn.disabled = true;
+            try {
+                var data = await getFromGas('?lookup_phone=' + encodeURIComponent(phone));
+                var userId = (data && (data.lineUserId || data.userId || data.line_user_id)) || '';
+                if (userId) {
+                    document.getElementById('inLineId').value = userId;
+                    msg.textContent = '已查到 LINE userId 並帶入。';
+                    msg.className = 'text-base mt-2 ml-1 text-emerald-300 font-bold';
+                } else {
+                    msg.textContent = '對照表裡沒有這支電話，請直接填寫 LINE userId（可空）。';
+                    msg.className = 'text-base mt-2 ml-1 text-brand-gold font-bold';
+                }
+            } catch (err) {
+                msg.textContent = err && err.message ? err.message : '反查失敗，請直接填寫 LINE userId（可空）。';
+                msg.className = 'text-base mt-2 ml-1 text-red-300 font-bold';
+            }
+            btn.disabled = false;
+        }
+
+        async function submitIntake() {
+            var secret = getSecret();
+            if (!secret) return;
+            var name = document.getElementById('inName').value.trim();
+            if (!name) {
+                showMsg('intakeMsg', false, '請輸入客人姓名。');
+                document.getElementById('inName').focus();
+                return;
+            }
+            var phone = normalizePhone(document.getElementById('inPhone').value);
+            var desc = document.getElementById('inDesc').value.trim() || '待檢測';
+            hideMsg('intakeMsg');
+            setBusy('intakeBtn', true, '傳送中…', '<i class="fas fa-paper-plane mr-2"></i> 傳送收件卡');
+            try {
+                var data = await postToGas({
+                    action: 'send_intake', secret: secret,
+                    customer: name, phone: phone,
+                    lineUserId: document.getElementById('inLineId').value.trim(),
+                    deviceType: chosenValue('deviceGroup'),
+                    accessories: chosenValue('accGroup'),
+                    date: document.getElementById('inDate').value,
+                    photos: intakePhotos,
+                    description: desc
+                });
+                var newCase = data.caseId || data.case || data.case_id || '';
+                showMsg('intakeMsg', true, '收件卡已傳送成功。' + (newCase ? '案件編號：' + newCase : '請到試算表確認案件編號。'));
+            } catch (err) {
+                showMsg('intakeMsg', false, err && err.message ? err.message : '傳送失敗，請再試一次。');
+            }
+            setBusy('intakeBtn', false, '', '<i class="fas fa-paper-plane mr-2"></i> 傳送收件卡');
+        }
+
+        // ---------- ② 報價 ----------
+        async function submitQuote() {
+            var secret = getSecret();
+            if (!secret) return;
+            var caseId = document.getElementById('qCase').value.trim();
+            var price = document.getElementById('qPrice').value.trim();
+            var content = document.getElementById('qContent').value.trim();
+            if (!caseId) { showMsg('quoteMsg', false, '請輸入案件編號。'); document.getElementById('qCase').focus(); return; }
+            if (!price || Number(price) <= 0) { showMsg('quoteMsg', false, '請輸入正確的報價總價（大於 0 的數字）。'); document.getElementById('qPrice').focus(); return; }
+            if (!content) { showMsg('quoteMsg', false, '請輸入報價內容。'); document.getElementById('qContent').focus(); return; }
+            hideMsg('quoteMsg');
+            setBusy('quoteBtn', true, '傳送中…', '<i class="fas fa-paper-plane mr-2"></i> 傳送報價卡');
+            try {
+                await postToGas({
+                    action: 'send_quote', secret: secret,
+                    caseId: caseId, price: Number(price), total: Number(price),
+                    content: content, eta: document.getElementById('qEta').value
+                });
+                showMsg('quoteMsg', true, '報價卡已傳送成功（案件編號：' + caseId + '）。');
+            } catch (err) {
+                showMsg('quoteMsg', false, err && err.message ? err.message : '傳送失敗，請再試一次。');
+            }
+            setBusy('quoteBtn', false, '', '<i class="fas fa-paper-plane mr-2"></i> 傳送報價卡');
+        }
+
+        // ---------- ③ 收款 ----------
+        // 以 ?case= 查詢帶入報價金額；查不到就手填
+        async function fetchQuoteAmount() {
+            var caseId = document.getElementById('rCase').value.trim();
+            var msg = document.getElementById('fetchQuoteMsg');
+            msg.classList.remove('hidden');
+            if (!caseId) {
+                msg.textContent = '請先輸入案件編號。';
+                msg.className = 'text-base mt-2 ml-1 text-red-300 font-bold';
+                return;
+            }
+            msg.textContent = '查詢報價中…';
+            msg.className = 'text-base mt-2 ml-1 text-gray-400';
+            var btn = document.getElementById('fetchQuoteBtn');
+            btn.disabled = true;
+            try {
+                var data = await getFromGas('?case=' + encodeURIComponent(caseId));
+                if (Array.isArray(data)) data = data[0] || null;
+                var quote = data && (data.quote != null ? data.quote : data.price);
+                var num = quote != null ? Number(String(quote).replace(/[$,\s]/g, '')) : NaN;
+                if (!isNaN(num) && num > 0) {
+                    document.getElementById('rAmount').value = num;
+                    msg.textContent = '已帶入報價金額 $' + num.toLocaleString('en-US') + '，請確認後再送出。';
+                    msg.className = 'text-base mt-2 ml-1 text-emerald-300 font-bold';
+                } else {
+                    msg.textContent = '查不到這筆案件的報價金額，請手動填寫實收金額。';
+                    msg.className = 'text-base mt-2 ml-1 text-brand-gold font-bold';
+                }
+            } catch (err) {
+                msg.textContent = err && err.message ? err.message : '查詢失敗，請手動填寫實收金額。';
+                msg.className = 'text-base mt-2 ml-1 text-red-300 font-bold';
+            }
+            btn.disabled = false;
+        }
+
+        async function submitReceipt() {
+            var secret = getSecret();
+            if (!secret) return;
+            var caseId = document.getElementById('rCase').value.trim();
+            var amount = document.getElementById('rAmount').value.trim();
+            if (!caseId) { showMsg('receiptMsg', false, '請輸入案件編號。'); document.getElementById('rCase').focus(); return; }
+            if (!amount || Number(amount) <= 0) { showMsg('receiptMsg', false, '請輸入正確的實收金額（大於 0 的數字）。'); document.getElementById('rAmount').focus(); return; }
+            hideMsg('receiptMsg');
+            setBusy('receiptBtn', true, '傳送中…', '<i class="fas fa-paper-plane mr-2"></i> 確認收款並傳送收據');
+            try {
+                await postToGas({
+                    action: 'send_receipt', secret: secret,
+                    caseId: caseId, amount: Number(amount),
+                    method: chosenValue('payGroup'),
+                    isInspectionFee: document.getElementById('rInspection').checked
+                });
+                showMsg('receiptMsg', true, '收款已確認，收據已傳送成功（案件編號：' + caseId + '）。');
+            } catch (err) {
+                showMsg('receiptMsg', false, err && err.message ? err.message : '傳送失敗，請再試一次。');
+            }
+            setBusy('receiptBtn', false, '', '<i class="fas fa-paper-plane mr-2"></i> 確認收款並傳送收據');
+        }
+
+        // ---------- 標示已完成 ----------
+        async function markDone() {
+            var secret = getSecret();
+            if (!secret) return;
+            var caseId = document.getElementById('dCase').value.trim();
+            if (!caseId) { showMsg('doneMsg', false, '請輸入案件編號。'); document.getElementById('dCase').focus(); return; }
+            hideMsg('doneMsg');
+            setBusy('doneBtn', true, '處理中…', '標示已完成');
+            try {
+                await postToGas({ action: 'mark_done', secret: secret, caseId: caseId });
+                showMsg('doneMsg', true, '已標示完成（案件編號：' + caseId + '）。');
+            } catch (err) {
+                showMsg('doneMsg', false, err && err.message ? err.message : '標示失敗，請再試一次。');
+            }
+            setBusy('doneBtn', false, '', '標示已完成');
+        }
+    </script>
+</body>
+</html>
