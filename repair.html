@@ -248,7 +248,9 @@
                     if (doingCount) parts.push(doingCount + ' 筆進行中');
                     if (doneCount) parts.push(doneCount + ' 筆已完成');
                     let html = '<div class="text-base font-bold text-brand-gold mb-3 ml-1">查詢結果：共 ' + data.length + ' 筆（' + parts.join('、') + '）</div>';
-                    data.forEach(item => {
+                    // 回頭客多筆紀錄最新在上：試算表依日期由舊到新逐列附加、GAS 原樣回傳，
+                    // 直接反轉後渲染，最新（多半是進行中）的紀錄在最上方，不用往下翻舊紀錄。
+                    data.slice().reverse().forEach(item => {
                         const isCompleted = item.status === 'completed';
                         const themeColorClass = isCompleted ? 'text-emerald-500' : 'text-brand-gold';
                         const borderColorClass = isCompleted ? 'border-l-emerald-500' : 'border-l-brand-gold';
